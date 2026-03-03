@@ -34,6 +34,7 @@ async def root():
         "available_services": [
             "shelter-service",
             "route-service",
+            "comment-service",
         ]
     }
 
@@ -55,6 +56,12 @@ async def health_check():
             services_health["route-service"] = "healthy" if response.status_code == 200 else "unhealthy"
         except Exception:
             services_health["route-service"] = "unreachable"
+        
+        try:
+            response = await client.get(f"{settings.comment_service_url}/health", timeout=5.0)
+            services_health["comment-service"] = "healthy" if response.status_code == 200 else "unhealthy"
+        except Exception:
+            services_health["comment-service"] = "unreachable"
     
     overall_status = "healthy" if all(s == "healthy" for s in services_health.values()) else "degraded"
     
@@ -64,26 +71,18 @@ async def health_check():
     }
 
 
-@app.api_route("/{service}/{path:path}", methods=["GET", "POST", "PUT", "DELETE", "PATCH"])
-async def proxy_request(service: str, path: str, request: Request):
+@app.api_route("/shelters/{shelter_id}/comments", methods=["GET", "POST"])
+@app.api_route("/shelters/{shelter_id}/comments/{path:path}", methods=["GET", "PUT", "DELETE"])
+async def proxy_shelter_comments(shelter_id: str, request: Request, path: str = ""):
     """
-    Proxy requests to microservices
-    
-    Routes:
-    - /shelters/* -> shelter-service
+    Proxy requests for shelter comments
     """
-    service_urls = {
-        "shelters": settings.shelter_service_url,
-        "routes": settings.route_service_url,
-    }
-    
-    if service not in service_urls:
-        raise HTTPException(status_code=404, detail=f"Service '{service}' not found")
-    
-    target_url = f"{service_urls[service]}/api/v1/{service}/{path}"
+    if path:
+        target_url = f"{settings.comment_service_url}/api/v1/shelters/{shelter_id}/comments/{path}"
+    else:
+        target_url = f"{settings.comment_service_url}/api/v1/shelters/{shelter_id}/comments"
     
     query_params = dict(request.query_params)
-    
     headers = dict(request.headers)
     headers.pop("host", None)
     
@@ -99,9 +98,6 @@ async def proxy_request(service: str, path: str, request: Request):
                 response = await client.put(target_url, content=body, params=query_params, headers=headers, timeout=30.0)
             elif request.method == "DELETE":
                 response = await client.delete(target_url, params=query_params, headers=headers, timeout=30.0)
-            elif request.method == "PATCH":
-                body = await request.body()
-                response = await client.patch(target_url, content=body, params=query_params, headers=headers, timeout=30.0)
             else:
                 raise HTTPException(status_code=405, detail="Method not allowed")
             

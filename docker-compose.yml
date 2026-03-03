@@ -117,6 +117,30 @@ services:
       - shelter-network
     command: uvicorn app.main:app --host 0.0.0.0 --port 8002 --reload
 
+# Comment Service - User comments and ratings
+  comment-service:
+    build:
+      context: ./services/comment-service
+      dockerfile: Dockerfile
+    container_name: comment-service
+    restart: unless-stopped
+    ports:
+      - "8003:8003"
+    environment:
+      - MONGO_HOST=mongodb
+      - MONGO_PORT=27017
+      - MONGO_DB=shelter_planner
+      - MONGO_USERNAME=admin
+      - MONGO_PASSWORD=changeme123
+      - SERVICE_PORT=8003
+    volumes:
+      - ./services/comment-service:/app
+    depends_on:
+      - mongodb
+    networks:
+      - shelter-network
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8003 --reload
+
 volumes:
   mongo-data:
   redis-data:
