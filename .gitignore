@@ -65,3 +65,7 @@ mongo-data/
 # Logs
 logs/
 *.log
+
+# OSRM data files
+osrm-data/*.osrm*
+osrm-data/*.pbf
