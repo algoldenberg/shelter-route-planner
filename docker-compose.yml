@@ -1,0 +1,79 @@
+services:
+  # MongoDB - Main database for shelters, comments, routes
+  mongodb:
+    image: mongo:7.0
+    container_name: shelter-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: changeme123
+      MONGO_INITDB_DATABASE: shelter_planner
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - shelter-network
+
+  # Mongo Express - Web UI for MongoDB
+  mongo-express:
+    image: mongo-express:1.0-20
+    container_name: shelter-mongo-express
+    restart: unless-stopped
+    ports:
+      - "8081:8081"
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: admin
+      ME_CONFIG_MONGODB_ADMINPASSWORD: changeme123
+      ME_CONFIG_MONGODB_URL: mongodb://admin:changeme123@mongodb:27017/
+      ME_CONFIG_BASICAUTH: false
+    depends_on:
+      - mongodb
+    networks:
+      - shelter-network
+
+ # Redis - Cache for routes and sessions
+  redis:
+    image: redis:7.2-alpine
+    container_name: shelter-redis
+    restart: unless-stopped
+    ports:
+      - "6380:6379" 
+    volumes:
+      - redis-data:/data
+    networks:
+      - shelter-network
+
+  # Shelter Service - CRUD operations for shelters
+  shelter-service:
+    build:
+      context: ./services/shelter-service
+      dockerfile: Dockerfile
+    container_name: shelter-service
+    restart: unless-stopped
+    ports:
+      - "8001:8001"
+    environment:
+      - MONGO_HOST=mongodb
+      - MONGO_PORT=27017
+      - MONGO_DB=shelter_planner
+      - MONGO_USERNAME=admin
+      - MONGO_PASSWORD=changeme123
+      - SERVICE_PORT=8001
+    volumes:
+      - ./services/shelter-service:/app
+      - ./data:/app/data
+    depends_on:
+      - mongodb
+      - redis
+    networks:
+      - shelter-network
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8001 --reload
+
+volumes:
+  mongo-data:
+  redis-data:
+
+networks:
+  shelter-network:
+    driver: bridge
