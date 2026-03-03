@@ -34,7 +34,7 @@ class OSRMClient:
         Returns:
             Route data with geometry, distance, duration
         """
-        url = f"{self.base_url}/route/v1/foot/{start_lon},{start_lat};{end_lon},{end_lat}"
+        url = f"{self.base_url}/route/v1/bike/{start_lon},{start_lat};{end_lon},{end_lat}"
         
         params = {
             "overview": overview,

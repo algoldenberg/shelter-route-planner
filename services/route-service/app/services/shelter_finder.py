@@ -40,7 +40,7 @@ class ShelterFinder:
         shelters_found = []
         seen_shelter_ids = set()
         
-        sample_rate = max(1, len(route_coordinates) // 20)
+        sample_rate = max(1, len(route_coordinates) // 10)
         
         for i, coord in enumerate(route_coordinates):
             if i % sample_rate != 0 and i != len(route_coordinates) - 1:

@@ -1,0 +1,137 @@
+.address-search {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .address-search__label {
+    font-size: 13px;
+    color: #666;
+    font-weight: 500;
+  }
+  
+  .address-search__input-wrapper {
+    position: relative;
+  }
+  
+  .address-search__input {
+    width: 100%;
+    padding: 10px 36px 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  
+  .address-search__input:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+  }
+  
+  .address-search__input::placeholder {
+    color: #999;
+  }
+  
+  .address-search__spinner {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    from {
+      transform: translateY(-50%) rotate(0deg);
+    }
+    to {
+      transform: translateY(-50%) rotate(360deg);
+    }
+  }
+  
+  .address-search__results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 4px;
+    max-height: 280px;
+    overflow-y: auto;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    list-style: none;
+    padding: 0;
+    margin: 4px 0 0 0;
+  }
+  
+  .address-search__result-item {
+    padding: 10px 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.15s;
+  }
+  
+  .address-search__result-item:last-child {
+    border-bottom: none;
+  }
+  
+  .address-search__result-item:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .address-search__result-icon {
+    flex-shrink: 0;
+    font-size: 16px;
+    margin-top: 2px;
+  }
+  
+  .address-search__result-text {
+    font-size: 13px;
+    color: #333;
+    line-height: 1.4;
+    flex: 1;
+  }
+  
+  .address-search__no-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 4px;
+    padding: 12px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    font-size: 13px;
+    color: #666;
+    text-align: center;
+  }
+  
+  /* Scrollbar */
+  .address-search__results::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .address-search__results::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  .address-search__results::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 3px;
+  }
+  
+  .address-search__results::-webkit-scrollbar-thumb:hover {
+    background: #999;
+  }

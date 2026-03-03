@@ -1,0 +1,214 @@
+.route-builder {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .route-builder__title {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  
+  .route-builder__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .route-builder__section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+  }
+  
+  .route-builder__section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  
+  .route-builder__section-label {
+    font-weight: 600;
+    color: #555;
+    font-size: 15px;
+  }
+  
+  .route-builder__use-location-btn {
+    padding: 5px 12px;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    fontSize: 12px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+  }
+  
+  .route-builder__use-location-btn:hover {
+    background-color: #1976D2;
+  }
+  
+  .route-builder__use-location-btn:active {
+    background-color: #1565C0;
+  }
+  
+  .route-builder__input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .route-builder__label {
+    font-size: 13px;
+    color: #666;
+    font-weight: 500;
+  }
+  
+  .route-builder__input {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.2s;
+  }
+  
+  .route-builder__input:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.1);
+  }
+  
+  .route-builder__input::placeholder {
+    color: #999;
+  }
+  
+  .route-builder__button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
+  }
+  
+  .route-builder__button {
+    flex: 1;
+    padding: 12px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background-color 0.2s;
+  }
+  
+  .route-builder__button:hover:not(:disabled) {
+    background-color: #45a049;
+  }
+  
+  .route-builder__button:active:not(:disabled) {
+    background-color: #3d8b40;
+  }
+  
+  .route-builder__button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  .route-builder__button--secondary {
+    flex: 1;
+    padding: 12px 20px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background-color 0.2s;
+  }
+  
+  .route-builder__button--secondary:hover {
+    background-color: #da190b;
+  }
+  
+  .route-builder__button--secondary:active {
+    background-color: #c2180a;
+  }
+  
+  /* Responsive */
+  @media (max-width: 767px) {
+    .route-builder {
+      padding: 16px;
+    }
+  
+    .route-builder__title {
+      font-size: 1.1rem;
+    }
+  
+    .route-builder__section {
+      padding: 10px;
+    }
+  
+    .route-builder__button-group {
+      flex-direction: column;
+    }
+  
+    .route-builder__button,
+    .route-builder__button--secondary {
+      width: 100%;
+    }
+  }
+
+  .route-builder__header-buttons {
+    display: flex;
+    gap: 6px;
+  }
+  
+  .route-builder__coordinates {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 8px;
+  }
+  
+  .route-builder__input--small {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+  
+  @media (max-width: 767px) {
+    .route-builder__coordinates {
+      grid-template-columns: 1fr;
+    }
+    
+    .route-builder__header-buttons {
+      flex-direction: column;
+      gap: 4px;
+    }
+    
+    .route-builder__use-location-btn {
+      width: 100%;
+      padding: 6px 8px;
+    }
+  }
+
+  .route-builder__use-location-btn--map {
+    background-color: #FF9800;
+  }
+  
+  .route-builder__use-location-btn--map:hover {
+    background-color: #F57C00;
+  }
+  
+  .route-builder__use-location-btn--map:active {
+    background-color: #E65100;
+  }

@@ -21,9 +21,9 @@ class Settings(BaseSettings):
     redis_host: str = "redis"
     redis_port: int = 6379
     
-    osrm_url: str = "http://router.project-osrm.org"
+    osrm_url: str = "http://osrm-backend:5000"
     
-    shelter_search_radius: int = 200
+    shelter_search_radius: int = 500
     
     class Config:
         env_file = ".env"
