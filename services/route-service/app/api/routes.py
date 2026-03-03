@@ -43,6 +43,10 @@ async def calculate_route(route_request: RouteRequest):
     geometry = osrm.parse_route_geometry(route_data)
     distance, duration = osrm.get_route_metadata(route_data)
     
+    # Recalculate duration for walking (average walking speed: 1.4 m/s)
+    walking_speed_ms = 1.4
+    duration = distance / walking_speed_ms
+    
     shelters = []
     if route_request.include_shelters and mongodb_client:
         shelter_finder = ShelterFinder(mongodb_client)
