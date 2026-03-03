@@ -141,6 +141,32 @@ services:
       - shelter-network
     command: uvicorn app.main:app --host 0.0.0.0 --port 8003 --reload
 
+# Walking Route Service - Circular walking routes with POIs
+  walking-route-service:
+    build:
+      context: ./services/walking-route-service
+      dockerfile: Dockerfile
+    container_name: walking-route-service
+    restart: unless-stopped
+    ports:
+      - "8004:8004"
+    environment:
+      - MONGO_HOST=mongodb
+      - MONGO_PORT=27017
+      - MONGO_DB=shelter_planner
+      - MONGO_USERNAME=admin
+      - MONGO_PASSWORD=changeme123
+      - OSRM_URL=http://router.project-osrm.org
+      - OVERPASS_URL=https://overpass-api.de/api/interpreter
+      - SERVICE_PORT=8004
+    volumes:
+      - ./services/walking-route-service:/app
+    depends_on:
+      - mongodb
+    networks:
+      - shelter-network
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8004 --reload
+
 volumes:
   mongo-data:
   redis-data:

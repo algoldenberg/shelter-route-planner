@@ -15,6 +15,7 @@ class Settings(BaseSettings):
     shelter_service_url: str = "http://shelter-service:8001"
     route_service_url: str = "http://route-service:8002"
     comment_service_url: str = "http://comment-service:8003"
+    walking_route_service_url: str = "http://walking-route-service:8004"
     
     class Config:
         env_file = ".env"

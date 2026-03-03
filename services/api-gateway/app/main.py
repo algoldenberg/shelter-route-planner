@@ -35,6 +35,7 @@ async def root():
             "shelter-service",
             "route-service",
             "comment-service",
+            "walking-route-service",
         ]
     }
 
@@ -62,6 +63,12 @@ async def health_check():
             services_health["comment-service"] = "healthy" if response.status_code == 200 else "unhealthy"
         except Exception:
             services_health["comment-service"] = "unreachable"
+        
+        try:
+            response = await client.get(f"{settings.walking_route_service_url}/health", timeout=5.0)
+            services_health["walking-route-service"] = "healthy" if response.status_code == 200 else "unhealthy"
+        except Exception:
+            services_health["walking-route-service"] = "unreachable"
     
     overall_status = "healthy" if all(s == "healthy" for s in services_health.values()) else "degraded"
     
@@ -98,6 +105,61 @@ async def proxy_shelter_comments(shelter_id: str, request: Request, path: str = 
                 response = await client.put(target_url, content=body, params=query_params, headers=headers, timeout=30.0)
             elif request.method == "DELETE":
                 response = await client.delete(target_url, params=query_params, headers=headers, timeout=30.0)
+            else:
+                raise HTTPException(status_code=405, detail="Method not allowed")
+            
+            return JSONResponse(
+                content=response.json() if response.text else {},
+                status_code=response.status_code,
+                headers=dict(response.headers)
+            )
+        
+        except httpx.TimeoutException:
+            raise HTTPException(status_code=504, detail="Service timeout")
+        except httpx.RequestError as e:
+            raise HTTPException(status_code=503, detail=f"Service unavailable: {str(e)}")
+
+@app.api_route("/{service}/{path:path}", methods=["GET", "POST", "PUT", "DELETE", "PATCH"])
+async def proxy_request(service: str, path: str, request: Request):
+    """
+    Proxy requests to microservices
+    
+    Routes:
+    - /shelters/* -> shelter-service
+    - /routes/* -> route-service
+    - /walking-routes/* -> walking-route-service
+    """
+    service_urls = {
+        "shelters": settings.shelter_service_url,
+        "routes": settings.route_service_url,
+        "walking-routes": settings.walking_route_service_url,
+    }
+    
+    if service not in service_urls:
+        raise HTTPException(status_code=404, detail=f"Service '{service}' not found")
+    
+    target_url = f"{service_urls[service]}/api/v1/{service}/{path}"
+    
+    query_params = dict(request.query_params)
+    
+    headers = dict(request.headers)
+    headers.pop("host", None)
+    
+    async with httpx.AsyncClient() as client:
+        try:
+            if request.method == "GET":
+                response = await client.get(target_url, params=query_params, headers=headers, timeout=30.0)
+            elif request.method == "POST":
+                body = await request.body()
+                response = await client.post(target_url, content=body, params=query_params, headers=headers, timeout=30.0)
+            elif request.method == "PUT":
+                body = await request.body()
+                response = await client.put(target_url, content=body, params=query_params, headers=headers, timeout=30.0)
+            elif request.method == "DELETE":
+                response = await client.delete(target_url, params=query_params, headers=headers, timeout=30.0)
+            elif request.method == "PATCH":
+                body = await request.body()
+                response = await client.patch(target_url, content=body, params=query_params, headers=headers, timeout=30.0)
             else:
                 raise HTTPException(status_code=405, detail="Method not allowed")
             
