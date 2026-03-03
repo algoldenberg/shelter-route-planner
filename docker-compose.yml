@@ -70,6 +70,25 @@ services:
       - shelter-network
     command: uvicorn app.main:app --host 0.0.0.0 --port 8001 --reload
 
+# API Gateway - Single entry point for all services
+  api-gateway:
+    build:
+      context: ./services/api-gateway
+      dockerfile: Dockerfile
+    container_name: api-gateway
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - SHELTER_SERVICE_URL=http://shelter-service:8001
+    volumes:
+      - ./services/api-gateway:/app
+    depends_on:
+      - shelter-service
+    networks:
+      - shelter-network
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
 volumes:
   mongo-data:
   redis-data:
@@ -77,3 +96,5 @@ volumes:
 networks:
   shelter-network:
     driver: bridge
+
+
