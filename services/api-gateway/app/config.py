@@ -13,6 +13,7 @@ class Settings(BaseSettings):
     api_prefix: str = "/api/v1"
     
     shelter_service_url: str = "http://shelter-service:8001"
+    route_service_url: str = "http://route-service:8002"
     
     class Config:
         env_file = ".env"

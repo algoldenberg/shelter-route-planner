@@ -33,6 +33,7 @@ async def root():
         "status": "running",
         "available_services": [
             "shelter-service",
+            "route-service",
         ]
     }
 
@@ -48,6 +49,12 @@ async def health_check():
             services_health["shelter-service"] = "healthy" if response.status_code == 200 else "unhealthy"
         except Exception:
             services_health["shelter-service"] = "unreachable"
+        
+        try:
+            response = await client.get(f"{settings.route_service_url}/health", timeout=5.0)
+            services_health["route-service"] = "healthy" if response.status_code == 200 else "unhealthy"
+        except Exception:
+            services_health["route-service"] = "unreachable"
     
     overall_status = "healthy" if all(s == "healthy" for s in services_health.values()) else "degraded"
     
@@ -67,6 +74,7 @@ async def proxy_request(service: str, path: str, request: Request):
     """
     service_urls = {
         "shelters": settings.shelter_service_url,
+        "routes": settings.route_service_url,
     }
     
     if service not in service_urls:

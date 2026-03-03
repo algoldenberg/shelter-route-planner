@@ -89,6 +89,34 @@ services:
       - shelter-network
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 
+# Route Service - Route calculation with shelters
+  route-service:
+    build:
+      context: ./services/route-service
+      dockerfile: Dockerfile
+    container_name: route-service
+    restart: unless-stopped
+    ports:
+      - "8002:8002"
+    environment:
+      - MONGO_HOST=mongodb
+      - MONGO_PORT=27017
+      - MONGO_DB=shelter_planner
+      - MONGO_USERNAME=admin
+      - MONGO_PASSWORD=changeme123
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - OSRM_URL=http://router.project-osrm.org
+      - SERVICE_PORT=8002
+    volumes:
+      - ./services/route-service:/app
+    depends_on:
+      - mongodb
+      - redis
+    networks:
+      - shelter-network
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8002 --reload
+
 volumes:
   mongo-data:
   redis-data:
