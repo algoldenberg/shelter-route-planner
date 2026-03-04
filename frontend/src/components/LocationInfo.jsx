@@ -1,7 +1,14 @@
 import { useState, useEffect } from 'react';
 import './styles/LocationInfo.css';
 
-const LocationInfo = ({ currentPosition, shelters, destination, onShelterClick }) => {
+const LocationInfo = ({ 
+  currentPosition, 
+  shelters, 
+  destination, 
+  onShelterClick,
+  searchCenter,
+  showDestination = false
+}) => {
   const [nearestShelter, setNearestShelter] = useState(null);
   const [distanceToDestination, setDistanceToDestination] = useState(null);
 
@@ -21,9 +28,17 @@ const LocationInfo = ({ currentPosition, shelters, destination, onShelterClick }
     return R * c; // Distance in meters
   };
 
-  // Find nearest shelter
+  // Find nearest shelter from search center or current position
   useEffect(() => {
-    if (!currentPosition || !shelters || shelters.length === 0) {
+    if (!shelters || shelters.length === 0) {
+      setNearestShelter(null);
+      return;
+    }
+
+    // Use searchCenter if available, otherwise use currentPosition
+    const referencePoint = searchCenter || currentPosition;
+    
+    if (!referencePoint) {
       setNearestShelter(null);
       return;
     }
@@ -33,8 +48,8 @@ const LocationInfo = ({ currentPosition, shelters, destination, onShelterClick }
 
     shelters.forEach(shelter => {
       const distance = calculateDistance(
-        currentPosition.lat,
-        currentPosition.lng,
+        referencePoint.lat || referencePoint[0],
+        referencePoint.lng || referencePoint[1],
         shelter.latitude,
         shelter.longitude
       );
@@ -46,9 +61,9 @@ const LocationInfo = ({ currentPosition, shelters, destination, onShelterClick }
     });
 
     setNearestShelter(nearest);
-  }, [currentPosition, shelters]);
+  }, [currentPosition, shelters, searchCenter]);
 
-  // Calculate distance to destination
+  // Calculate distance to destination (always from current GPS position)
   useEffect(() => {
     if (!currentPosition || !destination) {
       setDistanceToDestination(null);
@@ -65,10 +80,12 @@ const LocationInfo = ({ currentPosition, shelters, destination, onShelterClick }
     setDistanceToDestination(distance);
   }, [currentPosition, destination]);
 
-  if (!currentPosition) return null;
+  // Don't show anything if no reference point
+  if (!currentPosition && !searchCenter) return null;
 
   return (
     <div className="location-info">
+      {/* Nearest Shelter */}
       {nearestShelter && (
         <div 
           className="location-info__item location-info__item--shelter"
@@ -86,7 +103,8 @@ const LocationInfo = ({ currentPosition, shelters, destination, onShelterClick }
         </div>
       )}
 
-      {distanceToDestination && (
+      {/* Distance to Destination - only show in route mode with GPS */}
+      {distanceToDestination && currentPosition && showDestination && (
         <div className="location-info__item location-info__item--destination">
           <span className="location-info__icon">🎯</span>
           <div className="location-info__content">

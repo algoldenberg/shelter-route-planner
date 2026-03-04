@@ -46,6 +46,28 @@ function MapClickHandler({ onMapClick, mapClickMode }) {
   return null;
 }
 
+// Component to track map movement
+function MapMoveHandler({ onMapMove }) {
+  const map = useMap();
+
+  useEffect(() => {
+    const handleMoveEnd = () => {
+      const newCenter = map.getCenter();
+      if (onMapMove) {
+        onMapMove([newCenter.lat, newCenter.lng]);
+      }
+    };
+
+    map.on('moveend', handleMoveEnd);
+
+    return () => {
+      map.off('moveend', handleMoveEnd);
+    };
+  }, [map, onMapMove]);
+
+  return null;
+}
+
 // Component to update map center and bounds
 function ChangeView({ center, zoom, routeGeometry }) {
   const map = useMap();
@@ -187,7 +209,10 @@ const Map = ({
   routeData = null,
   onMapClick = null,
   mapClickMode = null,
-  onBuildRouteToShelter = null
+  onBuildRouteToShelter = null,
+  onMapMove = null,
+  onFollowModeEnabled = null,
+  activeTab = 'shelters'
 }) => {
   const [selectedShelter, setSelectedShelter] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
@@ -216,6 +241,14 @@ const Map = ({
         mapInstance.getZoom(),
         { animate: true, duration: 0.5 }
       );
+      
+      // Trigger search at current location
+      if (onFollowModeEnabled && currentPosition) {
+        onFollowModeEnabled({
+          latitude: currentPosition.lat,
+          longitude: currentPosition.lng
+        });
+      }
     }
   };
 
@@ -230,6 +263,7 @@ const Map = ({
         <ChangeView center={center} zoom={zoom} routeGeometry={routeData?.geometry} />
         <SaveMapInstance onMapReady={setMapInstance} />
         <MapClickHandler onMapClick={onMapClick} mapClickMode={mapClickMode} />
+        <MapMoveHandler onMapMove={onMapMove} />
         
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -338,11 +372,13 @@ const Map = ({
         {followMode ? '📍' : '🧭'}
       </button>
 
-      {currentPosition && (
+      {(currentPosition || center) && (
         <LocationInfo
           currentPosition={currentPosition}
           shelters={shelters}
           destination={routeData?.end}
+          searchCenter={!routeData ? center : null}
+          showDestination={activeTab === 'route' && !!routeData}
           onShelterClick={(shelter) => {
             if (isMobile) {
               setSelectedShelter(shelter);

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Shield shape -->
+  <path d="M50 10 L90 30 L90 60 Q90 80 50 95 Q10 80 10 60 L10 30 Z" 
+        fill="#667eea" 
+        stroke="#4a5db8" 
+        stroke-width="2"/>
+  
+  <!-- Shelter symbol (house/building) -->
+  <rect x="35" y="45" width="30" height="35" fill="white" rx="2"/>
+  <polygon points="50,35 65,45 35,45" fill="white"/>
+  
+  <!-- Door -->
+  <rect x="43" y="60" width="14" height="20" fill="#667eea"/>
+  
+  <!-- Windows -->
+  <rect x="38" y="50" width="6" height="6" fill="#667eea"/>
+  <rect x="56" y="50" width="6" height="6" fill="#667eea"/>
+</svg>

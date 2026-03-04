@@ -1,0 +1,235 @@
+.shelter-search {
+    padding: 16px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+  
+  .shelter-search h2 {
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+    color: #2c3e50;
+    font-weight: 600;
+  }
+  
+  /* Location Input */
+  .search-location {
+    margin-bottom: 12px;
+  }
+  
+  .search-location label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 6px;
+  }
+  
+  .location-input-group {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+  
+  .address-display {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex: 1;
+  }
+  
+  .location-input {
+    flex: 1;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+  }
+  
+  .location-input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  }
+  
+  .location-input--filled {
+    background: #f5f5f5;
+    cursor: default;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .location-input--filled:hover {
+    background: #efefef;
+  }
+  
+  .btn-clear-text {
+    background: transparent;
+    border: none;
+    color: #667eea;
+    font-size: 0.8rem;
+    cursor: pointer;
+    padding: 4px 8px;
+    transition: color 0.2s;
+    flex-shrink: 0;
+    text-decoration: underline;
+    font-weight: 500;
+  }
+  
+  .btn-clear-text:hover {
+    color: #5568d3;
+  }
+  
+  .location-input--filled {
+    background: #f5f5f5;
+    cursor: pointer !important;
+  }
+  
+  .location-input--filled:hover {
+    background: #efefef;
+  }
+  
+  .btn-icon {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    flex-shrink: 0;
+  }
+  
+  .btn-icon:hover {
+    background: #f5f5f5;
+    border-color: #667eea;
+  }
+  
+  /* Radius Input */
+  .search-radius {
+    margin-bottom: 12px;
+  }
+  
+  .search-radius label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 6px;
+  }
+  
+  .radius-input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+  }
+  
+  .radius-input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  }
+  
+  /* Search Actions */
+  .search-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  
+  .btn-search {
+    width: 100%;
+    padding: 12px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+    box-shadow: 0 2px 6px rgba(102, 126, 234, 0.3);
+  }
+  
+  .btn-search:hover:not(:disabled) {
+    background: #5568d3;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(102, 126, 234, 0.4);
+  }
+  
+  .btn-search:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+  
+  .btn-search-here {
+    width: 100%;
+    padding: 10px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+    box-shadow: 0 2px 6px rgba(76, 175, 80, 0.3);
+    animation: pulse-green 2s infinite;
+  }
+  
+  .btn-search-here:hover {
+    background: #45a049;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(76, 175, 80, 0.4);
+  }
+  
+  @keyframes pulse-green {
+    0%, 100% {
+      box-shadow: 0 2px 6px rgba(76, 175, 80, 0.3);
+    }
+    50% {
+      box-shadow: 0 4px 12px rgba(76, 175, 80, 0.6);
+    }
+  }
+  
+  /* Mobile styles */
+  @media (max-width: 768px) {
+    .shelter-search {
+      padding: 10px;
+    }
+  
+    .shelter-search h2 {
+      font-size: 1rem;
+      margin-bottom: 12px;
+    }
+  
+    .search-location label,
+    .search-radius label {
+      font-size: 0.85rem;
+      margin-bottom: 4px;
+    }
+  
+    .location-input,
+    .radius-input {
+      padding: 8px 10px;
+      font-size: 0.85rem;
+    }
+  
+    .btn-icon {
+      padding: 8px 12px;
+      font-size: 1rem;
+    }
+  
+    .btn-search,
+    .btn-search-here {
+      padding: 10px;
+      font-size: 0.85rem;
+    }
+  }

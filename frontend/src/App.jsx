@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Map from './components/Map';
-import SearchBar from './components/SearchBar';
+import ShelterSearch from './components/ShelterSearch';
 import RouteBuilder from './components/RouteBuilder';
 import { getNearbyShelters, calculateRoute } from './services/api';
 import './App.css';
@@ -21,6 +21,10 @@ function App() {
   // Map click mode state
   const [mapClickMode, setMapClickMode] = useState(null);
   const [clickedPoints, setClickedPoints] = useState({ start: null, end: null });
+  
+  // Search Here state
+  const [showSearchHere, setShowSearchHere] = useState(false);
+  const [mapCenter, setMapCenter] = useState(null);
 
   // Auto-load user location on first mount
   useEffect(() => {
@@ -30,6 +34,7 @@ function App() {
           const userLat = position.coords.latitude;
           const userLon = position.coords.longitude;
           setCenter([userLat, userLon]);
+          setMapCenter([userLat, userLon]);
           setLocationLoaded(true);
           setMapReady(true);
           handleSearch({ latitude: userLat, longitude: userLon, radius: 1000 });
@@ -37,6 +42,7 @@ function App() {
         (error) => {
           console.warn('Geolocation error:', error.message);
           setCenter([32.0853, 34.7818]);
+          setMapCenter([32.0853, 34.7818]);
           setLocationLoaded(false);
           setMapReady(true);
           handleSearch({ latitude: 32.0853, longitude: 34.7818, radius: 1000 });
@@ -49,6 +55,7 @@ function App() {
       );
     } else {
       setCenter([32.0853, 34.7818]);
+      setMapCenter([32.0853, 34.7818]);
       setLocationLoaded(false);
       setMapReady(true);
       handleSearch({ latitude: 32.0853, longitude: 34.7818, radius: 1000 });
@@ -61,12 +68,36 @@ function App() {
       const data = await getNearbyShelters(latitude, longitude, radius, 50);
       setShelters(data);
       setCenter([latitude, longitude]);
+      setMapCenter([latitude, longitude]);
       setStats({ total: data.length, radius });
+      setShowSearchHere(false);
     } catch (error) {
       console.error('Error fetching shelters:', error);
       alert('Failed to fetch shelters. Make sure the API is running on http://localhost:8000');
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleSearchHere = () => {
+    if (mapCenter) {
+      handleSearch({
+        latitude: mapCenter[0],
+        longitude: mapCenter[1],
+        radius: stats.radius || 1000
+      });
+    }
+  };
+
+  const handleMapMove = (newCenter) => {
+    setMapCenter(newCenter);
+    // Show "Search Here" button if map moved significantly and in shelters tab
+    if (activeTab === 'shelters' && center && newCenter) {
+      const distance = Math.sqrt(
+        Math.pow(newCenter[0] - center[0], 2) + 
+        Math.pow(newCenter[1] - center[1], 2)
+      );
+      setShowSearchHere(distance > 0.001); // ~100m threshold
     }
   };
 
@@ -97,7 +128,7 @@ function App() {
     setMapClickMode(null);
     // Reload shelters at current location
     if (center) {
-      handleSearch({ latitude: center[0], longitude: center[1], radius: 1000 });
+      handleSearch({ latitude: center[0], longitude: center[1], radius: stats.radius || 1000 });
     }
   };
 
@@ -140,6 +171,19 @@ function App() {
 
   const handleMarkerClick = (shelter) => {
     console.log('Shelter clicked:', shelter);
+  };
+
+  const handleFollowModeEnabled = (coords) => {
+    // Auto-search when follow mode enabled in Find Shelters tab
+    if (activeTab === 'shelters') {
+      handleSearch({
+        latitude: coords.latitude,
+        longitude: coords.longitude,
+        radius: 1000
+      });
+      // Update center to GPS location
+      setCenter([coords.latitude, coords.longitude]);
+    }
   };
 
   if (!mapReady || !center) {
@@ -194,7 +238,13 @@ function App() {
           {/* Tab Content */}
           {activeTab === 'shelters' && (
             <>
-              <SearchBar onSearch={handleSearch} loading={loading} />
+              <ShelterSearch 
+                onSearch={handleSearch}
+                loading={loading}
+                currentLocation={center}
+                showSearchHere={showSearchHere}
+                onSearchHere={handleSearchHere}
+              />
               
               <div className="stats">
                 <h3>📊 Search Results</h3>
@@ -254,6 +304,9 @@ function App() {
             onMapClick={handleMapClick}
             mapClickMode={mapClickMode}
             onBuildRouteToShelter={handleBuildRouteToShelter}
+            onMapMove={handleMapMove}
+            onFollowModeEnabled={handleFollowModeEnabled}
+            activeTab={activeTab}
           />
         </main>
       </div>
