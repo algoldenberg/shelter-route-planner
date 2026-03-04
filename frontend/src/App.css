@@ -347,38 +347,7 @@ body {
       height: 100vh;
     }
   
-    /* Tabs внизу НАД футером - ВСЕГДА ВИДНЫ */
-    .tabs {
-      position: fixed !important;     /* Добавил !important */
-      display: flex !important;       /* Добавил !important */
-      bottom: 60px;
-      left: 0;
-      right: 0;
-      z-index: 2000;
-      background: white;
-      margin: 0;
-      border-top: 2px solid #e0e0e0;
-      border-bottom: none;
-      box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.15);
-      padding: 10px;
-      border-radius: 0;
-      gap: 8px;
-      visibility: visible !important; /* Добавил !important */
-    }
-  
-    .tab {
-      padding: 12px 10px;
-      border-bottom: none;
-      border-radius: 8px;
-      font-size: 0.85rem;
-      flex: 1;
-    }
-  
-    .tab--active {
-      background: #667eea;
-      color: white;
-      border-bottom: none;
-    }
+    image.png
   
     /* Stats компактнее */
     .stats,
@@ -433,6 +402,14 @@ body {
   }
 }
 
+  .footer {
+    padding: 12px 15px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1500;  /* Должно быть МЕНЬШЕ чем у tabs (2500) */
+  }
 /* ====================================
    PRINT
    ==================================== */
