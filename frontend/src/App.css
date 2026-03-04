@@ -563,11 +563,6 @@ body {
     font-size: 0.7rem;
   }
 
-  .sidebar {
-    padding: 8px;
-    max-height: 25vh;
-  }
-
   .tab {
     font-size: 0.75rem;
     padding: 7px 5px;
