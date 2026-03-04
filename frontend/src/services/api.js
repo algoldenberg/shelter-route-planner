@@ -37,20 +37,13 @@ export const addShelterComment = async (shelterId, comment) => {
 
 // Route endpoints
 export const calculateRoute = async (start, end, includeShelters = true, maxShelters = 50) => {
-  const response = await fetch('http://localhost:8002/api/v1/routes/calculate', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      start,
-      end,
-      include_shelters: includeShelters,
-      max_shelters: maxShelters,
-    }),
+  const response = await api.post('/routes/calculate', {
+    start,
+    end,
+    include_shelters: includeShelters,
+    max_shelters: maxShelters,
   });
-  
-  return await response.json();
+  return response.data;
 };
 
 // Walking route endpoints
