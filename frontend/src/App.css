@@ -320,16 +320,16 @@ body {
       font-size: 0.75rem;
     }
   
-    /* Sidebar как overlay сверху */
+    /* Sidebar как overlay, НИЖЕ header */
     .sidebar {
       position: absolute;
-      top: 5;
+      top: 55px;
       left: 0;
       right: 0;
       width: 100%;
       max-width: 100%;
       height: auto;
-      max-height: 35vh;
+      max-height: 28vh;      /* Было 35vh → стало 28vh */
       overflow-y: auto;
       z-index: 1000;
       background: white;
@@ -347,9 +347,10 @@ body {
       height: 100vh;
     }
   
-    /* Tabs внизу НАД футером */
+    /* Tabs внизу НАД футером - ВСЕГДА ВИДНЫ */
     .tabs {
-      position: fixed;
+      position: fixed !important;     /* Добавил !important */
+      display: flex !important;       /* Добавил !important */
       bottom: 60px;
       left: 0;
       right: 0;
@@ -361,8 +362,8 @@ body {
       box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.15);
       padding: 10px;
       border-radius: 0;
-      display: flex;
       gap: 8px;
+      visibility: visible !important; /* Добавил !important */
     }
   
     .tab {
