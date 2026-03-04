@@ -66,7 +66,7 @@
 
    @media (max-width: 768px) {
     .location-info {
-      bottom: 30px;  /* Было 70px → стало 30px (над компактным футером) */
+      bottom: 25px; 
       left: 10px;
       right: 10px;
       flex-direction: row;
@@ -75,21 +75,21 @@
     }
   
     .location-info__item {
-      padding: 6px 10px;
+      padding: 5px 8px;
       min-width: auto;
       flex: 1;
-      max-width: 160px;
+      max-width: 150px;
     }
   
     .location-info__icon {
-      font-size: 18px;
+      font-size: 16px;
     }
   
     .location-info__label {
-      font-size: 9px;
+      font-size: 8px;
     }
   
     .location-info__value {
-      font-size: 14px;
+      font-size: 13px;
     }
   }

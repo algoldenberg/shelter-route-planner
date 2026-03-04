@@ -176,60 +176,59 @@
 
    @media (max-width: 768px) {
     .route-builder {
-      padding: 6px;
+      padding: 3px;
     }
   
     .route-builder h2 {
-      font-size: 0.85rem;
-      margin-bottom: 6px;
+      font-size: 0.75rem;
+      margin-bottom: 3px;
     }
   
     .route-point {
-      gap: 8px;
-      margin-bottom: 6px;
+      gap: 4px;
+      margin-bottom: 3px;
     }
   
     .point-indicator {
-      width: 8px;
-      height: 8px;
+      width: 5px;
+      height: 5px;
     }
   
     .point-content {
-      gap: 4px;
-      padding: 2px;
+      gap: 2px;
+      padding: 0px;
     }
   
     .location-input {
-      font-size: 0.75rem;
-      padding: 6px 8px;
+      font-size: 0.65rem;
+      padding: 4px 5px;
     }
   
     .btn-icon {
-      padding: 5px 8px;
-      font-size: 0.9rem;
+      padding: 3px 5px;
+      font-size: 0.8rem;
     }
   
     .btn-clear-input {
-      font-size: 14px;
-      padding: 2px 5px;
+      font-size: 11px;
+      padding: 1px 3px;
     }
   
     .route-actions {
-      gap: 4px;
-      margin-top: 6px;
+      gap: 2px;
+      margin-top: 3px;
     }
   
     .btn-calculate {
-      padding: 8px 12px;
-      font-size: 0.75rem;
+      padding: 5px 8px;
+      font-size: 0.65rem;
     }
   
     .btn-clear-simple {
-      padding: 8px 12px;
-      font-size: 0.7rem;
+      padding: 5px 8px;
+      font-size: 0.6rem;
     }
   }
-
 /* ====================================
    TOUCH DEVICES
    ==================================== */

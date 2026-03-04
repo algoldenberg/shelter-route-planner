@@ -48,36 +48,41 @@
    RESPONSIVE: MOBILE (≤768px)
    ==================================== */
 
-@media (max-width: 768px) {
-  .footer {
-    padding: 6px 10px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1500;
+   @media (max-width: 768px) {
+    .footer {
+      padding: 5px 8px;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1500;
+    }
+  
+    .footer-content {
+      font-size: 0.55rem;
+      gap: 6px;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+    }
+  
+    /* Показываем только копирайт и GitHub */
+    .footer-text {
+      font-size: 0.55rem;
+    }
+  
+    .footer-divider {
+      display: none;
+    }
+  
+    .footer-link {
+      font-size: 0.55rem;
+      padding: 0;
+    }
+  
+    .footer-license {
+      display: none;
+    }
   }
-
-  .footer-content {
-    font-size: 0.6rem;
-    gap: 4px;
-    flex-wrap: nowrap;
-    justify-content: center;
-  }
-
-  /* Скрываем лишнее на мобильных */
-  .footer-text:not(:first-child),
-  .footer-divider:not(:nth-child(2)),
-  .footer-license {
-    display: none;
-  }
-
-  .footer-link {
-    font-size: 0.6rem;
-    padding: 2px 4px;
-  }
-}
-
 /* ====================================
    TOUCH DEVICES
    ==================================== */
