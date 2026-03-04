@@ -81,12 +81,12 @@ class ShelterFinder:
                 
                 shelter_on_route = ShelterOnRoute(
                     id=shelter_id,
-                    name=shelter.get("name", "Unknown"),
-                    street=shelter.get("address", "Unknown"),
+                    name=shelter.get("name") or "Unknown Shelter",
+                    street=shelter.get("address") or "Unknown",
                     latitude=shelter_lat,
                     longitude=shelter_lon,
                     distance_from_start=distance_from_start,
-                    type=shelter.get("type", "public_shelter")
+                    type=shelter.get("type") or "public_shelter"
                 )
                 
                 shelters_found.append(shelter_on_route)
