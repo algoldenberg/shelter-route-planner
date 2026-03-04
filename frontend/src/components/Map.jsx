@@ -50,11 +50,11 @@ function ChangeView({ center, zoom, routeGeometry }) {
     if (routeGeometry && routeGeometry.length > 0) {
       // Fit map to route bounds
       const bounds = L.latLngBounds(routeGeometry.map(coord => [coord[1], coord[0]]));
-      map.fitBounds(bounds, { padding: [50, 50] });
-    } else {
+      map.fitBounds(bounds, { padding: [100, 100] });
+    } else if (center) {
       map.setView(center, zoom);
     }
-  }, [center, zoom, routeGeometry, map]);
+  }, [routeGeometry, map]); // ← Убрали center и zoom из dependencies
   
   return null;
 }
@@ -66,7 +66,8 @@ const Map = ({
   onMarkerClick,
   routeData = null,
   onMapClick = null,
-  mapClickMode = null
+  mapClickMode = null,
+  onBuildRouteToShelter = null
 }) => {
   // Convert route geometry to Leaflet format [lat, lon]
   const routeCoordinates = routeData?.geometry 
@@ -121,11 +122,75 @@ const Map = ({
             click: () => onMarkerClick && onMarkerClick(shelter),
           }}
         >
-          <Popup>
-            <div>
-              <strong>{shelter.name}</strong>
-              {shelter.street && <p>{shelter.street}</p>}
-              <p>Type: {shelter.type}</p>
+          <Popup maxWidth={300}>
+            <div style={{ minWidth: '250px' }}>
+              <h3 style={{ margin: '0 0 10px 0', fontSize: '16px', color: '#333' }}>
+                🛡️ {shelter.name || 'Unnamed Shelter'}
+              </h3>
+              
+              {shelter.street && (
+                <p style={{ margin: '5px 0', fontSize: '13px', color: '#666' }}>
+                  📍 {shelter.street}
+                </p>
+              )}
+              
+              <p style={{ margin: '5px 0', fontSize: '13px', color: '#666' }}>
+                <strong>Type:</strong> {shelter.type.replace('_', ' ')}
+              </p>
+              
+              <div style={{ 
+                marginTop: '12px', 
+                paddingTop: '12px', 
+                borderTop: '1px solid #eee',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '6px'
+              }}>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    console.log('Button clicked!', shelter.latitude, shelter.longitude);
+                    if (onBuildRouteToShelter) {
+                      onBuildRouteToShelter(shelter.latitude, shelter.longitude);
+                    }
+                  }}
+                  style={{
+                    padding: '8px 12px',
+                    backgroundColor: '#4CAF50',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '4px',
+                    cursor: 'pointer',
+                    fontSize: '13px',
+                    fontWeight: '500'
+                  }}
+                  onMouseOver={(e) => e.target.style.backgroundColor = '#45a049'}
+                  onMouseOut={(e) => e.target.style.backgroundColor = '#4CAF50'}
+                >
+                  🗺️ Build Route Here
+                </button>
+                
+                <button
+                  onClick={() => {
+                    const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${shelter.latitude},${shelter.longitude}`;
+                    window.open(googleMapsUrl, '_blank');
+                  }}
+                  style={{
+                    padding: '8px 12px',
+                    backgroundColor: '#2196F3',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '4px',
+                    cursor: 'pointer',
+                    fontSize: '13px',
+                    fontWeight: '500'
+                  }}
+                  onMouseOver={(e) => e.target.style.backgroundColor = '#0b7dda'}
+                  onMouseOut={(e) => e.target.style.backgroundColor = '#2196F3'}
+                >
+                  📍 Open in Google Maps
+                </button>
+              </div>
             </div>
           </Popup>
         </Marker>

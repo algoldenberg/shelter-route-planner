@@ -101,6 +101,28 @@ function App() {
     }
   };
 
+  const handleBuildRouteToShelter = (shelterLat, shelterLon) => {
+    console.log('handleBuildRouteToShelter called:', shelterLat, shelterLon);
+    
+    // Switch to route tab
+    setActiveTab('route');
+    
+    // Use current center as start point
+    const startLat = center[0];
+    const startLon = center[1];
+    
+    // Set clicked points
+    setClickedPoints({
+      start: { latitude: startLat, longitude: startLon },
+      end: { latitude: shelterLat, longitude: shelterLon }
+    });
+    
+    // Auto-calculate route immediately
+    handleCalculateRoute({
+      start: { latitude: startLat, longitude: startLon },
+      end: { latitude: shelterLat, longitude: shelterLon }
+    });
+  };
   const handleMapClick = async (lat, lng, mode) => {
     const newPoint = { latitude: lat, longitude: lng };
     
@@ -213,15 +235,16 @@ function App() {
         </aside>
 
         <main className="map-container">
-          <Map
-            center={center}
-            zoom={15}
-            shelters={shelters}
-            onMarkerClick={handleMarkerClick}
-            routeData={routeData}
-            onMapClick={handleMapClick}
-            mapClickMode={mapClickMode}
-          />
+        <Map
+          center={center}
+          zoom={15}
+          shelters={shelters}
+          onMarkerClick={handleMarkerClick}
+          routeData={routeData}
+          onMapClick={handleMapClick}
+          mapClickMode={mapClickMode}
+          onBuildRouteToShelter={handleBuildRouteToShelter}
+        />
         </main>
       </div>
     </div>
