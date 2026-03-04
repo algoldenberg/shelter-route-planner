@@ -384,10 +384,32 @@ const Map = ({
           searchCenter={!routeData ? center : null}
           showDestination={activeTab === 'route' && !!routeData}
           onShelterClick={(shelter) => {
+            console.log('Shelter clicked:', shelter);
+            
             if (isMobile) {
               setSelectedShelter(shelter);
             } else {
-              onMarkerClick && onMarkerClick(shelter);
+              // Открываем попап для ближайшего шелтера на desktop
+              if (mapInstance) {
+                // Центрируем карту на шелтер
+                mapInstance.setView([shelter.latitude, shelter.longitude], mapInstance.getZoom(), {
+                  animate: true,
+                  duration: 0.5
+                });
+                
+                // Находим маркер и открываем попап
+                setTimeout(() => {
+                  mapInstance.eachLayer((layer) => {
+                    if (layer instanceof L.Marker) {
+                      const pos = layer.getLatLng();
+                      if (Math.abs(pos.lat - shelter.latitude) < 0.00001 && 
+                          Math.abs(pos.lng - shelter.longitude) < 0.00001) {
+                        layer.openPopup();
+                      }
+                    }
+                  });
+                }, 600);
+              }
             }
           }}
         />
