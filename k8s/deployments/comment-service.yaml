@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: comment-service
+  namespace: shelter-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: comment-service
+  template:
+    metadata:
+      labels:
+        app: comment-service
+    spec:
+      containers:
+      - name: comment-service
+        image: ghcr.io/algoldenberg/shelter-route-planner/comment-service:latest
+        ports:
+        - containerPort: 8003
+        env:
+        - name: MONGODB_URL
+          value: "mongodb://admin:shelterpass123@mongodb:27017"
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "50m"
+          limits:
+            memory: "256Mi"
+            cpu: "100m"
