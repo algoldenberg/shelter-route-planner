@@ -174,61 +174,61 @@
    RESPONSIVE: MOBILE (≤768px)
    ==================================== */
 
-@media (max-width: 768px) {
-  .route-builder {
-    padding: 12px;
+   @media (max-width: 768px) {
+    .route-builder {
+      padding: 6px;
+    }
+  
+    .route-builder h2 {
+      font-size: 0.85rem;
+      margin-bottom: 6px;
+    }
+  
+    .route-point {
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+  
+    .point-indicator {
+      width: 8px;
+      height: 8px;
+    }
+  
+    .point-content {
+      gap: 4px;
+      padding: 2px;
+    }
+  
+    .location-input {
+      font-size: 0.75rem;
+      padding: 6px 8px;
+    }
+  
+    .btn-icon {
+      padding: 5px 8px;
+      font-size: 0.9rem;
+    }
+  
+    .btn-clear-input {
+      font-size: 14px;
+      padding: 2px 5px;
+    }
+  
+    .route-actions {
+      gap: 4px;
+      margin-top: 6px;
+    }
+  
+    .btn-calculate {
+      padding: 8px 12px;
+      font-size: 0.75rem;
+    }
+  
+    .btn-clear-simple {
+      padding: 8px 12px;
+      font-size: 0.7rem;
+    }
   }
-
-  .route-builder h2 {
-    font-size: 1rem;
-    margin-bottom: 10px;
-  }
-
-  .route-point {
-    gap: 10px;
-    margin-bottom: 10px;
-  }
-
-  .point-indicator {
-    width: 10px;
-    height: 10px;
-  }
-
-  .point-content {
-    gap: 6px;
-    padding: 3px;
-  }
-
-  .location-input {
-    font-size: 0.85rem;
-    padding: 8px 10px;
-  }
-
-  .btn-icon {
-    padding: 6px 10px;
-    font-size: 1rem;
-  }
-
-  .btn-clear-input {
-    font-size: 16px;
-    padding: 3px 6px;
-  }
-
-  .route-actions {
-    gap: 6px;
-    margin-top: 10px;
-  }
-
-  .btn-calculate {
-    padding: 10px 14px;
-    font-size: 0.9rem;
-  }
-
-  .btn-clear-simple {
-    padding: 10px 14px;
-    font-size: 0.85rem;
-  }
-}
 
 /* ====================================
    TOUCH DEVICES

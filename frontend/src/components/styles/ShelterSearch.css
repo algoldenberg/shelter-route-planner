@@ -166,37 +166,46 @@
    RESPONSIVE: MOBILE (≤768px)
    ==================================== */
 
-@media (max-width: 768px) {
-  .shelter-search {
-    padding: 12px;
+   @media (max-width: 768px) {
+    .shelter-search {
+      padding: 6px;
+    }
+  
+    .shelter-search h2 {
+      font-size: 0.85rem;
+      margin-bottom: 6px;
+    }
+  
+    .search-location {
+      margin-bottom: 6px;
+    }
+  
+    .search-location label {
+      font-size: 0.7rem;
+      margin-bottom: 3px;
+    }
+  
+    .location-input {
+      padding: 6px 8px;
+      font-size: 0.75rem;
+    }
+  
+    .btn-icon {
+      padding: 6px 10px;
+      font-size: 0.9rem;
+    }
+  
+    .btn-search,
+    .btn-search-here {
+      padding: 8px;
+      font-size: 0.75rem;
+    }
+  
+    .search-actions {
+      gap: 4px;
+      margin-top: 6px;
+    }
   }
-
-  .shelter-search h2 {
-    font-size: 1rem;
-    margin-bottom: 10px;
-  }
-
-  .search-location label {
-    font-size: 0.85rem;
-    margin-bottom: 4px;
-  }
-
-  .location-input {
-    padding: 8px 10px;
-    font-size: 0.85rem;
-  }
-
-  .btn-icon {
-    padding: 8px 12px;
-    font-size: 1rem;
-  }
-
-  .btn-search,
-  .btn-search-here {
-    padding: 10px;
-    font-size: 0.85rem;
-  }
-}
 
 /* Скрываем Search Results на мобильных */
 @media (max-width: 768px) {

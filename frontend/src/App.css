@@ -400,71 +400,58 @@ body {
    @media (max-width: 768px) {
     /* Header компактнее */
     .app-header {
-      padding: 8px 14px;
+      padding: 6px 12px;
     }
   
     .app-header h1 {
-      font-size: 1rem;
-      margin-bottom: 2px;
+      font-size: 0.95rem;
+      margin-bottom: 1px;
     }
   
     .app-header p {
-      font-size: 0.7rem;
+      font-size: 0.65rem;
     }
   
-    /* Sidebar компактный - ЗАНИМАЕТ МАКСИМУМ 25% ЭКРАНА */
+    /* Sidebar компактный */
     .sidebar {
       position: absolute;
-      top: 50px;
+      top: 45px;
       left: 0;
       right: 0;
       width: 100%;
       max-width: 100%;
       height: auto;
-      max-height: 25vh;
+      max-height: 22vh;
       overflow-y: auto;
       z-index: 1000;
       background: white;
       border-right: none;
       border-bottom: 2px solid #e0e0e0;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      padding: 8px;
-      padding-bottom: 10px;
-      gap: 8px;
+      padding: 6px;
+      padding-bottom: 8px;
+      gap: 6px;
     }
   
     /* Tabs компактнее */
     .tabs {
-      margin-bottom: 8px;
-      gap: 6px;
+      margin-bottom: 6px;
+      gap: 4px;
+      border-bottom: 1px solid #e0e0e0;
     }
   
     .tab {
-      font-size: 0.75rem;
-      padding: 8px 6px;
+      font-size: 0.7rem;
+      padding: 6px 4px;
     }
   
-    /* Stats компактнее */
+    /* Stats/Route Info - скрываем полностью */
     .stats,
     .route-info {
-      padding: 8px;
-      margin-top: 6px;
+      display: none !important;
     }
   
-    .stats h3,
-    .route-info h3 {
-      font-size: 0.85rem;
-      margin-bottom: 4px;
-    }
-  
-    .stats p,
-    .route-info p {
-      font-size: 0.75rem;
-      margin: 2px 0;
-      line-height: 1.2;
-    }
-  
-    /* Скрываем info блоки */
+    /* Info блоки */
     .info {
       display: none;
     }
@@ -477,7 +464,7 @@ body {
   
     /* Footer */
     .footer {
-      padding: 10px 12px;
+      padding: 8px 10px;
       position: fixed;
       bottom: 0;
       left: 0;
