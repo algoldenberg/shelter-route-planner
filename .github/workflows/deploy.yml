@@ -1,0 +1,81 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_PREFIX: ${{ github.repository_owner }}/shelter-route-planner
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    
+    strategy:
+      matrix:
+        service:
+          - name: shelter-service
+            context: ./services/shelter-service
+          - name: route-service
+            context: ./services/route-service
+          - name: comment-service
+            context: ./services/comment-service
+          - name: api-gateway
+            context: ./services/api-gateway
+          - name: frontend
+            context: ./frontend
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: ${{ matrix.service.context }}
+          push: true
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_PREFIX }}/${{ matrix.service.name }}:latest
+          labels: service=${{ matrix.service.name }}
+
+  deploy:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to VPS
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            # Apply Kubernetes manifests
+            kubectl apply -f https://raw.githubusercontent.com/${{ github.repository }}/main/k8s/namespaces/namespace.yaml
+            kubectl apply -f https://raw.githubusercontent.com/${{ github.repository }}/main/k8s/cert-issuer.yaml
+            kubectl apply -f https://raw.githubusercontent.com/${{ github.repository }}/main/k8s/persistentvolumes/
+            kubectl apply -f https://raw.githubusercontent.com/${{ github.repository }}/main/k8s/deployments/
+            kubectl apply -f https://raw.githubusercontent.com/${{ github.repository }}/main/k8s/services/
+            kubectl apply -f https://raw.githubusercontent.com/${{ github.repository }}/main/k8s/ingress.yaml
+            
+            # Restart deployments to pull new images
+            kubectl rollout restart deployment -n shelter-app
+            
+            # Wait for rollout
+            kubectl rollout status deployment -n shelter-app --timeout=10m
+            
+            echo "✅ Deployment complete!"
