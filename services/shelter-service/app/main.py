@@ -3,7 +3,6 @@ Shelter Service - Main FastAPI application
 Handles CRUD operations for bomb shelters in Israel
 """
 from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 
 from app.config import settings
@@ -29,15 +28,6 @@ app = FastAPI(
     description="CRUD operations for bomb shelters in Israel",
     version="1.0.0",
     lifespan=lifespan
-)
-
-# CORS middleware
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # TODO: Configure for production
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
 )
 
 # Include routers
