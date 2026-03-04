@@ -2,6 +2,7 @@ import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap, useMapEvents 
 import { useEffect } from 'react';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
+import ShelterPopup from './ShelterPopup';
 
 // Fix Leaflet default marker icon issue
 delete L.Icon.Default.prototype._getIconUrl;
@@ -122,76 +123,12 @@ const Map = ({
             click: () => onMarkerClick && onMarkerClick(shelter),
           }}
         >
-          <Popup maxWidth={300}>
-            <div style={{ minWidth: '250px' }}>
-              <h3 style={{ margin: '0 0 10px 0', fontSize: '16px', color: '#333' }}>
-                🛡️ {shelter.name || 'Unnamed Shelter'}
-              </h3>
-              
-              {shelter.street && (
-                <p style={{ margin: '5px 0', fontSize: '13px', color: '#666' }}>
-                  📍 {shelter.street}
-                </p>
-              )}
-              
-              <p style={{ margin: '5px 0', fontSize: '13px', color: '#666' }}>
-                <strong>Type:</strong> {shelter.type.replace('_', ' ')}
-              </p>
-              
-              <div style={{ 
-                marginTop: '12px', 
-                paddingTop: '12px', 
-                borderTop: '1px solid #eee',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '6px'
-              }}>
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    console.log('Button clicked!', shelter.latitude, shelter.longitude);
-                    if (onBuildRouteToShelter) {
-                      onBuildRouteToShelter(shelter.latitude, shelter.longitude);
-                    }
-                  }}
-                  style={{
-                    padding: '8px 12px',
-                    backgroundColor: '#4CAF50',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '4px',
-                    cursor: 'pointer',
-                    fontSize: '13px',
-                    fontWeight: '500'
-                  }}
-                  onMouseOver={(e) => e.target.style.backgroundColor = '#45a049'}
-                  onMouseOut={(e) => e.target.style.backgroundColor = '#4CAF50'}
-                >
-                  🗺️ Build Route Here
-                </button>
-                
-                <button
-                  onClick={() => {
-                    const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${shelter.latitude},${shelter.longitude}`;
-                    window.open(googleMapsUrl, '_blank');
-                  }}
-                  style={{
-                    padding: '8px 12px',
-                    backgroundColor: '#2196F3',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '4px',
-                    cursor: 'pointer',
-                    fontSize: '13px',
-                    fontWeight: '500'
-                  }}
-                  onMouseOver={(e) => e.target.style.backgroundColor = '#0b7dda'}
-                  onMouseOut={(e) => e.target.style.backgroundColor = '#2196F3'}
-                >
-                  📍 Open in Google Maps
-                </button>
-              </div>
-            </div>
+          <Popup maxWidth={350} minWidth={280}>
+            <ShelterPopup 
+              shelter={shelter}
+              onBuildRoute={onBuildRouteToShelter}
+              currentLocation={center}
+            />
           </Popup>
         </Marker>
       ))}
@@ -250,13 +187,12 @@ const Map = ({
                 click: () => onMarkerClick && onMarkerClick(shelter),
               }}
             >
-              <Popup>
-                <div>
-                  <strong>🛡️ {shelter.name}</strong>
-                  {shelter.street && <p>{shelter.street}</p>}
-                  <p>Distance from start: <strong>{(shelter.distance_from_start / 1000).toFixed(2)} km</strong></p>
-                  <p>Type: {shelter.type}</p>
-                </div>
+              <Popup maxWidth={350} minWidth={280}>
+                <ShelterPopup 
+                  shelter={shelter}
+                  onBuildRoute={onBuildRouteToShelter}
+                  currentLocation={center}
+                />
               </Popup>
             </Marker>
           ))}

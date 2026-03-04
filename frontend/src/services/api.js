@@ -25,6 +25,7 @@ export const getNearbyShelters = async (latitude, longitude, radius = 1000, limi
   return response.data;
 };
 
+// Comment endpoints
 export const getShelterComments = async (shelterId) => {
   const response = await api.get(`/shelters/${shelterId}/comments`);
   return response.data;
