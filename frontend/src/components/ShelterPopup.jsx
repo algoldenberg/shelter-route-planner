@@ -91,9 +91,8 @@ const ShelterPopup = ({ shelter, onBuildRoute, currentLocation }) => {
         
         <p className="info-item">
           <span className="icon">🏷️</span>
-          <strong>Type:</strong> {shelter.type.replace('_', ' ')}
+          <strong>Type:</strong> {(shelter.type || 'public_shelter').replace('_', ' ')}
         </p>
-
         {distance !== null && (
           <p className="info-item">
             <span className="icon">📏</span>
