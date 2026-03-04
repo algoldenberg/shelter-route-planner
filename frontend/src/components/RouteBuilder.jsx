@@ -2,224 +2,242 @@ import { useState, useEffect } from 'react';
 import AddressSearch from './AddressSearch';
 import './styles/RouteBuilder.css';
 
-const RouteBuilder = ({ onCalculateRoute, loading, onClear, onSetMapClickMode, clickedPoints }) => {
-  const [startLat, setStartLat] = useState('');
-  const [startLon, setStartLon] = useState('');
+const RouteBuilder = ({ 
+  onCalculateRoute, 
+  loading, 
+  onClear,
+  onSetMapClickMode,
+  clickedPoints 
+}) => {
   const [startAddress, setStartAddress] = useState('');
-  
-  const [endLat, setEndLat] = useState('');
-  const [endLon, setEndLon] = useState('');
   const [endAddress, setEndAddress] = useState('');
+  const [startCoords, setStartCoords] = useState(null);
+  const [endCoords, setEndCoords] = useState(null);
+  const [useCurrentLocation, setUseCurrentLocation] = useState(true);
+  const [editingStart, setEditingStart] = useState(false);
 
-  // Update fields when clicked points change
+  // Update from clicked points
   useEffect(() => {
-    if (clickedPoints?.start) {
-      setStartLat(clickedPoints.start.latitude.toFixed(6));
-      setStartLon(clickedPoints.start.longitude.toFixed(6));
+    if (clickedPoints.start) {
+      setStartCoords(clickedPoints.start);
       setStartAddress('Selected from map');
+      setUseCurrentLocation(false);
+      setEditingStart(false);
     }
-  }, [clickedPoints?.start]);
+  }, [clickedPoints.start]);
 
   useEffect(() => {
-    if (clickedPoints?.end) {
-      setEndLat(clickedPoints.end.latitude.toFixed(6));
-      setEndLon(clickedPoints.end.longitude.toFixed(6));
+    if (clickedPoints.end) {
+      setEndCoords(clickedPoints.end);
       setEndAddress('Selected from map');
     }
-  }, [clickedPoints?.end]);
+  }, [clickedPoints.end]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    
-    if (!startLat || !startLon || !endLat || !endLon) {
-      alert('Please set both start and end points');
-      return;
-    }
-
-    onCalculateRoute({
-      start: {
-        latitude: parseFloat(startLat),
-        longitude: parseFloat(startLon),
-      },
-      end: {
-        latitude: parseFloat(endLat),
-        longitude: parseFloat(endLon),
-      },
-    });
-  };
-
-  const handleStartAddressSelect = (location) => {
-    setStartLat(location.latitude.toFixed(6));
-    setStartLon(location.longitude.toFixed(6));
-    setStartAddress(location.address);
-  };
-
-  const handleEndAddressSelect = (location) => {
-    setEndLat(location.latitude.toFixed(6));
-    setEndLon(location.longitude.toFixed(6));
-    setEndAddress(location.address);
-  };
-
-  const handleUseCurrentLocation = (field) => {
+  const handleUseMyLocation = () => {
+    setEditingStart(false);
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          if (field === 'start') {
-            setStartLat(position.coords.latitude.toFixed(6));
-            setStartLon(position.coords.longitude.toFixed(6));
-            setStartAddress('Current Location');
-          } else {
-            setEndLat(position.coords.latitude.toFixed(6));
-            setEndLon(position.coords.longitude.toFixed(6));
-            setEndAddress('Current Location');
-          }
+          const coords = {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude
+          };
+          setStartCoords(coords);
+          setStartAddress('Your location');
+          setUseCurrentLocation(true);
         },
         (error) => {
-          alert('Unable to get your location: ' + error.message);
+          console.error('Geolocation error:', error);
+          alert('Could not get your location');
         }
       );
     }
   };
 
+  const handleCalculate = () => {
+    console.log('🚀 Calculate clicked:', { startCoords, endCoords });
+    if (!startCoords || !endCoords) {
+      alert('Please select both start and end points');
+      return;
+    }
+
+    onCalculateRoute({
+      start: startCoords,
+      end: endCoords
+    });
+  };
+
+  const handleClear = () => {
+    setStartAddress('');
+    setEndAddress('');
+    setStartCoords(null);
+    setEndCoords(null);
+    setUseCurrentLocation(false);
+    setEditingStart(false);
+    if (onClear) onClear();
+  };
+
   return (
     <div className="route-builder">
-      <h2 className="route-builder__title">🗺️ Plan Route</h2>
-      
-      <form onSubmit={handleSubmit} className="route-builder__form">
-        {/* Start Point */}
-        <div className="route-builder__section">
-          <div className="route-builder__section-header">
-            <label className="route-builder__section-label">📍 Start Point</label>
-            <div className="route-builder__header-buttons">
-              <button
-                type="button"
-                onClick={() => handleUseCurrentLocation('start')}
-                className="route-builder__use-location-btn"
-                title="Use current location"
+      <h2>🗺️ Plan Route</h2>
+
+      {/* Start Point */}
+      <div className="route-point">
+        <div className="point-indicator start">●</div>
+        <div className="point-content">
+          {useCurrentLocation && !editingStart ? (
+            <>
+              <input
+                type="text"
+                value="Your location"
+                readOnly
+                className="location-input"
+                onClick={() => {
+                  setEditingStart(true);
+                  setStartAddress(''); // ← Автоочистка
+                  setUseCurrentLocation(false);
+                }}
+                style={{ cursor: 'pointer' }}
+              />
+              <button 
+                onClick={handleUseMyLocation}
+                className="btn-icon"
+                title="Use my location"
               >
                 📍
               </button>
-              <button
-                type="button"
-                onClick={() => onSetMapClickMode && onSetMapClickMode('start')}
-                className="route-builder__use-location-btn route-builder__use-location-btn--map"
-                title="Click on map to set point"
-              >
-                🗺️
-              </button>
-            </div>
-          </div>
-          
-          <AddressSearch
-            label="Search Address:"
-            onSelect={handleStartAddressSelect}
-            initialValue={startAddress}
-          />
-
-          <div className="route-builder__coordinates">
-            <div className="route-builder__input-group">
-              <label className="route-builder__label">Lat:</label>
-              <input
-                type="number"
-                step="0.000001"
-                value={startLat}
-                onChange={(e) => setStartLat(e.target.value)}
-                className="route-builder__input route-builder__input--small"
-                placeholder="32.0853"
+            </>
+          ) : (
+            <>
+              <AddressSearch
+                onSelect={(result) => {
+                  console.log('🟢 Start selected:', result);
+                  setStartAddress(result.address);
+                  setStartCoords({ latitude: result.latitude, longitude: result.longitude });
+                  setUseCurrentLocation(false);
+                  setEditingStart(false);
+                  console.log('📍 Start coords set:', { latitude: result.latitude, longitude: result.longitude });
+                }}
+                placeholder="Start point"
+                initialValue={startAddress}
               />
-            </div>
-
-            <div className="route-builder__input-group">
-              <label className="route-builder__label">Lon:</label>
-              <input
-                type="number"
-                step="0.000001"
-                value={startLon}
-                onChange={(e) => setStartLon(e.target.value)}
-                className="route-builder__input route-builder__input--small"
-                placeholder="34.7818"
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* End Point */}
-        <div className="route-builder__section">
-          <div className="route-builder__section-header">
-            <label className="route-builder__section-label">🎯 End Point</label>
-            <div className="route-builder__header-buttons">
-              <button
-                type="button"
-                onClick={() => handleUseCurrentLocation('end')}
-                className="route-builder__use-location-btn"
-                title="Use current location"
+              <button 
+                onClick={handleUseMyLocation}
+                className="btn-icon"
+                title="Use my location"
               >
                 📍
               </button>
-              <button
-                type="button"
-                onClick={() => onSetMapClickMode && onSetMapClickMode('end')}
-                className="route-builder__use-location-btn route-builder__use-location-btn--map"
-                title="Click on map to set point"
-              >
-                🗺️
-              </button>
-            </div>
-          </div>
-          
-          <AddressSearch
-            label="Search Address:"
-            onSelect={handleEndAddressSelect}
-            initialValue={endAddress}
-          />
-
-          <div className="route-builder__coordinates">
-            <div className="route-builder__input-group">
-              <label className="route-builder__label">Lat:</label>
-              <input
-                type="number"
-                step="0.000001"
-                value={endLat}
-                onChange={(e) => setEndLat(e.target.value)}
-                className="route-builder__input route-builder__input--small"
-                placeholder="32.0546"
-              />
-            </div>
-
-            <div className="route-builder__input-group">
-              <label className="route-builder__label">Lon:</label>
-              <input
-                type="number"
-                step="0.000001"
-                value={endLon}
-                onChange={(e) => setEndLon(e.target.value)}
-                className="route-builder__input route-builder__input--small"
-                placeholder="34.7539"
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="route-builder__button-group">
-          <button 
-            type="submit" 
-            className="route-builder__button" 
-            disabled={loading}
-          >
-            {loading ? 'Calculating...' : '🚶 Calculate Route'}
-          </button>
-          
-          {onClear && (
-            <button
-              type="button"
-              onClick={onClear}
-              className="route-builder__button--secondary"
-            >
-              Clear Route
-            </button>
+            </>
           )}
         </div>
-      </form>
+      </div>
+
+      {/* End Point */}
+      <div className="route-point">
+        <div className="point-indicator end">●</div>
+        <div className="point-content">
+          {endAddress === 'Your location' ? (
+            <>
+              <input
+                type="text"
+                value="Your location"
+                readOnly
+                className="location-input"
+                onClick={() => {
+                  setEndAddress('');
+                }}
+                style={{ cursor: 'pointer' }}
+              />
+              <button 
+                onClick={() => {
+                  if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(
+                      (position) => {
+                        const coords = {
+                          latitude: position.coords.latitude,
+                          longitude: position.coords.longitude
+                        };
+                        setEndCoords(coords);
+                        setEndAddress('Your location');
+                      },
+                      (error) => {
+                        console.error('Geolocation error:', error);
+                        alert('Could not get your location');
+                      }
+                    );
+                  }
+                }}
+                className="btn-icon"
+                title="Use my location as destination"
+              >
+                📍
+              </button>
+            </>
+          ) : (
+            <>
+              <AddressSearch
+                onSelect={(result) => {
+                  console.log('🎯 End selected:', result);
+                  setEndAddress(result.address);
+                  setEndCoords({ latitude: result.latitude, longitude: result.longitude });
+                  console.log('📍 End coords set:', { latitude: result.latitude, longitude: result.longitude });
+                }}
+                placeholder="Choose destination"
+                initialValue={endAddress}
+              />
+              <button 
+                onClick={() => {
+                  if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(
+                      (position) => {
+                        const coords = {
+                          latitude: position.coords.latitude,
+                          longitude: position.coords.longitude
+                        };
+                        setEndCoords(coords);
+                        setEndAddress('Your location');
+                      },
+                      (error) => {
+                        console.error('Geolocation error:', error);
+                        alert('Could not get your location');
+                      }
+                    );
+                  }
+                }}
+                className="btn-icon"
+                title="Use my location as destination"
+              >
+                📍
+              </button>
+            </>
+          )}
+          <button
+            onClick={() => onSetMapClickMode && onSetMapClickMode('end')}
+            className="btn-icon"
+            title="Select on map"
+          >
+            🗺️
+          </button>
+        </div>
+      </div>
+
+      {/* Action Buttons */}
+      <div className="route-actions">
+        <button
+          onClick={handleCalculate}
+          disabled={!startCoords || !endCoords || loading}
+          className="btn-calculate"
+        >
+          {loading ? '⏳ Calculating...' : '🚀 Calculate Route'}
+        </button>
+
+        {(startCoords || endCoords) && (
+          <button onClick={handleClear} className="btn-clear-simple">
+            Clear
+          </button>
+        )}
+      </div>
     </div>
   );
 };

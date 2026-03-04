@@ -1,0 +1,125 @@
+/* Backdrop */
+.bottom-sheet-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9998;
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Bottom Sheet */
+  .bottom-sheet {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    border-radius: 16px 16px 0 0;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+    z-index: 9999;
+    max-height: 85vh;
+    animation: slideUp 0.3s ease-out;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  @keyframes slideUp {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+  
+  /* Handle */
+  .bottom-sheet__handle {
+    padding: 12px 0 8px 0;
+    display: flex;
+    justify-content: center;
+    cursor: grab;
+    flex-shrink: 0;
+  }
+  
+  .bottom-sheet__handle:active {
+    cursor: grabbing;
+  }
+  
+  .bottom-sheet__handle-bar {
+    width: 40px;
+    height: 4px;
+    background: #ddd;
+    border-radius: 2px;
+  }
+  
+  /* Content */
+  .bottom-sheet__content {
+    overflow-y: auto;
+    flex: 1;
+    padding: 0 16px 16px 16px;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .bottom-sheet__content::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Compact ShelterPopup inside BottomSheet */
+  .bottom-sheet .shelter-popup {
+    min-width: auto;
+    max-width: none;
+  }
+  
+  .bottom-sheet .shelter-popup__header {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+  }
+  
+  .bottom-sheet .shelter-popup__title {
+    font-size: 17px;
+  }
+  
+  .bottom-sheet .shelter-popup__info {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+  }
+  
+  .bottom-sheet .info-item {
+    font-size: 13px;
+    margin: 5px 0;
+  }
+  
+  .bottom-sheet .shelter-popup__actions {
+    margin-bottom: 12px;
+  }
+  
+  .bottom-sheet .btn {
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+  
+  .bottom-sheet .shelter-popup__comments {
+    margin-top: 12px;
+    padding-top: 12px;
+  }
+  
+  .bottom-sheet .comments-list {
+    max-height: 250px;
+  }
+  
+  .bottom-sheet .comment {
+    padding: 10px;
+    margin-bottom: 8px;
+  }

@@ -38,12 +38,16 @@ export const addShelterComment = async (shelterId, comment) => {
 
 // Route endpoints
 export const calculateRoute = async (start, end, includeShelters = true, maxShelters = 50) => {
-  const response = await api.post('/routes/calculate', {
+  const payload = {
     start,
     end,
     include_shelters: includeShelters,
     max_shelters: maxShelters,
-  });
+  };
+  
+  console.log('🚀 Calculating route with payload:', payload); // ← Добавь
+  
+  const response = await api.post('/routes/calculate', payload);
   return response.data;
 };
 

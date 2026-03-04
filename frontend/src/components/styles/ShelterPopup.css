@@ -268,3 +268,52 @@
   .comments-list::-webkit-scrollbar-thumb:hover {
     background: #999;
   }
+
+/* Mobile popup styles */
+@media (max-width: 768px) {
+  .shelter-popup {
+    min-width: 260px;
+    max-width: 300px;
+  }
+
+  .shelter-popup__header {
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+  }
+
+  .shelter-popup__title {
+    font-size: 15px;
+  }
+
+  .shelter-popup__rating {
+    font-size: 12px;
+  }
+
+  .info-item {
+    font-size: 12px;
+    margin: 4px 0;
+  }
+
+  .shelter-popup__actions {
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+
+  .btn {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .comments-list {
+    max-height: 200px;
+  }
+
+  .comment {
+    padding: 8px;
+    margin-bottom: 6px;
+  }
+
+  .comment-text {
+    font-size: 12px;
+  }
+}

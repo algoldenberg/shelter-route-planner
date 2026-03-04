@@ -1,8 +1,9 @@
 import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap, useMapEvents } from 'react-leaflet';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import ShelterPopup from './ShelterPopup';
+import BottomSheet from './BottomSheet';
 
 // Fix Leaflet default marker icon issue
 delete L.Icon.Default.prototype._getIconUrl;
@@ -55,7 +56,7 @@ function ChangeView({ center, zoom, routeGeometry }) {
     } else if (center) {
       map.setView(center, zoom);
     }
-  }, [routeGeometry, map]); // ← Убрали center и zoom из dependencies
+  }, [routeGeometry, map]);
   
   return null;
 }
@@ -70,123 +71,79 @@ const Map = ({
   mapClickMode = null,
   onBuildRouteToShelter = null
 }) => {
+  const [selectedShelter, setSelectedShelter] = useState(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  // Detect mobile on resize
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   // Convert route geometry to Leaflet format [lat, lon]
   const routeCoordinates = routeData?.geometry 
     ? routeData.geometry.map(coord => [coord[1], coord[0]]) 
     : null;
 
   return (
-    <MapContainer
-      center={center}
-      zoom={zoom}
-      style={{ 
-        height: '100%', 
-        width: '100%',
-        cursor: mapClickMode ? 'crosshair' : 'grab'
-      }}
-      scrollWheelZoom={true}
-    >
-      <ChangeView center={center} zoom={zoom} routeGeometry={routeData?.geometry} />
-      <MapClickHandler onMapClick={onMapClick} mapClickMode={mapClickMode} />
-      
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
+    <>
+      <MapContainer
+        center={center}
+        zoom={zoom}
+        style={{ 
+          height: '100%', 
+          width: '100%',
+          cursor: mapClickMode ? 'crosshair' : 'grab'
+        }}
+        scrollWheelZoom={true}
+      >
+        <ChangeView center={center} zoom={zoom} routeGeometry={routeData?.geometry} />
+        <MapClickHandler onMapClick={onMapClick} mapClickMode={mapClickMode} />
+        
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
 
-      {/* Click mode indicator */}
-      {mapClickMode && (
-        <div style={{
-          position: 'absolute',
-          top: '10px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          zIndex: 1000,
-          background: mapClickMode === 'start' ? '#4CAF50' : '#f44336',
-          color: 'white',
-          padding: '10px 20px',
-          borderRadius: '8px',
-          fontWeight: 'bold',
-          boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
-          pointerEvents: 'none'
-        }}>
-          {mapClickMode === 'start' ? '📍 Click map to set START point' : '🎯 Click map to set END point'}
-        </div>
-      )}
+        {/* Click mode indicator */}
+        {mapClickMode && (
+          <div style={{
+            position: 'absolute',
+            top: '10px',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            zIndex: 1000,
+            background: mapClickMode === 'start' ? '#4CAF50' : '#f44336',
+            color: 'white',
+            padding: '10px 20px',
+            borderRadius: '8px',
+            fontWeight: 'bold',
+            boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
+            pointerEvents: 'none'
+          }}>
+            {mapClickMode === 'start' ? '📍 Click map to set START point' : '🎯 Click map to set END point'}
+          </div>
+        )}
 
-      {/* Regular shelter markers */}
-      {!routeData && shelters.map((shelter) => (
-        <Marker
-          key={shelter._id}
-          position={[shelter.latitude, shelter.longitude]}
-          eventHandlers={{
-            click: () => onMarkerClick && onMarkerClick(shelter),
-          }}
-        >
-          <Popup maxWidth={350} minWidth={280}>
-            <ShelterPopup 
-              shelter={shelter}
-              onBuildRoute={onBuildRouteToShelter}
-              currentLocation={center}
-            />
-          </Popup>
-        </Marker>
-      ))}
-
-      {/* Route visualization */}
-      {routeData && (
-        <>
-          {/* Route line */}
-          {routeCoordinates && (
-            <Polyline 
-              positions={routeCoordinates} 
-              color="#2196F3" 
-              weight={5}
-              opacity={0.7}
-            />
-          )}
-
-          {/* Start marker */}
-          {routeData.start && (
-            <Marker 
-              position={[routeData.start.latitude, routeData.start.longitude]}
-              icon={startIcon}
-            >
-              <Popup>
-                <div>
-                  <strong>🟢 Start Point</strong>
-                  <p>Lat: {routeData.start.latitude.toFixed(6)}</p>
-                  <p>Lon: {routeData.start.longitude.toFixed(6)}</p>
-                </div>
-              </Popup>
-            </Marker>
-          )}
-
-          {/* End marker */}
-          {routeData.end && (
-            <Marker 
-              position={[routeData.end.latitude, routeData.end.longitude]}
-              icon={endIcon}
-            >
-              <Popup>
-                <div>
-                  <strong>🔴 End Point</strong>
-                  <p>Lat: {routeData.end.latitude.toFixed(6)}</p>
-                  <p>Lon: {routeData.end.longitude.toFixed(6)}</p>
-                </div>
-              </Popup>
-            </Marker>
-          )}
-
-          {/* Shelters along route */}
-          {routeData.shelters && routeData.shelters.map((shelter) => (
-            <Marker
-              key={shelter.id}
-              position={[shelter.latitude, shelter.longitude]}
-              eventHandlers={{
-                click: () => onMarkerClick && onMarkerClick(shelter),
-              }}
-            >
+        {/* Regular shelter markers */}
+        {!routeData && shelters.map((shelter) => (
+          <Marker
+            key={shelter._id}
+            position={[shelter.latitude, shelter.longitude]}
+            eventHandlers={{
+              click: () => {
+                if (isMobile) {
+                  setSelectedShelter(shelter);
+                } else {
+                  onMarkerClick && onMarkerClick(shelter);
+                }
+              },
+            }}
+          >
+            {!isMobile && (
               <Popup maxWidth={350} minWidth={280}>
                 <ShelterPopup 
                   shelter={shelter}
@@ -194,11 +151,95 @@ const Map = ({
                   currentLocation={center}
                 />
               </Popup>
-            </Marker>
-          ))}
-        </>
+            )}
+          </Marker>
+        ))}
+
+        {/* Route visualization */}
+        {routeData && (
+          <>
+            {/* Route line */}
+            {routeCoordinates && (
+              <Polyline 
+                positions={routeCoordinates} 
+                color="#2196F3" 
+                weight={5}
+                opacity={0.7}
+              />
+            )}
+
+            {/* Start marker */}
+            {routeData.start && (
+              <Marker 
+                position={[routeData.start.latitude, routeData.start.longitude]}
+                icon={startIcon}
+              >
+                <Popup>
+                  <div>
+                    <strong>🟢 Start Point</strong>
+                    <p>Lat: {routeData.start.latitude.toFixed(6)}</p>
+                    <p>Lon: {routeData.start.longitude.toFixed(6)}</p>
+                  </div>
+                </Popup>
+              </Marker>
+            )}
+
+            {/* End marker */}
+            {routeData.end && (
+              <Marker 
+                position={[routeData.end.latitude, routeData.end.longitude]}
+                icon={endIcon}
+              >
+                <Popup>
+                  <div>
+                    <strong>🔴 End Point</strong>
+                    <p>Lat: {routeData.end.latitude.toFixed(6)}</p>
+                    <p>Lon: {routeData.end.longitude.toFixed(6)}</p>
+                  </div>
+                </Popup>
+              </Marker>
+            )}
+
+            {/* Shelters along route */}
+            {routeData.shelters && routeData.shelters.map((shelter) => (
+              <Marker
+                key={shelter.id}
+                position={[shelter.latitude, shelter.longitude]}
+                eventHandlers={{
+                  click: () => {
+                    if (isMobile) {
+                      setSelectedShelter(shelter);
+                    } else {
+                      onMarkerClick && onMarkerClick(shelter);
+                    }
+                  },
+                }}
+              >
+                {!isMobile && (
+                  <Popup maxWidth={350} minWidth={280}>
+                    <ShelterPopup 
+                      shelter={shelter}
+                      onBuildRoute={onBuildRouteToShelter}
+                      currentLocation={center}
+                    />
+                  </Popup>
+                )}
+              </Marker>
+            ))}
+          </>
+        )}
+      </MapContainer>
+
+      {/* Bottom Sheet for Mobile */}
+      {isMobile && selectedShelter && (
+        <BottomSheet
+          shelter={selectedShelter}
+          onClose={() => setSelectedShelter(null)}
+          onBuildRoute={onBuildRouteToShelter}
+          currentLocation={center}
+        />
       )}
-    </MapContainer>
+    </>
   );
 };
 
