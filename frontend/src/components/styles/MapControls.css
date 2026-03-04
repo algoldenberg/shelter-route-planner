@@ -1,0 +1,49 @@
+/* Follow Mode Button */
+.follow-mode-btn {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    z-index: 1001;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid #ddd;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+  }
+  
+  .follow-mode-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .follow-mode-btn--active {
+    background: #4285F4;
+    border-color: #4285F4;
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      box-shadow: 0 2px 12px rgba(66, 133, 244, 0.4);
+    }
+    50% {
+      box-shadow: 0 2px 20px rgba(66, 133, 244, 0.8);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .follow-mode-btn {
+      bottom: 140px;
+      right: 15px;
+      width: 45px;
+      height: 45px;
+      font-size: 20px;
+    }
+  }

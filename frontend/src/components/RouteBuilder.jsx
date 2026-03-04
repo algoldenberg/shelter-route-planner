@@ -15,6 +15,23 @@ const RouteBuilder = ({
   const [endCoords, setEndCoords] = useState(null);
   const [useCurrentLocation, setUseCurrentLocation] = useState(true);
   const [editingStart, setEditingStart] = useState(false);
+  const [editingEnd, setEditingEnd] = useState(false);
+  const [loadingStartLocation, setLoadingStartLocation] = useState(false);
+  const [loadingEndLocation, setLoadingEndLocation] = useState(false);
+
+  // Format address to show only street, city
+  const formatAddress = (fullAddress) => {
+    if (!fullAddress) return '';
+    if (fullAddress === 'Your location' || fullAddress === 'Selected from map') {
+      return fullAddress;
+    }
+    
+    const parts = fullAddress.split(',').map(p => p.trim());
+    if (parts.length >= 2) {
+      return `${parts[0]}, ${parts[1]}`;
+    }
+    return parts[0] || fullAddress;
+  };
 
   // Update from clicked points
   useEffect(() => {
@@ -30,12 +47,15 @@ const RouteBuilder = ({
     if (clickedPoints.end) {
       setEndCoords(clickedPoints.end);
       setEndAddress('Selected from map');
+      setEditingEnd(false);
     }
   }, [clickedPoints.end]);
 
-  const handleUseMyLocation = () => {
-    setEditingStart(false);
+  const handleUseMyLocationStart = () => {
     if (navigator.geolocation) {
+      setLoadingStartLocation(true);
+      
+      // Fast initial position
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const coords = {
@@ -45,11 +65,41 @@ const RouteBuilder = ({
           setStartCoords(coords);
           setStartAddress('Your location');
           setUseCurrentLocation(true);
+          setEditingStart(false);
+          setLoadingStartLocation(false);
         },
         (error) => {
           console.error('Geolocation error:', error);
           alert('Could not get your location');
-        }
+          setLoadingStartLocation(false);
+        },
+        { enableHighAccuracy: false, timeout: 2000, maximumAge: 60000 }
+      );
+    }
+  };
+
+  const handleUseMyLocationEnd = () => {
+    if (navigator.geolocation) {
+      setLoadingEndLocation(true);
+      
+      // Fast initial position
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const coords = {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude
+          };
+          setEndCoords(coords);
+          setEndAddress('Your location');
+          setEditingEnd(false);
+          setLoadingEndLocation(false);
+        },
+        (error) => {
+          console.error('Geolocation error:', error);
+          alert('Could not get your location');
+          setLoadingEndLocation(false);
+        },
+        { enableHighAccuracy: false, timeout: 2000, maximumAge: 60000 }
       );
     }
   };
@@ -74,6 +124,7 @@ const RouteBuilder = ({
     setEndCoords(null);
     setUseCurrentLocation(false);
     setEditingStart(false);
+    setEditingEnd(false);
     if (onClear) onClear();
   };
 
@@ -85,28 +136,28 @@ const RouteBuilder = ({
       <div className="route-point">
         <div className="point-indicator start">●</div>
         <div className="point-content">
-          {useCurrentLocation && !editingStart ? (
-            <>
+          {startAddress && !editingStart ? (
+            <div className="address-display">
               <input
                 type="text"
-                value="Your location"
+                value={formatAddress(startAddress)}
                 readOnly
-                className="location-input"
-                onClick={() => {
-                  setEditingStart(true);
-                  setStartAddress(''); // ← Автоочистка
-                  setUseCurrentLocation(false);
-                }}
-                style={{ cursor: 'pointer' }}
+                className="location-input location-input--filled"
+                title={startAddress}
               />
-              <button 
-                onClick={handleUseMyLocation}
-                className="btn-icon"
-                title="Use my location"
+              <button
+                onClick={() => {
+                  setStartAddress('');
+                  setStartCoords(null);
+                  setUseCurrentLocation(false);
+                  setEditingStart(true);
+                }}
+                className="btn-clear-input"
+                title="Clear"
               >
-                📍
+                ✕
               </button>
-            </>
+            </div>
           ) : (
             <>
               <AddressSearch
@@ -116,20 +167,20 @@ const RouteBuilder = ({
                   setStartCoords({ latitude: result.latitude, longitude: result.longitude });
                   setUseCurrentLocation(false);
                   setEditingStart(false);
-                  console.log('📍 Start coords set:', { latitude: result.latitude, longitude: result.longitude });
                 }}
                 placeholder="Start point"
-                initialValue={startAddress}
+                initialValue=""
               />
-              <button 
-                onClick={handleUseMyLocation}
-                className="btn-icon"
-                title="Use my location"
-              >
-                📍
-              </button>
             </>
           )}
+          <button 
+            onClick={handleUseMyLocationStart}
+            className="btn-icon"
+            title="Use my location"
+            disabled={loadingStartLocation}
+          >
+            {loadingStartLocation ? '⏳' : '📍'}
+          </button>
         </div>
       </div>
 
@@ -137,43 +188,27 @@ const RouteBuilder = ({
       <div className="route-point">
         <div className="point-indicator end">●</div>
         <div className="point-content">
-          {endAddress === 'Your location' ? (
-            <>
+          {endAddress && !editingEnd ? (
+            <div className="address-display">
               <input
                 type="text"
-                value="Your location"
+                value={formatAddress(endAddress)}
                 readOnly
-                className="location-input"
+                className="location-input location-input--filled"
+                title={endAddress}
+              />
+              <button
                 onClick={() => {
                   setEndAddress('');
+                  setEndCoords(null);
+                  setEditingEnd(true);
                 }}
-                style={{ cursor: 'pointer' }}
-              />
-              <button 
-                onClick={() => {
-                  if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(
-                      (position) => {
-                        const coords = {
-                          latitude: position.coords.latitude,
-                          longitude: position.coords.longitude
-                        };
-                        setEndCoords(coords);
-                        setEndAddress('Your location');
-                      },
-                      (error) => {
-                        console.error('Geolocation error:', error);
-                        alert('Could not get your location');
-                      }
-                    );
-                  }
-                }}
-                className="btn-icon"
-                title="Use my location as destination"
+                className="btn-clear-input"
+                title="Clear"
               >
-                📍
+                ✕
               </button>
-            </>
+            </div>
           ) : (
             <>
               <AddressSearch
@@ -181,37 +216,21 @@ const RouteBuilder = ({
                   console.log('🎯 End selected:', result);
                   setEndAddress(result.address);
                   setEndCoords({ latitude: result.latitude, longitude: result.longitude });
-                  console.log('📍 End coords set:', { latitude: result.latitude, longitude: result.longitude });
+                  setEditingEnd(false);
                 }}
                 placeholder="Choose destination"
-                initialValue={endAddress}
+                initialValue=""
               />
-              <button 
-                onClick={() => {
-                  if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(
-                      (position) => {
-                        const coords = {
-                          latitude: position.coords.latitude,
-                          longitude: position.coords.longitude
-                        };
-                        setEndCoords(coords);
-                        setEndAddress('Your location');
-                      },
-                      (error) => {
-                        console.error('Geolocation error:', error);
-                        alert('Could not get your location');
-                      }
-                    );
-                  }
-                }}
-                className="btn-icon"
-                title="Use my location as destination"
-              >
-                📍
-              </button>
             </>
           )}
+          <button 
+            onClick={handleUseMyLocationEnd}
+            className="btn-icon"
+            title="Use my location as destination"
+            disabled={loadingEndLocation}
+          >
+            {loadingEndLocation ? '⏳' : '📍'}
+          </button>
           <button
             onClick={() => onSetMapClickMode && onSetMapClickMode('end')}
             className="btn-icon"
@@ -234,7 +253,7 @@ const RouteBuilder = ({
 
         {(startCoords || endCoords) && (
           <button onClick={handleClear} className="btn-clear-simple">
-            Clear
+            Clear All
           </button>
         )}
       </div>

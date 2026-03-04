@@ -1,9 +1,11 @@
-import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap, useMapEvents } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap, useMapEvents, Circle } from 'react-leaflet';
 import { useEffect, useState } from 'react';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import ShelterPopup from './ShelterPopup';
 import BottomSheet from './BottomSheet';
+import LocationInfo from './LocationInfo';
+import './styles/MapControls.css';
 
 // Fix Leaflet default marker icon issue
 delete L.Icon.Default.prototype._getIconUrl;
@@ -50,15 +52,131 @@ function ChangeView({ center, zoom, routeGeometry }) {
   
   useEffect(() => {
     if (routeGeometry && routeGeometry.length > 0) {
-      // Fit map to route bounds
       const bounds = L.latLngBounds(routeGeometry.map(coord => [coord[1], coord[0]]));
       map.fitBounds(bounds, { padding: [100, 100] });
     } else if (center) {
       map.setView(center, zoom);
     }
-  }, [routeGeometry, map]);
+  }, [routeGeometry, map, center, zoom]);
   
   return null;
+}
+
+// Save map instance for external access
+function SaveMapInstance({ onMapReady }) {
+  const map = useMap();
+  
+  useEffect(() => {
+    onMapReady(map);
+  }, [map, onMapReady]);
+  
+  return null;
+}
+
+// Live GPS Location Tracker with manual map movement detection
+function LocationTracker({ followMode, onLocationUpdate, onFollowModeChange }) {
+  const [position, setPosition] = useState(null);
+  const [heading, setHeading] = useState(null);
+  const [accuracy, setAccuracy] = useState(null);
+  const [isUserDragging, setIsUserDragging] = useState(false);
+  const map = useMap();
+
+  // Disable follow mode when user manually drags the map
+  useEffect(() => {
+    if (!followMode) return;
+
+    const handleDragStart = () => {
+      setIsUserDragging(true);
+      onFollowModeChange(false);
+    };
+
+    const handleDragEnd = () => {
+      setIsUserDragging(false);
+    };
+
+    map.on('dragstart', handleDragStart);
+    map.on('dragend', handleDragEnd);
+
+    return () => {
+      map.off('dragstart', handleDragStart);
+      map.off('dragend', handleDragEnd);
+    };
+  }, [followMode, map, onFollowModeChange]);
+
+  useEffect(() => {
+    if (!navigator.geolocation) {
+      console.warn('Geolocation is not supported');
+      return;
+    }
+
+    // Quick initial position
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        const newPos = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+        setPosition(newPos);
+        setAccuracy(pos.coords.accuracy);
+        if (onLocationUpdate) {
+          onLocationUpdate(newPos);
+        }
+      },
+      null,
+      { enableHighAccuracy: false, timeout: 1000, maximumAge: 60000 }
+    );
+
+    // High accuracy watch
+    const watchId = navigator.geolocation.watchPosition(
+      (pos) => {
+        const newPos = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+        setPosition(newPos);
+        setAccuracy(pos.coords.accuracy);
+
+        if (pos.coords.heading !== null && pos.coords.heading >= 0) {
+          setHeading(pos.coords.heading);
+        }
+
+        if (followMode && !isUserDragging) {
+          map.setView([newPos.lat, newPos.lng], map.getZoom(), {
+            animate: true,
+            duration: 0.5,
+          });
+        }
+
+        if (onLocationUpdate) {
+          onLocationUpdate(newPos);
+        }
+      },
+      (error) => console.error('Geolocation error:', error),
+      { enableHighAccuracy: true, maximumAge: 0, timeout: 10000 }
+    );
+
+    return () => navigator.geolocation.clearWatch(watchId);
+  }, [followMode, map, onLocationUpdate, isUserDragging]);
+
+  if (!position) return null;
+
+  const locationIcon = L.divIcon({
+    html: heading !== null && heading >= 0
+      ? `<div style="width:20px;height:20px;background:#4285F4;border:3px solid white;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,0.3);position:relative;">
+          <div style="position:absolute;top:-15px;left:50%;transform:translateX(-50%) rotate(${heading}deg);width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:12px solid #4285F4;"></div>
+        </div>`
+      : `<div style="width:20px;height:20px;background:#4285F4;border:3px solid white;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,0.3);"></div>`,
+    className: '',
+    iconSize: [20, 20],
+    iconAnchor: [10, 10],
+  });
+
+  return (
+    <>
+      {accuracy && (
+        <Circle
+          center={position}
+          radius={accuracy}
+          pathOptions={{ color: '#4285F4', fillColor: '#4285F4', fillOpacity: 0.1, weight: 1 }}
+        />
+      )}
+      <Marker position={position} icon={locationIcon} zIndexOffset={1000} />
+    </>
+  );
 }
 
 const Map = ({ 
@@ -73,34 +191,44 @@ const Map = ({
 }) => {
   const [selectedShelter, setSelectedShelter] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [followMode, setFollowMode] = useState(false);
+  const [currentPosition, setCurrentPosition] = useState(null);
+  const [mapInstance, setMapInstance] = useState(null);
 
-  // Detect mobile on resize
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Convert route geometry to Leaflet format [lat, lon]
   const routeCoordinates = routeData?.geometry 
     ? routeData.geometry.map(coord => [coord[1], coord[0]]) 
     : null;
+
+  const handleFollowModeToggle = () => {
+    const newMode = !followMode;
+    setFollowMode(newMode);
+    
+    // Center map immediately when enabling follow mode
+    if (newMode && currentPosition && mapInstance) {
+      mapInstance.setView(
+        [currentPosition.lat, currentPosition.lng],
+        mapInstance.getZoom(),
+        { animate: true, duration: 0.5 }
+      );
+    }
+  };
 
   return (
     <>
       <MapContainer
         center={center}
         zoom={zoom}
-        style={{ 
-          height: '100%', 
-          width: '100%',
-          cursor: mapClickMode ? 'crosshair' : 'grab'
-        }}
+        style={{ height: '100%', width: '100%', cursor: mapClickMode ? 'crosshair' : 'grab' }}
         scrollWheelZoom={true}
       >
         <ChangeView center={center} zoom={zoom} routeGeometry={routeData?.geometry} />
+        <SaveMapInstance onMapReady={setMapInstance} />
         <MapClickHandler onMapClick={onMapClick} mapClickMode={mapClickMode} />
         
         <TileLayer
@@ -108,27 +236,17 @@ const Map = ({
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
-        {/* Click mode indicator */}
         {mapClickMode && (
           <div style={{
-            position: 'absolute',
-            top: '10px',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            zIndex: 1000,
-            background: mapClickMode === 'start' ? '#4CAF50' : '#f44336',
-            color: 'white',
-            padding: '10px 20px',
-            borderRadius: '8px',
-            fontWeight: 'bold',
-            boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
-            pointerEvents: 'none'
+            position: 'absolute', top: '10px', left: '50%', transform: 'translateX(-50%)',
+            zIndex: 1000, background: mapClickMode === 'start' ? '#4CAF50' : '#f44336',
+            color: 'white', padding: '10px 20px', borderRadius: '8px', fontWeight: 'bold',
+            boxShadow: '0 2px 8px rgba(0,0,0,0.3)', pointerEvents: 'none'
           }}>
             {mapClickMode === 'start' ? '📍 Click map to set START point' : '🎯 Click map to set END point'}
           </div>
         )}
 
-        {/* Regular shelter markers */}
         {!routeData && shelters.map((shelter) => (
           <Marker
             key={shelter._id}
@@ -145,35 +263,20 @@ const Map = ({
           >
             {!isMobile && (
               <Popup maxWidth={350} minWidth={280}>
-                <ShelterPopup 
-                  shelter={shelter}
-                  onBuildRoute={onBuildRouteToShelter}
-                  currentLocation={center}
-                />
+                <ShelterPopup shelter={shelter} onBuildRoute={onBuildRouteToShelter} currentLocation={center} />
               </Popup>
             )}
           </Marker>
         ))}
 
-        {/* Route visualization */}
         {routeData && (
           <>
-            {/* Route line */}
             {routeCoordinates && (
-              <Polyline 
-                positions={routeCoordinates} 
-                color="#2196F3" 
-                weight={5}
-                opacity={0.7}
-              />
+              <Polyline positions={routeCoordinates} color="#2196F3" weight={5} opacity={0.7} />
             )}
 
-            {/* Start marker */}
             {routeData.start && (
-              <Marker 
-                position={[routeData.start.latitude, routeData.start.longitude]}
-                icon={startIcon}
-              >
+              <Marker position={[routeData.start.latitude, routeData.start.longitude]} icon={startIcon}>
                 <Popup>
                   <div>
                     <strong>🟢 Start Point</strong>
@@ -184,12 +287,8 @@ const Map = ({
               </Marker>
             )}
 
-            {/* End marker */}
             {routeData.end && (
-              <Marker 
-                position={[routeData.end.latitude, routeData.end.longitude]}
-                icon={endIcon}
-              >
+              <Marker position={[routeData.end.latitude, routeData.end.longitude]} icon={endIcon}>
                 <Popup>
                   <div>
                     <strong>🔴 End Point</strong>
@@ -200,7 +299,6 @@ const Map = ({
               </Marker>
             )}
 
-            {/* Shelters along route */}
             {routeData.shelters && routeData.shelters.map((shelter) => (
               <Marker
                 key={shelter.id}
@@ -217,20 +315,44 @@ const Map = ({
               >
                 {!isMobile && (
                   <Popup maxWidth={350} minWidth={280}>
-                    <ShelterPopup 
-                      shelter={shelter}
-                      onBuildRoute={onBuildRouteToShelter}
-                      currentLocation={center}
-                    />
+                    <ShelterPopup shelter={shelter} onBuildRoute={onBuildRouteToShelter} currentLocation={center} />
                   </Popup>
                 )}
               </Marker>
             ))}
           </>
         )}
+
+        <LocationTracker
+          followMode={followMode}
+          onLocationUpdate={setCurrentPosition}
+          onFollowModeChange={setFollowMode}
+        />
       </MapContainer>
 
-      {/* Bottom Sheet for Mobile */}
+      <button
+        onClick={handleFollowModeToggle}
+        className={`follow-mode-btn ${followMode ? 'follow-mode-btn--active' : ''}`}
+        title={followMode ? 'Disable follow mode' : 'Enable follow mode'}
+      >
+        {followMode ? '📍' : '🧭'}
+      </button>
+
+      {currentPosition && (
+        <LocationInfo
+          currentPosition={currentPosition}
+          shelters={shelters}
+          destination={routeData?.end}
+          onShelterClick={(shelter) => {
+            if (isMobile) {
+              setSelectedShelter(shelter);
+            } else {
+              onMarkerClick && onMarkerClick(shelter);
+            }
+          }}
+        />
+      )}
+
       {isMobile && selectedShelter && (
         <BottomSheet
           shelter={selectedShelter}

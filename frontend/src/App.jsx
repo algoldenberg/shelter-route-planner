@@ -3,7 +3,6 @@ import Map from './components/Map';
 import SearchBar from './components/SearchBar';
 import RouteBuilder from './components/RouteBuilder';
 import { getNearbyShelters, calculateRoute } from './services/api';
-import { reverseGeocode } from './services/geocoding';
 import './App.css';
 
 function App() {
@@ -20,7 +19,7 @@ function App() {
   const [activeTab, setActiveTab] = useState('shelters');
   
   // Map click mode state
-  const [mapClickMode, setMapClickMode] = useState(null); // 'start', 'end', or null
+  const [mapClickMode, setMapClickMode] = useState(null);
   const [clickedPoints, setClickedPoints] = useState({ start: null, end: null });
 
   // Auto-load user location on first mount
@@ -95,7 +94,8 @@ function App() {
   const handleClearRoute = () => {
     setRouteData(null);
     setClickedPoints({ start: null, end: null });
-    setActiveTab('shelters');
+    setMapClickMode(null);
+    // Reload shelters at current location
     if (center) {
       handleSearch({ latitude: center[0], longitude: center[1], radius: 1000 });
     }
@@ -123,6 +123,7 @@ function App() {
       end: { latitude: shelterLat, longitude: shelterLon }
     });
   };
+
   const handleMapClick = async (lat, lng, mode) => {
     const newPoint = { latitude: lat, longitude: lng };
     
@@ -211,18 +212,27 @@ function App() {
               <RouteBuilder 
                 onCalculateRoute={handleCalculateRoute} 
                 loading={routeLoading}
-                onClear={routeData ? handleClearRoute : null}
+                onClear={handleClearRoute}
                 onSetMapClickMode={setMapClickMode}
                 clickedPoints={clickedPoints}
               />
               
               {routeData && (
-                <div className="route-info">
-                  <h3>📍 Route Information</h3>
-                  <p><strong>Distance:</strong> {(routeData.distance / 1000).toFixed(2)} km</p>
-                  <p><strong>Walking time:</strong> {Math.round(routeData.duration / 60)} minutes</p>
-                  <p><strong>Shelters along route:</strong> {routeData.total_shelters}</p>
-                </div>
+                <>
+                  <div className="route-info">
+                    <h3>📍 Route Information</h3>
+                    <p><strong>Distance:</strong> {(routeData.distance / 1000).toFixed(2)} km</p>
+                    <p><strong>Walking time:</strong> {Math.round(routeData.duration / 60)} minutes</p>
+                    <p><strong>Shelters along route:</strong> {routeData.total_shelters}</p>
+                  </div>
+                  
+                  <button
+                    onClick={handleClearRoute}
+                    className="btn-clear-route"
+                  >
+                    ✕ Clear Route
+                  </button>
+                </>
               )}
             </>
           )}
@@ -235,16 +245,16 @@ function App() {
         </aside>
 
         <main className="map-container">
-        <Map
-          center={center}
-          zoom={15}
-          shelters={shelters}
-          onMarkerClick={handleMarkerClick}
-          routeData={routeData}
-          onMapClick={handleMapClick}
-          mapClickMode={mapClickMode}
-          onBuildRouteToShelter={handleBuildRouteToShelter}
-        />
+          <Map
+            center={center}
+            zoom={15}
+            shelters={shelters}
+            onMarkerClick={handleMarkerClick}
+            routeData={routeData}
+            onMapClick={handleMapClick}
+            mapClickMode={mapClickMode}
+            onBuildRouteToShelter={handleBuildRouteToShelter}
+          />
         </main>
       </div>
     </div>

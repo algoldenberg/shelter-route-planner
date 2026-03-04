@@ -563,3 +563,29 @@ body {
     border-bottom: none;
   }
 }
+
+/* Clear Route Button */
+.btn-clear-route {
+  width: 100%;
+  padding: 12px;
+  background: #f44336;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-top: 12px;
+  transition: all 0.2s;
+  box-shadow: 0 2px 6px rgba(244, 67, 54, 0.3);
+}
+
+.btn-clear-route:hover {
+  background: #d32f2f;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(244, 67, 54, 0.4);
+}
+
+.btn-clear-route:active {
+  transform: translateY(0);
+}
