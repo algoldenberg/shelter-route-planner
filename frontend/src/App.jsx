@@ -5,6 +5,7 @@ import RouteBuilder from './components/RouteBuilder';
 import Footer from './components/Footer';
 import { getNearbyShelters, calculateRoute } from './services/api';
 import './App.css';
+import React from 'react';
 
 function App() {
   const [shelters, setShelters] = useState([]);
@@ -170,8 +171,11 @@ function App() {
     setMapClickMode(null);
   };
 
-  const handleMarkerClick = (shelter) => {
-    console.log('Shelter clicked:', shelter);
+  const handleMarkerClick = (shelterRef) => {
+    // Открываем попап через ref
+    if (shelterRef && shelterRef.current) {
+      shelterRef.current.openPopup();
+    }
   };
 
   const handleFollowModeEnabled = (coords) => {

@@ -1,11 +1,12 @@
 import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap, useMapEvents, Circle } from 'react-leaflet';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, createRef } from 'react';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import ShelterPopup from './ShelterPopup';
 import BottomSheet from './BottomSheet';
 import LocationInfo from './LocationInfo';
 import './styles/MapControls.css';
+import React from 'react';
 
 // Fix Leaflet default marker icon issue
 delete L.Icon.Default.prototype._getIconUrl;
@@ -281,27 +282,30 @@ const Map = ({
           </div>
         )}
 
-        {!routeData && shelters.map((shelter) => (
-          <Marker
-            key={shelter._id}
-            position={[shelter.latitude, shelter.longitude]}
-            eventHandlers={{
-              click: () => {
-                if (isMobile) {
-                  setSelectedShelter(shelter);
-                } else {
-                  onMarkerClick && onMarkerClick(shelter);
-                }
-              },
-            }}
-          >
-            {!isMobile && (
+        {!routeData && shelters.map((shelter) => {
+          const markerRef = React.createRef();
+          
+          return (
+            <Marker
+              key={shelter._id}
+              ref={markerRef}
+              position={[shelter.latitude, shelter.longitude]}
+              eventHandlers={{
+                click: () => {
+                  if (isMobile) {
+                    setSelectedShelter(shelter);
+                  } else {
+                    markerRef.current?.openPopup();
+                  }
+                },
+              }}
+            >
               <Popup maxWidth={350} minWidth={280}>
                 <ShelterPopup shelter={shelter} onBuildRoute={onBuildRouteToShelter} currentLocation={center} />
               </Popup>
-            )}
-          </Marker>
-        ))}
+            </Marker>
+          );
+        })}
 
         {routeData && (
           <>
