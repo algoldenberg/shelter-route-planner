@@ -397,36 +397,93 @@ body {
    TOUCH DEVICES
    ==================================== */
 
-@media (hover: none) and (pointer: coarse) {
-  button,
-  .btn {
-    min-height: 44px;
-    padding: 12px 16px;
-    font-size: 1rem;
-  }
-
-  input,
-  select,
-  textarea {
-    min-height: 44px;
-    font-size: 16px;
-  }
-
-  .leaflet-control-zoom a {
-    width: 40px !important;
-    height: 40px !important;
-    line-height: 40px !important;
-    font-size: 22px !important;
-  }
-}
-
-  .footer {
-    padding: 12px 15px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1500;  /* Должно быть МЕНЬШЕ чем у tabs (2500) */
+   @media (max-width: 768px) {
+    /* Header компактнее */
+    .app-header {
+      padding: 8px 14px;
+    }
+  
+    .app-header h1 {
+      font-size: 1rem;
+      margin-bottom: 2px;
+    }
+  
+    .app-header p {
+      font-size: 0.7rem;
+    }
+  
+    /* Sidebar компактный - ЗАНИМАЕТ МАКСИМУМ 25% ЭКРАНА */
+    .sidebar {
+      position: absolute;
+      top: 50px;
+      left: 0;
+      right: 0;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      max-height: 25vh;
+      overflow-y: auto;
+      z-index: 1000;
+      background: white;
+      border-right: none;
+      border-bottom: 2px solid #e0e0e0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      padding: 8px;
+      padding-bottom: 10px;
+      gap: 8px;
+    }
+  
+    /* Tabs компактнее */
+    .tabs {
+      margin-bottom: 8px;
+      gap: 6px;
+    }
+  
+    .tab {
+      font-size: 0.75rem;
+      padding: 8px 6px;
+    }
+  
+    /* Stats компактнее */
+    .stats,
+    .route-info {
+      padding: 8px;
+      margin-top: 6px;
+    }
+  
+    .stats h3,
+    .route-info h3 {
+      font-size: 0.85rem;
+      margin-bottom: 4px;
+    }
+  
+    .stats p,
+    .route-info p {
+      font-size: 0.75rem;
+      margin: 2px 0;
+      line-height: 1.2;
+    }
+  
+    /* Скрываем info блоки */
+    .info {
+      display: none;
+    }
+  
+    /* Map на весь экран */
+    .map-container {
+      width: 100%;
+      height: 100vh;
+    }
+  
+    /* Footer */
+    .footer {
+      padding: 10px 12px;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1500;
+    }
   }
 /* ====================================
    PRINT

@@ -197,3 +197,10 @@
     font-size: 0.85rem;
   }
 }
+
+/* Скрываем Search Results на мобильных */
+@media (max-width: 768px) {
+  .stats {
+    display: none !important;
+  }
+}
