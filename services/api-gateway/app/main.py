@@ -119,8 +119,9 @@ async def proxy_shelter_comments(shelter_id: str, request: Request, path: str = 
         except httpx.RequestError as e:
             raise HTTPException(status_code=503, detail=f"Service unavailable: {str(e)}")
 
-@app.api_route("/{service}/{path:path}", methods=["GET", "POST", "PUT", "DELETE", "PATCH"])
-async def proxy_request(service: str, path: str, request: Request):
+
+@app.api_route("/{path:path}", methods=["GET", "POST", "PUT", "DELETE", "PATCH"])
+async def proxy_request(path: str, request: Request):
     """
     Proxy requests to microservices
     
@@ -129,6 +130,10 @@ async def proxy_request(service: str, path: str, request: Request):
     - /routes/* -> route-service
     - /walking-routes/* -> walking-route-service
     """
+    # Determine service from path
+    path_parts = path.split("/", 1)
+    service = path_parts[0]
+    
     service_urls = {
         "shelters": settings.shelter_service_url,
         "routes": settings.route_service_url,
@@ -138,7 +143,8 @@ async def proxy_request(service: str, path: str, request: Request):
     if service not in service_urls:
         raise HTTPException(status_code=404, detail=f"Service '{service}' not found")
     
-    target_url = f"{service_urls[service]}/api/v1/{service}/{path}"
+    # Build target URL with full path
+    target_url = f"{service_urls[service]}/api/v1/{path}"
     
     query_params = dict(request.query_params)
     
