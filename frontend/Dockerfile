@@ -6,6 +6,9 @@ COPY package*.json ./
 RUN npm ci
 
 COPY . .
+
+ENV VITE_API_URL=https://api.shelternearyou.online
+
 RUN npm run build
 
 FROM nginx:alpine
