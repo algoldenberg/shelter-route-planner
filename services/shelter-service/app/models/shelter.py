@@ -64,12 +64,12 @@ class ShelterResponse(BaseModel):
         """Convert MongoDB document to response model"""
         return cls(
             _id=str(shelter["_id"]),
-            name=shelter["name"],
+            name=shelter.get("name") or "Unknown Shelter",  # ← Исправлено
             address=shelter.get("address", "Unknown"),
             city=shelter.get("city", "Israel"),
             capacity=shelter.get("capacity", 50),
             accessible=shelter.get("accessible", True),
-            latitude=shelter["location"]["coordinates"][1],  # coordinates = [lon, lat]
+            latitude=shelter["location"]["coordinates"][1],
             longitude=shelter["location"]["coordinates"][0]
         )
     
