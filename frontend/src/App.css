@@ -30,6 +30,7 @@ body {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  min-height: 100vh;
 }
 
 .app-header {
@@ -276,10 +277,37 @@ body {
   font-weight: 600;
 }
 
+/* Clear Route Button */
+.btn-clear-route {
+  width: 100%;
+  padding: 12px;
+  background: #f44336;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-top: 12px;
+  transition: all 0.2s;
+  box-shadow: 0 2px 6px rgba(244, 67, 54, 0.3);
+}
+
+.btn-clear-route:hover {
+  background: #d32f2f;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(244, 67, 54, 0.4);
+}
+
+.btn-clear-route:active {
+  transform: translateY(0);
+}
+
 /* ====================================
    RESPONSIVE: DESKTOP & LARGE SCREENS
    ==================================== */
 
+/* 4K Monitors (3840x2160) */
 @media (min-width: 2560px) {
   .sidebar {
     width: 450px;
@@ -295,6 +323,7 @@ body {
   }
 }
 
+/* QHD/2K Monitors (2560x1440) */
 @media (min-width: 1920px) and (max-width: 2559px) {
   .sidebar {
     width: 400px;
@@ -305,12 +334,14 @@ body {
   }
 }
 
+/* Full HD (1920x1080) */
 @media (min-width: 1440px) and (max-width: 1919px) {
   .sidebar {
     width: 380px;
   }
 }
 
+/* Laptops (1366x768, 1440x900) */
 @media (min-width: 1024px) and (max-width: 1439px) {
   .sidebar {
     width: 340px;
@@ -327,10 +358,10 @@ body {
 }
 
 /* ====================================
-   RESPONSIVE: MOBILE (Google Maps style)
+   RESPONSIVE: TABLETS
    ==================================== */
 
-/* Tablets */
+/* iPad Pro 12.9" (1024x1366), iPad Air (820x1180) */
 @media (max-width: 1024px) {
   .app-container {
     position: relative;
@@ -358,15 +389,34 @@ body {
   }
 }
 
-/* Mobile phones */
+/* iPad Mini (768x1024) */
+@media (max-width: 820px) and (min-width: 769px) {
+  .sidebar {
+    max-height: 32vh;
+  }
+
+  .app-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .app-header p {
+    font-size: 0.9rem;
+  }
+}
+
+/* ====================================
+   RESPONSIVE: MOBILE PHONES
+   ==================================== */
+
+/* All phones (base) */
 @media (max-width: 768px) {
   .sidebar {
     max-height: 30vh;
     padding: 6px;
     overflow-y: auto;
+    padding-bottom: 55px;
   }
 
-  /* Компактный RouteBuilder */
   .route-builder {
     padding: 6px;
   }
@@ -414,7 +464,6 @@ body {
     font-size: 0.75rem;
   }
 
-  /* Компактный Stats/Route Info */
   .stats,
   .route-info {
     padding: 6px;
@@ -438,7 +487,6 @@ body {
     display: none;
   }
 
-  /* Табы компактнее */
   .tabs {
     padding: 6px;
   }
@@ -448,12 +496,36 @@ body {
     font-size: 0.75rem;
   }
 
-  .sidebar {
-    padding-bottom: 55px;
+  /* Fixed bottom tabs - НАД ФУТЕРОМ */
+  .tabs {
+    position: fixed;
+    bottom: 70px;
+    left: 0;
+    right: 0;
+    z-index: 2000;
+    background: white;
+    margin: 0;
+    border-top: 2px solid #e0e0e0;
+    border-bottom: none;
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.15);
+    padding: 8px;
+    border-radius: 0;
+  }
+
+  .tab {
+    padding: 12px 10px;
+    border-bottom: none;
+    border-radius: 8px;
+  }
+
+  .tab--active {
+    background: #667eea;
+    color: white;
+    border-bottom: none;
   }
 }
 
-/* Small mobile phones */
+/* Small phones (iPhone SE, iPhone 12 Mini - 375x667) */
 @media (max-width: 480px) {
   .app-header {
     padding: 8px 12px;
@@ -478,6 +550,34 @@ body {
   }
 }
 
+/* iPhone 14 Pro Max, 15 Pro Max (430x932) */
+@media (max-width: 430px) and (min-height: 850px) {
+  .tabs {
+    bottom: 80px;
+  }
+}
+
+/* iPhone 14 Pro, 15 Pro (393x852) */
+@media (max-width: 393px) and (min-height: 800px) {
+  .tabs {
+    bottom: 80px;
+  }
+}
+
+/* Samsung Galaxy S21/S22 Ultra (412x915) */
+@media (max-width: 412px) and (min-height: 850px) {
+  .tabs {
+    bottom: 80px;
+  }
+}
+
+/* Pixel 7 Pro (412x892) */
+@media (max-width: 412px) and (min-height: 850px) and (max-height: 900px) {
+  .tabs {
+    bottom: 80px;
+  }
+}
+
 /* Landscape mode on mobile */
 @media (max-width: 768px) and (orientation: landscape) {
   .sidebar {
@@ -485,10 +585,14 @@ body {
     width: 45%;
     max-width: 380px;
   }
+
+  .tabs {
+    bottom: 60px;
+  }
 }
 
 /* ====================================
-   TOUCH-FRIENDLY
+   TOUCH-FRIENDLY (all touch devices)
    ==================================== */
 
 @media (hover: none) and (pointer: coarse) {
@@ -531,81 +635,5 @@ body {
     background: #667eea;
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
-  }
-}
-
-/* Fixed bottom tabs on mobile - НАД ФУТЕРОМ */
-@media (max-width: 768px) {
-  .tabs {
-    position: fixed;
-    bottom: 60px; /* Увеличено с 50px до 60px */
-    left: 0;
-    right: 0;
-    z-index: 2000;
-    background: white;
-    margin: 0;
-    border-top: 2px solid #e0e0e0;
-    border-bottom: none;
-    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.15);
-    padding: 8px;
-    border-radius: 0;
-  }
-
-  .tab {
-    padding: 12px 10px;
-    border-bottom: none;
-    border-radius: 8px;
-  }
-
-  .tab--active {
-    background: #667eea;
-    color: white;
-    border-bottom: none;
-  }
-}
-
-/* Clear Route Button */
-.btn-clear-route {
-  width: 100%;
-  padding: 12px;
-  background: #f44336;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 0.95rem;
-  margin-top: 12px;
-  transition: all 0.2s;
-  box-shadow: 0 2px 6px rgba(244, 67, 54, 0.3);
-}
-
-.btn-clear-route:hover {
-  background: #d32f2f;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(244, 67, 54, 0.4);
-}
-
-.btn-clear-route:active {
-  transform: translateY(0);
-}
-
-/* Make app container flex to push footer down */
-.app {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.app-container {
-  flex: 1;
-  display: flex;
-  overflow: hidden;
-}
-
-/* Mobile footer spacing */
-@media (max-width: 768px) {
-  .app-container {
-    margin-bottom: 0;
   }
 }
