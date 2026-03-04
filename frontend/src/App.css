@@ -68,9 +68,9 @@ body {
    ==================================== */
 
 .sidebar {
-  width: 400px;        /* Было 350px */
-  min-width: 380px;    /* Было 320px */
-  max-width: 450px;    /* Было 420px */
+  width: 450px;
+  min-width: 380px;
+  max-width: 500px;
   background: #f8f9fa;
   padding: 20px;
   overflow-y: auto;
@@ -323,8 +323,7 @@ body {
     /* Sidebar как overlay сверху */
     .sidebar {
       position: absolute;
-      top: 55px;
-      top: 0;
+      top: 5;
       left: 0;
       right: 0;
       width: 100%;

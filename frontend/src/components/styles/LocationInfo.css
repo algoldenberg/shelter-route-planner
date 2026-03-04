@@ -1,7 +1,7 @@
 .location-info {
   position: fixed;
   bottom: 80px;
-  left: 370px;
+  left: 480px;  /* Было 370px → стало 480px */
   z-index: 1001;
   display: flex;
   flex-direction: column;
@@ -61,113 +61,9 @@
 }
 
 /* ====================================
-   RESPONSIVE: DESKTOP & LARGE SCREENS
+   RESPONSIVE: MOBILE (≤768px)
    ==================================== */
 
-/* 4K Monitors (3840x2160) */
-@media (min-width: 2560px) {
-  .location-info {
-    left: 470px;
-    bottom: 90px;
-  }
-
-  .location-info__item {
-    padding: 12px 18px;
-    min-width: 160px;
-  }
-
-  .location-info__icon {
-    font-size: 28px;
-  }
-
-  .location-info__label {
-    font-size: 12px;
-  }
-
-  .location-info__value {
-    font-size: 20px;
-  }
-}
-
-/* QHD/2K Monitors (2560x1440) */
-@media (min-width: 1920px) and (max-width: 2559px) {
-  .location-info {
-    left: 420px;
-    bottom: 85px;
-  }
-}
-
-/* Full HD (1920x1080) */
-@media (min-width: 1440px) and (max-width: 1919px) {
-  .location-info {
-    left: 400px;
-  }
-}
-
-/* Laptops (1366x768, 1440x900) */
-@media (min-width: 1024px) and (max-width: 1439px) {
-  .location-info {
-    left: 360px;
-    bottom: 75px;
-  }
-
-  .location-info__item {
-    padding: 9px 14px;
-    min-width: 130px;
-  }
-
-  .location-info__icon {
-    font-size: 22px;
-  }
-
-  .location-info__value {
-    font-size: 17px;
-  }
-}
-
-/* ====================================
-   RESPONSIVE: TABLETS
-   ==================================== */
-
-/* iPad Pro 12.9" (1024x1366) */
-@media (max-width: 1024px) and (min-width: 821px) {
-  .location-info {
-    bottom: 100px;
-    left: 15px;
-    right: 15px;
-    flex-direction: row;
-    justify-content: center;
-  }
-
-  .location-info__item {
-    flex: 1;
-    max-width: 200px;
-  }
-}
-
-/* iPad Air, iPad Mini (768x1024, 820x1180) */
-@media (max-width: 820px) and (min-width: 769px) {
-  .location-info {
-    bottom: 95px;
-    left: 12px;
-    right: 12px;
-    flex-direction: row;
-    justify-content: center;
-    gap: 10px;
-  }
-
-  .location-info__item {
-    flex: 1;
-    max-width: 180px;
-    padding: 9px 13px;
-  }
-}
-
-/* ====================================
-   RESPONSIVE: MOBILE PHONES
-   ==================================== */
-
-/* All phones (base) */
 @media (max-width: 768px) {
   .location-info {
     bottom: 150px;
@@ -195,102 +91,5 @@
 
   .location-info__value {
     font-size: 16px;
-  }
-}
-
-/* Small phones (iPhone SE, 12 Mini - 375x667) */
-@media (max-width: 480px) {
-  .location-info {
-    bottom: 145px;
-    gap: 6px;
-  }
-
-  .location-info__item {
-    padding: 7px 10px;
-  }
-
-  .location-info__icon {
-    font-size: 18px;
-  }
-
-  .location-info__label {
-    font-size: 9px;
-  }
-
-  .location-info__value {
-    font-size: 15px;
-  }
-}
-
-/* iPhone 14 Pro Max, 15 Pro Max (430x932) */
-@media (max-width: 430px) and (min-height: 850px) {
-  .location-info {
-    bottom: 170px;
-  }
-}
-
-/* iPhone 14 Pro, 15 Pro (393x852) */
-@media (max-width: 393px) and (min-height: 800px) {
-  .location-info {
-    bottom: 165px;
-  }
-}
-
-/* Samsung Galaxy S21/S22 Ultra (412x915) */
-@media (max-width: 412px) and (min-height: 850px) {
-  .location-info {
-    bottom: 168px;
-  }
-}
-
-/* Pixel 7 Pro (412x892) */
-@media (max-width: 412px) and (min-height: 850px) and (max-height: 900px) {
-  .location-info {
-    bottom: 168px;
-  }
-}
-
-/* Very small phones (Galaxy Fold closed - 280x653) */
-@media (max-width: 320px) {
-  .location-info {
-    bottom: 140px;
-    gap: 5px;
-  }
-
-  .location-info__item {
-    padding: 6px 8px;
-  }
-
-  .location-info__icon {
-    font-size: 16px;
-  }
-
-  .location-info__label {
-    font-size: 8px;
-  }
-
-  .location-info__value {
-    font-size: 14px;
-  }
-}
-
-/* Landscape mode on mobile */
-@media (max-width: 768px) and (orientation: landscape) {
-  .location-info {
-    bottom: 80px;
-    left: 8px;
-    right: 8px;
-  }
-
-  .location-info__item {
-    padding: 6px 10px;
-  }
-
-  .location-info__icon {
-    font-size: 18px;
-  }
-
-  .location-info__value {
-    font-size: 14px;
   }
 }
