@@ -176,57 +176,57 @@
 
    @media (max-width: 768px) {
     .route-builder {
-      padding: 7px;  /* 8px - 5% ≈ 7px */
+      padding: 6px;
     }
   
     .route-builder h2 {
-      font-size: 0.85rem;  /* 0.9rem - 5% */
-      margin-bottom: 7px;  /* 8px - 5% */
+      font-size: 0.8rem;
+      margin-bottom: 6px;
     }
   
     .route-point {
-      gap: 9px;  /* 10px - 5% */
-      margin-bottom: 7px;  /* 8px - 5% */
+      gap: 8px;
+      margin-bottom: 6px;
     }
   
     .point-indicator {
-      width: 7px;  /* 8px - 5% */
-      height: 7px;
+      width: 6px;
+      height: 6px;
     }
   
     .point-content {
-      gap: 5px;
+      gap: 4px;
       padding: 2px;
     }
   
     .location-input {
-      font-size: 0.8rem;
-      padding: 7px 9px;
+      font-size: 0.75rem;
+      padding: 6px 8px;
     }
   
     .btn-icon {
-      padding: 5px 9px;
-      font-size: 0.95rem;
+      padding: 4px 8px;
+      font-size: 0.9rem;
     }
   
     .btn-clear-input {
-      font-size: 13px;
-      padding: 2px 4px;
+      font-size: 12px;
+      padding: 1px 3px;
     }
   
     .route-actions {
-      gap: 5px;
-      margin-top: 7px;
+      gap: 4px;
+      margin-top: 6px;
     }
   
     .btn-calculate {
-      padding: 8px 13px;
-      font-size: 0.8rem;
+      padding: 7px 12px;
+      font-size: 0.75rem;
     }
   
     .btn-clear-simple {
-      padding: 8px 13px;
-      font-size: 0.75rem;
+      padding: 7px 12px;
+      font-size: 0.7rem;
     }
   }
 /* ====================================
