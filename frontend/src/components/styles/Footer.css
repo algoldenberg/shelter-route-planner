@@ -45,100 +45,9 @@
 }
 
 /* ====================================
-   RESPONSIVE: DESKTOP & LARGE SCREENS
+   RESPONSIVE: MOBILE (≤768px)
    ==================================== */
 
-/* 4K Monitors (3840x2160) */
-@media (min-width: 2560px) {
-  .footer {
-    padding: 20px 30px;
-  }
-
-  .footer-content {
-    max-width: 1600px;
-    gap: 12px;
-    font-size: 1rem;
-  }
-
-  .footer-license {
-    font-size: 0.9rem;
-  }
-}
-
-/* QHD/2K Monitors (2560x1440) */
-@media (min-width: 1920px) and (max-width: 2559px) {
-  .footer {
-    padding: 18px 25px;
-  }
-
-  .footer-content {
-    max-width: 1400px;
-    gap: 10px;
-    font-size: 0.9rem;
-  }
-}
-
-/* Full HD (1920x1080) */
-@media (min-width: 1440px) and (max-width: 1919px) {
-  .footer-content {
-    max-width: 1300px;
-  }
-}
-
-/* Laptops (1366x768, 1440x900) */
-@media (min-width: 1024px) and (max-width: 1439px) {
-  .footer {
-    padding: 14px 18px;
-  }
-
-  .footer-content {
-    max-width: 1100px;
-    font-size: 0.8rem;
-    gap: 7px;
-  }
-
-  .footer-license {
-    font-size: 0.75rem;
-  }
-}
-
-/* ====================================
-   RESPONSIVE: TABLETS
-   ==================================== */
-
-/* iPad Pro 12.9" (1024x1366) */
-@media (max-width: 1024px) and (min-width: 821px) {
-  .footer {
-    padding: 14px 20px;
-  }
-
-  .footer-content {
-    font-size: 0.8rem;
-    gap: 7px;
-  }
-}
-
-/* iPad Air, iPad Mini (768x1024, 820x1180) */
-@media (max-width: 820px) and (min-width: 769px) {
-  .footer {
-    padding: 13px 18px;
-  }
-
-  .footer-content {
-    font-size: 0.78rem;
-    gap: 6px;
-  }
-
-  .footer-license {
-    font-size: 0.73rem;
-  }
-}
-
-/* ====================================
-   RESPONSIVE: MOBILE PHONES
-   ==================================== */
-
-/* All phones (base) */
 @media (max-width: 768px) {
   .footer {
     padding: 12px 15px;
@@ -155,14 +64,8 @@
     flex-wrap: wrap;
   }
 
-  .footer-text {
-    font-size: 0.7rem;
-  }
-
-  .footer-divider {
-    font-size: 0.7rem;
-  }
-
+  .footer-text,
+  .footer-divider,
   .footer-link {
     font-size: 0.7rem;
   }
@@ -172,101 +75,10 @@
   }
 }
 
-/* Small phones (iPhone SE, 12 Mini - 375x667) */
-@media (max-width: 480px) {
-  .footer {
-    padding: 10px 12px;
-  }
+/* ====================================
+   TOUCH DEVICES
+   ==================================== */
 
-  .footer-content {
-    font-size: 0.65rem;
-    gap: 4px;
-  }
-
-  .footer-text {
-    font-size: 0.65rem;
-  }
-
-  .footer-divider {
-    font-size: 0.65rem;
-  }
-
-  .footer-link {
-    font-size: 0.65rem;
-  }
-
-  .footer-license {
-    font-size: 0.6rem;
-  }
-}
-
-/* iPhone 14 Pro Max, 15 Pro Max (430x932) */
-@media (max-width: 430px) and (min-height: 850px) {
-  .footer {
-    padding: 11px 13px;
-  }
-
-  .footer-content {
-    font-size: 0.68rem;
-  }
-}
-
-/* iPhone 14 Pro, 15 Pro (393x852) */
-@media (max-width: 393px) and (min-height: 800px) {
-  .footer {
-    padding: 10px 12px;
-  }
-}
-
-/* Samsung Galaxy S21/S22 Ultra (412x915) */
-@media (max-width: 412px) and (min-height: 850px) {
-  .footer-content {
-    gap: 4px;
-  }
-}
-
-/* Very small phones (Galaxy Fold closed - 280x653) */
-@media (max-width: 320px) {
-  .footer {
-    padding: 8px 10px;
-  }
-
-  .footer-content {
-    font-size: 0.6rem;
-    gap: 3px;
-  }
-
-  .footer-text {
-    font-size: 0.6rem;
-  }
-
-  .footer-divider {
-    font-size: 0.6rem;
-    display: none; /* Hide dividers on very small screens */
-  }
-
-  .footer-link {
-    font-size: 0.6rem;
-  }
-
-  .footer-license {
-    font-size: 0.55rem;
-  }
-}
-
-/* Landscape mode on mobile */
-@media (max-width: 768px) and (orientation: landscape) {
-  .footer {
-    padding: 8px 12px;
-  }
-
-  .footer-content {
-    font-size: 0.65rem;
-    gap: 4px;
-  }
-}
-
-/* Touch devices - ensure links are tappable */
 @media (hover: none) and (pointer: coarse) {
   .footer-link {
     padding: 4px 6px;
