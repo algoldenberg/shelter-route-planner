@@ -329,7 +329,7 @@ body {
       width: 100%;
       max-width: 100%;
       height: auto;
-      max-height: 28vh;      /* Было 35vh → стало 28vh */
+      max-height: 28vh;
       overflow-y: auto;
       z-index: 1000;
       background: white;
@@ -347,7 +347,40 @@ body {
       height: 100vh;
     }
   
-    image.png
+    /* Tabs внизу НАД футером - ВСЕГДА ВИДНЫ */
+    .tabs {
+      position: fixed !important;
+      display: flex !important;
+      bottom: 65px;
+      left: 0;
+      right: 0;
+      z-index: 2500 !important;
+      background: white;
+      margin: 0;
+      border-top: 2px solid #e0e0e0;
+      border-bottom: none;
+      box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.15);
+      padding: 10px;
+      border-radius: 0;
+      gap: 8px;
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
+  
+    .tab {
+      padding: 12px 10px;
+      border-bottom: none;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      flex: 1;
+      background: #f5f5f5;
+    }
+  
+    .tab--active {
+      background: #667eea !important;
+      color: white !important;
+      border-bottom: none;
+    }
   
     /* Stats компактнее */
     .stats,
@@ -373,8 +406,17 @@ body {
     .info {
       display: none;
     }
+  
+    /* Footer */
+    .footer {
+      padding: 12px 15px;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1500;
+    }
   }
-
 /* ====================================
    TOUCH DEVICES
    ==================================== */
