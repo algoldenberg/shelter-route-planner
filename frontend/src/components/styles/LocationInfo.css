@@ -1,7 +1,7 @@
 .location-info {
   position: fixed;
-  bottom: 20px;
-  left: 370px; /* Справа от sidebar (350px + 20px отступ) */
+  bottom: 80px;
+  left: 370px;
   z-index: 1001;
   display: flex;
   flex-direction: column;
@@ -63,7 +63,7 @@
 /* Mobile styles */
 @media (max-width: 768px) {
   .location-info {
-    bottom: 70px;
+    bottom: 130px; /* НАД табами (60px) + табы (60px) + отступ (10px) */
     left: 10px;
     right: 10px;
     flex-direction: row;
@@ -93,18 +93,18 @@
 /* Large desktops - adjust for wider sidebar */
 @media (min-width: 2560px) {
   .location-info {
-    left: 470px; /* Sidebar 450px + 20px */
+    left: 470px;
   }
 }
 
 @media (min-width: 1920px) and (max-width: 2559px) {
   .location-info {
-    left: 420px; /* Sidebar 400px + 20px */
+    left: 420px;
   }
 }
 
 @media (min-width: 1024px) and (max-width: 1439px) {
   .location-info {
-    left: 360px; /* Sidebar 340px + 20px */
+    left: 360px;
   }
 }

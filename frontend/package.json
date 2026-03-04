@@ -1,7 +1,11 @@
 {
-  "name": "frontend",
+
+  "name": "shelter-route-planner-frontend",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "Alex Goldenberg",
+  "description": "Find safe routes through bomb shelters in Israel",
   "private": true,
-  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",

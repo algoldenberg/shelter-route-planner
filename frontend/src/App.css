@@ -449,7 +449,7 @@ body {
   }
 
   .sidebar {
-    padding-bottom: 55px; /* Уменьшить отступ для табов */
+    padding-bottom: 55px;
   }
 }
 
@@ -503,7 +503,7 @@ body {
   select,
   textarea {
     min-height: 44px;
-    font-size: 16px; /* Prevents zoom on iOS */
+    font-size: 16px;
   }
 
   .leaflet-control-zoom a {
@@ -534,11 +534,11 @@ body {
   }
 }
 
-/* Fixed bottom tabs on mobile */
+/* Fixed bottom tabs on mobile - НАД ФУТЕРОМ */
 @media (max-width: 768px) {
   .tabs {
     position: fixed;
-    bottom: 0;
+    bottom: 60px; /* Увеличено с 50px до 60px */
     left: 0;
     right: 0;
     z-index: 2000;
@@ -588,4 +588,24 @@ body {
 
 .btn-clear-route:active {
   transform: translateY(0);
+}
+
+/* Make app container flex to push footer down */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-container {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+/* Mobile footer spacing */
+@media (max-width: 768px) {
+  .app-container {
+    margin-bottom: 0;
+  }
 }

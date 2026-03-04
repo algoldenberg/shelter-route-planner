@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Map from './components/Map';
 import ShelterSearch from './components/ShelterSearch';
 import RouteBuilder from './components/RouteBuilder';
+import Footer from './components/Footer';
 import { getNearbyShelters, calculateRoute } from './services/api';
 import './App.css';
 
@@ -286,12 +287,6 @@ function App() {
               )}
             </>
           )}
-
-          <div className="info">
-            <h3>ℹ️ About</h3>
-            <p><strong>12,234 shelters</strong> across Israel</p>
-            <p>Data source: <a href="https://t.me/+w1e0O207iQkxYTcy" target="_blank" rel="noopener noreferrer">Public Shelters in Israel</a></p>
-          </div>
         </aside>
 
         <main className="map-container">
@@ -310,6 +305,8 @@ function App() {
           />
         </main>
       </div>
+
+      <Footer />
     </div>
   );
 }
