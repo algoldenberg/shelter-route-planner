@@ -1,8 +1,8 @@
 """
 Shelter data model
 """
-from typing import Optional
-from pydantic import BaseModel, Field
+from typing import Optional, Dict, List
+from pydantic import BaseModel, Field, field_validator
 from bson import ObjectId
 
 
@@ -24,49 +24,27 @@ class PyObjectId(ObjectId):
         field_schema.update(type="string")
 
 
+class LocationModel(BaseModel):
+    """GeoJSON Point location"""
+    type: str = "Point"
+    coordinates: List[float]  # [longitude, latitude]
+
+
 class ShelterModel(BaseModel):
-    """Shelter document model"""
+    """Shelter document model for MongoDB"""
     
     id: Optional[PyObjectId] = Field(default=None, alias="_id")
     name: str = Field(..., description="Shelter name or address")
-    street: Optional[str] = Field(None, description="Street address in Hebrew")
-    latitude: float = Field(..., ge=-90, le=90, description="Latitude coordinate")
-    longitude: float = Field(..., ge=-180, le=180, description="Longitude coordinate")
-    distance_to_shelter: Optional[float] = Field(None, description="Distance to shelter in meters")
-    color: Optional[str] = Field(None, description="Marker color (green/orange)")
-    original_id: Optional[int] = Field(None, description="Original ID from source data")
-    type: str = Field(default="public_shelter", description="Shelter type")
-    source: str = Field(default="Public Shelters in Israel - Google My Maps")
-    source_url: str = Field(default="https://t.me/+w1e0O207iQkxYTcy")
+    address: str = Field(..., description="Street address")
+    city: str = Field(default="Israel", description="City name")
+    capacity: int = Field(default=50, description="Shelter capacity")
+    accessible: bool = Field(default=True, description="Accessibility")
+    location: LocationModel = Field(..., description="GeoJSON Point")
     
     class Config:
         populate_by_name = True
         arbitrary_types_allowed = True
         json_encoders = {ObjectId: str}
-        json_schema_extra = {
-            "example": {
-                "name": "0 0",
-                "street": "בועז 22",
-                "latitude": 32.0493326915678,
-                "longitude": 34.7952310321176,
-                "distance_to_shelter": 28.0,
-                "color": "green",
-                "original_id": 121,
-                "type": "public_shelter"
-            }
-        }
-
-
-class ShelterCreate(BaseModel):
-    """Schema for creating a new shelter"""
-    
-    name: str
-    street: Optional[str] = None
-    latitude: float = Field(..., ge=-90, le=90)
-    longitude: float = Field(..., ge=-180, le=180)
-    distance_to_shelter: Optional[float] = None
-    color: Optional[str] = None
-    type: str = "public_shelter"
 
 
 class ShelterResponse(BaseModel):
@@ -74,12 +52,26 @@ class ShelterResponse(BaseModel):
     
     id: str = Field(..., alias="_id")
     name: str
-    street: Optional[str] = None
+    address: str
+    city: str
+    capacity: int
+    accessible: bool
     latitude: float
     longitude: float
-    distance_to_shelter: Optional[float] = None
-    color: Optional[str] = None
-    type: str
+    
+    @classmethod
+    def from_mongo(cls, shelter: dict):
+        """Convert MongoDB document to response model"""
+        return cls(
+            _id=str(shelter["_id"]),
+            name=shelter["name"],
+            address=shelter.get("address", "Unknown"),
+            city=shelter.get("city", "Israel"),
+            capacity=shelter.get("capacity", 50),
+            accessible=shelter.get("accessible", True),
+            latitude=shelter["location"]["coordinates"][1],  # coordinates = [lon, lat]
+            longitude=shelter["location"]["coordinates"][0]
+        )
     
     class Config:
         populate_by_name = True

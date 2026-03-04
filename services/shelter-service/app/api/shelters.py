@@ -38,10 +38,8 @@ async def get_nearby_shelters(
     
     shelters = await shelters_collection.find(query).limit(limit).to_list(limit)
     
-    for shelter in shelters:
-        shelter["_id"] = str(shelter["_id"])
-    
-    return shelters
+    # Convert to response model
+    return [ShelterResponse.from_mongo(shelter) for shelter in shelters]
 
 
 @router.get("/stats/count")
@@ -70,10 +68,8 @@ async def get_shelters(
     
     shelters = await shelters_collection.find().skip(skip).limit(limit).to_list(limit)
     
-    for shelter in shelters:
-        shelter["_id"] = str(shelter["_id"])
-    
-    return shelters
+    # Convert to response model
+    return [ShelterResponse.from_mongo(shelter) for shelter in shelters]
 
 
 @router.get("/{shelter_id}", response_model=ShelterResponse)
@@ -94,6 +90,5 @@ async def get_shelter(shelter_id: str):
     if not shelter:
         raise HTTPException(status_code=404, detail="Shelter not found")
     
-    shelter["_id"] = str(shelter["_id"])
-    
-    return shelter
+    # Convert to response model
+    return ShelterResponse.from_mongo(shelter)
