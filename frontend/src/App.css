@@ -412,7 +412,7 @@ body {
       font-size: 0.65rem;
     }
   
-    /* Sidebar компактный */
+    /* Sidebar компактный - чуть больше чтобы всё влезло */
     .sidebar {
       position: absolute;
       top: 45px;
@@ -421,7 +421,7 @@ body {
       width: 100%;
       max-width: 100%;
       height: auto;
-      max-height: 22vh;
+      max-height: 28vh;  /* Было 22vh → стало 28vh */
       overflow-y: auto;
       z-index: 1000;
       background: white;
@@ -462,15 +462,7 @@ body {
       height: 100vh;
     }
   
-    /* Footer */
-    .footer {
-      padding: 8px 10px;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 1500;
-    }
+    /* Footer - убрали стили, они теперь в Footer.css */
   }
 /* ====================================
    PRINT
