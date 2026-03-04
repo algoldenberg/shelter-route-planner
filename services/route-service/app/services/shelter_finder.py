@@ -70,17 +70,21 @@ class ShelterFinder:
                 
                 seen_shelter_ids.add(shelter_id)
                 
+                # Extract coordinates from GeoJSON structure
+                shelter_lon = shelter["location"]["coordinates"][0]
+                shelter_lat = shelter["location"]["coordinates"][1]
+                
                 distance_from_start = self._calculate_distance_along_route(
                     route_coordinates,
-                    [shelter["longitude"], shelter["latitude"]]
+                    [shelter_lon, shelter_lat]
                 )
                 
                 shelter_on_route = ShelterOnRoute(
                     id=shelter_id,
                     name=shelter.get("name", "Unknown"),
-                    street=shelter.get("street"),
-                    latitude=shelter["latitude"],
-                    longitude=shelter["longitude"],
+                    street=shelter.get("address", "Unknown"),
+                    latitude=shelter_lat,
+                    longitude=shelter_lon,
                     distance_from_start=distance_from_start,
                     type=shelter.get("type", "public_shelter")
                 )
