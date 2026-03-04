@@ -37,9 +37,9 @@ app = FastAPI(
 )
 
 app.include_router(
-    routes.router,
-    prefix=f"{settings.api_prefix}/routes",
-    tags=["routes"]
+    comments.router,
+    prefix="/comments",
+    tags=["comments"]
 )
 
 

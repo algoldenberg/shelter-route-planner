@@ -38,7 +38,7 @@ app = FastAPI(
 
 app.include_router(
     walking_routes.router,
-    prefix=f"{settings.api_prefix}/walking-routes",
+    prefix="/walking-route",
     tags=["walking-routes"]
 )
 

@@ -33,7 +33,7 @@ app = FastAPI(
 # Include routers
 app.include_router(
     shelters.router,
-    prefix=f"{settings.api_prefix}/shelters",
+    prefix="/shelters",
     tags=["shelters"]
 )
 
