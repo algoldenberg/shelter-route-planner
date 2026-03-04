@@ -6,16 +6,15 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        // Добавляем timestamp к CSS для cache busting
         assetFileNames: (assetInfo) => {
+          const timestamp = Date.now()
           if (assetInfo.name.endsWith('.css')) {
-            return `assets/[name]-[hash]-${Date.now()}[extname]`
+            return `assets/[name]-${timestamp}[extname]`
           }
-          return 'assets/[name]-[hash][extname]'
+          return `assets/[name]-[hash][extname]`
         },
-        // Также для JS файлов
-        entryFileNames: `assets/[name]-[hash]-${Date.now()}.js`,
-        chunkFileNames: `assets/[name]-[hash]-${Date.now()}.js`
+        entryFileNames: `assets/[name]-${Date.now()}.js`,
+        chunkFileNames: `assets/[name]-${Date.now()}.js`
       }
     }
   }
