@@ -27,12 +27,12 @@ export const getNearbyShelters = async (latitude, longitude, radius = 1000, limi
 
 // Comment endpoints
 export const getShelterComments = async (shelterId) => {
-  const response = await api.get(`/shelters/${shelterId}/comments`);
+  const response = await api.get(`/comments/shelters/${shelterId}`);
   return response.data;
 };
 
 export const addShelterComment = async (shelterId, comment) => {
-  const response = await api.post(`/shelters/${shelterId}/comments`, comment);
+  const response = await api.post(`/comments/shelters/${shelterId}`, comment);
   return response.data;
 };
 
@@ -45,15 +45,15 @@ export const calculateRoute = async (start, end, includeShelters = true, maxShel
     max_shelters: maxShelters,
   };
   
-  console.log('🚀 Calculating route with payload:', payload); // ← Добавь
+  console.log('🚀 Calculating route with payload:', payload);
   
-  const response = await api.post('/routes/calculate', payload);
+  const response = await api.post('/route/calculate', payload);
   return response.data;
 };
 
 // Walking route endpoints
 export const calculateCircularRoute = async (start, distanceKm, preferences, maxPois = 5, includeShelters = true) => {
-  const response = await api.post(`/walking-routes/circular`, {
+  const response = await api.post(`/walking-route/circular`, {
     start,
     distance_km: distanceKm,
     preferences,
