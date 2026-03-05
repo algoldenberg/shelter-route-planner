@@ -27,7 +27,7 @@ app = FastAPI(
 
 app.include_router(
     comments.router,
-    prefix="",
+    prefix="/comments",
     tags=["comments"]
 )
 
