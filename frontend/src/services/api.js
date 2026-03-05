@@ -27,12 +27,12 @@ export const getNearbyShelters = async (latitude, longitude, radius = 1000, limi
 
 // Comment endpoints
 export const getShelterComments = async (shelterId) => {
-  const response = await api.get(`/comments/shelters/${shelterId}`);
+  const response = await api.get(`/comments/shelters/${shelterId}/comments`);  // Добавил /comments
   return response.data;
 };
 
 export const addShelterComment = async (shelterId, comment) => {
-  const response = await api.post(`/comments/shelters/${shelterId}`, comment);
+  const response = await api.post(`/comments/shelters/${shelterId}/comments`, comment);  // Добавил /comments
   return response.data;
 };
 
