@@ -28,7 +28,7 @@ const ShelterPopup = ({ shelter, onBuildRoute, currentLocation }) => {
 
   const calculateDistance = () => {
     if (currentLocation) {
-      const R = 6371; // Earth radius in km
+      const R = 6371;
       const dLat = (shelter.latitude - currentLocation[0]) * Math.PI / 180;
       const dLon = (shelter.longitude - currentLocation[1]) * Math.PI / 180;
       const a = 
@@ -47,9 +47,9 @@ const ShelterPopup = ({ shelter, onBuildRoute, currentLocation }) => {
 
     try {
       await addShelterComment(shelter._id || shelter.id, {
-        comment: newComment.text,     // ← text → comment
+        comment: newComment.text,
         rating: newComment.rating,
-        username: newComment.author || 'Anonymous'  // ← author → username
+        username: newComment.author || 'Anonymous'
       });
       setNewComment({ text: '', rating: 5, author: '' });
       setShowCommentForm(false);
@@ -60,13 +60,19 @@ const ShelterPopup = ({ shelter, onBuildRoute, currentLocation }) => {
     }
   };
 
+  // Touch event handlers
+  const handleTouchButton = (callback) => (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    callback();
+  };
+
   const averageRating = comments.length > 0
     ? (comments.reduce((sum, c) => sum + c.rating, 0) / comments.length).toFixed(1)
     : null;
 
   return (
     <div className="shelter-popup">
-      {/* Header */}
       <div className="shelter-popup__header">
         <h3 className="shelter-popup__title">
           🛡️ {shelter.name || 'Unnamed Shelter'}
@@ -80,7 +86,6 @@ const ShelterPopup = ({ shelter, onBuildRoute, currentLocation }) => {
         )}
       </div>
 
-      {/* Info */}
       <div className="shelter-popup__info">
         {shelter.street && (
           <p className="info-item">
@@ -115,7 +120,6 @@ const ShelterPopup = ({ shelter, onBuildRoute, currentLocation }) => {
         </p>
       </div>
 
-      {/* Actions */}
       <div className="shelter-popup__actions">
         <button
           className="btn btn--primary"
@@ -125,6 +129,11 @@ const ShelterPopup = ({ shelter, onBuildRoute, currentLocation }) => {
               onBuildRoute(shelter.latitude, shelter.longitude);
             }
           }}
+          onTouchEnd={handleTouchButton(() => {
+            if (onBuildRoute) {
+              onBuildRoute(shelter.latitude, shelter.longitude);
+            }
+          })}
         >
           🗺️ Build Route Here
         </button>
@@ -136,24 +145,27 @@ const ShelterPopup = ({ shelter, onBuildRoute, currentLocation }) => {
             const url = `https://www.google.com/maps/dir/?api=1&destination=${shelter.latitude},${shelter.longitude}`;
             window.open(url, '_blank');
           }}
+          onTouchEnd={handleTouchButton(() => {
+            const url = `https://www.google.com/maps/dir/?api=1&destination=${shelter.latitude},${shelter.longitude}`;
+            window.open(url, '_blank');
+          })}
         >
           📍 Open in Google Maps
         </button>
       </div>
 
-      {/* Comments Section */}
       <div className="shelter-popup__comments">
         <div className="comments-header">
           <h4>💬 Comments ({comments.length})</h4>
           <button 
             className="btn-text"
             onClick={() => setShowCommentForm(!showCommentForm)}
+            onTouchEnd={handleTouchButton(() => setShowCommentForm(!showCommentForm))}
           >
             {showCommentForm ? 'Cancel' : '+ Add Comment'}
           </button>
         </div>
 
-        {/* Comment Form */}
         {showCommentForm && (
           <form className="comment-form" onSubmit={handleSubmitComment}>
             <div className="form-group">
@@ -184,13 +196,20 @@ const ShelterPopup = ({ shelter, onBuildRoute, currentLocation }) => {
                 required
               />
             </div>
-            <button type="submit" className="btn btn--primary btn--small">
+            <button 
+              type="submit" 
+              className="btn btn--primary btn--small"
+              onTouchEnd={handleTouchButton((e) => {
+                if (newComment.text.trim()) {
+                  handleSubmitComment(e || new Event('submit'));
+                }
+              })}
+            >
               Submit Comment
             </button>
           </form>
         )}
 
-        {/* Comments List */}
         {loading ? (
           <p className="loading-text">Loading comments...</p>
         ) : comments.length === 0 ? (
@@ -200,7 +219,7 @@ const ShelterPopup = ({ shelter, onBuildRoute, currentLocation }) => {
             {comments.map((comment) => (
               <div key={comment._id} className="comment">
                 <div className="comment-header">
-                <span className="comment-author">{comment.username}</span>
+                  <span className="comment-author">{comment.username}</span>
                   <span className="comment-rating">{'⭐'.repeat(comment.rating)}</span>
                 </div>
                 <p className="comment-text">{comment.comment}</p>
