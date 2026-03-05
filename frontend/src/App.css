@@ -309,6 +309,11 @@ body {
   /* Header компактнее */
   .app-header {
     padding: 8px 14px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2000;
   }
 
   .app-header h1 {
