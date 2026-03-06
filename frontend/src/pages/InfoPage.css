@@ -1,0 +1,305 @@
+.info-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #e4e4e7;
+    overflow-y: auto;
+    z-index: 3000;
+    line-height: 1.6;
+  }
+  
+  .info-page .close-btn {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 3001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+  
+  .info-page .close-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+  }
+  
+  /* Container */
+  .info-page .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    padding-top: 80px;
+  }
+  
+  /* Header */
+  .info-page .header {
+    text-align: center;
+    padding: 30px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .info-page .header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    background: linear-gradient(90deg, #60a5fa, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Language Tabs */
+  .info-page .lang-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .info-page .lang-tab {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.05);
+    color: #a1a1aa;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .info-page .lang-tab:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #e4e4e7;
+  }
+  
+  .info-page .lang-tab.active {
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  }
+  
+  /* Content */
+  .info-page .content {
+    display: none;
+    animation: fadeIn 0.4s ease;
+  }
+  
+  .info-page .content.active {
+    display: block;
+  }
+  
+  .info-page .content[data-lang="he"] {
+    direction: rtl;
+    text-align: right;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Sections */
+  .info-page .section {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  
+  .info-page .section-title {
+    font-size: 1.3rem;
+    margin-bottom: 16px;
+    color: #60a5fa;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .info-page .content[data-lang="he"] .section-title {
+    flex-direction: row-reverse;
+  }
+  
+  /* Feature Cards */
+  .info-page .feature {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+    border-left: 3px solid #8b5cf6;
+  }
+  
+  .info-page .content[data-lang="he"] .feature {
+    border-left: none;
+    border-right: 3px solid #8b5cf6;
+  }
+  
+  .info-page .feature-title {
+    font-weight: 600;
+    color: #a78bfa;
+    margin-bottom: 8px;
+  }
+  
+  .info-page .feature ul {
+    margin-left: 20px;
+    color: #a1a1aa;
+  }
+  
+  .info-page .content[data-lang="he"] .feature ul {
+    margin-left: 0;
+    margin-right: 20px;
+  }
+  
+  .info-page .feature li {
+    margin-bottom: 4px;
+  }
+  
+  /* Success box */
+  .info-page .success {
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: #86efac;
+    margin-top: 12px;
+  }
+  
+  /* Contact */
+  .info-page .contact {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+    border: 1px solid rgba(139, 92, 246, 0.2);
+  }
+  
+  .info-page .contact-title {
+    color: #a78bfa;
+    margin-bottom: 16px;
+    font-size: 1.2rem;
+  }
+  
+  .info-page .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .info-page .contact-link {
+    color: #60a5fa;
+    text-decoration: none;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+  
+  .info-page .contact-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Footer */
+  .info-page .footer {
+    text-align: center;
+    padding: 30px 0;
+    color: #71717a;
+    font-size: 0.9rem;
+  }
+  
+  .info-page .footer .shield {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  /* Phone Section */
+  .info-page .phone-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  
+  .info-page .phone-card {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    padding: 16px;
+  }
+  
+  .info-page .phone-card-title {
+    color: #fbbf24;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .info-page .phone-card ol {
+    margin-left: 20px;
+    color: #a1a1aa;
+  }
+  
+  .info-page .content[data-lang="he"] .phone-card ol {
+    margin-left: 0;
+    margin-right: 20px;
+  }
+  
+  .info-page .phone-card li {
+    margin-bottom: 4px;
+  }
+  
+  /* Mobile */
+  @media (max-width: 768px) {
+    .info-page .container {
+      padding: 15px;
+      padding-top: 70px;
+    }
+  
+    .info-page .close-btn {
+      top: 70px;
+      right: 15px;
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+    }
+  
+    .info-page .header h1 {
+      font-size: 1.5rem;
+    }
+  
+    .info-page .lang-tab {
+      padding: 10px 18px;
+      font-size: 0.9rem;
+    }
+  
+    .info-page .section {
+      padding: 18px;
+    }
+  
+    .info-page .section-title {
+      font-size: 1.1rem;
+    }
+  
+    .info-page .phone-section {
+      grid-template-columns: 1fr;
+    }
+  }

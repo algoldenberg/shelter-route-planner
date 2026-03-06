@@ -1,0 +1,39 @@
+.info-btn {
+    position: fixed;
+    right: 20px;
+    bottom: 280px; /* Было 220px, стало 280px - ниже кнопки + */
+    width: 50px;
+    height: 50px;
+    background: white;
+    border: 2px solid #2196F3;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1500;
+    transition: all 0.3s ease;
+  }
+  
+  .info-btn:hover {
+    background: #2196F3;
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(33, 150, 243, 0.3);
+  }
+  
+  .info-btn:active {
+    transform: scale(0.95);
+  }
+  
+  /* Mobile */
+  @media (max-width: 768px) {
+    .info-btn {
+      right: 15px;
+      bottom: 240px;
+      width: 44px;
+      height: 44px;
+      font-size: 20px;
+    }
+  }

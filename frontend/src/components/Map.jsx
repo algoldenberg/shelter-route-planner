@@ -1,5 +1,6 @@
 import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap, useMapEvents, Circle } from 'react-leaflet';
 import { useEffect, useState, createRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import ShelterPopup from './ShelterPopup';
@@ -7,6 +8,7 @@ import BottomSheet from './BottomSheet';
 import LocationInfo from './LocationInfo';
 import AddShelterButton from './AddShelterButton';
 import AddShelterModal from './AddShelterModal';
+import InfoButton from './InfoButton';
 import './styles/MapControls.css';
 import React from 'react';
 import { submitNewShelter } from '../services/api';
@@ -107,7 +109,6 @@ function LocationTracker({ followMode, onLocationUpdate, onFollowModeChange }) {
   const [isUserDragging, setIsUserDragging] = useState(false);
   const map = useMap();
 
-  // Disable follow mode when user manually drags the map
   useEffect(() => {
     if (!followMode) return;
 
@@ -135,7 +136,6 @@ function LocationTracker({ followMode, onLocationUpdate, onFollowModeChange }) {
       return;
     }
 
-    // Quick initial position
     navigator.geolocation.getCurrentPosition(
       (pos) => {
         const newPos = { lat: pos.coords.latitude, lng: pos.coords.longitude };
@@ -149,7 +149,6 @@ function LocationTracker({ followMode, onLocationUpdate, onFollowModeChange }) {
       { enableHighAccuracy: false, timeout: 1000, maximumAge: 60000 }
     );
 
-    // High accuracy watch
     const watchId = navigator.geolocation.watchPosition(
       (pos) => {
         const newPos = { lat: pos.coords.latitude, lng: pos.coords.longitude };
@@ -218,6 +217,7 @@ const Map = ({
   onFollowModeEnabled = null,
   activeTab = 'shelters'
 }) => {
+  const navigate = useNavigate();
   const [selectedShelter, setSelectedShelter] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [followMode, setFollowMode] = useState(false);
@@ -258,7 +258,6 @@ const Map = ({
   };
 
   const handleMapClickInternal = (lat, lng, mode) => {
-    // If picking location for new shelter
     if (isPickingLocation) {
       setPickedLocation({ latitude: lat, longitude: lng });
       setIsPickingLocation(false);
@@ -266,7 +265,6 @@ const Map = ({
       return;
     }
 
-    // Original route builder logic
     if (onMapClick) {
       onMapClick(lat, lng, mode);
     }
@@ -278,7 +276,7 @@ const Map = ({
     try {
       const response = await submitNewShelter({
         name: formData.name,
-        address: formData.address || `${formData.latitude}, ${formData.longitude}`,  // ← Фикс
+        address: formData.address || `${formData.latitude}, ${formData.longitude}`,
         latitude: parseFloat(formData.latitude),
         longitude: parseFloat(formData.longitude),
         type: formData.type,
@@ -436,6 +434,8 @@ const Map = ({
       </button>
 
       <AddShelterButton onClick={() => setShowAddShelterModal(true)} />
+
+      <InfoButton onClick={() => navigate('/info')} />
 
       {(currentPosition || center) && (
         <LocationInfo
