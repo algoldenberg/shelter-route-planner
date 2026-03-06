@@ -5,8 +5,11 @@ import L from 'leaflet';
 import ShelterPopup from './ShelterPopup';
 import BottomSheet from './BottomSheet';
 import LocationInfo from './LocationInfo';
+import AddShelterButton from './AddShelterButton';
+import AddShelterModal from './AddShelterModal';
 import './styles/MapControls.css';
 import React from 'react';
+import { submitNewShelter } from '../services/api';
 
 // Fix Leaflet default marker icon issue
 delete L.Icon.Default.prototype._getIconUrl;
@@ -220,6 +223,9 @@ const Map = ({
   const [followMode, setFollowMode] = useState(false);
   const [currentPosition, setCurrentPosition] = useState(null);
   const [mapInstance, setMapInstance] = useState(null);
+  const [showAddShelterModal, setShowAddShelterModal] = useState(false);
+  const [isPickingLocation, setIsPickingLocation] = useState(false);
+  const [pickedLocation, setPickedLocation] = useState(null);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
@@ -235,7 +241,6 @@ const Map = ({
     const newMode = !followMode;
     setFollowMode(newMode);
     
-    // Center map immediately when enabling follow mode
     if (newMode && currentPosition && mapInstance) {
       mapInstance.setView(
         [currentPosition.lat, currentPosition.lng],
@@ -243,7 +248,6 @@ const Map = ({
         { animate: true, duration: 0.5 }
       );
       
-      // Trigger search at current location
       if (onFollowModeEnabled && currentPosition) {
         onFollowModeEnabled({
           latitude: currentPosition.lat,
@@ -253,17 +257,68 @@ const Map = ({
     }
   };
 
+  const handleMapClickInternal = (lat, lng, mode) => {
+    // If picking location for new shelter
+    if (isPickingLocation) {
+      setPickedLocation({ latitude: lat, longitude: lng });
+      setIsPickingLocation(false);
+      setShowAddShelterModal(true);
+      return;
+    }
+
+    // Original route builder logic
+    if (onMapClick) {
+      onMapClick(lat, lng, mode);
+    }
+  };
+
+  const handleAddShelterSubmit = async (formData) => {
+    console.log('New shelter submitted:', formData);
+    
+    try {
+      const response = await submitNewShelter({
+        name: formData.name,
+        address: formData.address,
+        latitude: parseFloat(formData.latitude),
+        longitude: parseFloat(formData.longitude),
+        type: formData.type,
+        capacity: formData.capacity ? parseInt(formData.capacity) : null,
+        comment: formData.comment || null
+      });
+      
+      console.log('Submission response:', response);
+      setShowAddShelterModal(false);
+      setPickedLocation(null);
+      alert('✅ Thank you! Your shelter suggestion has been submitted for review.');
+    } catch (error) {
+      console.error('Failed to submit shelter:', error);
+      alert('❌ Failed to submit shelter. Please try again.');
+    }
+  };
+
+  const handlePickOnMap = (enabled) => {
+    setIsPickingLocation(enabled);
+    setShowAddShelterModal(false);
+  };
+
   return (
     <>
       <MapContainer
         center={center}
         zoom={zoom}
-        style={{ height: '100%', width: '100%', cursor: mapClickMode ? 'crosshair' : 'grab' }}
+        style={{ 
+          height: '100%', 
+          width: '100%', 
+          cursor: isPickingLocation ? 'crosshair' : (mapClickMode ? 'crosshair' : 'grab')
+        }}
         scrollWheelZoom={true}
       >
         <ChangeView center={center} zoom={zoom} routeGeometry={routeData?.geometry} />
         <SaveMapInstance onMapReady={setMapInstance} />
-        <MapClickHandler onMapClick={onMapClick} mapClickMode={mapClickMode} />
+        <MapClickHandler 
+          onMapClick={handleMapClickInternal} 
+          mapClickMode={mapClickMode || (isPickingLocation ? 'pick' : null)} 
+        />
         <MapMoveHandler onMapMove={onMapMove} />
         
         <TileLayer
@@ -271,14 +326,18 @@ const Map = ({
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
-        {mapClickMode && (
+        {(mapClickMode || isPickingLocation) && (
           <div style={{
             position: 'absolute', top: '10px', left: '50%', transform: 'translateX(-50%)',
-            zIndex: 1000, background: mapClickMode === 'start' ? '#4CAF50' : '#f44336',
+            zIndex: 1000, 
+            background: isPickingLocation ? '#667eea' : (mapClickMode === 'start' ? '#4CAF50' : '#f44336'),
             color: 'white', padding: '10px 20px', borderRadius: '8px', fontWeight: 'bold',
             boxShadow: '0 2px 8px rgba(0,0,0,0.3)', pointerEvents: 'none'
           }}>
-            {mapClickMode === 'start' ? '📍 Click map to set START point' : '🎯 Click map to set END point'}
+            {isPickingLocation 
+              ? '📍 Click on map to select shelter location' 
+              : (mapClickMode === 'start' ? '📍 Click map to set START point' : '🎯 Click map to set END point')
+            }
           </div>
         )}
 
@@ -376,6 +435,8 @@ const Map = ({
         {followMode ? '📍' : '🧭'}
       </button>
 
+      <AddShelterButton onClick={() => setShowAddShelterModal(true)} />
+
       {(currentPosition || center) && (
         <LocationInfo
           currentPosition={currentPosition}
@@ -384,20 +445,15 @@ const Map = ({
           searchCenter={!routeData ? center : null}
           showDestination={activeTab === 'route' && !!routeData}
           onShelterClick={(shelter) => {
-            console.log('Shelter clicked:', shelter);
-            
             if (isMobile) {
               setSelectedShelter(shelter);
             } else {
-              // Открываем попап для ближайшего шелтера на desktop
               if (mapInstance) {
-                // Центрируем карту на шелтер
                 mapInstance.setView([shelter.latitude, shelter.longitude], mapInstance.getZoom(), {
                   animate: true,
                   duration: 0.5
                 });
                 
-                // Находим маркер и открываем попап
                 setTimeout(() => {
                   mapInstance.eachLayer((layer) => {
                     if (layer instanceof L.Marker) {
@@ -423,6 +479,19 @@ const Map = ({
           currentLocation={center}
         />
       )}
+
+      <AddShelterModal
+        isOpen={showAddShelterModal}
+        onClose={() => {
+          setShowAddShelterModal(false);
+          setIsPickingLocation(false);
+          setPickedLocation(null);
+        }}
+        onSubmit={handleAddShelterSubmit}
+        onPickOnMap={handlePickOnMap}
+        isPickingLocation={isPickingLocation}
+        pickedLocation={pickedLocation}
+      />
     </>
   );
 };

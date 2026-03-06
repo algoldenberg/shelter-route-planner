@@ -1,6 +1,6 @@
 """
 Shelter Service - Main FastAPI application
-Handles CRUD operations for bomb shelters in Israel
+Manages bomb shelter data and locations
 """
 from fastapi import FastAPI
 from contextlib import asynccontextmanager
@@ -8,33 +8,34 @@ from contextlib import asynccontextmanager
 from app.config import settings
 from app.db.mongodb import connect_to_mongo, close_mongo_connection
 from app.api import shelters
+from app.api import shelter_submissions
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """
-    Lifespan context manager for startup and shutdown events
-    """
-    # Startup: Connect to MongoDB
+    """Lifespan context manager for startup and shutdown events"""
     await connect_to_mongo()
     yield
-    # Shutdown: Close MongoDB connection
     await close_mongo_connection()
 
 
-# Create FastAPI app
 app = FastAPI(
     title="Shelter Service",
-    description="CRUD operations for bomb shelters in Israel",
+    description="Bomb shelter locations and information",
     version="1.0.0",
     lifespan=lifespan
 )
 
-# Include routers
 app.include_router(
     shelters.router,
     prefix="/shelters",
     tags=["shelters"]
+)
+
+app.include_router(
+    shelter_submissions.router,
+    prefix="/shelters",
+    tags=["shelter_submissions"]
 )
 
 

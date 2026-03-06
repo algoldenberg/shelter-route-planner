@@ -1,0 +1,39 @@
+.add-shelter-btn {
+    position: fixed;
+    right: 20px;
+    bottom: 160px;
+    width: 50px;
+    height: 50px;
+    background: white;
+    border: 2px solid #667eea;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1500;
+    transition: all 0.3s ease;
+  }
+  
+  .add-shelter-btn:hover {
+    background: #667eea;
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(102, 126, 234, 0.3);
+  }
+  
+  .add-shelter-btn:active {
+    transform: scale(0.95);
+  }
+  
+  /* Mobile */
+  @media (max-width: 768px) {
+    .add-shelter-btn {
+      right: 15px;
+      bottom: 120px;
+      width: 44px;
+      height: 44px;
+      font-size: 20px;
+    }
+  }
