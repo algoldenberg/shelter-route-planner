@@ -2,7 +2,9 @@
 Shelter Service - Main FastAPI application
 Manages bomb shelter data and locations
 """
-from fastapi import FastAPI
+from fastapi import FastAPI, Request, status
+from fastapi.responses import JSONResponse
+from fastapi.exceptions import RequestValidationError
 from contextlib import asynccontextmanager
 
 from app.config import settings
@@ -11,7 +13,7 @@ from app.api import shelters
 from app.api import shelter_submissions
 from app.api import shelter_reports
 from app.api import admin
-from fastapi.exceptions import RequestValidationError
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -28,6 +30,19 @@ app = FastAPI(
     lifespan=lifespan
 )
 
+
+@app.exception_handler(RequestValidationError)
+async def validation_exception_handler(request: Request, exc: RequestValidationError):
+    """Log validation errors"""
+    print("=== VALIDATION ERROR ===")
+    print(f"URL: {request.url}")
+    print(f"Method: {request.method}")
+    print(f"Errors: {exc.errors()}")
+    print(f"Body: {await request.body()}")
+    return JSONResponse(
+        status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+        content={"detail": exc.errors()},
+    )
 
 
 app.include_router(
@@ -53,6 +68,7 @@ app.include_router(
     tags=["admin"]
 )
 
+
 @app.get("/")
 async def root():
     """Root endpoint"""
@@ -67,16 +83,3 @@ async def root():
 async def health_check():
     """Health check endpoint"""
     return {"status": "healthy"}
-
-@app.exception_handler(RequestValidationError)
-async def validation_exception_handler(request: Request, exc: RequestValidationError):
-    """Log validation errors"""
-    print("=== VALIDATION ERROR ===")
-    print(f"URL: {request.url}")
-    print(f"Method: {request.method}")
-    print(f"Errors: {exc.errors()}")
-    print(f"Body: {await request.body()}")
-    return JSONResponse(
-        status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
-        content={"detail": exc.errors()},
-    )
