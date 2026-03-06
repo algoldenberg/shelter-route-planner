@@ -34,7 +34,8 @@ app.add_middleware(
     allow_origins=[
         "https://shelternearyou.online",
         "https://www.shelternearyou.online",
-        "http://localhost:3000"
+        "http://localhost:3000",
+        "http://localhost:13000",
     ],
     allow_credentials=True,
     allow_methods=["*"],

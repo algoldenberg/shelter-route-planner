@@ -23,7 +23,12 @@ ChartJS.register(
   Legend
 );
 
-const API_BASE = 'https://api.shelternearyou.online';
+// Определяем окружение по hostname
+const API_BASE = window.location.hostname === 'localhost' 
+  ? 'http://localhost:18001'  // Локальная разработка
+  : 'https://api.shelternearyou.online';  // Прод
+
+console.log('Admin API Base:', API_BASE);  // Для отладки
 
 const AdminPage = () => {
   const [stats, setStats] = useState(null);
