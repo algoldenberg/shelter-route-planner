@@ -54,16 +54,18 @@ const BottomSheet = ({ shelter, onClose, onBuildRoute, currentLocation }) => {
           transform: `translateY(${currentY}px)`,
           transition: isDragging ? 'none' : 'transform 0.3s ease-out'
         }}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
       >
-        {/* Handle */}
-        <div className="bottom-sheet__handle">
+        {/* Handle - ТОЛЬКО ЗДЕСЬ touch события */}
+        <div 
+          className="bottom-sheet__handle"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
           <div className="bottom-sheet__handle-bar" />
         </div>
 
-        {/* Content */}
+        {/* Content - БЕЗ touch обработчиков */}
         <div className="bottom-sheet__content">
           <ShelterPopup
             shelter={shelter}
