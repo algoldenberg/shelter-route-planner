@@ -20,10 +20,15 @@ class Settings(BaseSettings):
     redis_port: int = 6379
     
     # hCaptcha settings
-    hcaptcha_secret_key: str 
+    hcaptcha_secret_key: str = ""  
     
     class Config:
         env_file = ".env"
+    
+    @property
+    def mongodb_url(self) -> str:
+        """Construct MongoDB connection URL"""
+        return f"mongodb://{self.mongo_username}:{self.mongo_password}@{self.mongo_host}:{self.mongo_port}"
 
 
 settings = Settings()
