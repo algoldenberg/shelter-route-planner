@@ -303,12 +303,36 @@ const Map = ({
   };
 
   const handleReportClick = (shelter) => {
+    // Закрываем BottomSheet если открыт
     if (isMobile && selectedShelter) {
       setSelectedShelter(null);
     }
     
+    // ОТКЛЮЧАЕМ Leaflet события
+    if (mapInstance) {
+      mapInstance.dragging.disable();
+      mapInstance.touchZoom.disable();
+      mapInstance.doubleClickZoom.disable();
+      mapInstance.scrollWheelZoom.disable();
+      mapInstance.boxZoom.disable();
+      mapInstance.keyboard.disable();
+      if (mapInstance.tap) mapInstance.tap.disable();
+    }
+    
     setReportingShelter(shelter);
     setShowReportModal(true);
+  };
+
+  const enableMapInteraction = () => {
+    if (mapInstance) {
+      mapInstance.dragging.enable();
+      mapInstance.touchZoom.enable();
+      mapInstance.doubleClickZoom.enable();
+      mapInstance.scrollWheelZoom.enable();
+      mapInstance.boxZoom.enable();
+      mapInstance.keyboard.enable();
+      if (mapInstance.tap) mapInstance.tap.enable();
+    }
   };
 
   const handleReportSubmit = async (reportData) => {
@@ -316,9 +340,17 @@ const Map = ({
       await reportShelterIssue(reportingShelter._id || reportingShelter.id, reportData);
       setShowReportModal(false);
       setReportingShelter(null);
+      
+      // ВКЛЮЧАЕМ Leaflet события обратно
+      enableMapInteraction();
+      
       alert('✅ Thank you for reporting this issue! We will review it soon.');
     } catch (error) {
       console.error('Failed to submit report:', error);
+      
+      // ВКЛЮЧАЕМ обратно даже при ошибке
+      enableMapInteraction();
+      
       alert('❌ Failed to submit report. Please try again.');
     }
   };
@@ -533,6 +565,9 @@ const Map = ({
         onClose={() => {
           setShowReportModal(false);
           setReportingShelter(null);
+          
+          // ВКЛЮЧАЕМ Leaflet события обратно
+          enableMapInteraction();
         }}
         onSubmit={handleReportSubmit}
         shelterName={reportingShelter?.name || 'Unnamed Shelter'}
