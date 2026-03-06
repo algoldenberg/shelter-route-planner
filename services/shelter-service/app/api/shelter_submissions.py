@@ -167,6 +167,7 @@ async def approve_submission(submission_id: str):
     """
     Approve a submission and add to main shelters collection
     """
+    print(f"=== APPROVE CALLED FOR: {submission_id} ===")
     if not ObjectId.is_valid(submission_id):
         raise HTTPException(status_code=400, detail="Invalid submission ID format")
 
@@ -197,6 +198,8 @@ async def approve_submission(submission_id: str):
         "created_at": datetime.utcnow(),
         "source": "user_submission"
     }
+
+     print(f"=== SHELTER DOC TO INSERT: {shelter_doc} ===")
 
     # Insert into shelters collection
     shelter_result = await shelters_collection.insert_one(shelter_doc)
