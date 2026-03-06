@@ -3,6 +3,7 @@ Shelter Service - Main FastAPI application
 Manages bomb shelter data and locations
 """
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 
 from app.config import settings
@@ -10,7 +11,7 @@ from app.db.mongodb import connect_to_mongo, close_mongo_connection
 from app.api import shelters
 from app.api import shelter_submissions
 from app.api import shelter_reports
-
+from app.api import admin
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -25,6 +26,19 @@ app = FastAPI(
     description="Bomb shelter locations and information",
     version="1.0.0",
     lifespan=lifespan
+)
+
+# CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "https://shelternearyou.online",
+        "https://www.shelternearyou.online",
+        "http://localhost:3000"
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 app.include_router(
@@ -45,6 +59,10 @@ app.include_router(
     tags=["shelter_reports"]
 )
 
+app.include_router(
+    admin.router,
+    tags=["admin"]
+)
 
 @app.get("/")
 async def root():
