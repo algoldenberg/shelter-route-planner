@@ -1,7 +1,7 @@
 .add-shelter-btn {
     position: fixed;
     right: 20px;
-    bottom: 160px;
+    bottom: 170px;
     width: 50px;
     height: 50px;
     background: white;
@@ -30,10 +30,10 @@
   /* Mobile */
   @media (max-width: 768px) {
     .add-shelter-btn {
-      right: 15px;
-      bottom: 120px;
-      width: 44px;
-      height: 44px;
-      font-size: 20px;
-    }
+        right: 15px;
+        bottom: 190px;
+        width: 50px;
+        height: 50px;
+        font-size: 22px;
+      }
   }
