@@ -369,11 +369,17 @@ const Map = ({
         {!routeData && shelters.map((shelter) => {
           const markerRef = React.createRef();
           
+          // Support both coordinate formats
+          const lat = shelter.latitude || shelter.location?.coordinates[1];
+          const lng = shelter.longitude || shelter.location?.coordinates[0];
+          
+          if (!lat || !lng) return null; // Skip invalid shelters
+          
           return (
             <Marker
               key={shelter._id}
               ref={markerRef}
-              position={[shelter.latitude, shelter.longitude]}
+              position={[lat, lng]}
               eventHandlers={{
                 click: () => {
                   if (isMobile) {
