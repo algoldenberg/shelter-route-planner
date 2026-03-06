@@ -12,11 +12,48 @@ from app.db.mongodb import get_database
 router = APIRouter()
 
 
+def looks_random(text: str) -> bool:
+    """
+    Detect random/spam strings
+    Checks for: no vowels, too many consonants in a row
+    """
+    if not text or len(text) < 3:
+        return False
+    
+    # Remove numbers, spaces, commas - focus on letters
+    letters_only = ''.join(c for c in text if c.isalpha())
+    if len(letters_only) < 3:
+        return False
+    
+    vowels = set('aeiouAEIOUаеёиоуыэюяАЕЁИОУЫЭЮЯ')  # English + Russian
+    
+    # No vowels at all = suspicious
+    if not any(c in vowels for c in letters_only):
+        return True
+    
+    # More than 5 consonants in a row = suspicious
+    consonant_run = 0
+    for char in letters_only:
+        if char not in vowels:
+            consonant_run += 1
+            if consonant_run > 5:
+                return True
+        else:
+            consonant_run = 0
+    
+    return False
+
+
 @router.post("/submit", response_model=ShelterSubmissionResponse, status_code=201)
 async def submit_new_shelter(submission: ShelterSubmissionCreate, request: Request):
     """
     Submit a new shelter suggestion for review
     """
+    # Anti-spam validation
+    if looks_random(submission.name) and looks_random(submission.address):
+        # Both name AND address look random = definitely spam
+        raise HTTPException(status_code=400, detail="Invalid submission format")
+    
     db = get_database()
     submissions_collection = db["shelter_submissions"]
 
