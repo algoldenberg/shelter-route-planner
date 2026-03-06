@@ -49,10 +49,11 @@ async def submit_new_shelter(submission: ShelterSubmissionCreate, request: Reque
     """
     Submit a new shelter suggestion for review
     """
+    # ЭКСТРЕННАЯ БЛОКИРОВКА
+    raise HTTPException(status_code=503, detail="Submissions temporarily disabled for maintenance")
+    
     # Anti-spam validation
     if looks_random(submission.name) and looks_random(submission.address):
-        # Both name AND address look random = definitely spam
-        raise HTTPException(status_code=400, detail="Invalid submission format")
     
     db = get_database()
     submissions_collection = db["shelter_submissions"]
