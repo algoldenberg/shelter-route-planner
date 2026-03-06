@@ -13,6 +13,9 @@ COPY . .
 ARG VITE_API_URL=https://api.shelternearyou.online
 ENV VITE_API_URL=$VITE_API_URL
 
+ARG VITE_HCAPTCHA_SITE_KEY
+ENV VITE_HCAPTCHA_SITE_KEY=$VITE_HCAPTCHA_SITE_KEY
+
 # Build приложения
 RUN npm run build
 
