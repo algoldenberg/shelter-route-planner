@@ -64,7 +64,10 @@ const ShelterPopup = ({ shelter, onBuildRoute, currentLocation }) => {
 
   const handleSubmitReport = async (e) => {
     e.preventDefault();
-    if (!reportData.comment.trim()) return;
+    if (!reportData.comment.trim() || reportData.comment.length < 5) {
+      alert('Please provide at least 5 characters in the details field');
+      return;
+    }
   
     try {
       await reportShelterIssue(shelter._id || shelter.id, reportData);
@@ -208,6 +211,7 @@ const ShelterPopup = ({ shelter, onBuildRoute, currentLocation }) => {
               rows={3}
               required
               minLength={5}
+              style={{ touchAction: 'manipulation' }}
             />
           </div>
 
@@ -218,14 +222,23 @@ const ShelterPopup = ({ shelter, onBuildRoute, currentLocation }) => {
               value={reportData.contact}
               onChange={(e) => setReportData({...reportData, contact: e.target.value})}
               placeholder="Email or phone (if you want a response)"
+              style={{ touchAction: 'manipulation' }}
             />
           </div>
 
           <div className="form-actions">
-            <button type="button" className="btn btn--outline" onClick={() => setShowReportForm(false)}>
+            <button 
+              type="button" 
+              className="btn btn--outline" 
+              onClick={() => setShowReportForm(false)}
+              onTouchEnd={handleTouchButton(() => setShowReportForm(false))}
+            >
               Cancel
             </button>
-            <button type="submit" className="btn btn--primary">
+            <button 
+              type="submit" 
+              className="btn btn--primary"
+            >
               Submit Report
             </button>
           </div>
@@ -263,6 +276,7 @@ const ShelterPopup = ({ shelter, onBuildRoute, currentLocation }) => {
                 placeholder="Your name (optional)"
                 value={newComment.author}
                 onChange={(e) => setNewComment({...newComment, author: e.target.value})}
+                style={{ touchAction: 'manipulation' }}
               />
             </div>
             <div className="form-group">
@@ -272,6 +286,7 @@ const ShelterPopup = ({ shelter, onBuildRoute, currentLocation }) => {
                 onChange={(e) => setNewComment({...newComment, text: e.target.value})}
                 rows={3}
                 required
+                style={{ touchAction: 'manipulation' }}
               />
             </div>
             <button 
