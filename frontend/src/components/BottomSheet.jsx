@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import ShelterPopup from './ShelterPopup';
 import './styles/BottomSheet.css';
 
-const BottomSheet = ({ shelter, onClose, onBuildRoute, currentLocation }) => {
+const BottomSheet = ({ shelter, onClose, onBuildRoute, currentLocation, onReportClick }) => {
   const [isDragging, setIsDragging] = useState(false);
   const [startY, setStartY] = useState(0);
   const [currentY, setCurrentY] = useState(0);
@@ -55,7 +55,7 @@ const BottomSheet = ({ shelter, onClose, onBuildRoute, currentLocation }) => {
           transition: isDragging ? 'none' : 'transform 0.3s ease-out'
         }}
       >
-        {/* Handle - ТОЛЬКО ЗДЕСЬ touch события */}
+        {/* Handle */}
         <div 
           className="bottom-sheet__handle"
           onTouchStart={handleTouchStart}
@@ -65,12 +65,13 @@ const BottomSheet = ({ shelter, onClose, onBuildRoute, currentLocation }) => {
           <div className="bottom-sheet__handle-bar" />
         </div>
 
-        {/* Content - БЕЗ touch обработчиков */}
+        {/* Content */}
         <div className="bottom-sheet__content">
           <ShelterPopup
             shelter={shelter}
             onBuildRoute={onBuildRoute}
             currentLocation={currentLocation}
+            onReportClick={onReportClick}
           />
         </div>
       </div>

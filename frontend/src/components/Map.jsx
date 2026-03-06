@@ -8,10 +8,11 @@ import BottomSheet from './BottomSheet';
 import LocationInfo from './LocationInfo';
 import AddShelterButton from './AddShelterButton';
 import AddShelterModal from './AddShelterModal';
+import ReportModal from './ReportModal';
 import InfoButton from './InfoButton';
 import './styles/MapControls.css';
 import React from 'react';
-import { submitNewShelter } from '../services/api';
+import { submitNewShelter, reportShelterIssue } from '../services/api';
 
 // Fix Leaflet default marker icon issue
 delete L.Icon.Default.prototype._getIconUrl;
@@ -226,6 +227,8 @@ const Map = ({
   const [showAddShelterModal, setShowAddShelterModal] = useState(false);
   const [isPickingLocation, setIsPickingLocation] = useState(false);
   const [pickedLocation, setPickedLocation] = useState(null);
+  const [showReportModal, setShowReportModal] = useState(false);
+  const [reportingShelter, setReportingShelter] = useState(null);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
@@ -299,6 +302,27 @@ const Map = ({
     setShowAddShelterModal(false);
   };
 
+  const handleReportClick = (shelter) => {
+    if (isMobile && selectedShelter) {
+      setSelectedShelter(null);
+    }
+    
+    setReportingShelter(shelter);
+    setShowReportModal(true);
+  };
+
+  const handleReportSubmit = async (reportData) => {
+    try {
+      await reportShelterIssue(reportingShelter._id || reportingShelter.id, reportData);
+      setShowReportModal(false);
+      setReportingShelter(null);
+      alert('✅ Thank you for reporting this issue! We will review it soon.');
+    } catch (error) {
+      console.error('Failed to submit report:', error);
+      alert('❌ Failed to submit report. Please try again.');
+    }
+  };
+
   return (
     <>
       <MapContainer
@@ -358,7 +382,12 @@ const Map = ({
               }}
             >
               <Popup maxWidth={350} minWidth={280}>
-                <ShelterPopup shelter={shelter} onBuildRoute={onBuildRouteToShelter} currentLocation={center} />
+                <ShelterPopup 
+                  shelter={shelter} 
+                  onBuildRoute={onBuildRouteToShelter} 
+                  currentLocation={center}
+                  onReportClick={() => handleReportClick(shelter)}
+                />
               </Popup>
             </Marker>
           );
@@ -410,7 +439,12 @@ const Map = ({
               >
                 {!isMobile && (
                   <Popup maxWidth={350} minWidth={280}>
-                    <ShelterPopup shelter={shelter} onBuildRoute={onBuildRouteToShelter} currentLocation={center} />
+                    <ShelterPopup 
+                      shelter={shelter} 
+                      onBuildRoute={onBuildRouteToShelter} 
+                      currentLocation={center}
+                      onReportClick={() => handleReportClick(shelter)}
+                    />
                   </Popup>
                 )}
               </Marker>
@@ -477,6 +511,7 @@ const Map = ({
           onClose={() => setSelectedShelter(null)}
           onBuildRoute={onBuildRouteToShelter}
           currentLocation={center}
+          onReportClick={() => handleReportClick(selectedShelter)}
         />
       )}
 
@@ -491,6 +526,16 @@ const Map = ({
         onPickOnMap={handlePickOnMap}
         isPickingLocation={isPickingLocation}
         pickedLocation={pickedLocation}
+      />
+
+      <ReportModal
+        isOpen={showReportModal}
+        onClose={() => {
+          setShowReportModal(false);
+          setReportingShelter(null);
+        }}
+        onSubmit={handleReportSubmit}
+        shelterName={reportingShelter?.name || 'Unnamed Shelter'}
       />
     </>
   );
