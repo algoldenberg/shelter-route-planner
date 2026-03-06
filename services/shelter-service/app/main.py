@@ -3,7 +3,6 @@ Shelter Service - Main FastAPI application
 Manages bomb shelter data and locations
 """
 from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 
 from app.config import settings
@@ -28,19 +27,7 @@ app = FastAPI(
     lifespan=lifespan
 )
 
-# CORS middleware
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=[
-        "https://shelternearyou.online",
-        "https://www.shelternearyou.online",
-        "http://localhost:3000",
-        "http://localhost:13000",
-    ],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+
 
 app.include_router(
     shelters.router,
