@@ -41,6 +41,15 @@ const ReportModal = ({ isOpen, onClose, onSubmit, shelterName }) => {
 
   return (
     <>
+      {/* Full screen blocker - blocks ALL map events */}
+      <div 
+        className="report-modal-blocker"
+        onClick={(e) => e.stopPropagation()}
+        onTouchStart={(e) => e.stopPropagation()}
+        onTouchMove={(e) => e.stopPropagation()}
+        onTouchEnd={(e) => e.stopPropagation()}
+      />
+
       <div className="report-modal-backdrop" onClick={onClose} />
 
       <div className="report-modal">

@@ -1,4 +1,16 @@
-.report-modal-backdrop {
+/* Event blocker layer */
+.report-modal-blocker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1999;
+    background: transparent;
+    pointer-events: auto;
+  }
+  
+  .report-modal-backdrop {
     position: fixed;
     top: 0;
     left: 0;
@@ -23,6 +35,7 @@
     max-height: 85vh;
     overflow-y: auto;
     animation: slideUp 0.3s ease;
+    pointer-events: auto;
   }
   
   .report-modal__header {
@@ -43,7 +56,7 @@
     color: #f44336;
   }
   
-  .close-btn {
+  .report-modal .close-btn {
     background: none;
     border: none;
     font-size: 24px;
@@ -59,7 +72,7 @@
     transition: all 0.2s;
   }
   
-  .close-btn:hover {
+  .report-modal .close-btn:hover {
     background: #f5f5f5;
     color: #333;
   }
@@ -76,11 +89,11 @@
     padding: 20px;
   }
   
-  .form-group {
+  .report-modal .form-group {
     margin-bottom: 20px;
   }
   
-  .form-group label {
+  .report-modal .form-group label {
     display: block;
     margin-bottom: 8px;
     font-weight: 600;
@@ -88,9 +101,9 @@
     font-size: 0.9rem;
   }
   
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
+  .report-modal .form-group input,
+  .report-modal .form-group select,
+  .report-modal .form-group textarea {
     width: 100%;
     padding: 10px 12px;
     border: 1px solid #ddd;
@@ -101,32 +114,32 @@
     box-sizing: border-box;
   }
   
-  .form-group input:focus,
-  .form-group select:focus,
-  .form-group textarea:focus {
+  .report-modal .form-group input:focus,
+  .report-modal .form-group select:focus,
+  .report-modal .form-group textarea:focus {
     outline: none;
     border-color: #f44336;
   }
   
-  .form-group textarea {
+  .report-modal .form-group textarea {
     resize: vertical;
     min-height: 80px;
   }
   
-  .help-text {
+  .report-modal .help-text {
     display: block;
     margin-top: 6px;
     font-size: 0.8rem;
     color: #666;
   }
   
-  .form-actions {
+  .report-modal .form-actions {
     display: flex;
     gap: 10px;
     margin-top: 24px;
   }
   
-  .btn {
+  .report-modal .btn {
     padding: 10px 20px;
     border: none;
     border-radius: 6px;
@@ -140,6 +153,7 @@
   .report-modal .btn--primary {
     background: #f44336;
     color: white;
+    border: none;
   }
   
   .report-modal .btn--primary:hover {
@@ -197,11 +211,11 @@
       padding: 16px;
     }
   
-    .form-actions {
+    .report-modal .form-actions {
       flex-direction: column;
     }
   
-    .btn {
+    .report-modal .btn {
       width: 100%;
     }
   }
