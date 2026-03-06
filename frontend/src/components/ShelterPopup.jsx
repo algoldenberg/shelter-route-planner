@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getShelterComments, addShelterComment } from '../services/api';
+import { getShelterComments, addShelterComment, reportShelterIssue } from '../services/api';
 import './styles/ShelterPopup.css';
 
 const ShelterPopup = ({ shelter, onBuildRoute, currentLocation }) => {
@@ -8,6 +8,8 @@ const ShelterPopup = ({ shelter, onBuildRoute, currentLocation }) => {
   const [showCommentForm, setShowCommentForm] = useState(false);
   const [newComment, setNewComment] = useState({ text: '', rating: 5, author: '' });
   const [distance, setDistance] = useState(null);
+  const [showReportForm, setShowReportForm] = useState(false);
+  const [reportData, setReportData] = useState({ issueType: 'closed', comment: '', contact: '' });
 
   useEffect(() => {
     loadComments();
@@ -60,7 +62,21 @@ const ShelterPopup = ({ shelter, onBuildRoute, currentLocation }) => {
     }
   };
 
-  // Touch event handlers
+  const handleSubmitReport = async (e) => {
+    e.preventDefault();
+    if (!reportData.comment.trim()) return;
+  
+    try {
+      await reportShelterIssue(shelter._id || shelter.id, reportData);
+      setShowReportForm(false);
+      setReportData({ issueType: 'closed', comment: '', contact: '' });
+      alert('✅ Thank you for reporting this issue! We will review it soon.');
+    } catch (error) {
+      console.error('Failed to submit report:', error);
+      alert('❌ Failed to submit report. Please try again.');
+    }
+  };
+
   const handleTouchButton = (callback) => (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -152,7 +168,69 @@ const ShelterPopup = ({ shelter, onBuildRoute, currentLocation }) => {
         >
           📍 Open in Google Maps
         </button>
+
+        <button
+          className="btn btn--report"
+          onClick={(e) => {
+            e.stopPropagation();
+            setShowReportForm(!showReportForm);
+          }}
+          onTouchEnd={handleTouchButton(() => setShowReportForm(!showReportForm))}
+        >
+          🚫 Report Issue
+        </button>
       </div>
+
+      {showReportForm && (
+        <form className="report-form" onSubmit={handleSubmitReport}>
+          <h4>Report an Issue</h4>
+          
+          <div className="form-group">
+            <label>Issue Type:</label>
+            <select 
+              value={reportData.issueType} 
+              onChange={(e) => setReportData({...reportData, issueType: e.target.value})}
+              required
+            >
+              <option value="closed">❌ Shelter closed / doesn't exist</option>
+              <option value="wrong_address">📍 Wrong address / coordinates</option>
+              <option value="blocked_entrance">🚧 Entrance blocked / inaccessible</option>
+              <option value="other">ℹ️ Other</option>
+            </select>
+          </div>
+
+          <div className="form-group">
+            <label>Details: *</label>
+            <textarea
+              value={reportData.comment}
+              onChange={(e) => setReportData({...reportData, comment: e.target.value})}
+              placeholder="Please describe the issue..."
+              rows={3}
+              required
+              minLength={5}
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Contact (optional):</label>
+            <input
+              type="text"
+              value={reportData.contact}
+              onChange={(e) => setReportData({...reportData, contact: e.target.value})}
+              placeholder="Email or phone (if you want a response)"
+            />
+          </div>
+
+          <div className="form-actions">
+            <button type="button" className="btn btn--outline" onClick={() => setShowReportForm(false)}>
+              Cancel
+            </button>
+            <button type="submit" className="btn btn--primary">
+              Submit Report
+            </button>
+          </div>
+        </form>
+      )}
 
       <div className="shelter-popup__comments">
         <div className="comments-header">

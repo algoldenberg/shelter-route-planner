@@ -42,6 +42,17 @@ export const submitNewShelter = async (shelterData) => {
   return response.data;
 };
 
+// Shelter report endpoints
+export const reportShelterIssue = async (shelterId, reportData) => {
+  const response = await api.post(`/shelters/${shelterId}/report`, {
+    issue_type: reportData.issueType,
+    comment: reportData.comment,
+    contact: reportData.contact || null
+  });
+  return response.data;
+};
+
+
 // Route endpoints
 export const calculateRoute = async (start, end, includeShelters = true, maxShelters = 50) => {
   const payload = {

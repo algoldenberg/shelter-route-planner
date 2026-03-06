@@ -9,6 +9,7 @@ from app.config import settings
 from app.db.mongodb import connect_to_mongo, close_mongo_connection
 from app.api import shelters
 from app.api import shelter_submissions
+from app.api import shelter_reports
 
 
 @asynccontextmanager
@@ -36,6 +37,12 @@ app.include_router(
     shelter_submissions.router,
     prefix="/shelters",
     tags=["shelter_submissions"]
+)
+
+app.include_router(
+    shelter_reports.router,
+    prefix="/shelters",
+    tags=["shelter_reports"]
 )
 
 
