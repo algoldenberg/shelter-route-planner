@@ -278,7 +278,7 @@ const Map = ({
     try {
       const response = await submitNewShelter({
         name: formData.name,
-        address: formData.address,
+        address: formData.address || `${formData.latitude}, ${formData.longitude}`,  // ← Фикс
         latitude: parseFloat(formData.latitude),
         longitude: parseFloat(formData.longitude),
         type: formData.type,
