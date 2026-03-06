@@ -284,7 +284,8 @@ const Map = ({
         longitude: parseFloat(formData.longitude),
         type: formData.type,
         capacity: formData.capacity ? parseInt(formData.capacity) : null,
-        comment: formData.comment || null
+        comment: formData.comment || null,
+        captcha_token: formData.captcha_token
       });
       
       console.log('Submission response:', response);
