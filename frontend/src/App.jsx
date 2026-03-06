@@ -93,13 +93,18 @@ function App() {
 
   const handleMapMove = (newCenter) => {
     setMapCenter(newCenter);
+    
     // Show "Search Here" button if map moved significantly and in shelters tab
     if (activeTab === 'shelters' && center && newCenter) {
       const distance = Math.sqrt(
         Math.pow(newCenter[0] - center[0], 2) + 
         Math.pow(newCenter[1] - center[1], 2)
       );
-      setShowSearchHere(distance > 0.001); // ~100m threshold
+      
+      const shouldShow = distance > 0.001; // ~100m threshold
+      
+      // Only update if state actually changes
+      setShowSearchHere(prev => prev !== shouldShow ? shouldShow : prev);
     }
   };
 
