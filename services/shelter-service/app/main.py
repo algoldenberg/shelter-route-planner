@@ -11,6 +11,7 @@ from app.api import shelters
 from app.api import shelter_submissions
 from app.api import shelter_reports
 from app.api import admin
+from fastapi.exceptions import RequestValidationError
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
