@@ -20,8 +20,12 @@ async def submit_new_shelter(submission: ShelterSubmissionCreate, request: Reque
     db = get_database()
     submissions_collection = db["shelter_submissions"]
 
-    # Get client IP
-    client_ip = request.client.host if request.client else "unknown"
+    # Get real client IP from headers (behind Nginx proxy)
+    client_ip = (
+        request.headers.get("X-Forwarded-For", "").split(",")[0].strip() or
+        request.headers.get("X-Real-IP", "") or
+        (request.client.host if request.client else "unknown")
+    )
 
     # Create submission document
     submission_dict = submission.model_dump()
