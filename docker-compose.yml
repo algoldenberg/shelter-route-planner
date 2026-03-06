@@ -135,7 +135,8 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
       args:
-        - VITE_HCAPTCHA_SITE_KEY=${VITE_HCAPTCHA_SITE_KEY}
+        VITE_API_URL: https://api.shelternearyou.online
+        VITE_HCAPTCHA_SITE_KEY: ${VITE_HCAPTCHA_SITE_KEY}
     container_name: frontend
     ports:
       - "13000:80"
