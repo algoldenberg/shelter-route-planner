@@ -52,12 +52,13 @@ async def submit_new_shelter(submission: ShelterSubmissionCreate, request: Reque
     # ЭКСТРЕННАЯ БЛОКИРОВКА
     raise HTTPException(status_code=503, detail="Submissions temporarily disabled for maintenance")
     
-    # Anti-spam validation
-    if looks_random(submission.name) and looks_random(submission.address):
+    # Anti-spam validation (закомментировано пока endpoint блокирован)
+    # if looks_random(submission.name) and looks_random(submission.address):
+    #     # Both name AND address look random = definitely spam
+    #     raise HTTPException(status_code=400, detail="Invalid submission format")
     
     db = get_database()
     submissions_collection = db["shelter_submissions"]
-
     # Get real client IP from headers (behind Nginx proxy)
     client_ip = (
         request.headers.get("X-Forwarded-For", "").split(",")[0].strip() or
