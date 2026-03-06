@@ -372,18 +372,13 @@
 .report-form textarea,
 .report-form input {
   width: 100%;
-  padding: 8px 10px;
+  padding: 10px 12px;
   border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 0.9rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
   font-family: inherit;
   box-sizing: border-box;
-  
-  /* iOS FIX */
-  touch-action: auto !important;
-  -webkit-user-select: text !important;
-  user-select: text !important;
-  -webkit-tap-highlight-color: transparent;
+  transition: border-color 0.2s;
 }
 
 .report-form select:focus,
@@ -395,25 +390,25 @@
 
 .report-form .form-actions {
   display: flex;
-  gap: 8px;
-  margin-top: 12px;
+  gap: 10px;
+  margin-top: 16px;
 }
 
-.report-form .form-actions .btn {
+.report-form .btn {
   flex: 1;
-  padding: 8px 12px;
-  font-size: 0.85rem;
-  
-  /* iOS FIX для кнопок */
-  touch-action: manipulation !important;
-  -webkit-user-select: none !important;
-  user-select: none !important;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
 }
 
 .btn--outline {
   background: white;
-  border: 1px solid #ddd;
-  color: #333;
+  border: 1px solid #ddd !important;
+  color: #666;
 }
 
 .btn--outline:hover {
@@ -434,24 +429,12 @@
   .report-form h4 {
     font-size: 0.95rem;
   }
-}
 
-/* Fix iOS double-tap on report form */
-.report-form * {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
-  -webkit-touch-callout: none;
-}
+  .report-form .form-actions {
+    flex-direction: column;
+  }
 
-.report-form input,
-.report-form textarea,
-.report-form select {
-  touch-action: auto !important;
-  -webkit-user-select: text;
-  user-select: text;
-}
-
-.report-form button {
-  touch-action: manipulation !important;
-  -webkit-user-select: none;
-  user-select: none;
+  .report-form .btn {
+    width: 100%;
+  }
 }

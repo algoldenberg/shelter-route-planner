@@ -226,18 +226,12 @@ const ShelterPopup = ({ shelter, onBuildRoute, currentLocation }) => {
               type="button" 
               className="btn btn--outline" 
               onClick={() => setShowReportForm(false)}
-              onTouchEnd={handleTouchButton(() => setShowReportForm(false))}
             >
               Cancel
             </button>
             <button 
               type="submit" 
               className="btn btn--primary"
-              onTouchEnd={handleTouchButton((e) => {
-                if (reportData.comment.trim().length >= 5) {
-                  handleSubmitReport(e || new Event('submit'));
-                }
-              })}
             >
               Submit Report
             </button>
