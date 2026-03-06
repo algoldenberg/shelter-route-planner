@@ -72,3 +72,12 @@ osrm-data/*.pbf
 
 #BackUpFiles
 /backup_configs
+# Existing ignores...
+node_modules/
+__pycache__/
+*.pyc
+
+# Environment variables
+.env
+**/.env
+services/**/.env

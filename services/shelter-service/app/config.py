@@ -1,35 +1,29 @@
 """
-Configuration settings for Shelter Service
+Configuration settings for shelter service
 """
 from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
     """Application settings"""
+    service_name: str = "Shelter Service"
     
     # MongoDB settings
-    mongo_host: str = "mongodb"
+    mongo_host: str = "localhost"
     mongo_port: int = 27017
     mongo_db: str = "shelter_planner"
     mongo_username: str = "admin"
     mongo_password: str = "changeme123"
     
-    # Service settings
-    service_name: str = "shelter-service"
-    service_port: int = 8001
+    # Redis settings
+    redis_host: str = "localhost"
+    redis_port: int = 6379
     
-    # API settings
-    api_prefix: str = "/api/v1"
+    # hCaptcha settings
+    hcaptcha_secret_key: str 
     
     class Config:
         env_file = ".env"
-        case_sensitive = False
-
-    @property
-    def mongodb_url(self) -> str:
-        """Generate MongoDB connection URL"""
-        return f"mongodb://{self.mongo_username}:{self.mongo_password}@{self.mongo_host}:{self.mongo_port}"
 
 
-# Global settings instance
 settings = Settings()

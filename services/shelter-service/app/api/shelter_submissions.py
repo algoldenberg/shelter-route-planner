@@ -5,9 +5,11 @@ from typing import List
 from datetime import datetime
 from fastapi import APIRouter, HTTPException, Request
 from bson import ObjectId
+import requests
 
 from app.models.shelter_submission import ShelterSubmissionCreate, ShelterSubmissionResponse
 from app.db.mongodb import get_database
+from app.config import settings
 
 router = APIRouter()
 
@@ -44,21 +46,51 @@ def looks_random(text: str) -> bool:
     return False
 
 
+def verify_hcaptcha(token: str) -> bool:
+    """Verify hCaptcha token with hCaptcha API"""
+    try:
+        response = requests.post(
+            'https://hcaptcha.com/siteverify',
+            data={
+                'secret': settings.hcaptcha_secret_key,
+                'response': token
+            },
+            timeout=5
+        )
+        result = response.json()
+        return result.get('success', False)
+    except Exception as e:
+        print(f"hCaptcha verification error: {e}")
+        return False
+
+
 @router.post("/submit", response_model=ShelterSubmissionResponse, status_code=201)
 async def submit_new_shelter(submission: ShelterSubmissionCreate, request: Request):
     """
     Submit a new shelter suggestion for review
     """
-    # ЭКСТРЕННАЯ БЛОКИРОВКА
-    raise HTTPException(status_code=503, detail="Submissions temporarily disabled for maintenance")
+    # 1. Verify hCaptcha
+    if not verify_hcaptcha(submission.captcha_token):
+        raise HTTPException(
+            status_code=400,
+            detail="Captcha verification failed. Please try again."
+        )
     
-    # Anti-spam validation (закомментировано пока endpoint блокирован)
-    # if looks_random(submission.name) and looks_random(submission.address):
-    #     # Both name AND address look random = definitely spam
-    #     raise HTTPException(status_code=400, detail="Invalid submission format")
+    # 2. Anti-spam validation (as backup)
+    if looks_random(submission.name) and looks_random(submission.address):
+        raise HTTPException(status_code=400, detail="Invalid submission format")
+    
+    # 3. Geographic validation (Israel only)
+    if not (29.5 <= submission.latitude <= 33.3 and 34.2 <= submission.longitude <= 35.9):
+        raise HTTPException(status_code=400, detail="Location must be within Israel")
+    
+    # 4. Capacity validation
+    if submission.capacity and submission.capacity > 10000:
+        raise HTTPException(status_code=400, detail="Capacity seems unrealistic")
     
     db = get_database()
     submissions_collection = db["shelter_submissions"]
+
     # Get real client IP from headers (behind Nginx proxy)
     client_ip = (
         request.headers.get("X-Forwarded-For", "").split(",")[0].strip() or
@@ -66,8 +98,8 @@ async def submit_new_shelter(submission: ShelterSubmissionCreate, request: Reque
         (request.client.host if request.client else "unknown")
     )
 
-    # Create submission document
-    submission_dict = submission.model_dump()
+    # Create submission document (exclude captcha_token)
+    submission_dict = submission.model_dump(exclude={'captcha_token'})
     submission_dict["status"] = "pending"
     submission_dict["submitted_at"] = datetime.utcnow()
     submission_dict["submitted_by_ip"] = client_ip

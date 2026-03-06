@@ -37,6 +37,8 @@ services:
       - MONGO_PASSWORD=changeme123
       - REDIS_HOST=redis
       - REDIS_PORT=6379
+    env_file:
+      - ./services/shelter-service/.env
     depends_on:
       - mongodb
       - redis
@@ -129,7 +131,11 @@ services:
       - shelter-network
 
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        - VITE_HCAPTCHA_SITE_KEY=${VITE_HCAPTCHA_SITE_KEY}
     container_name: frontend
     ports:
       - "13000:80"

@@ -33,6 +33,7 @@ class ShelterSubmissionCreate(BaseModel):
     type: str = Field(..., description="public_shelter, private_building, underground_parking, other")
     capacity: Optional[int] = Field(None, ge=1)
     comment: Optional[str] = Field(None, max_length=1000)
+    captcha_token: str  # ← ДОБАВЛЕНА ЭТА СТРОКА
 
 
 class ShelterSubmissionResponse(BaseModel):
