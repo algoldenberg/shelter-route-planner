@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import HCaptcha from '@hcaptcha/react-hcaptcha';
 import './styles/AddShelterModal.css';
 
 const AddShelterModal = ({ isOpen, onClose, onSubmit, onPickOnMap, isPickingLocation, pickedLocation }) => {
@@ -15,6 +16,9 @@ const AddShelterModal = ({ isOpen, onClose, onSubmit, onPickOnMap, isPickingLoca
   const [inputMethod, setInputMethod] = useState('address');
   const [addressSuggestions, setAddressSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState(null);
+  
+  const captchaRef = useRef(null);
 
   // Reset form when modal opens
   useEffect(() => {
@@ -30,6 +34,11 @@ const AddShelterModal = ({ isOpen, onClose, onSubmit, onPickOnMap, isPickingLoca
       });
       setAddressSuggestions([]);
       setShowSuggestions(false);
+      setCaptchaToken(null);
+      // Reset captcha
+      if (captchaRef.current) {
+        captchaRef.current.resetCaptcha();
+      }
     }
   }, [isOpen]);
 
@@ -58,7 +67,17 @@ const AddShelterModal = ({ isOpen, onClose, onSubmit, onPickOnMap, isPickingLoca
       return;
     }
 
-    onSubmit(formData);
+    // Check captcha
+    if (!captchaToken) {
+      alert('Please complete the security verification');
+      return;
+    }
+
+    // Submit with captcha token
+    onSubmit({
+      ...formData,
+      captcha_token: captchaToken
+    });
   };
 
   const handleChange = (e) => {
@@ -102,6 +121,14 @@ const AddShelterModal = ({ isOpen, onClose, onSubmit, onPickOnMap, isPickingLoca
 
   const handlePickOnMap = () => {
     onPickOnMap(true);
+  };
+
+  const onCaptchaVerify = (token) => {
+    setCaptchaToken(token);
+  };
+
+  const onCaptchaExpire = () => {
+    setCaptchaToken(null);
   };
 
   if (!isOpen) return null;
@@ -273,6 +300,16 @@ const AddShelterModal = ({ isOpen, onClose, onSubmit, onPickOnMap, isPickingLoca
             />
           </div>
 
+          {/* hCaptcha */}
+          <div className="form-group">
+            <HCaptcha
+              ref={captchaRef}
+              sitekey={import.meta.env.VITE_HCAPTCHA_SITE_KEY}
+              onVerify={onCaptchaVerify}
+              onExpire={onCaptchaExpire}
+            />
+          </div>
+
           {/* Actions */}
           <div className="form-actions">
             {inputMethod === 'map' && !formData.latitude && (
@@ -295,7 +332,7 @@ const AddShelterModal = ({ isOpen, onClose, onSubmit, onPickOnMap, isPickingLoca
             <button 
               type="submit" 
               className="btn btn--primary"
-              disabled={isPickingLocation}
+              disabled={isPickingLocation || !captchaToken}
             >
               Submit Shelter
             </button>

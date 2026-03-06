@@ -28,6 +28,8 @@
 
   "dependencies": {
 
+    "@hcaptcha/react-hcaptcha": "^2.0.2",
+
     "axios": "^1.13.6",
 
     "chart.js": "^4.5.1",
