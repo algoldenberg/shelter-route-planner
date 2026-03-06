@@ -69,3 +69,6 @@ logs/
 # OSRM data files
 osrm-data/*.osrm*
 osrm-data/*.pbf
+
+#BackUpFiles
+/backup_configs

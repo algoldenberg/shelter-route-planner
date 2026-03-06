@@ -113,6 +113,8 @@ services:
     container_name: api-gateway
     ports:
       - "18000:8000"
+    volumes:
+      - ./services/api-gateway/nginx.conf:/etc/nginx/nginx.conf:ro
     environment:
       - SHELTER_SERVICE_URL=http://shelter-service:8001
       - ROUTE_SERVICE_URL=http://route-service:8002
