@@ -335,3 +335,59 @@
     flex-direction: column;
   }
 }
+
+/* ========================================
+   USAGE STATISTICS TAB STYLES
+   ======================================== */
+
+   .usage-stats-section {
+    width: 100%;
+  }
+  
+  .usage-stats-section .stats-grid {
+    margin-bottom: 30px;
+  }
+  
+  .usage-stats-section .chart-container {
+    margin-bottom: 30px;
+  }
+  
+  .usage-stats-section .data-table {
+    margin-bottom: 30px;
+  }
+  
+  .usage-stats-section .data-table h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+  }
+  
+  .usage-stats-section table {
+    min-width: auto;
+  }
+  
+  /* Geography table specific styles */
+  .usage-stats-section table th,
+  .usage-stats-section table td {
+    text-align: center;
+  }
+  
+  .usage-stats-section table th:first-child,
+  .usage-stats-section table td:first-child {
+    text-align: left;
+  }
+  
+  /* Mobile adjustments for usage stats */
+  @media (max-width: 768px) {
+    .usage-stats-section .stats-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .usage-stats-section .chart-container {
+      height: 250px;
+    }
+    
+    .usage-stats-section table {
+      font-size: 0.9rem;
+    }
+  }
