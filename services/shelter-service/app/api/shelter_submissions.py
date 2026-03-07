@@ -183,22 +183,19 @@ async def approve_submission(submission_id: str):
     if submission["status"] != "pending":
         raise HTTPException(status_code=400, detail="Submission already reviewed")
 
-    # Create shelter document with BOTH formats for compatibility
+    # Create shelter document in GeoJSON format (matching existing shelters)
     shelter_doc = {
         "name": submission["name"],
         "address": submission["address"],
-        "latitude": submission["latitude"],
-        "longitude": submission["longitude"],
-        "location": {  # ← ДОБАВЬ GeoJSON format
+        "city": "Israel",  # Default for all submissions
+        "capacity": submission.get("capacity") or 50,
+        "accessible": True,  # Default
+        "location": {
             "type": "Point",
             "coordinates": [submission["longitude"], submission["latitude"]]  # [lon, lat]
-        },
-        "type": submission["type"],
-        "capacity": submission.get("capacity", 50),
-        "created_at": datetime.utcnow(),
-        "source": "user_submission"
+        }
     }
-
+    
     print(f"=== SHELTER DOC TO INSERT: {shelter_doc} ===")
 
     # Insert into shelters collection
