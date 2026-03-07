@@ -314,7 +314,7 @@
       height: 250px;
     }
   
-    .tabs {
+    .admin-page .tabs {
       flex-direction: column;
     }
   
