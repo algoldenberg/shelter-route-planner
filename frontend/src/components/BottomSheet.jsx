@@ -69,7 +69,10 @@ const BottomSheet = ({ shelter, onClose, onBuildRoute, currentLocation, onReport
         <div className="bottom-sheet__content">
           <ShelterPopup
             shelter={shelter}
-            onBuildRoute={onBuildRoute}
+            onBuildRoute={(lat, lng) => {
+              onClose();  // ← ЗАКРЫТЬ BottomSheet
+              onBuildRoute(lat, lng);
+            }}
             currentLocation={currentLocation}
             onReportClick={onReportClick}
           />
