@@ -89,6 +89,18 @@ async def get_shelter(shelter_id: str):
     
     if not shelter:
         raise HTTPException(status_code=404, detail="Shelter not found")
+
+@router.get("/stats", response_model=dict)
+async def get_shelter_stats():
+    """Get shelter statistics"""
+    db = get_database()
+    shelters_collection = db["shelters"]
+    
+    total_count = await shelters_collection.count_documents({})
+    
+    return {
+        "total": total_count
+    }
     
     # Convert to response model
     return ShelterResponse.from_mongo(shelter)

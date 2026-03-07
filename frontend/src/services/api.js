@@ -80,4 +80,12 @@ export const calculateCircularRoute = async (start, distanceKm, preferences, max
   return response.data;
 };
 
+// live - counting footer
+
+export const getShelterStats = async () => {
+  const response = await api.get('/shelters/stats');
+  return response.data;
+};
+
+
 export default api;
