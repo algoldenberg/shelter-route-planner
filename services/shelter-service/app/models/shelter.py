@@ -39,6 +39,7 @@ class ShelterModel(BaseModel):
     city: str = Field(default="Israel", description="City name")
     capacity: int = Field(default=50, description="Shelter capacity")
     accessible: bool = Field(default=True, description="Accessibility")
+    type: str = Field(default="public_shelter", description="Shelter type")  # ← ДОБАВЛЕНО
     location: LocationModel = Field(..., description="GeoJSON Point")
     
     class Config:
@@ -56,6 +57,7 @@ class ShelterResponse(BaseModel):
     city: str
     capacity: int
     accessible: bool
+    type: str
     latitude: float
     longitude: float
     
@@ -64,11 +66,12 @@ class ShelterResponse(BaseModel):
         """Convert MongoDB document to response model"""
         return cls(
             _id=str(shelter["_id"]),
-            name=shelter.get("name") or "Unknown Shelter",  # ← Исправлено
+            name=shelter.get("name") or "Unknown Shelter",
             address=shelter.get("address", "Unknown"),
             city=shelter.get("city", "Israel"),
             capacity=shelter.get("capacity", 50),
             accessible=shelter.get("accessible", True),
+            type=shelter.get("type", "public_shelter"),
             latitude=shelter["location"]["coordinates"][1],
             longitude=shelter["location"]["coordinates"][0]
         )
