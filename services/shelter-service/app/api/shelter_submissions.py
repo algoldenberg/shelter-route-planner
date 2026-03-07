@@ -69,13 +69,9 @@ async def submit_new_shelter(submission: ShelterSubmissionCreate, request: Reque
     """
     Submit a new shelter suggestion for review
     """
-    # DEBUG LOGGING
-    print(f"=== SUBMISSION DEBUG ===")
-    print(f"Captcha token received: {submission.captcha_token[:50] if submission.captcha_token else 'NONE'}...")
     
     # 1. Verify hCaptcha
     captcha_valid = verify_hcaptcha(submission.captcha_token)
-    print(f"Captcha verification result: {captcha_valid}")
     
     if not captcha_valid:
         raise HTTPException(
@@ -182,9 +178,6 @@ async def approve_submission(submission_id: str):
 
     if submission["status"] != "pending":
         raise HTTPException(status_code=400, detail="Submission already reviewed")
-
-    print(f"=== SUBMISSION DATA: {submission} ===")
-    print(f"=== ABOUT TO CREATE SHELTER DOC ===")
 
     # Create shelter document in GeoJSON format (matching existing shelters)
     shelter_doc = {

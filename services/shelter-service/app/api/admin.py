@@ -100,17 +100,20 @@ async def approve_submission(submission_id: str):
     if submission["status"] != "pending":
         raise HTTPException(status_code=400, detail="Submission already processed")
     
-    # Add to shelters collection
+    # Add to shelters collection in GeoJSON format (matching existing shelters)
     shelter_data = {
         "name": submission["name"],
         "address": submission.get("address", f"{submission['latitude']}, {submission['longitude']}"),
-        "latitude": submission["latitude"],
-        "longitude": submission["longitude"],
-        "type": submission["type"],
-        "capacity": submission.get("capacity", 50),
-        "created_at": datetime.utcnow(),
-        "source": "user_submission"
+        "city": "Israel",
+        "capacity": submission.get("capacity") or 50,
+        "accessible": True,
+        "location": {
+            "type": "Point",
+            "coordinates": [submission["longitude"], submission["latitude"]]  # [lon, lat]
+        }
     }
+    
+    print(f"=== ADMIN APPROVE: SHELTER DATA = {shelter_data} ===")  # Debug log
     
     result = await db.shelters.insert_one(shelter_data)
     
