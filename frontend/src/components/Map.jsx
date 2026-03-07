@@ -229,6 +229,7 @@ const Map = ({
   const [pickedLocation, setPickedLocation] = useState(null);
   const [showReportModal, setShowReportModal] = useState(false);
   const [reportingShelter, setReportingShelter] = useState(null);
+  const [buildingRouteFromPopup, setBuildingRouteFromPopup] = useState(false);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
@@ -391,11 +392,15 @@ const Map = ({
               }}
             >
               {/* POPUP ТОЛЬКО НА DESKTOP */}
-              {!isMobile && (
+              {!isMobile && !buildingRouteFromPopup && (  // ← ДОБАВИЛ !buildingRouteFromPopup
                 <Popup maxWidth={350} minWidth={280}>
                   <ShelterPopup 
                     shelter={shelter} 
-                    onBuildRoute={onBuildRouteToShelter} 
+                    onBuildRoute={(lat, lng) => {
+                      setBuildingRouteFromPopup(true);
+                      onBuildRouteToShelter(lat, lng);
+                      setTimeout(() => setBuildingRouteFromPopup(false), 500);
+                    }}
                     currentLocation={center}
                     onReportClick={() => handleReportClick(shelter)}
                   />
