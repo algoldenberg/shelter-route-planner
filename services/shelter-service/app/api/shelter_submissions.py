@@ -199,7 +199,7 @@ async def approve_submission(submission_id: str):
         "source": "user_submission"
     }
 
-     print(f"=== SHELTER DOC TO INSERT: {shelter_doc} ===")
+    print(f"=== SHELTER DOC TO INSERT: {shelter_doc} ===")
 
     # Insert into shelters collection
     shelter_result = await shelters_collection.insert_one(shelter_doc)
