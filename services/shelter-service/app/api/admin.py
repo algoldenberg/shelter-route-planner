@@ -6,6 +6,7 @@ from bson import ObjectId
 
 router = APIRouter(prefix="/admin", tags=["Admin"])
 
+
 @router.get("/stats")
 async def get_admin_stats():
     """Get overall statistics"""
@@ -59,6 +60,169 @@ async def get_admin_stats():
             "total": total_comments
         }
     }
+
+
+@router.get("/usage-stats")
+async def get_usage_stats():
+    """
+    Get usage statistics (API requests, routes, geography, popular shelters)
+    Returns the latest aggregated stats from usage_stats collection
+    """
+    db = get_database()
+    
+    # Get latest stats document
+    latest_stats = await db.usage_stats.find_one(
+        {},
+        sort=[("created_at", -1)]
+    )
+    
+    if not latest_stats:
+        # No stats yet - return empty structure
+        return {
+            "total_requests": 0,
+            "requests_today": 0,
+            "requests_week": 0,
+            "requests_month": 0,
+            "routes_built_today": 0,
+            "routes_built_week": 0,
+            "routes_built_month": 0,
+            "avg_route_distance_km": 0.0,
+            "popular_endpoints": {},
+            "geography": [],
+            "popular_shelters": [],
+            "requests_chart": [],
+            "last_updated": None
+        }
+    
+    # Remove MongoDB _id field
+    latest_stats.pop("_id", None)
+    
+    # Add last_updated timestamp
+    latest_stats["last_updated"] = latest_stats.get("created_at").isoformat() if latest_stats.get("created_at") else None
+    
+    return latest_stats
+
+
+@router.get("/popular-endpoints")
+async def get_popular_endpoints(limit: int = 10):
+    """
+    Get most popular API endpoints
+    Real-time query from api_logs (last 30 days)
+    """
+    db = get_database()
+    
+    thirty_days_ago = datetime.utcnow() - timedelta(days=30)
+    
+    pipeline = [
+        {"$match": {"timestamp": {"$gte": thirty_days_ago}}},
+        {"$group": {
+            "_id": "$endpoint",
+            "count": {"$sum": 1},
+            "avg_response_time": {"$avg": "$response_time_ms"}
+        }},
+        {"$sort": {"count": -1}},
+        {"$limit": limit}
+    ]
+    
+    results = await db.api_logs.aggregate(pipeline).to_list(limit)
+    
+    return [
+        {
+            "endpoint": item["_id"],
+            "count": item["count"],
+            "avg_response_time_ms": round(item["avg_response_time"], 2)
+        }
+        for item in results
+    ]
+
+
+@router.get("/geography")
+async def get_geography_stats(limit: int = 10):
+    """
+    Get geographic distribution of API requests
+    Based on GPS coordinates from api_logs
+    """
+    db = get_database()
+    
+    thirty_days_ago = datetime.utcnow() - timedelta(days=30)
+    
+    pipeline = [
+        {"$match": {
+            "latitude": {"$exists": True},
+            "longitude": {"$exists": True},
+            "timestamp": {"$gte": thirty_days_ago}
+        }},
+        {"$project": {
+            "grid_lat": {"$round": [{"$divide": ["$latitude", 0.1]}, 0]},
+            "grid_lng": {"$round": [{"$divide": ["$longitude", 0.1]}, 0]},
+            "latitude": 1,
+            "longitude": 1
+        }},
+        {"$group": {
+            "_id": {"lat": "$grid_lat", "lng": "$grid_lng"},
+            "count": {"$sum": 1},
+            "avg_lat": {"$avg": "$latitude"},
+            "avg_lng": {"$avg": "$longitude"}
+        }},
+        {"$sort": {"count": -1}},
+        {"$limit": limit}
+    ]
+    
+    results = await db.api_logs.aggregate(pipeline).to_list(limit)
+    
+    return [
+        {
+            "latitude": round(item["avg_lat"], 4),
+            "longitude": round(item["avg_lng"], 4),
+            "count": item["count"]
+        }
+        for item in results
+    ]
+
+
+@router.get("/popular-shelters")
+async def get_popular_shelters(limit: int = 10):
+    """
+    Get most viewed/used shelters
+    Based on shelter_id in api_logs
+    """
+    db = get_database()
+    
+    thirty_days_ago = datetime.utcnow() - timedelta(days=30)
+    
+    # Count views per shelter
+    pipeline = [
+        {"$match": {
+            "shelter_id": {"$exists": True},
+            "timestamp": {"$gte": thirty_days_ago}
+        }},
+        {"$group": {
+            "_id": "$shelter_id",
+            "views": {"$sum": 1}
+        }},
+        {"$sort": {"views": -1}},
+        {"$limit": limit}
+    ]
+    
+    results = await db.api_logs.aggregate(pipeline).to_list(limit)
+    
+    # Get shelter details
+    popular = []
+    for item in results:
+        try:
+            shelter = await db.shelters.find_one({"_id": ObjectId(item["_id"])})
+            if shelter:
+                popular.append({
+                    "shelter_id": item["_id"],
+                    "name": shelter.get("name", "Unknown"),
+                    "address": shelter.get("address", ""),
+                    "views": item["views"]
+                })
+        except:
+            # Invalid ObjectId
+            continue
+    
+    return popular
 
 
 @router.get("/submissions")
