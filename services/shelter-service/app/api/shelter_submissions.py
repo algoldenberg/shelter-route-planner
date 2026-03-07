@@ -183,6 +183,9 @@ async def approve_submission(submission_id: str):
     if submission["status"] != "pending":
         raise HTTPException(status_code=400, detail="Submission already reviewed")
 
+    print(f"=== SUBMISSION DATA: {submission} ===")
+    print(f"=== ABOUT TO CREATE SHELTER DOC ===")
+
     # Create shelter document in GeoJSON format (matching existing shelters)
     shelter_doc = {
         "name": submission["name"],
