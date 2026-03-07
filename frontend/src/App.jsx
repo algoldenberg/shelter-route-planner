@@ -3,6 +3,7 @@ import Map from './components/Map';
 import ShelterSearch from './components/ShelterSearch';
 import RouteBuilder from './components/RouteBuilder';
 import Footer from './components/Footer';
+import DisclaimerModal from './components/DisclaimerModal';  // ← ДОБАВЛЕНО
 import { getNearbyShelters, calculateRoute } from './services/api';
 import './App.css';
 import React from 'react';
@@ -222,6 +223,8 @@ function App() {
 
   return (
     <div className="app">
+      <DisclaimerModal />  {/* ← ДОБАВЛЕНО */}
+      
       <header className="app-header">
         <h1>🛡️ Shelter Route Planner</h1>
         <p>Find safe routes through bomb shelters in Israel</p>

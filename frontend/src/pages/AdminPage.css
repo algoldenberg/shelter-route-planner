@@ -1,11 +1,12 @@
 .admin-page {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   padding: 20px;
-  padding-bottom: 50px;
+  padding-bottom: 100px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   min-height: 100vh;
-  overflow-y: auto; /* ДОБАВЛЕНО: разрешаем вертикальный скролл */
-  overflow-x: hidden; /* ДОБАВЛЕНО: запрещаем горизонтальный скролл */
+  max-height: none;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .admin-page .admin-header {
