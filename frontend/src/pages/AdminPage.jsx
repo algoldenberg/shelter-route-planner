@@ -246,16 +246,16 @@ const AdminPage = () => {
         <Line data={chartData} options={chartOptions} />
       </div>
 
-      {/* Tabs */}
-      <div className="tabs">
+      {/* Tabs - ИСПРАВЛЕНО */}
+      <div className="admin-tabs">
         <button 
-          className={`tab ${activeTab === 'submissions' ? 'active' : ''}`}
+          className={`admin-tab ${activeTab === 'submissions' ? 'active' : ''}`}
           onClick={() => setActiveTab('submissions')}
         >
           📋 Pending Submissions ({submissions.length})
         </button>
         <button 
-          className={`tab ${activeTab === 'reports' ? 'active' : ''}`}
+          className={`admin-tab ${activeTab === 'reports' ? 'active' : ''}`}
           onClick={() => setActiveTab('reports')}
         >
           🚫 Pending Reports ({reports.length})
