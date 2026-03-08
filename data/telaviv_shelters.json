@@ -1,0 +1,7517 @@
+[
+  {
+    "name": "Shelter 906",
+    "address": "שדרות גורי ישראל 31",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.779913,
+        32.042632
+      ]
+    }
+  },
+  {
+    "name": "Shelter 831",
+    "address": "דימונה 21",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.798715,
+        32.05768
+      ]
+    }
+  },
+  {
+    "name": "Shelter 304",
+    "address": "מנדלשטם 9",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.776567,
+        32.09062
+      ]
+    }
+  },
+  {
+    "name": "Shelter 63",
+    "address": "מנחם בגין 46",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.780667,
+        32.06278
+      ]
+    }
+  },
+  {
+    "name": "Shelter 612",
+    "address": "בלפור 12",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.773539,
+        32.067434
+      ]
+    }
+  },
+  {
+    "name": "Shelter 204",
+    "address": "אנדרסן 22",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.797474,
+        32.113981
+      ]
+    }
+  },
+  {
+    "name": "Shelter 1039",
+    "address": "שז\"ר זלמן 39",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.764362,
+        32.039131
+      ]
+    }
+  },
+  {
+    "name": "Shelter 203",
+    "address": "ברודי חיים 10",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.800486,
+        32.11011
+      ]
+    }
+  },
+  {
+    "name": "Shelter 125",
+    "address": "מיזאן 19",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.816498,
+        32.120216
+      ]
+    }
+  },
+  {
+    "name": "Shelter 302",
+    "address": "מוצקין 13",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.775025,
+        32.090742
+      ]
+    }
+  },
+  {
+    "name": "Shelter 1027",
+    "address": "פיקוס 19",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.750827,
+        32.036292
+      ]
+    }
+  },
+  {
+    "name": "Shelter 1038",
+    "address": "אוהב ישראל 12",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.752102,
+        32.039552
+      ]
+    }
+  },
+  {
+    "name": "Shelter 108",
+    "address": "אהוד 18",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.833736,
+        32.123329
+      ]
+    }
+  },
+  {
+    "name": "Shelter 540",
+    "address": "הוברמן (כיכר הבימה) 4",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.779961,
+        32.071941
+      ]
+    }
+  },
+  {
+    "name": "Shelter 414",
+    "address": "אסתר המלכה 12",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.775837,
+        32.078875
+      ]
+    }
+  },
+  {
+    "name": "Shelter 523",
+    "address": "שדרות ההשכלה 38",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.797254,
+        32.070432
+      ]
+    }
+  },
+  {
+    "name": "Shelter 209",
+    "address": "רדינג 4",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.795403,
+        32.103959
+      ]
+    }
+  },
+  {
+    "name": "Shelter 518",
+    "address": "שביל החצב 8",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.800634,
+        32.068028
+      ]
+    }
+  },
+  {
+    "name": "Shelter 87",
+    "address": "רוטשילד 1",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.769726,
+        32.062895
+      ]
+    }
+  },
+  {
+    "name": "Shelter 805",
+    "address": "שדרות החי\"ל 18",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.794993,
+        32.056495
+      ]
+    }
+  },
+  {
+    "name": "Shelter 84",
+    "address": "השרון 14",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.77936,
+        32.062509
+      ]
+    }
+  },
+  {
+    "name": "Shelter 909",
+    "address": "שיפר 8",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.777189,
+        32.049365
+      ]
+    }
+  },
+  {
+    "name": "Shelter 633",
+    "address": "פינס 22",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.766225,
+        32.062324
+      ]
+    }
+  },
+  {
+    "name": "Shelter 530",
+    "address": "דובנוב 8",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.783783,
+        32.07458
+      ]
+    }
+  },
+  {
+    "name": "Shelter 420",
+    "address": "הרברט סמואל 94",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.767253,
+        32.078844
+      ]
+    }
+  },
+  {
+    "name": "Shelter 844",
+    "address": "קלמר משה 6",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.797608,
+        32.062601
+      ]
+    }
+  },
+  {
+    "name": "Shelter 826",
+    "address": "אלון יגאל 31",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.79109,
+        32.055995
+      ]
+    }
+  },
+  {
+    "name": "Shelter 825",
+    "address": "מושיע 21",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.794414,
+        32.051466
+      ]
+    }
+  },
+  {
+    "name": "Shelter 320",
+    "address": "דוד ילין 11",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.78501,
+        32.088905
+      ]
+    }
+  },
+  {
+    "name": "Shelter 524",
+    "address": "שדרות ההשכלה 14",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.796182,
+        32.066399
+      ]
+    }
+  },
+  {
+    "name": "Shelter 923",
+    "address": "פלקירה 5",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.776363,
+        32.052045
+      ]
+    }
+  },
+  {
+    "name": "Shelter 801",
+    "address": "רחבת הגייסות 1",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.79559,
+        32.06181
+      ]
+    }
+  },
+  {
+    "name": "Shelter 924",
+    "address": "כרם חמד 6",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.782577,
+        32.04944
+      ]
+    }
+  },
+  {
+    "name": "Shelter 621",
+    "address": "יצחק אלחנן 4",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.765567,
+        32.064395
+      ]
+    }
+  },
+  {
+    "name": "Shelter 1029",
+    "address": "ישראל מריז'ין 9",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.754228,
+        32.039196
+      ]
+    }
+  },
+  {
+    "name": "Shelter 49",
+    "address": "פנחס רוזן 72",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.826157,
+        32.114606
+      ]
+    }
+  },
+  {
+    "name": "Shelter 926",
+    "address": "קפלנסקי 2",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.778613,
+        32.044349
+      ]
+    }
+  },
+  {
+    "name": "Shelter 116",
+    "address": "צה\"ל 75",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.835134,
+        32.12134
+      ]
+    }
+  },
+  {
+    "name": "Shelter 925",
+    "address": "דשבסקי 7",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.78012,
+        32.044095
+      ]
+    }
+  },
+  {
+    "name": "Shelter 17",
+    "address": "אחד העם 9",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.769668,
+        32.063783
+      ]
+    }
+  },
+  {
+    "name": "Shelter 42",
+    "address": "פריש דניאל 3",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.783395,
+        32.074504
+      ]
+    }
+  },
+  {
+    "name": "Shelter 820",
+    "address": "תמוז 8",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.790727,
+        32.044481
+      ]
+    }
+  },
+  {
+    "name": "Shelter 311",
+    "address": "פקיעין 18",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.776884,
+        32.089487
+      ]
+    }
+  },
+  {
+    "name": "Shelter 1002",
+    "address": "פסטלוצי 31",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.757821,
+        32.047057
+      ]
+    }
+  },
+  {
+    "name": "Shelter 809",
+    "address": "לח\"י 66",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.796327,
+        32.047103
+      ]
+    }
+  },
+  {
+    "name": "Shelter 40",
+    "address": "אחד העם 54",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.774267,
+        32.064615
+      ]
+    }
+  },
+  {
+    "name": "Shelter 842",
+    "address": "שדרות יד לבנים 22",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.797812,
+        32.060824
+      ]
+    }
+  },
+  {
+    "name": "Shelter 1009",
+    "address": "אפלטון 9",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.747247,
+        32.033703
+      ]
+    }
+  },
+  {
+    "name": "Shelter 138",
+    "address": "מרכוס דוד 18",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.83563,
+        32.113648
+      ]
+    }
+  },
+  {
+    "name": "Shelter 718",
+    "address": "אלון יגאל 46",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.792083,
+        32.05885
+      ]
+    }
+  },
+  {
+    "name": "Shelter 120",
+    "address": "קהילת לודג' 28",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.816117,
+        32.107593
+      ]
+    }
+  },
+  {
+    "name": "Shelter 210",
+    "address": "רדינג 10",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.795201,
+        32.104462
+      ]
+    }
+  },
+  {
+    "name": "Shelter 132",
+    "address": "עשהאל 3",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.8385,
+        32.122606
+      ]
+    }
+  },
+  {
+    "name": "Shelter 905",
+    "address": "ישראל מסלנט 27",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.781173,
+        32.049995
+      ]
+    }
+  },
+  {
+    "name": "Shelter 839",
+    "address": "זבד 13",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.794057,
+        32.048892
+      ]
+    }
+  },
+  {
+    "name": "Shelter 95",
+    "address": "הארבעה 28",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.786578,
+        32.070201
+      ]
+    }
+  },
+  {
+    "name": "Shelter 82",
+    "address": "ריב\"ל 7",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.782228,
+        32.062829
+      ]
+    }
+  },
+  {
+    "name": "Shelter 1011",
+    "address": "מנדס פרנס 8",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.748028,
+        32.041677
+      ]
+    }
+  },
+  {
+    "name": "Shelter 532",
+    "address": "שביל שולמן 5",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.79743,
+        32.068684
+      ]
+    }
+  },
+  {
+    "name": "Shelter 1023",
+    "address": "הלוטוס 12",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.751218,
+        32.043246
+      ]
+    }
+  },
+  {
+    "name": "Shelter 828",
+    "address": "אורים 41",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.793631,
+        32.047365
+      ]
+    }
+  },
+  {
+    "name": "Shelter 514",
+    "address": "העבודה 25",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.775705,
+        32.070177
+      ]
+    }
+  },
+  {
+    "name": "Shelter 202",
+    "address": "כפר יונה 14",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.800686,
+        32.109275
+      ]
+    }
+  },
+  {
+    "name": "Shelter 703",
+    "address": "הנגרים 25",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.765483,
+        32.056536
+      ]
+    }
+  },
+  {
+    "name": "Shelter 109",
+    "address": "מאייר מרדכי 2",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.815709,
+        32.121619
+      ]
+    }
+  },
+  {
+    "name": "Shelter 1025",
+    "address": "ארליך 35",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.757199,
+        32.045952
+      ]
+    }
+  },
+  {
+    "name": "Shelter 914",
+    "address": "ישראל מסלנט 26",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.781591,
+        32.050192
+      ]
+    }
+  },
+  {
+    "name": "Shelter 717",
+    "address": "פטרסון 3",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.790679,
+        32.057339
+      ]
+    }
+  },
+  {
+    "name": "Shelter 27",
+    "address": "רוטשילד 41",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.774338,
+        32.064135
+      ]
+    }
+  },
+  {
+    "name": "Shelter 915",
+    "address": "ישראל מסלנט 28",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.781644,
+        32.050372
+      ]
+    }
+  },
+  {
+    "name": "Shelter 31",
+    "address": "בגין מנחם 154",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.79551,
+        32.079381
+      ]
+    }
+  },
+  {
+    "name": "Shelter 803",
+    "address": "הפלמ\"ח 28",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.796252,
+        32.062747
+      ]
+    }
+  },
+  {
+    "name": "Shelter 51",
+    "address": "לוינסקי 39",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.771577,
+        32.060169
+      ]
+    }
+  },
+  {
+    "name": "Shelter 626",
+    "address": "שבתי דון יחייא 1",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.764911,
+        32.065086
+      ]
+    }
+  },
+  {
+    "name": "Shelter 513",
+    "address": "לונץ 8",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.779651,
+        32.069829
+      ]
+    }
+  },
+  {
+    "name": "Shelter 529",
+    "address": "עמישב 21",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.804595,
+        32.063763
+      ]
+    }
+  },
+  {
+    "name": "Shelter 56",
+    "address": "הארבעה 17",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.786666,
+        32.070514
+      ]
+    }
+  },
+  {
+    "name": "Shelter 5",
+    "address": "השלושה 2",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.788344,
+        32.061791
+      ]
+    }
+  },
+  {
+    "name": "Shelter 858",
+    "address": "אנקאווא רפאל הרב 13",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.801043,
+        32.047988
+      ]
+    }
+  },
+  {
+    "name": "Shelter 126",
+    "address": "עולי הגרדום 5",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.83408,
+        32.110142
+      ]
+    }
+  },
+  {
+    "name": "Shelter 1031",
+    "address": "שבטי ישראל 77",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.753886,
+        32.043754
+      ]
+    }
+  },
+  {
+    "name": "Shelter 702",
+    "address": "פרנקל ידידיה 44",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.771129,
+        32.057126
+      ]
+    }
+  },
+  {
+    "name": "Shelter 522",
+    "address": "גרשון ש\"ץ 25",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.790156,
+        32.068957
+      ]
+    }
+  },
+  {
+    "name": "Shelter 1034",
+    "address": "קדם 40",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.748453,
+        32.046853
+      ]
+    }
+  },
+  {
+    "name": "Shelter 846",
+    "address": "שדרות יד לבנים 27",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.796688,
+        32.061379
+      ]
+    }
+  },
+  {
+    "name": "Shelter 433",
+    "address": "גרץ 11",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.77382,
+        32.085815
+      ]
+    }
+  },
+  {
+    "name": "Shelter 4",
+    "address": "שבתאי יעקב 22",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.830652,
+        32.125931
+      ]
+    }
+  },
+  {
+    "name": "Shelter 927",
+    "address": "רבי מאיר בעל הנס 5",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.7749,
+        32.049707
+      ]
+    }
+  },
+  {
+    "name": "Shelter 137",
+    "address": "ק\"ם 83",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.837586,
+        32.113873
+      ]
+    }
+  },
+  {
+    "name": "Shelter 112",
+    "address": "מגדל שרשן 17",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.813762,
+        32.118053
+      ]
+    }
+  },
+  {
+    "name": "Shelter 327",
+    "address": "דיזנגוף 255",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.776499,
+        32.093947
+      ]
+    }
+  },
+  {
+    "name": "Shelter 822",
+    "address": "התשעים ושלוש 4",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.787609,
+        32.056958
+      ]
+    }
+  },
+  {
+    "name": "Shelter 911",
+    "address": "עמיקם 8",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.775507,
+        32.045286
+      ]
+    }
+  },
+  {
+    "name": "Shelter 516",
+    "address": "פליטי הספר 19",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.801203,
+        32.069134
+      ]
+    }
+  },
+  {
+    "name": "Shelter 812",
+    "address": "אצ\"ל 34",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.791474,
+        32.051839
+      ]
+    }
+  },
+  {
+    "name": "Shelter 9042",
+    "address": "2184 8",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.842888,
+        32.114895
+      ]
+    }
+  },
+  {
+    "name": "Shelter 1036",
+    "address": "התקומה 46",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.759597,
+        32.051097
+      ]
+    }
+  },
+  {
+    "name": "Shelter 519",
+    "address": "בצרון 19",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.797696,
+        32.0671
+      ]
+    }
+  },
+  {
+    "name": "Shelter 624",
+    "address": "סעדיה גאון 6",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.782239,
+        32.065591
+      ]
+    }
+  },
+  {
+    "name": "Shelter 1022",
+    "address": "גולדמן נחום 7",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.757618,
+        32.056743
+      ]
+    }
+  },
+  {
+    "name": "Shelter 821",
+    "address": "שתולים 2",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.794173,
+        32.047419
+      ]
+    }
+  },
+  {
+    "name": "Shelter 90",
+    "address": "פרישמן 28",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.771883,
+        32.079559
+      ]
+    }
+  },
+  {
+    "name": "Shelter 107",
+    "address": "עשהאל 5",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.838219,
+        32.123851
+      ]
+    }
+  },
+  {
+    "name": "Shelter 115",
+    "address": "עיר שמש 36",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.826943,
+        32.124262
+      ]
+    }
+  },
+  {
+    "name": "Shelter 124",
+    "address": "משמר הירדן 67",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.832745,
+        32.112409
+      ]
+    }
+  },
+  {
+    "name": "Shelter 50",
+    "address": "יגאל אלון 126",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.795995,
+        32.074503
+      ]
+    }
+  },
+  {
+    "name": "Shelter 434",
+    "address": "בזל 42",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.780046,
+        32.089907
+      ]
+    }
+  },
+  {
+    "name": "Shelter 317",
+    "address": "ועידת קטוביץ 47",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.792006,
+        32.095238
+      ]
+    }
+  },
+  {
+    "name": "Shelter 508",
+    "address": "שפירא צבי הרמן 21",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.778272,
+        32.075225
+      ]
+    }
+  },
+  {
+    "name": "Shelter 322",
+    "address": "בן יהודה 161",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.773173,
+        32.089028
+      ]
+    }
+  },
+  {
+    "name": "Shelter 201",
+    "address": "גרונימן 10",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.797514,
+        32.105047
+      ]
+    }
+  },
+  {
+    "name": "Shelter 206",
+    "address": "גרונימן 26",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.799142,
+        32.105682
+      ]
+    }
+  },
+  {
+    "name": "Shelter 843",
+    "address": "שדרות יד לבנים 26",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.798546,
+        32.06085
+      ]
+    }
+  },
+  {
+    "name": "Shelter 912",
+    "address": "סמטת אסירי ציון 11",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.775563,
+        32.047282
+      ]
+    }
+  },
+  {
+    "name": "Shelter 917",
+    "address": "דיק 10",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.778666,
+        32.041991
+      ]
+    }
+  },
+  {
+    "name": "Shelter 630",
+    "address": "התבור 32",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.768162,
+        32.066988
+      ]
+    }
+  },
+  {
+    "name": "Shelter 25",
+    "address": "ולנברג ראול 2א",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.834451,
+        32.107235
+      ]
+    }
+  },
+  {
+    "name": "Shelter 417",
+    "address": "שדרות מסריק 6",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.778582,
+        32.078524
+      ]
+    }
+  },
+  {
+    "name": "Shelter 13",
+    "address": "אלנבי 105",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.772995,
+        32.063936
+      ]
+    }
+  },
+  {
+    "name": "Shelter 921",
+    "address": "הכינור 3",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.781141,
+        32.045733
+      ]
+    }
+  },
+  {
+    "name": "Shelter 904",
+    "address": "רינגלבלום 1",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.779336,
+        32.040199
+      ]
+    }
+  },
+  {
+    "name": "Shelter 8",
+    "address": "אבן גבירול 2",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.782416,
+        32.071608
+      ]
+    }
+  },
+  {
+    "name": "Shelter 503",
+    "address": "העבודה 5",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.772754,
+        32.070892
+      ]
+    }
+  },
+  {
+    "name": "Shelter 903",
+    "address": "בעל העקידה 29",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.778823,
+        32.052562
+      ]
+    }
+  },
+  {
+    "name": "Shelter 208",
+    "address": "פטאי יוסף 21",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.800513,
+        32.107702
+      ]
+    }
+  },
+  {
+    "name": "Shelter 913",
+    "address": "אלכסנדר זייד 23",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.780186,
+        32.045906
+      ]
+    }
+  },
+  {
+    "name": "Shelter 106",
+    "address": "ק\"ם 34",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.835642,
+        32.117504
+      ]
+    }
+  },
+  {
+    "name": "Shelter 829",
+    "address": "גבעתי 4",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.79627,
+        32.051148
+      ]
+    }
+  },
+  {
+    "name": "Shelter 133",
+    "address": "קהילת ורשה 30",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.819731,
+        32.112031
+      ]
+    }
+  },
+  {
+    "name": "Shelter 315",
+    "address": "אנטיגונוס 6",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.784807,
+        32.092542
+      ]
+    }
+  },
+  {
+    "name": "Shelter 102",
+    "address": "קהילת ביאלסטוק 1",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.820513,
+        32.109518
+      ]
+    }
+  },
+  {
+    "name": "Shelter 1030",
+    "address": "סמטת מזל גדי 3",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.752608,
+        32.05341
+      ]
+    }
+  },
+  {
+    "name": "Shelter 806",
+    "address": "סר ג'ון מונש 28",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.793808,
+        32.057489
+      ]
+    }
+  },
+  {
+    "name": "Shelter 103",
+    "address": "זכות משה 10",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.817399,
+        32.108696
+      ]
+    }
+  },
+  {
+    "name": "Shelter 127",
+    "address": "הגולן 134",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.839102,
+        32.114905
+      ]
+    }
+  },
+  {
+    "name": "Shelter 629",
+    "address": "התבור 29",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.768111,
+        32.06669
+      ]
+    }
+  },
+  {
+    "name": "Shelter 306",
+    "address": "הכנסת הגדולה 3",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.798209,
+        32.097602
+      ]
+    }
+  },
+  {
+    "name": "Shelter 96",
+    "address": "ולנברג ראול 20",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.837751,
+        32.10991
+      ]
+    }
+  },
+  {
+    "name": "Shelter 1026",
+    "address": "יפת 44",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.752445,
+        32.049718
+      ]
+    }
+  },
+  {
+    "name": "Shelter 832",
+    "address": "שדרות יד לבנים 21",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.795379,
+        32.060907
+      ]
+    }
+  },
+  {
+    "name": "Shelter 709",
+    "address": "לוינסקי 95",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.778408,
+        32.057672
+      ]
+    }
+  },
+  {
+    "name": "Shelter 830",
+    "address": "לובטקין צביה 35",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.806934,
+        32.048748
+      ]
+    }
+  },
+  {
+    "name": "Shelter 53",
+    "address": "יהודה הלוי 23",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.770852,
+        32.061678
+      ]
+    }
+  },
+  {
+    "name": "Shelter 531",
+    "address": "השלום 101",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.805314,
+        32.061875
+      ]
+    }
+  },
+  {
+    "name": "Shelter 30",
+    "address": "נירים 1",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.790485,
+        32.062277
+      ]
+    }
+  },
+  {
+    "name": "Shelter 89",
+    "address": "בלפור 8",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.772218,
+        32.06815
+      ]
+    }
+  },
+  {
+    "name": "Shelter 308",
+    "address": "יחזקאל 16",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.777525,
+        32.093278
+      ]
+    }
+  },
+  {
+    "name": "Shelter 813",
+    "address": "אצ\"ל 22",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.791395,
+        32.052542
+      ]
+    }
+  },
+  {
+    "name": "Shelter 301",
+    "address": "שדרות מוצקין 29",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.775197,
+        32.091998
+      ]
+    }
+  },
+  {
+    "name": "Shelter 916",
+    "address": "טורי זהב 15",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.780253,
+        32.052153
+      ]
+    }
+  },
+  {
+    "name": "Shelter 505",
+    "address": "דפנה 32",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.793123,
+        32.080806
+      ]
+    }
+  },
+  {
+    "name": "Shelter 410",
+    "address": "אדוארד ברנשטיין 7",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.77205,
+        32.086273
+      ]
+    }
+  },
+  {
+    "name": "Shelter 105",
+    "address": "ק\"ם 65",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.8382,
+        32.115895
+      ]
+    }
+  },
+  {
+    "name": "Shelter 71",
+    "address": "הירקון 205",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.770931,
+        32.089127
+      ]
+    }
+  },
+  {
+    "name": "Shelter 406",
+    "address": "מנדלי מוכר ספרים 19",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.77143,
+        32.079217
+      ]
+    }
+  },
+  {
+    "name": "Shelter 59",
+    "address": "ארניה אוסוולדו 23",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.786393,
+        32.07058
+      ]
+    }
+  },
+  {
+    "name": "Shelter 28",
+    "address": "תובל 5",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.795268,
+        32.070305
+      ]
+    }
+  },
+  {
+    "name": "Shelter 1007",
+    "address": "עזה 8",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.759475,
+        32.049081
+      ]
+    }
+  },
+  {
+    "name": "Shelter 402",
+    "address": "פינסקר 16",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.770017,
+        32.074173
+      ]
+    }
+  },
+  {
+    "name": "Shelter 65",
+    "address": "ולנברג 24",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.839464,
+        32.11145
+      ]
+    }
+  },
+  {
+    "name": "Shelter 528",
+    "address": "חפץ חיים 20",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.799586,
+        32.07496
+      ]
+    }
+  },
+  {
+    "name": "Shelter 1019",
+    "address": "אשדוד 7",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.76062,
+        32.040816
+      ]
+    }
+  },
+  {
+    "name": "Shelter 811",
+    "address": "אצ\"ל 76",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.793367,
+        32.047986
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20103",
+    "address": "הברזל 20",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.838869,
+        32.108086
+      ]
+    }
+  },
+  {
+    "name": "Shelter 207",
+    "address": "קרני יהודה 9",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.793336,
+        32.104894
+      ]
+    }
+  },
+  {
+    "name": "Shelter 64",
+    "address": "הברזל 27",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.840362,
+        32.10972
+      ]
+    }
+  },
+  {
+    "name": "Shelter 819",
+    "address": "בועז 24",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.795009,
+        32.049499
+      ]
+    }
+  },
+  {
+    "name": "Shelter 810",
+    "address": "לח\"י 66",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.79658,
+        32.047081
+      ]
+    }
+  },
+  {
+    "name": "Shelter 537",
+    "address": "ביל\"ו 54",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.780898,
+        32.071198
+      ]
+    }
+  },
+  {
+    "name": "Shelter 622",
+    "address": "רוקח שמעון 19",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.76633,
+        32.060817
+      ]
+    }
+  },
+  {
+    "name": "Shelter 12",
+    "address": "אחד העם 14",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.769525,
+        32.063453
+      ]
+    }
+  },
+  {
+    "name": "Shelter 816",
+    "address": "שדרות יד לבנים 18",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.797173,
+        32.060416
+      ]
+    }
+  },
+  {
+    "name": "Shelter 450",
+    "address": "השופטים 37",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.782774,
+        32.076774
+      ]
+    }
+  },
+  {
+    "name": "Shelter 527",
+    "address": "השלום 119",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.807853,
+        32.059876
+      ]
+    }
+  },
+  {
+    "name": "Shelter 918",
+    "address": "אופטושו יוסף 2",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.781172,
+        32.041477
+      ]
+    }
+  },
+  {
+    "name": "Shelter 19",
+    "address": "אבן גבירול 14",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.782107,
+        32.072712
+      ]
+    }
+  },
+  {
+    "name": "Shelter 800",
+    "address": "סר ג'ון מונש 22",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.793789,
+        32.057131
+      ]
+    }
+  },
+  {
+    "name": "Shelter 546",
+    "address": "ביל\"ו 17",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.779779,
+        32.069513
+      ]
+    }
+  },
+  {
+    "name": "Shelter 525",
+    "address": "אשרמן יוסף 9",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.808042,
+        32.057633
+      ]
+    }
+  },
+  {
+    "name": "Shelter 419",
+    "address": "אד\"ם הכהן 7",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.777484,
+        32.085548
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20",
+    "address": "בית עובד 3",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.787003,
+        32.064608
+      ]
+    }
+  },
+  {
+    "name": "Shelter 36",
+    "address": "בקר אהרון 8",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.816518,
+        32.12287
+      ]
+    }
+  },
+  {
+    "name": "Shelter 715",
+    "address": "סמטת הגינה 3",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.77503,
+        32.061507
+      ]
+    }
+  },
+  {
+    "name": "Shelter 815",
+    "address": "התקוה 70",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.789704,
+        32.050426
+      ]
+    }
+  },
+  {
+    "name": "Shelter 432",
+    "address": "פרוג 17",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.772699,
+        32.08049
+      ]
+    }
+  },
+  {
+    "name": "Shelter 404",
+    "address": "שניאור זלמן 4",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.770446,
+        32.074163
+      ]
+    }
+  },
+  {
+    "name": "Shelter 111",
+    "address": "הטית זין 8",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.834749,
+        32.115748
+      ]
+    }
+  },
+  {
+    "name": "Shelter 60",
+    "address": "פרישמן 54",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.77471,
+        32.079582
+      ]
+    }
+  },
+  {
+    "name": "Shelter 98",
+    "address": "השלום 5",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.795701,
+        32.072424
+      ]
+    }
+  },
+  {
+    "name": "Shelter 26",
+    "address": "בית עובד 15",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.78827,
+        32.064149
+      ]
+    }
+  },
+  {
+    "name": "Shelter 45",
+    "address": "הארבעה 21",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.787213,
+        32.070553
+      ]
+    }
+  },
+  {
+    "name": "Shelter 34",
+    "address": "יהודה הלוי 34",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.771349,
+        32.061505
+      ]
+    }
+  },
+  {
+    "name": "Shelter 136",
+    "address": "עולי הגרדום 30",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.836054,
+        32.111741
+      ]
+    }
+  },
+  {
+    "name": "Shelter 212",
+    "address": "בורלא יהודה 25",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.790244,
+        32.107646
+      ]
+    }
+  },
+  {
+    "name": "Shelter 407",
+    "address": "מיכה 20",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.776169,
+        32.094125
+      ]
+    }
+  },
+  {
+    "name": "Shelter 323",
+    "address": "בן יהודה 227",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.775522,
+        32.095647
+      ]
+    }
+  },
+  {
+    "name": "Shelter 319",
+    "address": "דיזנגוף 312",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.776781,
+        32.095542
+      ]
+    }
+  },
+  {
+    "name": "Shelter 314",
+    "address": "אריסטובולוס 1",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.785941,
+        32.093134
+      ]
+    }
+  },
+  {
+    "name": "Shelter 421",
+    "address": "הירקון 140",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.76939,
+        32.083037
+      ]
+    }
+  },
+  {
+    "name": "Shelter 121",
+    "address": "קהילת ורשה 12",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.819917,
+        32.111307
+      ]
+    }
+  },
+  {
+    "name": "Shelter 415",
+    "address": "המלך ג'ורג' 33",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.773645,
+        32.072846
+      ]
+    }
+  },
+  {
+    "name": "Shelter 85",
+    "address": "הסוללים 5",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.795888,
+        32.069888
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20102",
+    "address": "יגאל אלון  98",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.794059,
+        32.070044
+      ]
+    }
+  },
+  {
+    "name": "Shelter 78",
+    "address": "טולוז  8",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.748078,
+        32.039861
+      ]
+    }
+  },
+  {
+    "name": "Shelter 68",
+    "address": "נחלת יצחק  20",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.79816,
+        32.074024
+      ]
+    }
+  },
+  {
+    "name": "Shelter 58",
+    "address": "מנחם בגין 52",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.781363,
+        32.063726
+      ]
+    }
+  },
+  {
+    "name": "Shelter 517",
+    "address": "דם המכבים 26",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.800268,
+        32.069044
+      ]
+    }
+  },
+  {
+    "name": "Shelter 101",
+    "address": "קהילת קראקוב 3",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.821369,
+        32.110254
+      ]
+    }
+  },
+  {
+    "name": "Shelter 910",
+    "address": "בלבן מאיר 3",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.778054,
+        32.049465
+      ]
+    }
+  },
+  {
+    "name": "Shelter 62",
+    "address": "רמז דוד 6",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.786072,
+        32.085469
+      ]
+    }
+  },
+  {
+    "name": "Shelter 1024",
+    "address": "צהלון הרופא 3",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.756222,
+        32.044019
+      ]
+    }
+  },
+  {
+    "name": "Shelter 526",
+    "address": "הצבי 5",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.809668,
+        32.057217
+      ]
+    }
+  },
+  {
+    "name": "Shelter 1018",
+    "address": "שדרות חב\"ד 26",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.754032,
+        32.04183
+      ]
+    }
+  },
+  {
+    "name": "Shelter 520",
+    "address": "איסרליש 5",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.79226,
+        32.071657
+      ]
+    }
+  },
+  {
+    "name": "Shelter 533",
+    "address": "מודיליאני 19",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.78482,
+        32.080762
+      ]
+    }
+  },
+  {
+    "name": "Shelter 534",
+    "address": "שביל ארטר יצחק 6",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.797651,
+        32.069481
+      ]
+    }
+  },
+  {
+    "name": "Shelter 401",
+    "address": "הפרדס 5",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.780341,
+        32.083563
+      ]
+    }
+  },
+  {
+    "name": "Shelter 1012",
+    "address": "יוסי בן יוסי 1",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.756994,
+        32.052144
+      ]
+    }
+  },
+  {
+    "name": "Shelter 46",
+    "address": "הוברמן 1",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.780222,
+        32.072644
+      ]
+    }
+  },
+  {
+    "name": "Shelter 705",
+    "address": "הגר\"א 28",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.781864,
+        32.059304
+      ]
+    }
+  },
+  {
+    "name": "Shelter 833",
+    "address": "שדרות יד לבנים 4",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.793371,
+        32.060892
+      ]
+    }
+  },
+  {
+    "name": "Shelter 1003",
+    "address": "ארליך 3",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.753216,
+        32.047027
+      ]
+    }
+  },
+  {
+    "name": "Shelter 316",
+    "address": "שדרות מוצקין 6",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.774888,
+        32.089818
+      ]
+    }
+  },
+  {
+    "name": "Shelter 824",
+    "address": "התשעים ושלוש 4",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.787823,
+        32.056706
+      ]
+    }
+  },
+  {
+    "name": "Shelter 807",
+    "address": "ורד 9ב",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.793953,
+        32.05275
+      ]
+    }
+  },
+  {
+    "name": "Shelter 110",
+    "address": "פילדלפיה 8",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.840309,
+        32.121429
+      ]
+    }
+  },
+  {
+    "name": "Shelter 118",
+    "address": "בריג אמיל 5",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.822347,
+        32.108941
+      ]
+    }
+  },
+  {
+    "name": "Shelter 52",
+    "address": "שד\"ל 3",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.774801,
+        32.063424
+      ]
+    }
+  },
+  {
+    "name": "Shelter 135",
+    "address": "מרק יעקב 3",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.817235,
+        32.111047
+      ]
+    }
+  },
+  {
+    "name": "Shelter 907",
+    "address": "הקשת 28",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.775044,
+        32.044339
+      ]
+    }
+  },
+  {
+    "name": "Shelter 205",
+    "address": "לויטן יצחק 7",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.798107,
+        32.1195
+      ]
+    }
+  },
+  {
+    "name": "Shelter 38",
+    "address": "החשמל 9",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.775294,
+        32.061218
+      ]
+    }
+  },
+  {
+    "name": "Shelter 119",
+    "address": "קהילת לודג' 12",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.816783,
+        32.109663
+      ]
+    }
+  },
+  {
+    "name": "Shelter 627",
+    "address": "התלמי יהושע 16",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.768468,
+        32.062534
+      ]
+    }
+  },
+  {
+    "name": "Shelter 35",
+    "address": "אלוני ניסים 10",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.79717,
+        32.088785
+      ]
+    }
+  },
+  {
+    "name": "Shelter 708",
+    "address": "יפו 44",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.77201,
+        32.0605
+      ]
+    }
+  },
+  {
+    "name": "Shelter 802",
+    "address": "רחבת הסיירים 1",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.797987,
+        32.061812
+      ]
+    }
+  },
+  {
+    "name": "Shelter 310",
+    "address": "הירקון 248",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.773522,
+        32.092018
+      ]
+    }
+  },
+  {
+    "name": "Shelter 1015",
+    "address": "קדם 125",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.746411,
+        32.039808
+      ]
+    }
+  },
+  {
+    "name": "Shelter 411",
+    "address": "הכרם 2",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.769936,
+        32.0832
+      ]
+    }
+  },
+  {
+    "name": "Shelter 113",
+    "address": "תבואות הארץ 9",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.828059,
+        32.111949
+      ]
+    }
+  },
+  {
+    "name": "Shelter 129",
+    "address": "אלדד הדני 11",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.828569,
+        32.109505
+      ]
+    }
+  },
+  {
+    "name": "Shelter 100",
+    "address": "ברקוביץ 4",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.787076,
+        32.078614
+      ]
+    }
+  },
+  {
+    "name": "Shelter 706",
+    "address": "ויטל חיים 2",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.767798,
+        32.056853
+      ]
+    }
+  },
+  {
+    "name": "Shelter 66",
+    "address": "אלון יגאל 65",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.792242,
+        32.065603
+      ]
+    }
+  },
+  {
+    "name": "Shelter 134",
+    "address": "הדר יוסף 24",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.819166,
+        32.108922
+      ]
+    }
+  },
+  {
+    "name": "Shelter 922",
+    "address": "השרביט 4",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.777,
+        32.041545
+      ]
+    }
+  },
+  {
+    "name": "Shelter 506",
+    "address": "סולד הנרייטה 6",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.791983,
+        32.079571
+      ]
+    }
+  },
+  {
+    "name": "Shelter 54",
+    "address": "הירדן 4",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.766156,
+        32.074155
+      ]
+    }
+  },
+  {
+    "name": "Shelter 930",
+    "address": "שלושת החיצים 6",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.773008,
+        32.044025
+      ]
+    }
+  },
+  {
+    "name": "Shelter 504",
+    "address": "שטרוק 16",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.782856,
+        32.084086
+      ]
+    }
+  },
+  {
+    "name": "Shelter 841",
+    "address": "דיין משה 116",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.799089,
+        32.066062
+      ]
+    }
+  },
+  {
+    "name": "Shelter 908",
+    "address": "בורמה 9",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.772909,
+        32.043055
+      ]
+    }
+  },
+  {
+    "name": "Shelter 707",
+    "address": "העליה 17",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.773962,
+        32.058993
+      ]
+    }
+  },
+  {
+    "name": "Shelter 128",
+    "address": "ראול ולנברג 28",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.840324,
+        32.112455
+      ]
+    }
+  },
+  {
+    "name": "Shelter 1001",
+    "address": "פסטלוצי 12",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.756627,
+        32.046739
+      ]
+    }
+  },
+  {
+    "name": "Shelter 22",
+    "address": "יהודה הלוי 37",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.771901,
+        32.061897
+      ]
+    }
+  },
+  {
+    "name": "Shelter 405",
+    "address": "שניאור זלמן 2",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.77033,
+        32.074272
+      ]
+    }
+  },
+  {
+    "name": "Shelter 130",
+    "address": "הגולן 124",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.839494,
+        32.113825
+      ]
+    }
+  },
+  {
+    "name": "Shelter 104",
+    "address": "הרכבת 58",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.782192,
+        32.060225
+      ]
+    }
+  },
+  {
+    "name": "Shelter 804",
+    "address": "שדרות החי\"ל 33",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.798211,
+        32.056434
+      ]
+    }
+  },
+  {
+    "name": "Shelter 61",
+    "address": "הרכבת  30",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.77984,
+        32.062274
+      ]
+    }
+  },
+  {
+    "name": "Shelter 309",
+    "address": "יוצ\"ר 6",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.778935,
+        32.089153
+      ]
+    }
+  },
+  {
+    "name": "Shelter 814",
+    "address": "אצ\"ל 10",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.791294,
+        32.053157
+      ]
+    }
+  },
+  {
+    "name": "Shelter 114",
+    "address": "עולי הגרדום 15",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.834112,
+        32.111139
+      ]
+    }
+  },
+  {
+    "name": "Shelter 122",
+    "address": "הגולן 110",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.838383,
+        32.112372
+      ]
+    }
+  },
+  {
+    "name": "Shelter 1040",
+    "address": "נחל שורק 5",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.760734,
+        32.039688
+      ]
+    }
+  },
+  {
+    "name": "Shelter 117",
+    "address": "יוסף האפרתי 2",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.81813,
+        32.107389
+      ]
+    }
+  },
+  {
+    "name": "Shelter 10",
+    "address": "שאול המלך 8",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.783805,
+        32.075346
+      ]
+    }
+  },
+  {
+    "name": "Shelter 1006",
+    "address": "ציהתל\"י 40",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.755758,
+        32.041495
+      ]
+    }
+  },
+  {
+    "name": "Shelter 845",
+    "address": "בת ציון 11",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.797204,
+        32.062587
+      ]
+    }
+  },
+  {
+    "name": "Shelter 1",
+    "address": "לוינסקי 108",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.779829,
+        32.056485
+      ]
+    }
+  },
+  {
+    "name": "Shelter 321",
+    "address": "כהנשטם 16",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.788801,
+        32.089679
+      ]
+    }
+  },
+  {
+    "name": "Shelter 416",
+    "address": "סמטת גור אריה 4",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.778292,
+        32.081547
+      ]
+    }
+  },
+  {
+    "name": "Shelter 521",
+    "address": "ראם 1",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.788925,
+        32.067783
+      ]
+    }
+  },
+  {
+    "name": "Shelter 840",
+    "address": "רשף 18",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.793865,
+        32.05344
+      ]
+    }
+  },
+  {
+    "name": "Shelter 409",
+    "address": "זולא אמיל 2",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.773319,
+        32.08232
+      ]
+    }
+  },
+  {
+    "name": "Shelter 33",
+    "address": "יהודה הלוי 63",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.775525,
+        32.063389
+      ]
+    }
+  },
+  {
+    "name": "Shelter 14",
+    "address": "הברזל 21א",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.838645,
+        32.108723
+      ]
+    }
+  },
+  {
+    "name": "Shelter 838",
+    "address": "ההגנה 110",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.796912,
+        32.053328
+      ]
+    }
+  },
+  {
+    "name": "Shelter 403",
+    "address": "שניאור זלמן 6",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.770572,
+        32.074043
+      ]
+    }
+  },
+  {
+    "name": "Shelter 94",
+    "address": "מנחם בגין 121",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.788987,
+        32.072029
+      ]
+    }
+  },
+  {
+    "name": "Shelter 412",
+    "address": "טשרניחובסקי 33",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.772032,
+        32.073549
+      ]
+    }
+  },
+  {
+    "name": "Shelter 123",
+    "address": "הגולן 19",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.831855,
+        32.107809
+      ]
+    }
+  },
+  {
+    "name": "Shelter 808",
+    "address": "מושיע 23",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.795002,
+        32.051528
+      ]
+    }
+  },
+  {
+    "name": "Shelter 836",
+    "address": "המערכה 3",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.79303,
+        32.06187
+      ]
+    }
+  },
+  {
+    "name": "Shelter 8001",
+    "address": "יהודה הלוי 63",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.775667,
+        32.063376
+      ]
+    }
+  },
+  {
+    "name": "Shelter 8003",
+    "address": "מקלף מרדכי 1",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.78823,
+        32.070476
+      ]
+    }
+  },
+  {
+    "name": "Shelter 8004",
+    "address": "בגין מנחם  151א",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.792172,
+        32.077338
+      ]
+    }
+  },
+  {
+    "name": "Shelter 8005",
+    "address": "בגין מנחם  157",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.795669,
+        32.081356
+      ]
+    }
+  },
+  {
+    "name": "Shelter 6006",
+    "address": "הרצפלד אברהם 20",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.812447,
+        32.045769
+      ]
+    }
+  },
+  {
+    "name": "Shelter 6007",
+    "address": "ששת הימים 6",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.810285,
+        32.046587
+      ]
+    }
+  },
+  {
+    "name": "Shelter 6013",
+    "address": "שינקין מנחם 4",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.772684,
+        32.06979
+      ]
+    }
+  },
+  {
+    "name": "Shelter 6015",
+    "address": "שדרות נורדאו 63",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.779164,
+        32.092554
+      ]
+    }
+  },
+  {
+    "name": "Shelter 9003",
+    "address": "אלון יגאל 94",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.794053,
+        32.06908
+      ]
+    }
+  },
+  {
+    "name": "Shelter 9006",
+    "address": "הירקון 21",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.764685,
+        32.070389
+      ]
+    }
+  },
+  {
+    "name": "Shelter 6026",
+    "address": "ביאליק 27",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.77095,
+        32.073437
+      ]
+    }
+  },
+  {
+    "name": "Shelter 6032",
+    "address": "שפרינצק 4",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.784079,
+        32.071209
+      ]
+    }
+  },
+  {
+    "name": "Shelter 6034",
+    "address": "אידלסון 29",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.770385,
+        32.073387
+      ]
+    }
+  },
+  {
+    "name": "Shelter 6036",
+    "address": "הגר\"א 28",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.781998,
+        32.059185
+      ]
+    }
+  },
+  {
+    "name": "Shelter 9008",
+    "address": "החרש 20",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.784413,
+        32.058627
+      ]
+    }
+  },
+  {
+    "name": "Shelter 9009",
+    "address": "בגין מנחם 144",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.793461,
+        32.07798
+      ]
+    }
+  },
+  {
+    "name": "Shelter 9010",
+    "address": "מונטיפיורי 37",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.773776,
+        32.065883
+      ]
+    }
+  },
+  {
+    "name": "Shelter 9011",
+    "address": "בגין מנחם  23",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.78001,
+        32.063823
+      ]
+    }
+  },
+  {
+    "name": "Shelter 9014",
+    "address": "ויצמן 4",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.788768,
+        32.078119
+      ]
+    }
+  },
+  {
+    "name": "Shelter 9016",
+    "address": "יד חרוצים 12",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.782717,
+        32.061707
+      ]
+    }
+  },
+  {
+    "name": "Shelter 9017",
+    "address": "פינס 39",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.768173,
+        32.060483
+      ]
+    }
+  },
+  {
+    "name": "Shelter 9018",
+    "address": "רוטשילד 20",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.771377,
+        32.062898
+      ]
+    }
+  },
+  {
+    "name": "Shelter 9019",
+    "address": "צ'לנוב 20",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.774872,
+        32.057861
+      ]
+    }
+  },
+  {
+    "name": "Shelter 9020",
+    "address": "טראב יעקב הרב 2",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.795874,
+        32.04401
+      ]
+    }
+  },
+  {
+    "name": "Shelter 9021",
+    "address": "הרצל 108",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.770756,
+        32.0554
+      ]
+    }
+  },
+  {
+    "name": "Shelter 9024",
+    "address": "רוטשילד 38",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.773578,
+        32.063417
+      ]
+    }
+  },
+  {
+    "name": "Shelter 9025",
+    "address": "טראב יעקב הרב 8",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.797278,
+        32.044232
+      ]
+    }
+  },
+  {
+    "name": "Shelter 6045",
+    "address": "שתולים 82",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.79462,
+        32.041366
+      ]
+    }
+  },
+  {
+    "name": "Shelter 6046",
+    "address": "דוידקה 18",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.793044,
+        32.055188
+      ]
+    }
+  },
+  {
+    "name": "Shelter 9049",
+    "address": "אבן גבירול 30",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.78214,
+        32.075061
+      ]
+    }
+  },
+  {
+    "name": "Shelter 9028",
+    "address": "הברזל 15",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.837511,
+        32.107836
+      ]
+    }
+  },
+  {
+    "name": "Shelter 9029",
+    "address": "הברזל 28",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.840949,
+        32.109426
+      ]
+    }
+  },
+  {
+    "name": "Shelter 9030",
+    "address": "המסגר 6",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.784712,
+        32.060305
+      ]
+    }
+  },
+  {
+    "name": "Shelter 9031",
+    "address": "ז'בוטינסקי 62",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.779605,
+        32.088418
+      ]
+    }
+  },
+  {
+    "name": "Shelter 9032",
+    "address": "מגן קלמן אלוף 3",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.787599,
+        32.071333
+      ]
+    }
+  },
+  {
+    "name": "Shelter 9033",
+    "address": "קרמניצקי 6",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.794333,
+        32.066622
+      ]
+    }
+  },
+  {
+    "name": "Shelter 9034",
+    "address": "ארלוזורוב 17",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.774173,
+        32.087475
+      ]
+    }
+  },
+  {
+    "name": "Shelter 9035",
+    "address": "ריב\"ל 34",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.785945,
+        32.06172
+      ]
+    }
+  },
+  {
+    "name": "Shelter 9036",
+    "address": "דיזנגוף 61",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.774841,
+        32.075694
+      ]
+    }
+  },
+  {
+    "name": "Shelter 9037",
+    "address": "מוהליבר 18",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.76841,
+        32.065636
+      ]
+    }
+  },
+  {
+    "name": "Shelter 9038",
+    "address": "אלנבי 115",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.773679,
+        32.062491
+      ]
+    }
+  },
+  {
+    "name": "Shelter 536",
+    "address": "החבצלת 4",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.808642,
+        32.056087
+      ]
+    }
+  },
+  {
+    "name": "Shelter 9039",
+    "address": "הברזל 22",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.839719,
+        32.108578
+      ]
+    }
+  },
+  {
+    "name": "Shelter 9040",
+    "address": "קפלן אליעזר 19",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.785157,
+        32.073699
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20380",
+    "address": "2229 3",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.842949,
+        32.115879
+      ]
+    }
+  },
+  {
+    "name": "Shelter 9043",
+    "address": "ויצמן 14",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.789488,
+        32.081285
+      ]
+    }
+  },
+  {
+    "name": "Shelter 9048",
+    "address": "דבורה הנביאה 122",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.840961,
+        32.11406
+      ]
+    }
+  },
+  {
+    "name": "Shelter 9026",
+    "address": "ויצמן 30",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.789757,
+        32.084593
+      ]
+    }
+  },
+  {
+    "name": "Shelter 9027",
+    "address": "יבנה 38",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.77392,
+        32.06315
+      ]
+    }
+  },
+  {
+    "name": "Shelter 9050",
+    "address": "2379 2",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.800904,
+        32.142971
+      ]
+    }
+  },
+  {
+    "name": "Shelter 9051",
+    "address": "הרבי מבכרך 4",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.766279,
+        32.058183
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20105",
+    "address": "ההגנה 135",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.802282,
+        32.053579
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20107",
+    "address": "מעפילי אגוז 74",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.810345,
+        32.053577
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20108",
+    "address": "בושם 2",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.809696,
+        32.044811
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20109",
+    "address": "בן יוסף שלמה 22",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.798376,
+        32.125692
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20110",
+    "address": "בילינסון 1",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.773127,
+        32.077263
+      ]
+    }
+  },
+  {
+    "name": "Shelter 9052",
+    "address": "בן סרוק 11",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.783221,
+        32.086262
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20112",
+    "address": "הוז דב 18",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.772672,
+        32.080751
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20113",
+    "address": "3933 2",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.756632,
+        32.035112
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20114",
+    "address": "פומבדיתא 6",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.788174,
+        32.081005
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20115",
+    "address": "בן יהודה 193",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.774227,
+        32.091569
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20116",
+    "address": "צירלסון 6",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.794002,
+        32.092962
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20117",
+    "address": "מונש ג'ון סר 2",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.793718,
+        32.054655
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20118",
+    "address": "צוקרמן אנטק יצחק 30",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.809408,
+        32.046521
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20122",
+    "address": "פלקירה 10",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.776389,
+        32.051933
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20123",
+    "address": "אלון יגאל 57",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.7919,
+        32.063275
+      ]
+    }
+  },
+  {
+    "name": "Shelter 79",
+    "address": "שנקר אריה 3",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "parking_storage",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.7626,
+        32.062736
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20381",
+    "address": "הותיקים 11",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.776485,
+        32.042235
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20382",
+    "address": "בורלא יהודה 31",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.790339,
+        32.109218
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20383",
+    "address": "הגולן 34",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.831949,
+        32.107189
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20392",
+    "address": "מרון חנה 2",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.774001,
+        32.04605
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20126",
+    "address": "חריף אייזיק 23",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.747732,
+        32.032442
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20129",
+    "address": "צונץ 7",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.764067,
+        32.04283
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20130",
+    "address": "קפלנסקי 2",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.77884,
+        32.04389
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20131",
+    "address": "כהנשטם 16",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.788451,
+        32.089895
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20132",
+    "address": "גרונימן 11",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.798941,
+        32.106421
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20133",
+    "address": "קדם 40",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.748634,
+        32.046743
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20134",
+    "address": "בני דן 6",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.784575,
+        32.095324
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20137",
+    "address": "מונש ג'ון סר 1",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.79325,
+        32.05479
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20141",
+    "address": "ליסין 22",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.793917,
+        32.085111
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20143",
+    "address": "בוגרשוב 14",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.768718,
+        32.076897
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20147",
+    "address": "בן אביגדור 5",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.788341,
+        32.067485
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20148",
+    "address": "מנדס פרנס 15",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.748996,
+        32.041859
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20149",
+    "address": "למדן יצחק 7",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.821498,
+        32.118677
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20151",
+    "address": "מעפילי סלואדור 11",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.752899,
+        32.044898
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20155",
+    "address": "טשרניחובסקי 22",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.771931,
+        32.072984
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20156",
+    "address": "חשמונאים 86",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.783334,
+        32.069108
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20159",
+    "address": "דיזנגוף 221",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.775459,
+        32.089789
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20161",
+    "address": "אריסטו 16",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.745228,
+        32.033074
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20162",
+    "address": "שז\"ר זלמן 46",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.763238,
+        32.039771
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20163",
+    "address": "עמישב 50",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.807799,
+        32.060298
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20165",
+    "address": "חסידי האומות 10",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.758486,
+        32.043743
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20167",
+    "address": "סמטת כביר 21",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.788311,
+        32.049656
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20169",
+    "address": "קדם 109",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.747766,
+        32.04111
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20171",
+    "address": "רדינג 35",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.793378,
+        32.10812
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20173",
+    "address": "אנדרסן 22",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.797827,
+        32.114569
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20174",
+    "address": "מקראי קדש 4",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.800763,
+        32.048552
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20175",
+    "address": "בן יהודה 227",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.775612,
+        32.095628
+      ]
+    }
+  },
+  {
+    "name": "Shelter 928",
+    "address": "הותיקים 6",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.777763,
+        32.043935
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20177",
+    "address": "שבטי ישראל 77",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.753831,
+        32.043972
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20178",
+    "address": "נועם 8",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.757004,
+        32.05174
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20179",
+    "address": "הרצוג 11",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.797093,
+        32.095479
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20180",
+    "address": "יהודה הנשיא 6",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.794942,
+        32.115336
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20181",
+    "address": "נשרי צבי 5",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.801862,
+        32.054866
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20385",
+    "address": "קיציס יוסף 23",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.82215,
+        32.10797
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20188",
+    "address": "אבנר 1",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.831848,
+        32.124857
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20189",
+    "address": "הטייסים 28",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.803183,
+        32.056867
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20190",
+    "address": "לויד ג'ורג' 2",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.781247,
+        32.065953
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20192",
+    "address": "נמיר מרדכי 81",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.794973,
+        32.089777
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20193",
+    "address": "שבטי ישראל 53",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.755223,
+        32.045833
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20194",
+    "address": "החי\"ל 8",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.792351,
+        32.056034
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20196",
+    "address": "דונולו הרופא 12",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.748207,
+        32.040234
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20197",
+    "address": "רדינג 47",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.79546,
+        32.109758
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20199",
+    "address": "התשעים ושלוש 4",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.787639,
+        32.056973
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20200",
+    "address": "האתרוג 27",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.749612,
+        32.037944
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20201",
+    "address": "בית צורי אליהו 20",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.800894,
+        32.12201
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20204",
+    "address": "ההגנה 106",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.79489,
+        32.053264
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20205",
+    "address": "אקסלרוד נתן 5",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.791733,
+        32.117753
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20210",
+    "address": "דון-יחייא שבתי 1",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.765111,
+        32.064848
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20211",
+    "address": "אורים 11",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.791149,
+        32.047044
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20212",
+    "address": "בובליק 10",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.788773,
+        32.094831
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20213",
+    "address": "פעמוני יוסף 15",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.798064,
+        32.092864
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20215",
+    "address": "מייזל זלמן 3",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.748394,
+        32.031225
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20216",
+    "address": "ששת הימים 31",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.809302,
+        32.048377
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20217",
+    "address": "דון יחייא 1",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.765785,
+        32.063995
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20384",
+    "address": "עולי הגרדום 50",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.837015,
+        32.112913
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20219",
+    "address": "ברקוביץ 8",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.784826,
+        32.07851
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20220",
+    "address": "חדרה 2",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.787046,
+        32.085439
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20223",
+    "address": "נחמן מברסלב 17",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.75406,
+        32.040295
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20226",
+    "address": "ויצמן 74",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.791109,
+        32.093043
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20227",
+    "address": "הצנחנים 16",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.839633,
+        32.116657
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20228",
+    "address": "אלוני ניסים 8",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.797876,
+        32.087893
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20230",
+    "address": "ז'בוטינסקי 106",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.785,
+        32.086452
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20231",
+    "address": "עשהאל 3",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.838451,
+        32.122619
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20232",
+    "address": "מעפילי אגוז 74",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.810135,
+        32.054244
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20233",
+    "address": "בנטוב מרדכי 8",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.768075,
+        32.042648
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20235",
+    "address": "מאור עינים 7",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.752647,
+        32.041731
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20236",
+    "address": "טירת צבי 5",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.79774,
+        32.077458
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20239",
+    "address": "עירית 3",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.750035,
+        32.0349
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20243",
+    "address": "עמינדב 26",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.796084,
+        32.064559
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20244",
+    "address": "בלפור 12",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.773456,
+        32.06765
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20245",
+    "address": "מודיליאני 19",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.784814,
+        32.080911
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20246",
+    "address": "פסטלוצי 34",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.757523,
+        32.046502
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20247",
+    "address": "הערמון 8",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.750632,
+        32.045047
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20249",
+    "address": "ולנסיה 28",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.747979,
+        32.042009
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20253",
+    "address": "המתנדב 23",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.805864,
+        32.121859
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20256",
+    "address": "ברנפלד שמעון 15",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.803322,
+        32.061614
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20258",
+    "address": "אקסלרוד נתן 5",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.791642,
+        32.117319
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20262",
+    "address": "טולוז 3",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.748961,
+        32.041071
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20264",
+    "address": "יגור 2",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.797586,
+        32.057
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20269",
+    "address": "נהריים 8",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.838112,
+        32.120197
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20270",
+    "address": "מלצ'ט 29",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.775921,
+        32.069654
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20273",
+    "address": "יד לבנים 18",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.796856,
+        32.060581
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20275",
+    "address": "ועידת קטוביץ 47",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.791927,
+        32.095257
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20276",
+    "address": "אד\"ם הכהן 5",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.776917,
+        32.085047
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20277",
+    "address": "אלוני ניסים 8",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.797249,
+        32.088295
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20279",
+    "address": "מונש ג'ון סר 9",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.793268,
+        32.055877
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20282",
+    "address": "נבטים 1",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.750145,
+        32.042687
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20283",
+    "address": "חת\"ם סופר 6",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.776913,
+        32.088251
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20287",
+    "address": "הר נבו 4",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.781738,
+        32.088898
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20288",
+    "address": "בושם 91",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.800668,
+        32.045538
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20289",
+    "address": "בן יהודה 86",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.770869,
+        32.081252
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20293",
+    "address": "יגור 2",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.797125,
+        32.056914
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20294",
+    "address": "אונקלוס 8",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.796578,
+        32.095628
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20295",
+    "address": "בני אפרים 226",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.818349,
+        32.117421
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20296",
+    "address": "ההשכלה 18",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.797089,
+        32.067338
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20297",
+    "address": "אלטמן אריה 2",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.796627,
+        32.054976
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20299",
+    "address": "תשרי 4",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.789181,
+        32.047105
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20302",
+    "address": "קיציס יוסף 6",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.819423,
+        32.106405
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20303",
+    "address": "נהרדעא 4",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.785711,
+        32.082644
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20304",
+    "address": "רובינשטין יצחק 18",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.7573,
+        32.034688
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20307",
+    "address": "גבעתי 4",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.796645,
+        32.051129
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20308",
+    "address": "לובטקין צביה 35",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.807097,
+        32.048911
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20309",
+    "address": "הצבי 5",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.810275,
+        32.05679
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20310",
+    "address": "הירקון 248",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.773345,
+        32.092065
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20311",
+    "address": "בורלא יהודה 25",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.790216,
+        32.108274
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20318",
+    "address": "רבי פנחס 4ו",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.75468,
+        32.052397
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20322",
+    "address": "דוש (קריאל גרדוש) 6",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.797905,
+        32.088886
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20323",
+    "address": "שמעון התרסי 31",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.781519,
+        32.094844
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20324",
+    "address": "ישראל מסלנט 42",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.78206,
+        32.052183
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20325",
+    "address": "בושם 76",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.800262,
+        32.045633
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20327",
+    "address": "אנטיגונוס 6",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.784685,
+        32.092502
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20328",
+    "address": "בקר אהרון 10",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.815876,
+        32.122238
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20329",
+    "address": "בן יהודה 227",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.775134,
+        32.095611
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20330",
+    "address": "דבורה הנביאה 85",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.839424,
+        32.11635
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20331",
+    "address": "דיין משה 45",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.799157,
+        32.052665
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20332",
+    "address": "בושם 76",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.800886,
+        32.045871
+      ]
+    }
+  },
+  {
+    "name": "Shelter 131",
+    "address": "קדש ברנע 4",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "school_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.814151,
+        32.112816
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20336",
+    "address": "הדר יוסף 7",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.818878,
+        32.109833
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20337",
+    "address": "ארלוזורוב 95",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.784884,
+        32.084911
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20340",
+    "address": "מיכלאנג'לו 20",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.756449,
+        32.04889
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20342",
+    "address": "אנקאווא רפאל הרב 13",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.800848,
+        32.047773
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20343",
+    "address": "המערכה 9",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.793617,
+        32.061766
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20344",
+    "address": "הנגרים 23",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.765133,
+        32.056583
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20345",
+    "address": "ילין דוד 11",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.785024,
+        32.08849
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20347",
+    "address": "סולד הנרייטה 6",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.791621,
+        32.079633
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20350",
+    "address": "קורדובה 10",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.778978,
+        32.087831
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20351",
+    "address": "הרטגלס 13",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.797012,
+        32.104588
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20352",
+    "address": "האר\"י 10",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.768135,
+        32.070375
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20354",
+    "address": "צייטלין 22",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.785256,
+        32.07887
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20357",
+    "address": "מושיע 21",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.794092,
+        32.051141
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20359",
+    "address": "נגבה 19",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.796601,
+        32.054452
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20360",
+    "address": "העליה 49",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.772821,
+        32.055823
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20362",
+    "address": "לויטן יצחק 7",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.798048,
+        32.11909
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20363",
+    "address": "שפירא צבי הרמן 21",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.778065,
+        32.075477
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20366",
+    "address": "לישנסקי יוסף 5",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.779002,
+        32.057673
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20369",
+    "address": "אבן גבירול 124",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.782258,
+        32.086876
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20374",
+    "address": "קמינסקה 9",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.776677,
+        32.040457
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20386",
+    "address": "ארלוזורוב 97",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.785442,
+        32.084988
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20388",
+    "address": "שאול המלך 25",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.786309,
+        32.076712
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20391",
+    "address": "הבעש\"ט 8",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.752243,
+        32.037186
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20387",
+    "address": "המלך ג'ורג' 33א",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.772486,
+        32.072612
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20390",
+    "address": "הגליל 6",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.778627,
+        32.060894
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20393",
+    "address": "עירית 17",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.74961,
+        32.0355
+      ]
+    }
+  },
+  {
+    "name": "Shelter 20389",
+    "address": "נחלת יצחק 18",
+    "city": "Tel Aviv",
+    "capacity": 50,
+    "accessible": true,
+    "type": "public_shelter",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        34.797903,
+        32.074121
+      ]
+    }
+  }
+]

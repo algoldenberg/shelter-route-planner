@@ -5,6 +5,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -15,10 +16,11 @@
   },
   {
     "name": "מקלט 02 - אברבנאל 69",
-    "address": "32.8316497, 35.0569385",
+    "address": "בחצר בית הכנסת",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -33,6 +35,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -47,6 +50,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -61,6 +65,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -75,6 +80,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -84,11 +90,12 @@
     }
   },
   {
-    "name": "מקלט 07 - בנציון ישראלי 41‎",
-    "address": "32.833791, 35.059341",
+    "name": "מקלט 07 - בנציון ישראלי 41",
+    "address": "בפינה של ביה״ס ״גורדון״",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -103,6 +110,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -117,6 +125,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -131,6 +140,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -141,10 +151,11 @@
   },
   {
     "name": "מקלט 11 - דגניה 35",
-    "address": "32.8298767, 35.056819",
+    "address": "מאחורי בית הספר דגניה",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -155,10 +166,11 @@
   },
   {
     "name": "מקלט 12 - שדרות דגניה 53 א׳",
-    "address": "32.8310449, 35.0544698",
+    "address": "בחצר ביה״ס ״רגבים״",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -169,10 +181,11 @@
   },
   {
     "name": "מקלט 13 - שדרות דגניה 53 ב׳",
-    "address": "32.8310449, 35.0544698",
+    "address": "בחצר ביה״ס ״רגבים״",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -183,10 +196,11 @@
   },
   {
     "name": "מקלט 14 - נתיב התנאים 16",
-    "address": "32.8345642, 35.0665158",
+    "address": "בחצר ביה״ס הרא״ה ק. שמואל",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -201,6 +215,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -215,6 +230,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -229,6 +245,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -239,10 +256,11 @@
   },
   {
     "name": "מקלט 17 - הנוטר 53",
-    "address": "32.8239179, 35.0700536",
+    "address": "בגן",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -257,6 +275,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -271,6 +290,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -285,6 +305,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -299,6 +320,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -309,10 +331,11 @@
   },
   {
     "name": "מקלט 22 - חומה ומגדל 18 א׳",
-    "address": "32.8178066, 35.0748401",
+    "address": "בחורשה",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -323,10 +346,11 @@
   },
   {
     "name": "מקלט 23 - הקונגרס 43א׳",
-    "address": "32.834984, 35.0567483",
+    "address": "״בית היינה״",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -337,10 +361,11 @@
   },
   {
     "name": "מקלט 24 - יצחק יציב 46",
-    "address": "32.8219956, 35.0719502",
+    "address": "ליד ״בית יציב״",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -355,6 +380,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -369,6 +395,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -379,10 +406,11 @@
   },
   {
     "name": "מקלט 27 - ברכה פולד 13",
-    "address": "32.8198759, 35.0759259",
+    "address": "מאחורי ביטוח לאומי",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -397,6 +425,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -411,6 +440,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -425,6 +455,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -439,6 +470,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -453,6 +485,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -463,10 +496,11 @@
   },
   {
     "name": "מקלט 33 - ברל כצנלסון 29‎",
-    "address": "32.7872652, 35.0127798",
+    "address": "ביה״ס הפתוח",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -481,6 +515,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -495,6 +530,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -505,10 +541,11 @@
   },
   {
     "name": "מקלט 36 - בגליל 79",
-    "address": "32.7898555, 35.0190217",
+    "address": "בית כנסת עמות אל המעיין",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -519,10 +556,11 @@
   },
   {
     "name": "מקלט 37 - הגיבורים 17/25",
-    "address": "32.8032969, 35.0059013",
+    "address": "חינוך",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -533,10 +571,11 @@
   },
   {
     "name": "מקלט 38 - הגיבורים 43",
-    "address": "32.8023642, 35.0097337",
+    "address": "מתחת לבניין מגורים",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -551,6 +590,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -561,10 +601,11 @@
   },
   {
     "name": "מקלט 40 - חטיבת כרמלי 10",
-    "address": "32.797822, 35.0155687",
+    "address": "מתחת למתחם בית הכנסת",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -575,10 +616,11 @@
   },
   {
     "name": "מקלט 41 - יד לבנים 4",
-    "address": "32.8031447, 35.0102876",
+    "address": "ליד קופ״ח",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -589,10 +631,11 @@
   },
   {
     "name": "מקלט 42 - ערד 37",
-    "address": "32.7916804, 35.0213293",
+    "address": "מתחת לבית הכנסת",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -607,6 +650,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -621,6 +665,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -635,6 +680,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -645,10 +691,11 @@
   },
   {
     "name": "מקלט 46 - ארלוזורוב 46",
-    "address": "32.8051492, 35.0007571",
+    "address": "בחצר \"בית שטרוק\"",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -659,10 +706,11 @@
   },
   {
     "name": "מקלט 47 - אשקלון 4‎",
-    "address": "32.814555, 34.9949709",
+    "address": "אשקלון 4‎‎",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -673,10 +721,11 @@
   },
   {
     "name": "מקלט 50 - בן בבא 4",
-    "address": "32.8035932, 35.0023535",
+    "address": "חצר בית הספר ״תורת אמת״",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -687,10 +736,11 @@
   },
   {
     "name": "מקלט 52 - השומר 3",
-    "address": "32.8078682, 35.0039677",
+    "address": "בסמוך לאגף הפיקוח העירוני",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -701,10 +751,11 @@
   },
   {
     "name": "מקלט 53 - הרצל 73",
-    "address": "32.8068278, 35.0023979",
+    "address": "בחצר קופת חולים מכבי",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -715,10 +766,11 @@
   },
   {
     "name": "מקלט 54 - הרצל 101",
-    "address": "32.8045521, 35.0035641",
+    "address": "בחצר בית הספר",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -729,10 +781,11 @@
   },
   {
     "name": "מקלט 55 - הירדן 19",
-    "address": "32.8015623, 35.0090088",
+    "address": "ליד אגף הרווחה",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -743,10 +796,11 @@
   },
   {
     "name": "מקלט 56 - הרצליה 17",
-    "address": "32.8130691, 34.9926524",
+    "address": "מתחת לבניין המגורים",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -757,10 +811,11 @@
   },
   {
     "name": "מקלט 58 - ארלוזורוב 65",
-    "address": "32.8070407, 34.995531",
+    "address": "הכניסה דרך השביל בצמוד לתחנת אוטובוס",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -770,11 +825,12 @@
     }
   },
   {
-    "name": "מקלט 59 תל חי 21/ יוסף 18\n",
+    "name": "מקלט 59 תל חי 21/ יוסף 18",
     "address": "32.8067574, 34.997773",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -785,10 +841,11 @@
   },
   {
     "name": "מקלט 60 - יוסף 47",
-    "address": "32.8059292, 34.9988834",
+    "address": "סמוך לתיאטרון העירוני",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -803,6 +860,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -813,10 +871,11 @@
   },
   {
     "name": "מקלט 62 - לונץ 4",
-    "address": "32.8081271, 35.0018008",
+    "address": "מתחם הכניסה לשוק",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -827,10 +886,11 @@
   },
   {
     "name": "מקלט 63 - מדרגות בית שערים 5",
-    "address": "32.8132833, 34.9902265",
+    "address": "הכניסה משד׳ הציונות",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -845,6 +905,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -859,6 +920,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -873,6 +935,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -883,10 +946,11 @@
   },
   {
     "name": "מקלט 67 - קסל 18",
-    "address": "32.809523, 34.9949655",
+    "address": "פינת בן יהודה",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -897,10 +961,11 @@
   },
   {
     "name": "מקלט 68 - קיסריה 4",
-    "address": "32.8170554, 34.9964003",
+    "address": "ואדי ניסינאס",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -911,10 +976,11 @@
   },
   {
     "name": "מקלט 69 - שבתאי לוי 26",
-    "address": "32.815075, 34.99261",
+    "address": "בחצר המוזיאון",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -929,6 +995,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -939,10 +1006,11 @@
   },
   {
     "name": "מקלט 71 - אל מוהדי 12",
-    "address": "32.8058105, 34.9714395",
+    "address": "כבביר",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -953,10 +1021,11 @@
   },
   {
     "name": "מקלט 73 - הצלפים 5",
-    "address": "32.7882004, 34.9947205",
+    "address": "מתחת לבית הכנסת",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -971,6 +1040,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -985,6 +1055,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -995,10 +1066,11 @@
   },
   {
     "name": "מקלט 77 - אלנבי 8",
-    "address": "32.8187179, 34.9966664",
+    "address": "בצומת",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1013,6 +1085,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1027,6 +1100,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1037,10 +1111,11 @@
   },
   {
     "name": "מקלט 81 - גוטליב שומכר 2 א׳",
-    "address": "32.8205539, 34.9884233",
+    "address": "בחצר ארכיון העיר",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1051,10 +1126,11 @@
   },
   {
     "name": "מקלט 82 - שד׳ בן גוריון 26",
-    "address": "32.820745, 34.9906966",
+    "address": "מושבה גרמנית",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1065,10 +1141,11 @@
   },
   {
     "name": "מקלט 83 - גדנ״ע 5",
-    "address": "32.8253471, 34.9792946",
+    "address": "קריית אליעזר",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1079,10 +1156,11 @@
   },
   {
     "name": "מקלט 84 - דרך צרפת 85",
-    "address": "32.8228442, 34.9666751",
+    "address": "בחצר ביה״ס ״רמות״",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1097,6 +1175,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1107,10 +1186,11 @@
   },
   {
     "name": "מקלט 86 - המלך דוד 26",
-    "address": "32.8097511, 34.9594906",
+    "address": "ליד בית הכנסת",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1121,10 +1201,11 @@
   },
   {
     "name": "מקלט 87 - העלייה השנייה 13",
-    "address": "32.8309911, 34.983962",
+    "address": "מאחורי בניין 13, בחניית עפר",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1135,10 +1216,11 @@
   },
   {
     "name": "מקלט 88 - העלייה השניה 25",
-    "address": "32.8322165, 34.9825262",
+    "address": "בגן בסמוך לכניסה לרכבת",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1149,10 +1231,11 @@
   },
   {
     "name": "מקלט 89 - העלייה השניה 45",
-    "address": "32.8320854, 34.9778893",
+    "address": "מאחורי המרכז הקהילתי",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1163,10 +1246,11 @@
   },
   {
     "name": "מקלט 90 - הקלעים 10",
-    "address": "32.8312923, 34.975833",
+    "address": "פינת רח׳ החייל",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1177,10 +1261,11 @@
   },
   {
     "name": "מקלט 91 - הזית 15",
-    "address": "32.8282414, 34.9792178",
+    "address": "קריית אליעזר",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1195,6 +1280,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1205,10 +1291,11 @@
   },
   {
     "name": "מקלט 93 - התקווה 23",
-    "address": "32.8251927, 34.985926",
+    "address": "בחצר ביה״ס עירוני א׳",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1219,10 +1306,11 @@
   },
   {
     "name": "מקלט 94 - הגנים 33",
-    "address": "32.8194844, 34.9889843",
+    "address": "מאחורי הבניין, בחניה",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1233,10 +1321,11 @@
   },
   {
     "name": "מקלט 95 - המגינים 119",
-    "address": "32.8225651, 34.9879324",
+    "address": "מאחורי הבניין",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1247,10 +1336,11 @@
   },
   {
     "name": "מקלט 96 - העוגן 39",
-    "address": "32.8254473, 34.9616789",
+    "address": "מאחורי גן הילדים",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1261,10 +1351,11 @@
   },
   {
     "name": "מקלט 97 - טשרניחובסקי 34",
-    "address": "32.8209854, 34.975561",
+    "address": "בחצר ביה״ס",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1275,10 +1366,11 @@
   },
   {
     "name": "מקלט 98 - יצחק שדה 26",
-    "address": "32.8213311, 34.9866934",
+    "address": "בחצר ביה״ס ״שלווה״",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1293,6 +1385,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1303,10 +1396,11 @@
   },
   {
     "name": "מקלט 100 - מאיר רוטנברג 44",
-    "address": "32.8173757, 34.9898349",
+    "address": "בחצר ההוסטל",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1321,6 +1415,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1331,10 +1426,11 @@
   },
   {
     "name": "מקלט 102 - צה״ל 51",
-    "address": "32.8274661, 34.9764399",
+    "address": "ליד קופ״ח",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1345,10 +1441,11 @@
   },
   {
     "name": "מקלט 103 - שרה 10",
-    "address": "32.820098, 34.9961456",
+    "address": "פינת הבנקים",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1359,10 +1456,11 @@
   },
   {
     "name": "מקלט 104 - ציקלג 17",
-    "address": "32.8060802, 34.96282",
+    "address": "ליד בית הקברות",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1377,6 +1475,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1391,6 +1490,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1405,6 +1505,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1415,10 +1516,11 @@
   },
   {
     "name": "TOWER (תיאודור)",
-    "address": "32.8081096, 35.0014381",
+    "address": "החלוץ 64 (מקומה 2-)",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1429,10 +1531,11 @@
   },
   {
     "name": "חניון בית מאי",
-    "address": "32.8142991, 34.9980989",
+    "address": "חסן שוקרי 5 (מקומה 6-)",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "parking_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1443,10 +1546,11 @@
   },
   {
     "name": "חניון ארמון",
-    "address": "32.8135839, 34.9954973",
+    "address": "הנביאים 18 (מקומה 4-)",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "parking_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1457,10 +1561,11 @@
   },
   {
     "name": "חניון סיטי סנטר",
-    "address": "32.8233442, 34.9909186",
+    "address": "הגנים 10 (מקומה 3-)",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "parking_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1471,10 +1576,11 @@
   },
   {
     "name": "חניון בתי המשפט",
-    "address": "32.8138167, 35.0030346",
+    "address": "פלי\"ם 12 (מקומה 5-)",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "parking_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1485,10 +1591,11 @@
   },
   {
     "name": "חניון מינהל הנדסה",
-    "address": "32.8120676, 34.9996858",
+    "address": "ביאליק 3 (מקומה 3-)",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "parking_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1498,11 +1605,12 @@
     }
   },
   {
-    "name": "חניון האודיטוריום ",
-    "address": "32.8033072, 34.9856448",
+    "name": "חניון האודיטוריום",
+    "address": "מחניים 7 (מקומה 3-)",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "parking_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1513,10 +1621,11 @@
   },
   {
     "name": "חניון בנק יהב",
-    "address": "32.798027, 34.98439",
+    "address": "שד' מוריה 44 (מקומה 2-)",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "parking_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1527,10 +1636,11 @@
   },
   {
     "name": "סגור לשיפוצים - חניון בית אמות‎",
-    "address": "32.8233836, 34.9685906",
+    "address": "דרך יפו 157 (מקומה 2-)‎",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "parking_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1541,10 +1651,11 @@
   },
   {
     "name": "חניון בית גלים",
-    "address": "32.826942, 34.9858404",
+    "address": "דרך יפו 145 א' (מקומה 3-)",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "parking_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1555,10 +1666,11 @@
   },
   {
     "name": "גב-ים מת\"מ C1",
-    "address": "32.7898165, 34.9589649",
+    "address": "אנדריי סחרוב 9 (מקומה 3-)",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1569,10 +1681,11 @@
   },
   {
     "name": "המקלט סגור! גב-ים מת\"מ D2‎",
-    "address": "32.787304, 34.959459",
+    "address": "הרכס 1 (מקומה 3-)‎",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1583,10 +1696,11 @@
   },
   {
     "name": "חניון מרכז חורב",
-    "address": "32.7838609, 34.9877991",
+    "address": "ארתור הנטקה 6 (מקומה 3-)",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "parking_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1597,10 +1711,11 @@
   },
   {
     "name": "חניון בית אבות לב הדר",
-    "address": "32.8152219, 34.9961957",
+    "address": "רחוב י.ל פרץ 7 (מקומה 2-)",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "parking_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1611,10 +1726,11 @@
   },
   {
     "name": "חניון הכנסייה האורתודוקסית",
-    "address": "32.8183579, 34.9920855",
+    "address": "רחוב הפרסים 3 (מקומה 2-)",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "parking_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1625,10 +1741,11 @@
   },
   {
     "name": "חניון עין דור סנטרל פארק  ‎",
-    "address": "32.8206281, 34.9955347",
+    "address": "עין דור 11 (מקומה -2)",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "parking_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1639,10 +1756,11 @@
   },
   {
     "name": "בית ספר אבן גבירול‎‎‎",
-    "address": "32.8183971, 34.9645261",
+    "address": "בודנהיימר 7<br><br>שני מקלטים: אחד יש לעלות 55 מדרגות ללא שביל, הגישה למקלט השני - דרך שביל הגישה שאורכו 20 מטר, ובנוסף יש לרדת 20 מדרגות.<br>‎‎‎",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1653,10 +1771,11 @@
   },
   {
     "name": "בית ספר אהוד ‎",
-    "address": "32.7916962, 34.9900171",
+    "address": "אהוד 18‎",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1667,10 +1786,11 @@
   },
   {
     "name": "בית ספר אהרון הרא\"ה בנים‎‎",
-    "address": "32.8394614, 35.0715431",
+    "address": "דב פרומר 15‎‎<br><br>3 ממדים מונגשים בקומה תחתונה ללא מדרגות.",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1681,10 +1801,11 @@
   },
   {
     "name": "בית ספר אהרון הרא\"ה בנות‎",
-    "address": "32.8328463, 35.066282",
+    "address": "שד' הרא\"ה 10‎",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1695,10 +1816,11 @@
   },
   {
     "name": "בית ספר אחווה ‎",
-    "address": "32.8158739, 34.994979",
+    "address": "קיסריה 20 / טאופיק טובי 18 (הכניסה דרך המרכז הקהילתי)‎",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1709,10 +1831,11 @@
   },
   {
     "name": "בית ספר אחוזה ‎‎",
-    "address": "32.7878884, 34.9873133",
+    "address": "שד' סיני 13‎‎<br><br>מקלט בקומת כניסה יורדים 20 מדרגות ומקלט נוסף חיצוני בחצר תחתונה, יש לרדת 8 מדרגות לחצר ועוד 20 מדרגות בתוך מקלט.",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1723,10 +1846,11 @@
   },
   {
     "name": "בית ספר אחמדיה ‎‎",
-    "address": "32.8058105, 34.9714395",
+    "address": "אל מוהדי 12‎‎<br><br>המקלט מונגש לקומה 1 ואז כ-20 מדרגות למקלט.",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1737,10 +1861,11 @@
   },
   {
     "name": "בית ספר איטלקי ‎",
-    "address": "32.8195285, 34.9929757",
+    "address": "האיטלקים 10‎",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1751,10 +1876,11 @@
   },
   {
     "name": "בית ספר אילנות ‎",
-    "address": "32.8124588, 34.9687699",
+    "address": "הסנה 8א'‎",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1765,10 +1891,11 @@
   },
   {
     "name": "בית ספר אינשטיין ‎",
-    "address": "32.7781432, 34.9998438",
+    "address": "אינשטיין 133‎",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1779,10 +1906,11 @@
   },
   {
     "name": "בית ספר אלון ‎",
-    "address": "32.7769448, 35.0121402",
+    "address": "יגאל אלון 8‎",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1793,10 +1921,11 @@
   },
   {
     "name": "בית ספר אליאנס ‎‎",
-    "address": "32.7742275, 35.0102279",
+    "address": "דרך בירם 37‎‎<br><br>גישה מלמעלה - יש שער פתוח ירידה עד לדשא, פונים שמאלה ונכנסים למבנה. בתוך המבנה צריך לעלות 18 מדרגות המקלט ממול.<br>גישה מלמטה - עולים את גרמי המדרגות עד לדשא עולים 18 מדרגות המקלט ממול .",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1807,10 +1936,11 @@
   },
   {
     "name": "בית ספר אלכרמה ‎",
-    "address": "32.8168866, 34.9897623",
+    "address": "הגפן 15‎",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1821,10 +1951,11 @@
   },
   {
     "name": "בית ספר אלכרמה יסודי‎",
-    "address": "32.8165884, 34.9847481",
+    "address": "אלמותנבי 10‎",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1835,10 +1966,11 @@
   },
   {
     "name": "בית ספר אלמותנאבי ‎‎",
-    "address": "32.8179049, 34.9826051",
+    "address": "הבישוף חג'אר 1<br><br>הכניסה לביה\"ס נגישה, הכניסה העילית מכיוון מגרש החנייה ואולם הספורט.<br>אין צורך בשימוש במדרגות, המקלט בכניסה ואחד המקלטים נגיש.‎‎",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1849,10 +1981,11 @@
   },
   {
     "name": "בית ספר אל-חיוואר‎",
-    "address": "32.8180886, 34.9959131",
+    "address": "צהיון 5‎‎",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1863,10 +1996,11 @@
   },
   {
     "name": "בית ספר עמאר‎",
-    "address": "32.8191444, 34.9579031",
+    "address": "הרב אנקואה רפאל 20‎<br><br>המקלט ממוקם בכניסה של בית הספר, בקומת קרקע. מדרגה אחת קטנה, ללא שביל",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1877,10 +2011,11 @@
   },
   {
     "name": "בית ספר אולפנה צביה",
-    "address": "32.8038317, 34.9969402",
+    "address": "רבי עקיבא 40",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1891,10 +2026,11 @@
   },
   {
     "name": "בית ספר אופקים ‎",
-    "address": "32.8069292, 34.9802863",
+    "address": "דרך הים 44<br><br>שלושה מרחבים מוגנים. שניים בקומת קרקע עם שביל באורך 5 מטר. למקלט השלישי יש לעלות 15 מדרגות",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1905,10 +2041,11 @@
   },
   {
     "name": "בית ספר אורים",
-    "address": "32.8057646, 34.9938564",
+    "address": "מונטיפיורי 15 א'",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1918,11 +2055,12 @@
     }
   },
   {
-    "name": "בית ספר ארלוזורוב ",
-    "address": "32.8271518, 35.0730861",
+    "name": "בית ספר ארלוזורוב",
+    "address": "הקיבוצים 65",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1933,10 +2071,11 @@
   },
   {
     "name": "בית ספר בסמ\"ת‎",
-    "address": "32.8113994, 34.9581987",
+    "address": "המלך דוד 33‎<br><br>גישה מלמטה - עולים את גרמי המדרגות עד לדשא עולים 18 מדרגות המקלט ממול .",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1947,10 +2086,11 @@
   },
   {
     "name": "בית ספר בן גוריון‎",
-    "address": "32.7896807, 34.997549",
+    "address": "קרן היסוד 33<br>בתוך שטח בית הספר‎",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1961,10 +2101,11 @@
   },
   {
     "name": "בית ספר בית חיה",
-    "address": "32.8413614, 35.0724479",
+    "address": "הרב לוין אריה",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1975,10 +2116,11 @@
   },
   {
     "name": "בית יד לבנים",
-    "address": "32.7897215, 34.9843929",
+    "address": "הירקון 48",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -1989,10 +2131,11 @@
   },
   {
     "name": "בית ספר בית יעקב",
-    "address": "32.8034978, 34.9958231",
+    "address": "רחוב המימוני 2",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2003,10 +2146,11 @@
   },
   {
     "name": "בית ספר גבריאלי‎",
-    "address": "32.795548, 35.0179923",
+    "address": "זאב בנין 10",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2017,10 +2161,11 @@
   },
   {
     "name": "בית ספר גיל‎",
-    "address": "32.813546, 34.9772998",
+    "address": "התשבי 34‎<br><br>משער בית ספר משמאל נכנסים לשביל נגיש שחלקו עם שיפוע בירידה. בסופו מימין דלת כניסה מברזל. אורך השביל 20 מטר. כשנכנסים בדלת הברזל פונים שמאלה במסדרון ובסוף המסדרון החדר הכי ימני הוא המקלט. יש 2 מקלטים נוספים, אחד בכניסה לבניין עם 20 מדרגות, והשני עם כניסה דרך שביל ו-30 מדרגות.",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2031,10 +2176,11 @@
   },
   {
     "name": "בית ספר גורדון‎",
-    "address": "32.833515, 35.0596422",
+    "address": "זלמן ארן 43‎<br><br>הכל נגיש - מפלס אחד.",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2045,10 +2191,11 @@
   },
   {
     "name": "בית ספר דוד ילין",
-    "address": "32.8010703, 34.9913504",
+    "address": "יאיר כ\"ץ 4",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2059,10 +2206,11 @@
   },
   {
     "name": "בית ספר דינור ‎",
-    "address": "32.792868, 35.0102884",
+    "address": "קליבנוב 20‎<br><br>3 מקלטים צמודים תת קרקעים יורדים 20 מדרגות.",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2073,10 +2221,11 @@
   },
   {
     "name": "בית ספר דרור ‎",
-    "address": "32.8225481, 34.9827368",
+    "address": "דרור 19‎<br><br>3 מקלטים צמודים תת קרקעים יורדים 20 מדרגות.",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2086,11 +2235,12 @@
     }
   },
   {
-    "name": "בית ספר הבונים ",
-    "address": "32.7811641, 35.0071015",
+    "name": "בית ספר הבונים",
+    "address": "חביבה רייך 16",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2101,10 +2251,11 @@
   },
   {
     "name": "בית ספר הנרייטה סולד",
-    "address": "32.8296268, 34.9776533",
+    "address": "שד' ההגנה 23",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2115,10 +2266,11 @@
   },
   {
     "name": "בית ספר הפתוח‎",
-    "address": "32.7874793, 35.0123403",
+    "address": "ברל כצנלסון 48‎<br><br>מקלט תחתי, 2 וחצי קומות מתחת להנגשה (3 גרמי מדרגו בסה\"כ).",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2128,11 +2280,12 @@
     }
   },
   {
-    "name": "בית ספר הרצל ",
-    "address": "32.7989838, 34.9806744",
+    "name": "בית ספר הרצל",
+    "address": "צדקיהו 6",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2143,10 +2296,11 @@
   },
   {
     "name": "בית ספר חב\"ד בנים",
-    "address": "32.8415421, 35.0717214",
+    "address": "אריה לוין 3",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2157,10 +2311,11 @@
   },
   {
     "name": "בית ספר חוגים ‎",
-    "address": "32.7986957, 34.9985323",
+    "address": "לאון בלום 9<br><br>יש ממ\"דים בקומות. מי שצריך הנגשה יכנס בקומה הראשונה.<br>‎",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2170,11 +2325,12 @@
     }
   },
   {
-    "name": "בית ספר חופית ",
-    "address": "32.8164871, 34.9589739",
+    "name": "בית ספר חופית",
+    "address": "החיננית 3",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2185,10 +2341,11 @@
   },
   {
     "name": "חטיבת ביניים דגן‎",
-    "address": "32.8202626, 35.0628295",
+    "address": "יצחק בן צבי 6‎<br><br>בדגן יש 3 מקלטים. מקלט גדול נגיש קרוב ביותר לשער ביה\"ס מקלט המנהלה. אין מדרגות עד למקלט. כדי להיכנס לתוך המקלט יש מדרגה אחת/הגבהה. יש עוד שני מקלטים בבניין הכיתות: מקלט בבנין המדעים, הכניסה לבניין נגישה, כניסה למקלט יש כ-5 מדרגות.",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2199,10 +2356,11 @@
   },
   {
     "name": "חטיבת ביניים לאו בק ‎",
-    "address": "32.8245974, 34.9704939",
+    "address": "טשרניחובסקי 71‎<br><br>למקלט החיצוני יש להגיע מהשער התחתון, אליו מגיעים ב 35 מדרגות חיצוניות מהרחוב",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2213,10 +2371,11 @@
   },
   {
     "name": "תיכון ליאו בק‎",
-    "address": "32.8233836, 34.9685906",
+    "address": "דרך צרפת 90 (ישנה אפשרות של כניסה גם מהשער העליון אדמונד פלג 20) חניונים מאוישים על ידי צוות עיריית חיפה ומרחבים מוגנים בתוך בניין התיכון. יש נגישות. (לא מאדמונד פלג)‎‎",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2227,10 +2386,11 @@
   },
   {
     "name": "בית ספר טשרניחובסקי ‎",
-    "address": "32.8209854, 34.975561",
+    "address": "טשרניחובסקי 34‎<br><br>מקלט בחצר ביה\"ס מקלט תחתי- 15-20 מדרגות",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2241,10 +2401,11 @@
   },
   {
     "name": "בית ספר יבנה ‎",
-    "address": "32.7743129, 35.0121392",
+    "address": "אליעזר אלתר 30‎<br><br>מרחוב גדליהו קיימת הנגשה מסלול ארוך בערך 80 מטר קיימת מדרגה בגובה 30 ס״מ לכניסה למקלט",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2254,11 +2415,12 @@
     }
   },
   {
-    "name": "בית ספר יבניאלי ",
-    "address": "32.8283359, 34.9772412",
+    "name": "בית ספר יבניאלי",
+    "address": "יואב 5",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2269,10 +2431,11 @@
   },
   {
     "name": "בית ספר יזרעאליה",
-    "address": "32.7901968, 35.0126065",
+    "address": "צ'רניאבסקי 20",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2283,10 +2446,11 @@
   },
   {
     "name": "יחל ישראל בנות יסודי",
-    "address": "32.797872, 35.0034065",
+    "address": "מקור ברוך 20",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2297,10 +2461,11 @@
   },
   {
     "name": "יסודי הריאלי הדר",
-    "address": "32.8101648, 34.9952292",
+    "address": "קסל 5",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2311,10 +2476,11 @@
   },
   {
     "name": "בית ספר ליאו-בק הדר‎",
-    "address": "32.8103685, 34.9901495",
+    "address": "שד' אליהו גולומב 4<br><br>המקלט נגיש לקומה 1 ואז כ-20 מדרגות למקלט.<br>‎",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2325,10 +2491,11 @@
   },
   {
     "name": "אורט כרמל",
-    "address": "32.8168396, 34.9978524",
+    "address": "התשעים ושלוש 8",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2339,10 +2506,11 @@
   },
   {
     "name": "אגף החינוך, עיריית חיפה",
-    "address": "32.8108488, 35.0014154",
+    "address": "הרב מרכוס 11",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2353,10 +2521,11 @@
   },
   {
     "name": "בית ספר מוריה ברקאי‎",
-    "address": "32.8212746, 34.9877991",
+    "address": "מרדכי אנילביץ' 26‎",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2366,11 +2535,12 @@
     }
   },
   {
-    "name": "בית ספר נופים ",
-    "address": "32.7752751, 34.992424",
+    "name": "בית ספר נופים",
+    "address": "סורוקה 22",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2381,10 +2551,11 @@
   },
   {
     "name": "בית ספר נירים",
-    "address": "32.8075285, 34.9614203",
+    "address": "המלך יהושפט 6",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2395,10 +2566,11 @@
   },
   {
     "name": "בית ספר עבד אל רחמן",
-    "address": "32.8006788, 35.0074426",
+    "address": "גוש עציון 24א'",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2409,10 +2581,11 @@
   },
   {
     "name": "בית ספר עופר",
-    "address": "32.8165705, 34.9640206",
+    "address": "דרך הים 196",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2423,10 +2596,11 @@
   },
   {
     "name": "בית ספר עין הים",
-    "address": "32.822623, 34.9588232",
+    "address": "יציאת אירופה 17",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2437,10 +2611,11 @@
   },
   {
     "name": "עירוני א'‎",
-    "address": "32.8257744, 34.9850102",
+    "address": "תל אביב 27‎<br><br>המקלט ממוקם בקומה הראשונה של בית הספר, בסמוך למסדרון שכבת י'. הכניסה דרך השער הראשי של בית הספר – יש להמשיך ישר בהתאם לשילוט המכוון למקלט. המקלט תחתי ויש 18 מדרגות.",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2451,10 +2626,11 @@
   },
   {
     "name": "ישיבת בני עקיבא עירוני ב‎‎",
-    "address": "32.8395463, 35.0698631",
+    "address": "יוסף שטרן 7‎<br><br>מקלט עילי שביל גישה ללא שום מדריגה",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2465,10 +2641,11 @@
   },
   {
     "name": "עירוני ג'‎",
-    "address": "32.7843818, 35.0215377",
+    "address": "גדליהו 24‎<br><br>מרחוב גדליהו קיימת הנגשה מסלול ארוך בערך 80 מטר קיימת מדרגה בגובה 30 ס״מ לכניסה למקלט.",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2478,11 +2655,12 @@
     }
   },
   {
-    "name": "עירוני ג' (מצדה)\n",
-    "address": "32.7850246, 35.020793",
+    "name": "עירוני ג' (מצדה)",
+    "address": "פינסקר 13",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2493,10 +2671,11 @@
   },
   {
     "name": "עירוני ה'‎",
-    "address": "32.799577, 34.9886385",
+    "address": "ביכורים 25‎<br><br>הכניסה לביכורים נגישה. אבל כדי להגיע למקלט התחתי, נדרשת ירידה במדרגות רבות, מעל 30 מדרגות.",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2507,10 +2686,11 @@
   },
   {
     "name": "עירוני ו' ‎",
-    "address": "32.793672, 35.0198748",
+    "address": "דרך יד לבנים 97‎<br><br>מקלט תחתי, 10 קומות לרדת ברגל .",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2521,10 +2701,11 @@
   },
   {
     "name": "בית ספר אנתרופוסופי יסודי עליה‎‎",
-    "address": "32.8321766, 34.9818628",
+    "address": "העלייה השנייה 27‎<br><br>3 מקלטים צמודים תת-קרקעיים יורדים 20 מדרגות.",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2535,10 +2716,11 @@
   },
   {
     "name": "בית ספר רוממה‎‎",
-    "address": "32.785599, 34.9972044",
+    "address": "אורן 27א'‎<br><br>מקלט גדול בקומה 2- המעלית יורדת רק ל- מינוס 1 ויש עוד 20 מדרגות למקלט.",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2549,10 +2731,11 @@
   },
   {
     "name": "ריאלי בית בירם",
-    "address": "32.7787785, 34.9965346",
+    "address": "שד' אבא חושי 15",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2563,10 +2746,11 @@
   },
   {
     "name": "בית ספר רמב\"ם",
-    "address": "32.790972, 35.0163157",
+    "address": "ציון 7",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2577,10 +2761,11 @@
   },
   {
     "name": "בית ספר רמות",
-    "address": "32.8228442, 34.9666751",
+    "address": "דרך צרפת 85",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2591,10 +2776,11 @@
   },
   {
     "name": "חטיבת ביניים רעות",
-    "address": "32.8269418, 34.977747",
+    "address": "צה\"ל 41",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2605,10 +2791,11 @@
   },
   {
     "name": "בית ספר שלווה‎",
-    "address": "32.8213311, 34.9866934",
+    "address": "יצחק שדה 26<br><br>מקלט תחתיי- 20 מדרגות",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2619,10 +2806,11 @@
   },
   {
     "name": "תיכון בית חיה מושקא",
-    "address": "32.8420646, 35.0711521",
+    "address": "אריה לוין 5",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2633,10 +2821,11 @@
   },
   {
     "name": "תיכון בית יעקב",
-    "address": "32.8037154, 35.0000071",
+    "address": "בצלאל 5",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2647,10 +2836,11 @@
   },
   {
     "name": "תיכון יחל ישראל בנות",
-    "address": "32.7974152, 35.0032113",
+    "address": "מקור ברוך 22",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2661,10 +2851,11 @@
   },
   {
     "name": "תיכון עירוני מקיף קריית חיים‎",
-    "address": "32.824015, 35.068648",
+    "address": "הגדוד העברי 48",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2675,10 +2866,11 @@
   },
   {
     "name": "בית ספר תל-חי ‎",
-    "address": "32.7872929, 35.0210719",
+    "address": "הגליל 107‎<br><br>     מקלט תחתי- יש לרדת 30 מדרגות כדי להגיע אליו.",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2689,10 +2881,11 @@
   },
   {
     "name": "בית הספר נתיב אליעזר כרמל חיפה‎‎‎",
-    "address": "32.788849, 34.990844",
+    "address": "רח' דישראלי 54<br>כניסה למקלט בית הספר כרמל נתיב אליעזר⬅מגיעים לרחוב דישראלי 54 א חיפה⬅יורדים בקיוסק בירידה עד הסוף/או לפני הקיוסק במדרגות.<br>⬅נכנסים בשער⬅מגיעים למבנה המרוחק לפי השילוט⬅יורדים לקומה 2-<br>שהייה נעימה ובטוחה.‎<br>‎",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2703,10 +2896,11 @@
   },
   {
     "name": "תיכון עתיד תיירות ומלונאות ע\"ש טומי לפיד‎",
-    "address": "32.8023214, 34.9963582",
+    "address": "בעל שם טוב 20<br><br>מקלט תחתיי 55 מדרגות. כניסה דרך ביה\"ס - לרדת לחצר ושם יש דלת למרכז יובל.",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2717,10 +2911,11 @@
   },
   {
     "name": "בית ספר רגבים",
-    "address": "32.8313463, 35.0545251",
+    "address": "דגניה 53<br><br>שני מקלטים בקומת קרקע, אין מדרגות. יש שתי כניסות למקלטים משני שערים שונים. שביל לאחד המקלטים הינו באורך 3-4 מטר, ולמקלט השני השביל באורך 20 מטר.",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2730,11 +2925,12 @@
     }
   },
   {
-    "name": "בית ספר מגינים ",
-    "address": "32.8191075, 35.065378",
+    "name": "בית ספר מגינים",
+    "address": "בן צבי 12<br>2 מקלטים עיליים ושניהם מונגשים - 2 מקלטים תחתיים לא נגישים - שני גרמי מדרגות למקלטים.<br>",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2745,10 +2941,11 @@
   },
   {
     "name": "בית ספר הדו-לשוני",
-    "address": "32.8247084, 34.9814684",
+    "address": "צה\"ל 14",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2759,10 +2956,11 @@
   },
   {
     "name": "בית ספר רמת הנשיא‎",
-    "address": "32.8105592, 34.9622458",
+    "address": "אלמוג 11, חיפה",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "school_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2777,6 +2975,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2791,6 +2990,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2805,6 +3005,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2819,6 +3020,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2833,6 +3035,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "public_shelter",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2842,11 +3045,12 @@
     }
   },
   {
-    "name": "מיגונית חוף נאות / דגניה/טרומן\n",
-    "address": "32.8346678, 35.0543439",
+    "name": "מיגונית חוף נאות / דגניה/טרומן",
+    "address": "הנשיא טרומן 12",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "migunit",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2856,11 +3060,12 @@
     }
   },
   {
-    "name": "מיגונית שחאדה/חורי\n",
-    "address": "32.8177865, 34.9937628",
+    "name": "מיגונית שחאדה/חורי",
+    "address": "שחאדה 11 א'",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "migunit",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2870,11 +3075,12 @@
     }
   },
   {
-    "name": "מיגונית חקר ימים ואגמים\n",
-    "address": "32.8260582, 34.9566967",
+    "name": "מיגונית חקר ימים ואגמים",
+    "address": "חוף שקמונה",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "migunit",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2889,6 +3095,7 @@
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "migunit",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2899,10 +3106,11 @@
   },
   {
     "name": "מיגונית בית נגלר",
-    "address": "32.8191469, 35.0666111",
+    "address": "בן צבי יצחק 16",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "migunit",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2913,10 +3121,11 @@
   },
   {
     "name": "מיגונית שד' דגניה",
-    "address": "32.829856, 35.057532",
+    "address": "בחניה ליד עירונית ק\"ח",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "migunit",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2927,10 +3136,11 @@
   },
   {
     "name": "מיגונית צומת שד׳ דגניה/בית אלפא",
-    "address": "32.8319674, 35.0555959",
+    "address": "צמוד לבית צ׳רנה",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "migunit",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2941,10 +3151,11 @@
   },
   {
     "name": "מיגונית טיילת חולדה גורביץ'",
-    "address": "32.8355887, 34.9801187",
+    "address": "בכניסה לטיילת, סמוך לחוף הכלבים",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "migunit",
     "location": {
       "type": "Point",
       "coordinates": [
@@ -2955,10 +3166,11 @@
   },
   {
     "name": "מיגונית חוף זמיר",
-    "address": "32.795399, 34.9566054",
+    "address": "חוף הכרמל, חניון נכים",
     "city": "Haifa",
     "capacity": 50,
     "accessible": true,
+    "type": "migunit",
     "location": {
       "type": "Point",
       "coordinates": [
