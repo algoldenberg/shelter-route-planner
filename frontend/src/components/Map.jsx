@@ -22,7 +22,64 @@ L.Icon.Default.mergeOptions({
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
 });
 
-// Custom marker icons
+// Shelter type marker icons with colors
+const shelterIcons = {
+  public_shelter: new L.Icon({
+    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+  }),
+  school_shelter: new L.Icon({
+    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+  }),
+  parking_shelter: new L.Icon({
+    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png',
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+  }),
+  parking_storage: new L.Icon({
+    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png',
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+  }),
+  migunit: new L.Icon({
+    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png',
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+  }),
+  default: new L.Icon({
+    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-grey.png',
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+  })
+};
+
+// Helper function to get icon by shelter type
+const getShelterIcon = (type) => {
+  return shelterIcons[type] || shelterIcons.default;
+};
+
+// Route marker icons
 const startIcon = new L.Icon({
   iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
@@ -305,7 +362,6 @@ const Map = ({
   };
 
   const handleReportClick = (shelter) => {
-    // Закрываем BottomSheet если открыт
     if (isMobile && selectedShelter) {
       setSelectedShelter(null);
     }
@@ -370,17 +426,21 @@ const Map = ({
         {!routeData && shelters.map((shelter) => {
           const markerRef = React.createRef();
           
-          // Support both coordinate formats
           const lat = shelter.latitude || shelter.location?.coordinates[1];
           const lng = shelter.longitude || shelter.location?.coordinates[0];
           
-          if (!lat || !lng) return null; // Skip invalid shelters
+          if (!lat || !lng) return null;
+          
+          // Get icon based on shelter type
+          const shelterType = shelter.type || 'default';
+          const markerIcon = getShelterIcon(shelterType);
           
           return (
             <Marker
               key={shelter._id}
               ref={markerRef}
               position={[lat, lng]}
+              icon={markerIcon}
               eventHandlers={{
                 click: () => {
                   if (isMobile) {
@@ -391,8 +451,7 @@ const Map = ({
                 },
               }}
             >
-              {/* POPUP ТОЛЬКО НА DESKTOP */}
-              {!isMobile && !buildingRouteFromPopup && (  // ← ДОБАВИЛ !buildingRouteFromPopup
+              {!isMobile && !buildingRouteFromPopup && (
                 <Popup maxWidth={350} minWidth={280}>
                   <ShelterPopup 
                     shelter={shelter} 
@@ -440,33 +499,38 @@ const Map = ({
               </Marker>
             )}
 
-            {routeData.shelters && routeData.shelters.map((shelter) => (
-              <Marker
-                key={shelter.id}
-                position={[shelter.latitude, shelter.longitude]}
-                eventHandlers={{
-                  click: () => {
-                    if (isMobile) {
-                      setSelectedShelter(shelter);
-                    } else {
-                      onMarkerClick && onMarkerClick(shelter);
-                    }
-                  },
-                }}
-              >
-                {/* POPUP ТОЛЬКО НА DESKTOP */}
-                {!isMobile && (
-                  <Popup maxWidth={350} minWidth={280}>
-                    <ShelterPopup 
-                      shelter={shelter} 
-                      onBuildRoute={onBuildRouteToShelter} 
-                      currentLocation={center}
-                      onReportClick={() => handleReportClick(shelter)}
-                    />
-                  </Popup>
-                )}
-              </Marker>
-            ))}
+            {routeData.shelters && routeData.shelters.map((shelter) => {
+              const shelterType = shelter.type || 'default';
+              const markerIcon = getShelterIcon(shelterType);
+              
+              return (
+                <Marker
+                  key={shelter.id}
+                  position={[shelter.latitude, shelter.longitude]}
+                  icon={markerIcon}
+                  eventHandlers={{
+                    click: () => {
+                      if (isMobile) {
+                        setSelectedShelter(shelter);
+                      } else {
+                        onMarkerClick && onMarkerClick(shelter);
+                      }
+                    },
+                  }}
+                >
+                  {!isMobile && (
+                    <Popup maxWidth={350} minWidth={280}>
+                      <ShelterPopup 
+                        shelter={shelter} 
+                        onBuildRoute={onBuildRouteToShelter} 
+                        currentLocation={center}
+                        onReportClick={() => handleReportClick(shelter)}
+                      />
+                    </Popup>
+                  )}
+                </Marker>
+              );
+            })}
           </>
         )}
 
