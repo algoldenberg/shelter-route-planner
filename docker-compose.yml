@@ -5,8 +5,8 @@ services:
     image: mongo:7.0
     container_name: shelter-mongodb
     environment:
-      MONGO_INITDB_ROOT_USERNAME: admin
-      MONGO_INITDB_ROOT_PASSWORD: changeme123
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
     ports:
       - "27017:27017"
     volumes:
@@ -33,8 +33,8 @@ services:
       - MONGO_HOST=mongodb
       - MONGO_PORT=27017
       - MONGO_DB=shelter_planner
-      - MONGO_USERNAME=admin
-      - MONGO_PASSWORD=changeme123
+      - MONGO_USERNAME=${MONGO_USERNAME}
+      - MONGO_PASSWORD=${MONGO_PASSWORD}
       - REDIS_HOST=redis
       - REDIS_PORT=6379
     env_file:
@@ -55,9 +55,9 @@ services:
       - MONGO_HOST=mongodb
       - MONGO_PORT=27017
       - MONGO_DB=shelter_planner
-      - MONGO_USERNAME=admin
-      - MONGO_PASSWORD=changeme123
-      - MONGODB_URL=mongodb://admin:changeme123@mongodb:27017
+      - MONGO_USERNAME=${MONGO_USERNAME}
+      - MONGO_PASSWORD=${MONGO_PASSWORD}
+      - MONGODB_URL=mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@mongodb:27017
       - REDIS_HOST=redis
       - REDIS_PORT=6379
       - OSRM_URL=http://osrm-backend:5000
@@ -78,8 +78,8 @@ services:
       - MONGO_HOST=mongodb
       - MONGO_PORT=27017
       - MONGO_DB=shelter_planner
-      - MONGO_USERNAME=admin
-      - MONGO_PASSWORD=changeme123
+      - MONGO_USERNAME=${MONGO_USERNAME}
+      - MONGO_PASSWORD=${MONGO_PASSWORD}
       - REDIS_HOST=redis
       - REDIS_PORT=6379
     depends_on:
@@ -98,8 +98,8 @@ services:
       - MONGO_HOST=mongodb
       - MONGO_PORT=27017
       - MONGO_DB=shelter_planner
-      - MONGO_USERNAME=admin
-      - MONGO_PASSWORD=changeme123
+      - MONGO_USERNAME=${MONGO_USERNAME}
+      - MONGO_PASSWORD=${MONGO_PASSWORD}
       - OSRM_URL=http://osrm-backend:5000
       - OVERPASS_URL=https://overpass-api.de/api/interpreter
     depends_on:
