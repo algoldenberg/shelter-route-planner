@@ -57,6 +57,7 @@ services:
       - MONGO_DB=shelter_planner
       - MONGO_USERNAME=admin
       - MONGO_PASSWORD=changeme123
+      - MONGODB_URL=mongodb://admin:changeme123@mongodb:27017
       - REDIS_HOST=redis
       - REDIS_PORT=6379
       - OSRM_URL=http://osrm-backend:5000

@@ -8,6 +8,7 @@ from motor.motor_asyncio import AsyncIOMotorClient
 
 from app.config import settings
 from app.api import routes
+from app.middleware.usage_logging import UsageLoggingMiddleware
 
 
 mongodb_client: AsyncIOMotorClient = None
@@ -35,6 +36,9 @@ app = FastAPI(
     version="1.0.0",
     lifespan=lifespan
 )
+
+# Add usage logging middleware
+app.add_middleware(UsageLoggingMiddleware)
 
 app.include_router(
     routes.router,

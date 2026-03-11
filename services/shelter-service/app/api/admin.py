@@ -188,14 +188,6 @@ async def get_usage_stats():
         
         "last_updated": datetime.utcnow().isoformat()
     }
-    
-    # Remove MongoDB _id field
-    latest_stats.pop("_id", None)
-    
-    # Add last_updated timestamp
-    latest_stats["last_updated"] = latest_stats.get("created_at").isoformat() if latest_stats.get("created_at") else None
-    
-    return latest_stats
 
 
 @router.get("/popular-endpoints")
