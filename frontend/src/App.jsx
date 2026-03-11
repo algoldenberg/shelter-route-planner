@@ -1,16 +1,14 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Map from './components/Map';
 import ShelterSearch from './components/ShelterSearch';
 import RouteBuilder from './components/RouteBuilder';
 import Footer from './components/Footer';
 import DisclaimerModal from './components/DisclaimerModal';
-import AdminPage from './pages/AdminPage';
 import { getNearbyShelters, calculateRoute } from './services/api';
 import './App.css';
 import React from 'react';
 
-function MapPage() {
+function App() {
   const [shelters, setShelters] = useState([]);
   const [center, setCenter] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -322,37 +320,6 @@ function MapPage() {
 
       <Footer />
     </div>
-  );
-}
-
-function AppContent() {
-  const location = useLocation();
-
-  useEffect(() => {
-    // Убираем все классы страниц
-    document.body.classList.remove('map-page', 'admin-page');
-    
-    // Добавляем нужный класс в зависимости от роута
-    if (location.pathname === '/admin') {
-      document.body.classList.add('admin-page');
-    } else {
-      document.body.classList.add('map-page');
-    }
-  }, [location]);
-
-  return (
-    <Routes>
-      <Route path="/" element={<MapPage />} />
-      <Route path="/admin" element={<AdminPage />} />
-    </Routes>
-  );
-}
-
-function App() {
-  return (
-    <Router>
-      <AppContent />
-    </Router>
   );
 }
 
