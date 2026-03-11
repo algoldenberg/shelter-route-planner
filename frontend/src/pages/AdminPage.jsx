@@ -450,53 +450,138 @@ const AdminPage = () => {
       {/* Usage Statistics Tab */}
       {activeTab === 'usage' && (
         <div className="usage-stats-section">
-          {/* Usage Stats Cards */}
-          <div className="stats-grid">
-            <div className="stat-card">
-              <div className="stat-icon">📡</div>
-              <div className="stat-info">
-                <div className="stat-value">{usageStats?.requests_today?.toLocaleString() || 0}</div>
-                <div className="stat-label">Requests Today</div>
+          {/* API Requests Cards */}
+          <div className="stats-section">
+            <h3>📡 API Requests</h3>
+            <div className="stats-grid">
+              <div className="stat-card">
+                <div className="stat-icon">📡</div>
+                <div className="stat-info">
+                  <div className="stat-value">{usageStats?.total_requests?.toLocaleString() || 0}</div>
+                  <div className="stat-label">Total Requests (All Time)</div>
+                </div>
+              </div>
+
+              <div className="stat-card">
+                <div className="stat-icon">📅</div>
+                <div className="stat-info">
+                  <div className="stat-value">{usageStats?.requests_today?.toLocaleString() || 0}</div>
+                  <div className="stat-label">Requests Today</div>
+                </div>
+              </div>
+
+              <div className="stat-card">
+                <div className="stat-icon">📊</div>
+                <div className="stat-info">
+                  <div className="stat-value">{usageStats?.requests_week?.toLocaleString() || 0}</div>
+                  <div className="stat-label">Requests This Week</div>
+                </div>
+              </div>
+
+              <div className="stat-card">
+                <div className="stat-icon">📈</div>
+                <div className="stat-info">
+                  <div className="stat-value">{usageStats?.requests_month?.toLocaleString() || 0}</div>
+                  <div className="stat-label">Requests This Month</div>
+                </div>
               </div>
             </div>
+          </div>
 
-            <div className="stat-card">
-              <div className="stat-icon">📊</div>
-              <div className="stat-info">
-                <div className="stat-value">{usageStats?.requests_week?.toLocaleString() || 0}</div>
-                <div className="stat-label">Requests This Week</div>
+          {/* Routes Built Cards */}
+          <div className="stats-section">
+            <h3>🗺️ Routes Built</h3>
+            <div className="stats-grid">
+              <div className="stat-card highlight">
+                <div className="stat-icon">📅</div>
+                <div className="stat-info">
+                  <div className="stat-value">{usageStats?.routes_built_today || 0}</div>
+                  <div className="stat-label">Routes Today</div>
+                </div>
+              </div>
+
+              <div className="stat-card highlight">
+                <div className="stat-icon">📊</div>
+                <div className="stat-info">
+                  <div className="stat-value">{usageStats?.routes_built_week || 0}</div>
+                  <div className="stat-label">Routes This Week</div>
+                </div>
+              </div>
+
+              <div className="stat-card highlight">
+                <div className="stat-icon">📈</div>
+                <div className="stat-info">
+                  <div className="stat-value">{usageStats?.routes_built_month || 0}</div>
+                  <div className="stat-label">Routes This Month</div>
+                </div>
+              </div>
+
+              <div className="stat-card">
+                <div className="stat-icon">📏</div>
+                <div className="stat-info">
+                  <div className="stat-value">{usageStats?.avg_route_distance_km?.toFixed(1) || 0} km</div>
+                  <div className="stat-label">Avg Route Distance</div>
+                </div>
               </div>
             </div>
+          </div>
 
-            <div className="stat-card">
-              <div className="stat-icon">📈</div>
-              <div className="stat-info">
-                <div className="stat-value">{usageStats?.requests_month?.toLocaleString() || 0}</div>
-                <div className="stat-label">Requests This Month</div>
+          {/* Address Searches Cards */}
+          <div className="stats-section">
+            <h3>🔍 Address Searches</h3>
+            <div className="stats-grid">
+              <div className="stat-card">
+                <div className="stat-icon">📅</div>
+                <div className="stat-info">
+                  <div className="stat-value">{usageStats?.address_searches_today || 0}</div>
+                  <div className="stat-label">Searches Today</div>
+                </div>
+              </div>
+
+              <div className="stat-card">
+                <div className="stat-icon">📊</div>
+                <div className="stat-info">
+                  <div className="stat-value">{usageStats?.address_searches_week || 0}</div>
+                  <div className="stat-label">Searches This Week</div>
+                </div>
+              </div>
+
+              <div className="stat-card">
+                <div className="stat-icon">📈</div>
+                <div className="stat-info">
+                  <div className="stat-value">{usageStats?.address_searches_month || 0}</div>
+                  <div className="stat-label">Searches This Month</div>
+                </div>
               </div>
             </div>
+          </div>
 
-            <div className="stat-card">
-              <div className="stat-icon">🗺️</div>
-              <div className="stat-info">
-                <div className="stat-value">{usageStats?.routes_built_today || 0}</div>
-                <div className="stat-label">Routes Today</div>
+          {/* Location Searches Cards */}
+          <div className="stats-section">
+            <h3>📍 GPS Location Searches</h3>
+            <div className="stats-grid">
+              <div className="stat-card">
+                <div className="stat-icon">📅</div>
+                <div className="stat-info">
+                  <div className="stat-value">{usageStats?.location_searches_today || 0}</div>
+                  <div className="stat-label">Searches Today</div>
+                </div>
               </div>
-            </div>
 
-            <div className="stat-card">
-              <div className="stat-icon">🚶</div>
-              <div className="stat-info">
-                <div className="stat-value">{usageStats?.routes_built_week || 0}</div>
-                <div className="stat-label">Routes This Week</div>
+              <div className="stat-card">
+                <div className="stat-icon">📊</div>
+                <div className="stat-info">
+                  <div className="stat-value">{usageStats?.location_searches_week || 0}</div>
+                  <div className="stat-label">Searches This Week</div>
+                </div>
               </div>
-            </div>
 
-            <div className="stat-card">
-              <div className="stat-icon">📏</div>
-              <div className="stat-info">
-                <div className="stat-value">{usageStats?.avg_route_distance_km?.toFixed(1) || 0} km</div>
-                <div className="stat-label">Avg Route Distance</div>
+              <div className="stat-card">
+                <div className="stat-icon">📈</div>
+                <div className="stat-info">
+                  <div className="stat-value">{usageStats?.location_searches_month || 0}</div>
+                  <div className="stat-label">Searches This Month</div>
+                </div>
               </div>
             </div>
           </div>

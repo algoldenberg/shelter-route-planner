@@ -1,4 +1,5 @@
 .admin-page {
+  position: absolute;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   padding: 20px;
   padding-bottom: 100px;
@@ -6,7 +7,6 @@
   min-height: 100vh;
   max-height: none;
   overflow-y: auto;
-  overflow-x: hidden;
 }
 
 .admin-page .admin-header {
@@ -392,3 +392,17 @@
       font-size: 0.9rem;
     }
   }
+
+/* Stats sections with headers */
+.stats-section {
+  margin-bottom: 2rem;
+}
+
+.stats-section h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #333;
+  padding-left: 0.5rem;
+  border-left: 4px solid #667eea;
+}

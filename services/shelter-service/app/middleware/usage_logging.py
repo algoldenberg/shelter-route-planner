@@ -5,15 +5,62 @@ import time
 from fastapi import Request
 from starlette.middleware.base import BaseHTTPMiddleware
 from datetime import datetime
-from typing import Callable
+from typing import Callable, Optional
 from ..db.mongodb import get_database
 
 
 class UsageLoggingMiddleware(BaseHTTPMiddleware):
     """
     Middleware that logs every API request to api_logs collection
-    Captures: endpoint, method, status, response time, IP, GPS coordinates
+    Captures: endpoint, method, status, response time, IP, GPS coordinates, action type
     """
+    
+    def _detect_action_type(self, request: Request) -> Optional[str]:
+        """
+        Определяет тип действия на основе endpoint и параметров
+        Возможные типы:
+        - route_built: построение маршрута
+        - address_search: поиск по адресу
+        - location_search: поиск по GPS координатам (nearby)
+        - shelter_view: просмотр конкретного укрытия
+        - shelter_submit: отправка нового укрытия
+        - shelter_report: жалоба на укрытие
+        - comment_post: добавление комментария
+        """
+        path = request.url.path
+        method = request.method
+        
+        # Построение маршрута
+        if path == "/route" and method == "GET":
+            return "route_built"
+        
+        # Поиск по адресу (geocoding)
+        if path == "/shelters/geocode" and method == "GET":
+            return "address_search"
+        
+        # Поиск ближайших укрытий (по GPS)
+        if path == "/shelters/nearby" and method == "GET":
+            return "location_search"
+        
+        # Просмотр конкретного укрытия
+        if path.startswith("/shelters/") and method == "GET":
+            parts = path.split("/")
+            if len(parts) == 3 and parts[2]:  # /shelters/{id}
+                return "shelter_view"
+        
+        # Отправка нового укрытия
+        if path == "/shelters/submit" and method == "POST":
+            return "shelter_submit"
+        
+        # Жалоба на укрытие
+        if path.startswith("/shelters/") and path.endswith("/report") and method == "POST":
+            return "shelter_report"
+        
+        # Комментарий к укрытию
+        if path.startswith("/shelters/") and path.endswith("/comments") and method == "POST":
+            return "comment_post"
+        
+        return None
     
     async def dispatch(self, request: Request, call_next: Callable):
         # Время начала запроса
@@ -25,6 +72,9 @@ class UsageLoggingMiddleware(BaseHTTPMiddleware):
         # Парсим User-Agent
         user_agent = request.headers.get("user-agent", "")
         
+        # Определяем тип действия
+        action_type = self._detect_action_type(request)
+        
         # Извлекаем GPS координаты из query params (если есть)
         latitude = request.query_params.get("latitude")
         longitude = request.query_params.get("longitude")
@@ -34,6 +84,9 @@ class UsageLoggingMiddleware(BaseHTTPMiddleware):
         start_lng = request.query_params.get("start_lng")
         end_lat = request.query_params.get("end_lat")
         end_lng = request.query_params.get("end_lng")
+        
+        # Для поиска по адресу
+        address_query = request.query_params.get("address") or request.query_params.get("query")
         
         # Выполняем запрос
         response = await call_next(request)
@@ -51,6 +104,10 @@ class UsageLoggingMiddleware(BaseHTTPMiddleware):
             "ip_address": ip_address,
             "user_agent": user_agent
         }
+        
+        # Добавляем тип действия
+        if action_type:
+            log_entry["action_type"] = action_type
         
         # Добавляем GPS координаты если есть
         if latitude and longitude:
@@ -70,12 +127,18 @@ class UsageLoggingMiddleware(BaseHTTPMiddleware):
             except ValueError:
                 pass
         
+        # Добавляем адрес запроса если есть
+        if address_query:
+            log_entry["address_query"] = address_query
+        
         # Извлекаем shelter_id из URL если это запрос к конкретному shelter
-        # Например: /shelters/123/comments
+        # Например: /shelters/123 или /shelters/123/comments
         if "/shelters/" in request.url.path:
             path_parts = request.url.path.split("/")
-            if len(path_parts) >= 3 and path_parts[2].isdigit():
-                log_entry["shelter_id"] = path_parts[2]
+            if len(path_parts) >= 3 and path_parts[2]:
+                # Проверяем что это не служебный endpoint (submit, nearby, geocode)
+                if path_parts[2] not in ["submit", "nearby", "geocode", "stats"]:
+                    log_entry["shelter_id"] = path_parts[2]
         
         # Сохраняем в MongoDB асинхронно (fire-and-forget)
         try:

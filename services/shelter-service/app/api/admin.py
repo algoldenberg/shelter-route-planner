@@ -65,34 +65,129 @@ async def get_admin_stats():
 @router.get("/usage-stats")
 async def get_usage_stats():
     """
-    Get usage statistics (API requests, routes, geography, popular shelters)
-    Returns the latest aggregated stats from usage_stats collection
+    Get usage statistics
+    Real-time counters from api_logs + cached heavy queries from usage_stats
     """
     db = get_database()
     
-    # Get latest stats document
+    now = datetime.utcnow()
+    today_start = now.replace(hour=0, minute=0, second=0, microsecond=0)
+    week_start = today_start - timedelta(days=7)
+    month_start = today_start - timedelta(days=30)
+    
+    # === REAL-TIME COUNTERS FROM API_LOGS ===
+    
+    # Total requests (all time)
+    total_requests = await db.api_logs.count_documents({})
+    
+    # Requests by period
+    requests_today = await db.api_logs.count_documents({
+        "timestamp": {"$gte": today_start}
+    })
+    requests_week = await db.api_logs.count_documents({
+        "timestamp": {"$gte": week_start}
+    })
+    requests_month = await db.api_logs.count_documents({
+        "timestamp": {"$gte": month_start}
+    })
+    
+    # Routes built (action_type = route_built)
+    routes_built_today = await db.api_logs.count_documents({
+        "action_type": "route_built",
+        "timestamp": {"$gte": today_start}
+    })
+    routes_built_week = await db.api_logs.count_documents({
+        "action_type": "route_built",
+        "timestamp": {"$gte": week_start}
+    })
+    routes_built_month = await db.api_logs.count_documents({
+        "action_type": "route_built",
+        "timestamp": {"$gte": month_start}
+    })
+    
+    # Address searches (action_type = address_search)
+    address_searches_today = await db.api_logs.count_documents({
+        "action_type": "address_search",
+        "timestamp": {"$gte": today_start}
+    })
+    address_searches_week = await db.api_logs.count_documents({
+        "action_type": "address_search",
+        "timestamp": {"$gte": week_start}
+    })
+    address_searches_month = await db.api_logs.count_documents({
+        "action_type": "address_search",
+        "timestamp": {"$gte": month_start}
+    })
+    
+    # Location searches (action_type = location_search)
+    location_searches_today = await db.api_logs.count_documents({
+        "action_type": "location_search",
+        "timestamp": {"$gte": today_start}
+    })
+    location_searches_week = await db.api_logs.count_documents({
+        "action_type": "location_search",
+        "timestamp": {"$gte": week_start}
+    })
+    location_searches_month = await db.api_logs.count_documents({
+        "action_type": "location_search",
+        "timestamp": {"$gte": month_start}
+    })
+    
+    # Average route distance (last 30 days)
+    avg_distance_pipeline = [
+        {"$match": {
+            "route_distance_km": {"$exists": True},
+            "timestamp": {"$gte": month_start}
+        }},
+        {"$group": {
+            "_id": None,
+            "avg_distance": {"$avg": "$route_distance_km"}
+        }}
+    ]
+    avg_distance_result = await db.api_logs.aggregate(avg_distance_pipeline).to_list(1)
+    avg_route_distance_km = round(avg_distance_result[0]["avg_distance"], 2) if avg_distance_result else 0.0
+    
+    # === CACHED DATA FROM usage_stats (charts, heavy queries) ===
     latest_stats = await db.usage_stats.find_one(
         {},
         sort=[("created_at", -1)]
     )
     
-    if not latest_stats:
-        # No stats yet - return empty structure
-        return {
-            "total_requests": 0,
-            "requests_today": 0,
-            "requests_week": 0,
-            "requests_month": 0,
-            "routes_built_today": 0,
-            "routes_built_week": 0,
-            "routes_built_month": 0,
-            "avg_route_distance_km": 0.0,
-            "popular_endpoints": {},
-            "geography": [],
-            "popular_shelters": [],
-            "requests_chart": [],
-            "last_updated": None
-        }
+    # Get cached data or defaults
+    requests_chart = latest_stats.get("requests_chart", []) if latest_stats else []
+    popular_endpoints = latest_stats.get("popular_endpoints", {}) if latest_stats else {}
+    geography = latest_stats.get("geography", []) if latest_stats else []
+    popular_shelters = latest_stats.get("popular_shelters", []) if latest_stats else []
+    
+    return {
+        # Real-time counters
+        "total_requests": total_requests,
+        "requests_today": requests_today,
+        "requests_week": requests_week,
+        "requests_month": requests_month,
+        
+        "routes_built_today": routes_built_today,
+        "routes_built_week": routes_built_week,
+        "routes_built_month": routes_built_month,
+        
+        "address_searches_today": address_searches_today,
+        "address_searches_week": address_searches_week,
+        "address_searches_month": address_searches_month,
+        
+        "location_searches_today": location_searches_today,
+        "location_searches_week": location_searches_week,
+        "location_searches_month": location_searches_month,
+        
+        "avg_route_distance_km": avg_route_distance_km,
+        
+        # Cached data (from daily aggregation)
+        "requests_chart": requests_chart,
+        "popular_endpoints": popular_endpoints,
+        "geography": geography,
+        "popular_shelters": popular_shelters,
+        
+        "last_updated": datetime.utcnow().isoformat()
+    }
     
     # Remove MongoDB _id field
     latest_stats.pop("_id", None)
