@@ -49,29 +49,36 @@ Telegram Updates: https://t.me/+w1e0O207iQkxYTcy
 🏗️ Architecture
 
 Microservices Stack:
+
 ```
 shelter-route-planner/
-├── Nginx (port 80)           # Reverse Proxy
-│   ├── Frontend              # React 18 + Vite (port 13000)
-│   └── API Gateway           # FastAPI (port 18000)
-│       ├── Shelter Service   # FastAPI (port 18001)
+├── Nginx (port 80)                  # Reverse Proxy
+│   ├── Frontend                     # React 18 + Vite (port 13000)
+│   └── API Gateway                  # FastAPI (port 18000)
+│       ├── Shelter Service          # FastAPI (port 18001)
 │       │   ├── CRUD operations
 │       │   ├── Admin panel
 │       │   └── Submission management
-│       ├── Route Service     # FastAPI (port 18002)
+│       ├── Route Service            # FastAPI (port 18002)
 │       │   ├── OSRM routing
 │       │   └── Usage statistics
-│       └── Comment Service   # FastAPI (port 18003)
+│       ├── Walking Route Service    # FastAPI (port 18004)
+│       │   └── Pedestrian routing optimization
+│       └── Comment Service          # FastAPI (port 18003)
 │           └── Ratings & reviews
 │
 ├── Data Layer
-│   ├── MongoDB 7.0          # Geospatial indexing, GeoJSON
-│   └── Redis 7.0            # Caching
+│   ├── MongoDB 7.0                  # Geospatial indexing, GeoJSON
+│   ├── Redis 7.0                    # Caching
+│   └── OSRM Backend (port 15000)    # OpenStreetMap routing engine
 │
 └── Key Services:
+    ├── API Gateway (services/api-gateway/) — Central request router, port 18000
     ├── Shelter Service (services/shelter-service/app/api/admin.py) — CRUD, submissions, admin panel
     ├── Route Service (services/route-service/) — OSRM routing + usage metrics
-    └── Usage Logging — Middleware in both services tracks API requests for admin dashboard
+    ├── Walking Route Service (services/walking-route-service/) — Pedestrian routing optimization
+    ├── Comment Service (services/comment-service/) — Ratings & reviews
+    └── Usage Logging — Middleware tracks API requests for admin dashboard
 ```
 
 Tech Stack
@@ -116,13 +123,15 @@ docker-compose ps
 
 # View logs
 docker-compose logs -f frontend
-docker-compose logs -f shelter-service
+docker-compose logs -f api-gateway
 ```
 
-**Access**:
+**Local Development Access** (only on your machine):
 - Frontend: http://localhost:13000
-- API: http://localhost:18000
-- MongoDB: localhost:27017
+- API Gateway: http://localhost:18000 (localhost only)
+- MongoDB: localhost:27017 (localhost only, development credentials)
+
+⚠️ **SECURITY WARNING**: Never expose MongoDB, API ports, or OSRM to the internet without proper authentication and firewall rules.
 
 ---
 
