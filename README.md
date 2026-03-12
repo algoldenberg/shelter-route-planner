@@ -176,19 +176,6 @@ Test locally: docker-compose restart <service>
 Commit: git commit -m "feat: add your feature"
 Push and create PR
 
-Database Operations
-```bash
-# MongoDB shell
-docker exec -it shelter-mongodb mongosh -u admin -p changeme123 --authenticationDatabase admin
-
-# View pending submissions
-use shelter_planner
-db.shelter_submissions.find({status: "pending"}).pretty()
-
-# Approve submission
-db.shelter_submissions.updateOne({_id: ObjectId("ID")}, {$set: {status: "approved"}})
-```
-
 Deployment (Production)
 ```bash
 # On server
@@ -221,12 +208,6 @@ docker-compose up -d
 - Batch shelter import tool
 - Enhanced report handling UI (currently DB-only)
 
-
-📚 Documentation
-
-BACKLOG.md — Project backlog (7 phases)
-API Docs — Interactive Swagger UI
-MongoDB Admin Guide — Database operations
 
 
 🤝 Contributing
