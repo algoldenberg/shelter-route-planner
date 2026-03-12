@@ -5,7 +5,7 @@ Web application for finding bomb shelters and building safe routes in Israel. Bu
 🎯 Key Features
 Core Functionality
 
-🗺️ Interactive Map — 12,234+ shelters across Israel with real-time GPS tracking
+🗺️ Interactive Map — 12,639 shelters across Israel with real-time GPS tracking
 🧭 Smart Navigation — Find nearest shelter with distance calculation
 🚶 Safe Routes — Build routes through multiple shelters
 📍 GPS Follow Mode — Live location tracking with compass heading
@@ -13,8 +13,14 @@ Core Functionality
 User Contributions
 
 ➕ Submit Shelters — Add new shelters via address search or map picking
-🚫 Report Issues — Flag closed shelters, wrong coordinates, or blocked entrances
+🚫 Report Issues — Flag closed shelters, wrong coordinates, or blocked entrances (reviewed via DB)
 💬 Comments & Ratings — Share shelter experiences with star ratings
+
+Admin Panel
+
+🔧 Full Admin Dashboard — Approve/reject new shelter submissions
+📊 API Usage Statistics — Real-time request metrics from Shelter & Route services
+✅ Verified Shelters — Mark shelters with manual verification status
 
 Mobile & UX
 
@@ -25,40 +31,46 @@ Mobile & UX
 
 
 📊 Database
-12,234 verified shelters with geospatial indexing
+12,639 verified shelters with geospatial indexing
+
+Data by City (Detailed Classification):
+- **Tel Aviv** — ~500 shelters (typed by category: public, school, parking, parking_storage, etc.)
+- **Haifa** — ~205 shelters (typed by category)
+- **In Development** — Ramat Gan, Maale Adumim, Rishon LeZion, Bat Yam, Holon, Beer Sheva
+
 Data Sources:
 
 Public Shelters Dataset
-Community submissions (manual review)
+Community submissions (manual review via Admin panel)
+Municipal databases (partial verification tracking)
 
 Telegram Updates: https://t.me/+w1e0O207iQkxYTcy
 
 🏗️ Architecture
-Microservices Stack
-┌─────────────────┐
-│   Nginx (80)    │ ← Reverse Proxy
-└────────┬────────┘
-         │
-    ┌────┴──────────────────────────┐
-    │                               │
-┌───▼──────┐              ┌────────▼──────┐
-│ Frontend │              │   API Gateway │
-│  (React) │              │   (FastAPI)   │
-└──────────┘              └───────┬───────┘
-                                  │
-              ┌───────────────────┼───────────────────┐
-              │                   │                   │
-      ┌───────▼────────┐  ┌──────▼──────┐  ┌────────▼────────┐
-      │ Shelter Service│  │Route Service│  │Comment Service  │
-      │   (FastAPI)    │  │  (FastAPI)  │  │   (FastAPI)     │
-      └───────┬────────┘  └──────┬──────┘  └────────┬────────┘
-              │                   │                   │
-         ┌────┴───────────────────┴───────────────────┴────┐
-         │                                                  │
-    ┌────▼─────┐                                      ┌────▼────┐
-    │ MongoDB  │                                      │  Redis  │
-    │ (Geo)    │                                      │ (Cache) │
-    └──────────┘                                      └─────────┘
+
+Microservices Stack:
+- Nginx (Reverse Proxy, port 80)
+  ├── Frontend (React 18 + Vite)
+  └── API Gateway (FastAPI)
+      ├── Shelter Service (FastAPI)
+      │   ├── CRUD operations
+      │   ├── Admin panel
+      │   └── Submission management
+      ├── Route Service (FastAPI)
+      │   ├── OSRM routing
+      │   └── Usage statistics
+      └── Comment Service (FastAPI)
+          └── Ratings & reviews
+
+Data Layer:
+- MongoDB 7.0 (Geospatial indexing, GeoJSON)
+- Redis 7.0 (Caching)                                    └─────────┘
+
+Key Services:
+- **Shelter Service** (`services/shelter-service/app/api/admin.py`) — CRUD, submissions, admin panel
+- **Route Service** (`services/route-service/`) — OSRM routing + usage metrics
+- **Usage Logging** — Middleware in both services tracks API requests for admin dashboard
+
 Tech Stack
 
 Backend: Python 3.12, FastAPI, Pydantic
@@ -71,7 +83,7 @@ CI/CD: GitHub Actions (planned)
 
 Infrastructure
 
-Hosting: VPS (1and1.com)
+Hosting: VPS (1and1.com) at 83.229.70.64
 Domain: shelternearyou.online
 SSL: Let's Encrypt (nginx-certbot)
 Monitoring: Docker logs, MongoDB metrics
@@ -85,8 +97,9 @@ Docker Compose 2.20+
 4GB RAM minimum
 
 Local Development
-bash# Clone repository
-git clone https://github.com/yourusername/shelter-route-planner.git
+```bash
+# Clone repository
+git clone https://github.com/algoldenberg/shelter-route-planner.git
 cd shelter-route-planner
 
 # Start all services
@@ -104,8 +117,8 @@ docker-compose logs -f shelter-service
 ```
 
 **Access**:
-- Frontend: http://localhost:3000
-- API: http://localhost:18001
+- Frontend: http://localhost:13000
+- API: http://localhost:18000
 - MongoDB: localhost:27017
 
 ---
@@ -113,21 +126,36 @@ docker-compose logs -f shelter-service
 ## 📁 Project Structure
 ```
 shelter-route-planner/
-├── frontend/               # React application
+├── frontend/               # React application (Vite)
 │   ├── src/
 │   │   ├── components/    # UI components
-│   │   ├── pages/         # Route pages
-│   │   └── services/      # API clients
+│   │   ├── pages/         # AdminPage, InfoPage (paginated)
+│   │   ├── services/      # API clients
+│   │   └── utils/
 │   └── Dockerfile
 ├── services/
-│   ├── shelter-service/   # Shelter CRUD + submissions
-│   ├── route-service/     # OSRM route calculation
+│   ├── shelter-service/   # Shelter CRUD + submissions + admin
+│   │   ├── app/
+│   │   │   ├── api/
+│   │   │   │   └── admin.py          # Admin panel logic
+│   │   │   ├── models/
+│   │   │   │   ├── shelter.py        # Shelter schema + location (GeoJSON)
+│   │   │   │   └── usage_stats.py    # API usage tracking
+│   │   │   └── middleware/
+│   │   │       └── usage_logging.py  # Request logging
+│   │   └── Dockerfile
+│   ├── route-service/     # OSRM routing + statistics
+│   │   ├── app/
+│   │   │   └── middleware/
+│   │   │       └── usage_logging.py  # Route request tracking
+│   │   └── Dockerfile
 │   └── comment-service/   # Comments & ratings
 ├── nginx/                 # Reverse proxy config
 ├── docker-compose.yml     # Local development
 └── README.md
+```
 
-🔧 Development
+## 🔧 Development
 Add New Feature
 
 Create feature branch: git checkout -b feature/your-feature
@@ -137,7 +165,8 @@ Commit: git commit -m "feat: add your feature"
 Push and create PR
 
 Database Operations
-bash# MongoDB shell
+```bash
+# MongoDB shell
 docker exec -it shelter-mongodb mongosh -u admin -p changeme123 --authenticationDatabase admin
 
 # View pending submissions
@@ -146,20 +175,39 @@ db.shelter_submissions.find({status: "pending"}).pretty()
 
 # Approve submission
 db.shelter_submissions.updateOne({_id: ObjectId("ID")}, {$set: {status: "approved"}})
+```
+
 Deployment (Production)
-bash# On server
+```bash
+# On server
 cd /root/shelter-route-planner
 git pull origin main
 docker-compose down
 docker system prune -af
 docker-compose build --no-cache
 docker-compose up -d
+```
 
-🐛 Known Issues
+🐛 Known Issues & Roadmap
 
-✅ Fixed: iOS double-tap on report form (disabled Leaflet Popup on mobile)
-⏳ Planned: Admin panel for reviewing submissions
-⏳ Planned: Batch shelter import tool
+**Completed** ✅
+- Admin panel with submission approval/rejection
+- API usage statistics dashboard
+- Shelter type classification (Tel Aviv, Haifa)
+- Icon colors by shelter type
+
+**In Progress** 🔄
+- City data enrichment: Ramat Gan, Maale Adumim, Rishon LeZion, Bat Yam, Holon, Beer Sheva
+- Verified shelter marker system (checkmark icon overlay)
+- Verification status in shelter cards
+- Pin placement UI (visual marker when user clicks on map)
+
+**Planned** ⏳
+- Full redesign → "IRan Shelter Map" branding
+- Color scheme redesign
+- Verification system (automated DB tracking for manually verified shelters)
+- Batch shelter import tool
+- Enhanced report handling UI (currently DB-only)
 
 
 📚 Documentation
@@ -188,9 +236,10 @@ Portfolio Project - DevOps & Full-Stack Development
 Built during conflict in Israel 🇮🇱
 Contact:
 
+GitHub: @algoldenberg
 Telegram: @goldenberga
 WhatsApp: +972-50-696-7370
 
 
 Status: ✅ Live in Production - Active development continues
-Last Updated: 06.03.26
+Last Updated: 11.03.26

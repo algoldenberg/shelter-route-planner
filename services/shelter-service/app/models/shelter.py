@@ -39,7 +39,7 @@ class ShelterModel(BaseModel):
     city: str = Field(default="Israel", description="City name")
     capacity: int = Field(default=50, description="Shelter capacity")
     accessible: bool = Field(default=True, description="Accessibility")
-    type: str = Field(default="public_shelter", description="Shelter type")  # ← ДОБАВЛЕНО
+    type: str = Field(default="public_shelter", description="Shelter type")
     location: LocationModel = Field(..., description="GeoJSON Point")
     
     class Config:
