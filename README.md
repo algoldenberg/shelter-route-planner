@@ -49,27 +49,30 @@ Telegram Updates: https://t.me/+w1e0O207iQkxYTcy
 🏗️ Architecture
 
 Microservices Stack:
-- Nginx (Reverse Proxy, port 80)
-  ├── Frontend (React 18 + Vite)
-  └── API Gateway (FastAPI)
-      ├── Shelter Service (FastAPI)
-      │   ├── CRUD operations
-      │   ├── Admin panel
-      │   └── Submission management
-      ├── Route Service (FastAPI)
-      │   ├── OSRM routing
-      │   └── Usage statistics
-      └── Comment Service (FastAPI)
-          └── Ratings & reviews
-
-Data Layer:
-- MongoDB 7.0 (Geospatial indexing, GeoJSON)
-- Redis 7.0 (Caching)                                    └─────────┘
-
-Key Services:
-- **Shelter Service** (`services/shelter-service/app/api/admin.py`) — CRUD, submissions, admin panel
-- **Route Service** (`services/route-service/`) — OSRM routing + usage metrics
-- **Usage Logging** — Middleware in both services tracks API requests for admin dashboard
+```
+shelter-route-planner/
+├── Nginx (port 80)           # Reverse Proxy
+│   ├── Frontend              # React 18 + Vite (port 13000)
+│   └── API Gateway           # FastAPI (port 18000)
+│       ├── Shelter Service   # FastAPI (port 18001)
+│       │   ├── CRUD operations
+│       │   ├── Admin panel
+│       │   └── Submission management
+│       ├── Route Service     # FastAPI (port 18002)
+│       │   ├── OSRM routing
+│       │   └── Usage statistics
+│       └── Comment Service   # FastAPI (port 18003)
+│           └── Ratings & reviews
+│
+├── Data Layer
+│   ├── MongoDB 7.0          # Geospatial indexing, GeoJSON
+│   └── Redis 7.0            # Caching
+│
+└── Key Services:
+    ├── Shelter Service (services/shelter-service/app/api/admin.py) — CRUD, submissions, admin panel
+    ├── Route Service (services/route-service/) — OSRM routing + usage metrics
+    └── Usage Logging — Middleware in both services tracks API requests for admin dashboard
+```
 
 Tech Stack
 
