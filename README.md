@@ -1,5 +1,7 @@
 🛡️ Shelter Route Planner
+
 Live Demo: shelternearyou.online
+
 Web application for finding bomb shelters and building safe routes in Israel. Built during wartime as a portfolio DevOps project.
 
 🎯 Key Features
