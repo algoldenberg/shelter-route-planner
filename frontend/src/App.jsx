@@ -4,6 +4,7 @@ import ShelterSearch from './components/ShelterSearch';
 import RouteBuilder from './components/RouteBuilder';
 import Footer from './components/Footer';
 import DisclaimerModal from './components/DisclaimerModal';
+import PWAUpdateNotice from './components/PWAUpdateNotice';
 import { getNearbyShelters, calculateRoute } from './services/api';
 import './App.css';
 import React from 'react';
@@ -243,6 +244,7 @@ function App() {
   return (
     <div className="app">
       <DisclaimerModal />
+      <PWAUpdateNotice />
       
       <header className="app-header">
         <h1>🛡️ Shelter Route Planner</h1>

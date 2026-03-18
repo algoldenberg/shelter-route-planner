@@ -1,6 +1,6 @@
 {
     "name": "Shelter Near You - Bomb Shelter Finder",
-    "short_name": "Shelters IL",
+    "short_name": "Shelter Map",
     "description": "Find safe routes through bomb shelters in Israel",
     "start_url": "/",
     "display": "standalone",
@@ -21,6 +21,6 @@
         "purpose": "any maskable"
       }
     ],
-    "version": "1.1.1"
+    "version": "1.1.0"
 
   }

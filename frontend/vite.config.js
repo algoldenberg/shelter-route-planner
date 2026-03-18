@@ -8,6 +8,10 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['shelter-icon.svg', 'shelter-icon-192.png', 'shelter-icon-512.png'],
+      
+      // Инлайн регистрация - важно для iOS
+      injectRegister: 'auto',
+      
       manifest: {
         name: 'Shelter Near You - Bomb Shelter Finder',
         short_name: 'Shelters IL',
@@ -30,10 +34,15 @@ export default defineConfig({
           }
         ]
       },
+      
       workbox: {
         cleanupOutdatedCaches: true,
         skipWaiting: true,
         clientsClaim: true,
+        
+        // Важно для iOS: обновление каждые 60 секунд
+        navigateFallback: null,
+        
         runtimeCaching: [
           {
             urlPattern: /^https:\/\/api\.*/i,
@@ -43,6 +52,9 @@ export default defineConfig({
               expiration: {
                 maxEntries: 100,
                 maxAgeSeconds: 60 * 60 // 1 hour
+              },
+              cacheableResponse: {
+                statuses: [0, 200]
               }
             }
           },
@@ -54,10 +66,17 @@ export default defineConfig({
               expiration: {
                 maxEntries: 50,
                 maxAgeSeconds: 60 * 60 * 24 * 30 // 30 days
+              },
+              cacheableResponse: {
+                statuses: [0, 200]
               }
             }
           }
         ]
+      },
+      
+      devOptions: {
+        enabled: true
       }
     })
   ],
