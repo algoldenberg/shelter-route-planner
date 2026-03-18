@@ -12,7 +12,7 @@ const PWAUpdateNotice = () => {
     const isPWA = window.matchMedia('(display-mode: standalone)').matches || 
                   window.navigator.standalone === true;
     
-    /if (!isPWA) return; // Не показываем в обычном браузере
+    if (!isPWA) return; // Не показываем в обычном браузере
     
     // Определяем платформу
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
