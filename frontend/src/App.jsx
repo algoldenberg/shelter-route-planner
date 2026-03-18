@@ -80,7 +80,7 @@ function App() {
       setShowSearchHere(false);
     } catch (error) {
       console.error('Error fetching shelters:', error);
-      alert('Failed to fetch shelters. Make sure the API is running on http://localhost:8000');
+      alert('Service is updating. Please wait a moment and try again.');
     } finally {
       setLoading(false);
     }
@@ -128,7 +128,7 @@ function App() {
       
     } catch (error) {
       console.error('Error calculating route:', error);
-      alert('Failed to calculate route. Make sure the API is running on http://localhost:8000');
+      alert('Service is updating. Please wait a moment and try again.');
     } finally {
       setRouteLoading(false);
     }
