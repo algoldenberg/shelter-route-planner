@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const CURRENT_VERSION = '1.1.0'; // Меняй при каждом обновлении
+const CURRENT_VERSION = '1.2.0'; // Меняй при каждом обновлении
 
 const PWAUpdateNotice = () => {
   const [showModal, setShowModal] = useState(false);
