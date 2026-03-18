@@ -7,7 +7,9 @@ const ShelterSearch = ({
   loading,
   currentLocation,
   showSearchHere,
-  onSearchHere
+  onSearchHere,
+  onSetMapClickMode,
+  clickedSearchPoint
 }) => {
   const [searchAddress, setSearchAddress] = useState('');
   const [searchCoords, setSearchCoords] = useState(null);
@@ -16,7 +18,7 @@ const ShelterSearch = ({
   // Format address to show only street, city
   const formatAddress = (fullAddress) => {
     if (!fullAddress) return '';
-    if (fullAddress === 'Your location' || fullAddress === 'Current location') {
+    if (fullAddress === 'Your location' || fullAddress === 'Current location' || fullAddress === 'Selected from map') {
       return fullAddress;
     }
     
@@ -26,6 +28,15 @@ const ShelterSearch = ({
     }
     return parts[0] || fullAddress;
   };
+
+  // Update from clicked search point
+  useEffect(() => {
+    if (clickedSearchPoint) {
+      setSearchCoords(clickedSearchPoint);
+      setSearchAddress('Selected from map');
+      setEditingLocation(false);
+    }
+  }, [clickedSearchPoint]);
 
   const handleSearch = () => {
     if (!searchCoords) {
@@ -127,6 +138,13 @@ const ShelterSearch = ({
             title="Use my location"
           >
             📍
+          </button>
+          <button
+            onClick={() => onSetMapClickMode && onSetMapClickMode('search')}
+            className="btn-icon"
+            title="Select search location on map"
+          >
+            🗺️
           </button>
         </div>
       </div>

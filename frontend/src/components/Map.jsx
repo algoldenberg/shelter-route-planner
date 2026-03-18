@@ -13,6 +13,7 @@ import InfoButton from './InfoButton';
 import './styles/MapControls.css';
 import React from 'react';
 import { submitNewShelter, reportShelterIssue } from '../services/api';
+import { routeStartIcon, routeEndIcon, searchCenterIcon } from '../utils/mapIcons';
 
 // Fix Leaflet default marker icon issue
 delete L.Icon.Default.prototype._getIconUrl;
@@ -79,7 +80,7 @@ const getShelterIcon = (type) => {
   return shelterIcons[type] || shelterIcons.default;
 };
 
-// Route marker icons
+// Route marker icons (old ones - kept for route display)
 const startIcon = new L.Icon({
   iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
@@ -288,6 +289,30 @@ const Map = ({
   const [reportingShelter, setReportingShelter] = useState(null);
   const [buildingRouteFromPopup, setBuildingRouteFromPopup] = useState(false);
 
+  // Route markers state
+  const [routeStartMarker, setRouteStartMarker] = useState(null);
+  const [routeEndMarker, setRouteEndMarker] = useState(null);
+
+  // Search center marker state
+  const [searchCenterMarker, setSearchCenterMarker] = useState(null);
+  const [searchRadius, setSearchRadius] = useState(1000); // Default 1km
+
+
+  // Clear route markers when route data is cleared
+useEffect(() => {
+  if (!routeData) {
+    setRouteStartMarker(null);
+    setRouteEndMarker(null);
+  }
+}, [routeData]);
+
+// Clear search marker when switching to route tab
+useEffect(() => {
+  if (activeTab === 'route') {
+    setSearchCenterMarker(null);
+  }
+}, [activeTab]);
+
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
     window.addEventListener('resize', handleResize);
@@ -319,13 +344,41 @@ const Map = ({
   };
 
   const handleMapClickInternal = (lat, lng, mode) => {
+    // Priority 1: Picking location for adding shelter
     if (isPickingLocation) {
       setPickedLocation({ latitude: lat, longitude: lng });
       setIsPickingLocation(false);
       setShowAddShelterModal(true);
       return;
     }
-
+  
+    // Priority 2: Setting route start/end points
+    if (mapClickMode === 'start') {
+      setRouteStartMarker({ latitude: lat, longitude: lng });
+      if (onMapClick) {
+        onMapClick(lat, lng, 'start');
+      }
+      return;
+    }
+  
+    if (mapClickMode === 'end') {
+      setRouteEndMarker({ latitude: lat, longitude: lng });
+      if (onMapClick) {
+        onMapClick(lat, lng, 'end');
+      }
+      return;
+    }
+  
+    // Priority 3: Setting search center point
+    if (mapClickMode === 'search') {
+      setSearchCenterMarker({ latitude: lat, longitude: lng });
+      if (onMapClick) {
+        onMapClick(lat, lng, 'search');
+      }
+      return;
+    }
+  
+    // Default: pass to parent handler
     if (onMapClick) {
       onMapClick(lat, lng, mode);
     }
@@ -412,15 +465,84 @@ const Map = ({
           <div style={{
             position: 'absolute', top: '10px', left: '50%', transform: 'translateX(-50%)',
             zIndex: 1000, 
-            background: isPickingLocation ? '#667eea' : (mapClickMode === 'start' ? '#4CAF50' : '#f44336'),
+            background: isPickingLocation ? '#667eea' : (mapClickMode === 'start' ? '#4CAF50' : (mapClickMode === 'end' ? '#f44336' : '#10b981')),
             color: 'white', padding: '10px 20px', borderRadius: '8px', fontWeight: 'bold',
             boxShadow: '0 2px 8px rgba(0,0,0,0.3)', pointerEvents: 'none'
           }}>
             {isPickingLocation 
               ? '📍 Click on map to select shelter location' 
-              : (mapClickMode === 'start' ? '📍 Click map to set START point' : '🎯 Click map to set END point')
+              : (mapClickMode === 'start' 
+                  ? '📍 Click map to set START point' 
+                  : (mapClickMode === 'end' 
+                      ? '🎯 Click map to set END point'
+                      : '🔍 Click map to set SEARCH center')
+                )
             }
           </div>
+        )}
+
+        {/* Route planning markers (when NOT showing a built route) */}
+        {!routeData && routeStartMarker && (
+          <Marker 
+            position={[routeStartMarker.latitude, routeStartMarker.longitude]} 
+            icon={routeStartIcon}
+            zIndexOffset={500}
+          >
+            <Popup>
+              <div>
+                <strong>🟢 Start Point</strong>
+                <p>Lat: {routeStartMarker.latitude.toFixed(6)}</p>
+                <p>Lon: {routeStartMarker.longitude.toFixed(6)}</p>
+              </div>
+            </Popup>
+          </Marker>
+        )}
+
+        {!routeData && routeEndMarker && (
+          <Marker 
+            position={[routeEndMarker.latitude, routeEndMarker.longitude]} 
+            icon={routeEndIcon}
+            zIndexOffset={500}
+          >
+            <Popup>
+              <div>
+                <strong>🔴 End Point</strong>
+                <p>Lat: {routeEndMarker.latitude.toFixed(6)}</p>
+                <p>Lon: {routeEndMarker.longitude.toFixed(6)}</p>
+              </div>
+            </Popup>
+          </Marker>
+        )}
+
+        {/* Search center marker with radius circle */}
+        {!routeData && searchCenterMarker && (
+          <>
+            <Circle
+              center={[searchCenterMarker.latitude, searchCenterMarker.longitude]}
+              radius={searchRadius}
+              pathOptions={{
+                color: '#10b981',
+                fillColor: '#10b981',
+                fillOpacity: 0.08,
+                weight: 2,
+                dashArray: '8, 4'
+              }}
+            />
+            <Marker 
+              position={[searchCenterMarker.latitude, searchCenterMarker.longitude]} 
+              icon={searchCenterIcon}
+              zIndexOffset={500}
+            >
+              <Popup>
+                <div>
+                  <strong>🔍 Search Center</strong>
+                  <p>Lat: {searchCenterMarker.latitude.toFixed(6)}</p>
+                  <p>Lon: {searchCenterMarker.longitude.toFixed(6)}</p>
+                  <p>Radius: {searchRadius}m</p>
+                </div>
+              </Popup>
+            </Marker>
+          </>
         )}
 
         {!routeData && shelters.map((shelter) => {

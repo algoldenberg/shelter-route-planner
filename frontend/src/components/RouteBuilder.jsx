@@ -181,6 +181,13 @@ const RouteBuilder = ({
           >
             {loadingStartLocation ? '⏳' : '📍'}
           </button>
+          <button
+            onClick={() => onSetMapClickMode && onSetMapClickMode('start')}
+            className="btn-icon"
+            title="Select start on map"
+          >
+            🗺️
+          </button>
         </div>
       </div>
 
@@ -234,7 +241,7 @@ const RouteBuilder = ({
           <button
             onClick={() => onSetMapClickMode && onSetMapClickMode('end')}
             className="btn-icon"
-            title="Select on map"
+            title="Select destination on map"
           >
             🗺️
           </button>

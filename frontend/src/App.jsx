@@ -25,6 +25,9 @@ function App() {
   const [mapClickMode, setMapClickMode] = useState(null);
   const [clickedPoints, setClickedPoints] = useState({ start: null, end: null });
   
+  // Search center state
+  const [clickedSearchPoint, setClickedSearchPoint] = useState(null);
+  
   // Search Here state
   const [showSearchHere, setShowSearchHere] = useState(false);
   const [mapCenter, setMapCenter] = useState(null);
@@ -166,15 +169,26 @@ function App() {
   const handleMapClick = async (lat, lng, mode) => {
     const newPoint = { latitude: lat, longitude: lng };
     
-    // Update clicked points
+    // Handle route points
     if (mode === 'start') {
       setClickedPoints(prev => ({ ...prev, start: newPoint }));
+      setMapClickMode(null);
     } else if (mode === 'end') {
       setClickedPoints(prev => ({ ...prev, end: newPoint }));
+      setMapClickMode(null);
+    } 
+    // Handle search center point with auto-search
+    else if (mode === 'search') {
+      setClickedSearchPoint(newPoint);
+      setMapClickMode(null);
+      
+      // Auto-search around clicked point
+      await handleSearch({
+        latitude: newPoint.latitude,
+        longitude: newPoint.longitude,
+        radius: 1000
+      });
     }
-    
-    // Clear mode after setting
-    setMapClickMode(null);
   };
 
   const handleMarkerClick = (shelterRef) => {
@@ -195,6 +209,11 @@ function App() {
       // Update center to GPS location
       setCenter([coords.latitude, coords.longitude]);
     }
+  };
+
+  const handleSetMapClickMode = (mode) => {
+    console.log('🗺️ Map click mode set to:', mode);
+    setMapClickMode(mode);
   };
 
   if (!mapReady || !center) {
@@ -257,6 +276,8 @@ function App() {
                 currentLocation={center}
                 showSearchHere={showSearchHere}
                 onSearchHere={handleSearchHere}
+                onSetMapClickMode={handleSetMapClickMode}
+                clickedSearchPoint={clickedSearchPoint}
               />
               
               <div className="stats">
@@ -276,7 +297,7 @@ function App() {
                 onCalculateRoute={handleCalculateRoute} 
                 loading={routeLoading}
                 onClear={handleClearRoute}
-                onSetMapClickMode={setMapClickMode}
+                onSetMapClickMode={handleSetMapClickMode}
                 clickedPoints={clickedPoints}
               />
               
