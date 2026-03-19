@@ -67,6 +67,7 @@ async def get_usage_stats():
     """
     Get usage statistics
     Real-time counters from api_logs + cached heavy queries from usage_stats
+    All-time totals from usage_stats (persists after TTL deletes api_logs)
     """
     db = get_database()
     
@@ -75,10 +76,11 @@ async def get_usage_stats():
     week_start = today_start - timedelta(days=7)
     month_start = today_start - timedelta(days=30)
     
-    # === REAL-TIME COUNTERS FROM API_LOGS ===
+    # === ALL-TIME TOTALS (from usage_stats "all_time" record) ===
+    all_time_stats = await db.usage_stats.find_one({"period": "all_time"})
+    total_requests = all_time_stats["total_requests"] if all_time_stats else 0
     
-    # Total requests (all time)
-    total_requests = await db.api_logs.count_documents({})
+    # === REAL-TIME COUNTERS FROM API_LOGS ===
     
     # Requests by period
     requests_today = await db.api_logs.count_documents({
@@ -149,7 +151,7 @@ async def get_usage_stats():
     
     # === CACHED DATA FROM usage_stats (charts, heavy queries) ===
     latest_stats = await db.usage_stats.find_one(
-        {},
+        {"period": "daily"},
         sort=[("created_at", -1)]
     )
     
@@ -160,8 +162,10 @@ async def get_usage_stats():
     popular_shelters = latest_stats.get("popular_shelters", []) if latest_stats else []
     
     return {
-        # Real-time counters
+        # All-time total (from usage_stats, persists after TTL)
         "total_requests": total_requests,
+        
+        # Real-time counters (from api_logs, last 30 days)
         "requests_today": requests_today,
         "requests_week": requests_week,
         "requests_month": requests_month,
@@ -188,7 +192,6 @@ async def get_usage_stats():
         
         "last_updated": datetime.utcnow().isoformat()
     }
-
 
 @router.get("/popular-endpoints")
 async def get_popular_endpoints(limit: int = 10):

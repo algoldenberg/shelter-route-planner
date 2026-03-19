@@ -104,12 +104,50 @@ class StatsAggregator:
         # Insert new stats
         await self.db.usage_stats.insert_one(stats_doc)
         
+        # === UPDATE ALL_TIME STATS ===
+        await self.update_all_time_stats(stats_doc)
+        
         print(f"✅ Daily stats aggregated successfully")
         print(f"   - Total requests: {total_requests}")
         print(f"   - Requests today: {requests_today}")
         print(f"   - Routes today: {routes_today}")
         
         return stats_doc
+    
+    async def update_all_time_stats(self, daily_stats: Dict):
+        """
+        Update or create the 'all_time' statistics record
+        This persists historical totals even after api_logs are deleted by TTL
+        """
+        # Find existing all_time record
+        all_time = await self.db.usage_stats.find_one({"period": "all_time"})
+        
+        if not all_time:
+            # Create initial all_time record
+            all_time_doc = {
+                "period": "all_time",
+                "total_requests": daily_stats["requests_today"],
+                "total_routes_built": daily_stats["routes_built_today"],
+                "created_at": datetime.utcnow(),
+                "last_updated": datetime.utcnow()
+            }
+            await self.db.usage_stats.insert_one(all_time_doc)
+            print(f"✅ Created all_time stats record")
+        else:
+            # Update existing all_time record (increment counters)
+            await self.db.usage_stats.update_one(
+                {"period": "all_time"},
+                {
+                    "$inc": {
+                        "total_requests": daily_stats["requests_today"],
+                        "total_routes_built": daily_stats["routes_built_today"]
+                    },
+                    "$set": {
+                        "last_updated": datetime.utcnow()
+                    }
+                }
+            )
+            print(f"✅ Updated all_time stats (+{daily_stats['requests_today']} requests)")
     
     async def _get_popular_endpoints(self, since: datetime) -> Dict[str, int]:
         """Get top 5 most popular endpoints"""

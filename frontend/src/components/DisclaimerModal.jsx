@@ -59,6 +59,13 @@ const DisclaimerModal = () => {
             <span>Don't show again</span>
           </label>
           
+          <p className="privacy-notice">
+            By clicking "I Understand" you agree to our{' '}
+            <a href="/privacy" rel="noopener noreferrer">
+              Privacy Policy
+            </a>
+          </p>
+          
           <button className="disclaimer-button" onClick={handleClose}>
             I Understand
           </button>

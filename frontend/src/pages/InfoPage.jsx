@@ -134,6 +134,9 @@ const InfoPage = () => {
             <div className="contact-links">
               <a href="mailto:shelternearyou@gmail.com" className="contact-link" rel="noopener noreferrer">shelternearyou@gmail.com</a>
             </div>
+            <p style={{marginTop: '20px', fontSize: '14px', color: '#a1a1aa'}}>
+              🔒 <a href="/privacy" style={{color: '#667eea', textDecoration: 'underline'}}>Privacy Policy</a>
+            </p>
           </div>
         </div>
 
@@ -235,11 +238,14 @@ const InfoPage = () => {
         </div>
 
         <div className="contact">
-            <div className="contact-title">📧 יצירת קשר</div>
-            <p style={{marginBottom: '12px', color: '#a1a1aa'}}>מצאת באג או יש הצעות?</p>
-            <div className="contact-links">
-              <a href="mailto:shelternearyou@gmail.com" className="contact-link" rel="noopener noreferrer">shelternearyou@gmail.com</a>
-            </div>
+          <div className="contact-title">📧 יצירת קשר</div>
+          <p style={{marginBottom: '12px', color: '#a1a1aa'}}>מצאת באג או יש הצעות?</p>
+          <div className="contact-links">
+            <a href="mailto:shelternearyou@gmail.com" className="contact-link" rel="noopener noreferrer">shelternearyou@gmail.com</a>
+          </div>
+          <p style={{marginTop: '20px', fontSize: '14px', color: '#a1a1aa'}}>
+            🔒 <a href="/privacy" style={{color: '#667eea', textDecoration: 'underline'}}>מדיניות פרטיות</a>
+          </p>
         </div>
         </div>
 
@@ -341,11 +347,14 @@ const InfoPage = () => {
         </div>
 
         <div className="contact">
-            <div className="contact-title">📧 Контакты</div>
-            <p style={{marginBottom: '12px', color: '#a1a1aa'}}>Нашли ошибку или есть предложения?</p>
-            <div className="contact-links">
-              <a href="mailto:shelternearyou@gmail.com" className="contact-link" rel="noopener noreferrer">shelternearyou@gmail.com</a>
-            </div>
+          <div className="contact-title">📧 Контакты</div>
+          <p style={{marginBottom: '12px', color: '#a1a1aa'}}>Нашли ошибку или есть предложения?</p>
+          <div className="contact-links">
+            <a href="mailto:shelternearyou@gmail.com" className="contact-link" rel="noopener noreferrer">shelternearyou@gmail.com</a>
+          </div>
+          <p style={{marginTop: '20px', fontSize: '14px', color: '#a1a1aa'}}>
+            🔒 <a href="/privacy" style={{color: '#667eea', textDecoration: 'underline'}}>Политика конфиденциальности</a>
+          </p>
         </div>
         </div>
         

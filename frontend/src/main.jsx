@@ -4,18 +4,21 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import App from './App.jsx'
 import InfoPage from './pages/InfoPage'
 import AdminPage from './pages/AdminPage'
+import PrivacyPage from './pages/PrivacyPage'
 
 
 function BodyClassManager() {
   const location = useLocation();
 
   useEffect(() => {
-    document.body.classList.remove('map-page', 'admin-page', 'info-page');
+    document.body.classList.remove('map-page', 'admin-page', 'info-page', 'privacy-page');
     
     if (location.pathname === '/admin') {
       document.body.classList.add('admin-page');
     } else if (location.pathname === '/info') {
       document.body.classList.add('info-page');
+    } else if (location.pathname === '/privacy') {
+      document.body.classList.add('privacy-page');
     } else {
       document.body.classList.add('map-page');
     }
@@ -32,6 +35,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/" element={<App />} />
         <Route path="/info" element={<InfoPage />} />
         <Route path="/admin" element={<AdminPage />} />
+        <Route path="/privacy" element={<PrivacyPage />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,
