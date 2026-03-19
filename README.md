@@ -1,4 +1,5 @@
-🛡️ Shelter Route Planner
+Файл: README.md (полностью обновлённый)
+markdown🛡️ Shelter Route Planner
 
 Live Demo: shelternearyou.online
 
@@ -11,6 +12,7 @@ Core Functionality
 🧭 Smart Navigation — Find nearest shelter with distance calculation
 🚶 Safe Routes — Build routes through multiple shelters
 📍 GPS Follow Mode — Live location tracking with compass heading
+🎯 Route Planning Markers — Visual feedback for start/end points via address, GPS, or map click
 
 User Contributions
 
@@ -28,7 +30,7 @@ Mobile & UX
 
 📱 Mobile-First Design — Optimized touch interface with bottom sheets
 🌐 Multi-Language — English, Hebrew, Russian
-🔄 PWA Ready — Install as native app (iOS/Android)
+🔄 PWA Ready — Install as native app (iOS/Android) with update notifications
 🎨 Clean UI — Modern, accessible interface
 
 
@@ -46,12 +48,10 @@ Public Shelters Dataset
 Community submissions (manual review via Admin panel)
 Municipal databases (partial verification tracking)
 
-Telegram Updates: https://t.me/+w1e0O207iQkxYTcy
 
 🏗️ Architecture
 
 Microservices Stack:
-
 ```
 shelter-route-planner/
 ├── Nginx (port 80)                  # Reverse Proxy
@@ -89,7 +89,7 @@ Backend: Python 3.12, FastAPI, Pydantic
 Database: MongoDB 7.0 with geospatial indexes (GeoJSON)
 Cache: Redis 7.0
 Routing: OSRM (OpenStreetMap Routing Machine)
-Frontend: React 18 + Vite, Leaflet.js, React Router
+Frontend: React 18 + Vite, Leaflet.js, React Router, TailwindCSS
 Deployment: Docker Compose, Nginx
 CI/CD: GitHub Actions (planned)
 
@@ -143,9 +143,16 @@ shelter-route-planner/
 ├── frontend/               # React application (Vite)
 │   ├── src/
 │   │   ├── components/    # UI components
+│   │   │   ├── Map.jsx                    # Main map with markers
+│   │   │   ├── ShelterSearch.jsx          # Search with map click support
+│   │   │   ├── RouteBuilder.jsx           # Route planning with markers
+│   │   │   ├── PWAUpdateNotice.jsx        # PWA version notifications
+│   │   │   └── ...
 │   │   ├── pages/         # AdminPage, InfoPage (paginated)
 │   │   ├── services/      # API clients
-│   │   └── utils/
+│   │   ├── utils/
+│   │   │   └── mapIcons.js                # Emoji markers (📍🏁🔍)
+│   │   └── App.jsx        # Main app with state management
 │   └── Dockerfile
 ├── services/
 │   ├── shelter-service/   # Shelter CRUD + submissions + admin
@@ -180,14 +187,31 @@ Push and create PR
 
 Deployment (Production)
 ```bash
-# On server
+# On server (via PuTTY SSH)
 cd /root/shelter-route-planner
 git pull origin main
 docker-compose down
-docker system prune -af
-docker-compose build --no-cache
+docker-compose build --no-cache frontend  # or specific service
 docker-compose up -d
+docker-compose ps
 ```
+
+## 🎨 Recent Features (v1.2.1)
+
+**Map Interaction Improvements**
+- ✅ **Route Point Markers** — Visual markers (📍 start, 🏁 end) appear when selecting points via:
+  - Address input (autocomplete)
+  - "Use my location" GPS button
+  - Map click selection (🗺️ button)
+- ✅ **Search Center Visualization** — Green circle (🔍 + radius) shows search area for all search methods
+- ✅ **Clear All Fix** — Properly removes all markers when clearing route before calculation
+- ✅ **PWA Update Notifications** — Version-based update detection with platform-specific reinstall instructions
+
+**Technical Implementation**
+- Parent-child state synchronization via `clickedPoints` prop
+- Emoji-based map icons with drop-shadow styling
+- Multi-source marker updates (address/GPS/map click) unified workflow
+- Proper cleanup on route clear and tab switching
 
 🐛 Known Issues & Roadmap
 
@@ -196,12 +220,14 @@ docker-compose up -d
 - API usage statistics dashboard
 - Shelter type classification (Tel Aviv, Haifa)
 - Icon colors by shelter type
+- Route planning visual markers (📍🏁)
+- Search center visualization (🔍)
+- PWA update notifications
 
 **In Progress** 🔄
 - City data enrichment: Ramat Gan, Maale Adumim, Rishon LeZion, Bat Yam, Holon, Beer Sheva
 - Verified shelter marker system (checkmark icon overlay)
 - Verification status in shelter cards
-- Pin placement UI (visual marker when user clicks on map)
 
 **Planned** ⏳
 - Full redesign → "IRan Shelter Map" branding
@@ -209,6 +235,7 @@ docker-compose up -d
 - Verification system (automated DB tracking for manually verified shelters)
 - Batch shelter import tool
 - Enhanced report handling UI (currently DB-only)
+- Geocoding feature (address → coordinates for search)
 
 
 
@@ -237,4 +264,4 @@ WhatsApp: +972-50-696-7370
 
 
 Status: ✅ Live in Production - Active development continues
-Last Updated: 11.03.26
+Last Updated: 19.03.26
