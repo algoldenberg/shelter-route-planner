@@ -274,7 +274,8 @@ const Map = ({
   onBuildRouteToShelter = null,
   onMapMove = null,
   onFollowModeEnabled = null,
-  activeTab = 'shelters'
+  activeTab = 'shelters',
+  clearSearchTrigger = 0
 }) => {
   const navigate = useNavigate();
   const [selectedShelter, setSelectedShelter] = useState(null);
@@ -297,21 +298,27 @@ const Map = ({
   const [searchCenterMarker, setSearchCenterMarker] = useState(null);
   const [searchRadius, setSearchRadius] = useState(1000); // Default 1km
 
-
   // Clear route markers when route data is cleared
-useEffect(() => {
-  if (!routeData) {
-    setRouteStartMarker(null);
-    setRouteEndMarker(null);
-  }
-}, [routeData]);
+  useEffect(() => {
+    if (!routeData) {
+      setRouteStartMarker(null);
+      setRouteEndMarker(null);
+    }
+  }, [routeData]);
 
-// Clear search marker when switching to route tab
-useEffect(() => {
-  if (activeTab === 'route') {
-    setSearchCenterMarker(null);
-  }
-}, [activeTab]);
+  // Clear search marker when switching to route tab
+  useEffect(() => {
+    if (activeTab === 'route') {
+      setSearchCenterMarker(null);
+    }
+  }, [activeTab]);
+
+  // Clear search marker when triggered from parent
+  useEffect(() => {
+    if (clearSearchTrigger > 0) {
+      setSearchCenterMarker(null);
+    }
+  }, [clearSearchTrigger]);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);

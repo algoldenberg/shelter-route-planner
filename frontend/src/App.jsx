@@ -33,6 +33,9 @@ function App() {
   const [showSearchHere, setShowSearchHere] = useState(false);
   const [mapCenter, setMapCenter] = useState(null);
 
+  // Clear search marker trigger
+  const [clearSearchTrigger, setClearSearchTrigger] = useState(0);
+
   // Auto-load user location on first mount
   useEffect(() => {
     if (navigator.geolocation) {
@@ -213,8 +216,12 @@ function App() {
   };
 
   const handleSetMapClickMode = (mode) => {
-    console.log('🗺️ Map click mode set to:', mode);
     setMapClickMode(mode);
+  };
+
+  const handleClearSearchMarker = () => {
+    setClickedSearchPoint(null);
+    setClearSearchTrigger(prev => prev + 1);
   };
 
   if (!mapReady || !center) {
@@ -280,6 +287,7 @@ function App() {
                 onSearchHere={handleSearchHere}
                 onSetMapClickMode={handleSetMapClickMode}
                 clickedSearchPoint={clickedSearchPoint}
+                onClearSearchMarker={handleClearSearchMarker}
               />
               
               <div className="stats">
@@ -337,6 +345,7 @@ function App() {
             onMapMove={handleMapMove}
             onFollowModeEnabled={handleFollowModeEnabled}
             activeTab={activeTab}
+            clearSearchTrigger={clearSearchTrigger}
           />
         </main>
       </div>

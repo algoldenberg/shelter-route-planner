@@ -9,7 +9,8 @@ const ShelterSearch = ({
   showSearchHere,
   onSearchHere,
   onSetMapClickMode,
-  clickedSearchPoint
+  clickedSearchPoint,
+  onClearSearchMarker
 }) => {
   const [searchAddress, setSearchAddress] = useState('');
   const [searchCoords, setSearchCoords] = useState(null);
@@ -79,6 +80,17 @@ const ShelterSearch = ({
     }
   };
 
+  const handleClear = () => {
+    setSearchAddress('');
+    setSearchCoords(null);
+    setEditingLocation(true);
+    
+    // Notify parent to clear search marker on map
+    if (onClearSearchMarker) {
+      onClearSearchMarker();
+    }
+  };
+
   // Set initial location from currentLocation prop
   useEffect(() => {
     if (currentLocation && !searchCoords) {
@@ -110,11 +122,7 @@ const ShelterSearch = ({
                 style={{ cursor: 'pointer' }}
               />
               <button
-                onClick={() => {
-                  setSearchAddress('');
-                  setSearchCoords(null);
-                  setEditingLocation(true);
-                }}
+                onClick={handleClear}
                 className="btn-clear-text"
                 title="Clear"
               >
