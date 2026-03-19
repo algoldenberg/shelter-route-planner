@@ -5,6 +5,7 @@ import RouteBuilder from './components/RouteBuilder';
 import Footer from './components/Footer';
 import DisclaimerModal from './components/DisclaimerModal';
 import PWAUpdateNotice from './components/PWAUpdateNotice';
+import SupportButton from './components/SupportButton';
 import { getNearbyShelters, calculateRoute } from './services/api';
 import './App.css';
 import React from 'react';
@@ -374,6 +375,7 @@ function App() {
         </main>
       </div>
 
+      <SupportButton />
       <Footer />
     </div>
   );
