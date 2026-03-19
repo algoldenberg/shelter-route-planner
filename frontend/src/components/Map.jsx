@@ -276,7 +276,8 @@ const Map = ({
   onFollowModeEnabled = null,
   activeTab = 'shelters',
   clearSearchTrigger = 0,
-  clickedSearchPoint = null
+  clickedSearchPoint = null,
+  clickedPoints = { start: null, end: null }
 }) => {
   const navigate = useNavigate();
   const [selectedShelter, setSelectedShelter] = useState(null);
@@ -299,40 +300,62 @@ const Map = ({
   const [searchCenterMarker, setSearchCenterMarker] = useState(null);
   const [searchRadius, setSearchRadius] = useState(1000); // Default 1km
 
-  // Clear route markers when route data is cleared
-  useEffect(() => {
-    if (!routeData) {
-      setRouteStartMarker(null);
-      setRouteEndMarker(null);
-    }
-  }, [routeData]);
+// Clear route markers when route data is cleared
+useEffect(() => {
+  if (!routeData) {
+    setRouteStartMarker(null);
+    setRouteEndMarker(null);
+  }
+}, [routeData]);
 
-  // Clear search marker when switching to route tab
-  useEffect(() => {
-    if (activeTab === 'route') {
-      setSearchCenterMarker(null);
-    }
-  }, [activeTab]);
+// Clear route markers when clickedPoints are cleared from parent
+useEffect(() => {
+  if (!clickedPoints.start && !clickedPoints.end) {
+    setRouteStartMarker(null);
+    setRouteEndMarker(null);
+  }
+}, [clickedPoints.start, clickedPoints.end]);
 
-  // Clear search marker when triggered from parent
-  useEffect(() => {
-    if (clearSearchTrigger > 0) {
-      setSearchCenterMarker(null);
-    }
-  }, [clearSearchTrigger]);
+// Clear search marker when switching to route tab
+useEffect(() => {
+  if (activeTab === 'route') {
+    setSearchCenterMarker(null);
+  }
+}, [activeTab]);
 
-  // Update search marker when clickedSearchPoint changes from parent
-  useEffect(() => {
-    if (clickedSearchPoint) {
-      setSearchCenterMarker(clickedSearchPoint);
-    }
-  }, [clickedSearchPoint]);
+// Clear search marker when triggered from parent
+useEffect(() => {
+  if (clearSearchTrigger > 0) {
+    setSearchCenterMarker(null);
+  }
+}, [clearSearchTrigger]);
 
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 768);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+// Update search marker when clickedSearchPoint changes from parent
+useEffect(() => {
+  if (clickedSearchPoint) {
+    setSearchCenterMarker(clickedSearchPoint);
+  }
+}, [clickedSearchPoint]);
+
+// Update route start marker when clickedPoints.start changes from parent
+useEffect(() => {
+  if (clickedPoints.start) {
+    setRouteStartMarker(clickedPoints.start);
+  }
+}, [clickedPoints.start]);
+
+// Update route end marker when clickedPoints.end changes from parent
+useEffect(() => {
+  if (clickedPoints.end) {
+    setRouteEndMarker(clickedPoints.end);
+  }
+}, [clickedPoints.end]);
+
+useEffect(() => {
+  const handleResize = () => setIsMobile(window.innerWidth <= 768);
+  window.addEventListener('resize', handleResize);
+  return () => window.removeEventListener('resize', handleResize);
+}, []);
 
   const routeCoordinates = routeData?.geometry 
     ? routeData.geometry.map(coord => [coord[1], coord[0]]) 

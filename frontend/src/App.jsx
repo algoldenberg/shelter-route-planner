@@ -236,6 +236,14 @@ function App() {
     setClearSearchTrigger(prev => prev + 1);
   };
 
+  const handleRoutePointSet = (type, coords) => {
+    if (type === 'start') {
+      setClickedPoints(prev => ({ ...prev, start: coords }));
+    } else if (type === 'end') {
+      setClickedPoints(prev => ({ ...prev, end: coords }));
+    }
+  };
+
   if (!mapReady || !center) {
     return (
       <div className="app">
@@ -322,6 +330,7 @@ function App() {
                 onClear={handleClearRoute}
                 onSetMapClickMode={handleSetMapClickMode}
                 clickedPoints={clickedPoints}
+                onRoutePointSet={handleRoutePointSet}
               />
               
               {routeData && (
@@ -360,6 +369,7 @@ function App() {
             activeTab={activeTab}
             clearSearchTrigger={clearSearchTrigger}
             clickedSearchPoint={clickedSearchPoint}
+            clickedPoints={clickedPoints}
           />
         </main>
       </div>

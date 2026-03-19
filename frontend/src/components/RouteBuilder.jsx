@@ -7,7 +7,8 @@ const RouteBuilder = ({
   loading, 
   onClear,
   onSetMapClickMode,
-  clickedPoints 
+  clickedPoints,
+  onRoutePointSet
 }) => {
   const [startAddress, setStartAddress] = useState('');
   const [endAddress, setEndAddress] = useState('');
@@ -67,6 +68,11 @@ const RouteBuilder = ({
           setUseCurrentLocation(true);
           setEditingStart(false);
           setLoadingStartLocation(false);
+          
+          // Notify parent to show marker
+          if (onRoutePointSet) {
+            onRoutePointSet('start', coords);
+          }
         },
         (error) => {
           console.error('Geolocation error:', error);
@@ -93,6 +99,11 @@ const RouteBuilder = ({
           setEndAddress('Your location');
           setEditingEnd(false);
           setLoadingEndLocation(false);
+          
+          // Notify parent to show marker
+          if (onRoutePointSet) {
+            onRoutePointSet('end', coords);
+          }
         },
         (error) => {
           console.error('Geolocation error:', error);
@@ -163,10 +174,16 @@ const RouteBuilder = ({
               <AddressSearch
                 onSelect={(result) => {
                   console.log('🟢 Start selected:', result);
+                  const coords = { latitude: result.latitude, longitude: result.longitude };
                   setStartAddress(result.address);
-                  setStartCoords({ latitude: result.latitude, longitude: result.longitude });
+                  setStartCoords(coords);
                   setUseCurrentLocation(false);
                   setEditingStart(false);
+                  
+                  // Notify parent to show marker
+                  if (onRoutePointSet) {
+                    onRoutePointSet('start', coords);
+                  }
                 }}
                 placeholder="Start point"
                 initialValue=""
@@ -221,9 +238,15 @@ const RouteBuilder = ({
               <AddressSearch
                 onSelect={(result) => {
                   console.log('🎯 End selected:', result);
+                  const coords = { latitude: result.latitude, longitude: result.longitude };
                   setEndAddress(result.address);
-                  setEndCoords({ latitude: result.latitude, longitude: result.longitude });
+                  setEndCoords(coords);
                   setEditingEnd(false);
+                  
+                  // Notify parent to show marker
+                  if (onRoutePointSet) {
+                    onRoutePointSet('end', coords);
+                  }
                 }}
                 placeholder="Choose destination"
                 initialValue=""
