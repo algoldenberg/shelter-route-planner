@@ -10,7 +10,8 @@ const ShelterSearch = ({
   onSearchHere,
   onSetMapClickMode,
   clickedSearchPoint,
-  onClearSearchMarker
+  onClearSearchMarker,
+  onSearchLocationSet
 }) => {
   const [searchAddress, setSearchAddress] = useState('');
   const [searchCoords, setSearchCoords] = useState(null);
@@ -50,6 +51,11 @@ const ShelterSearch = ({
       longitude: searchCoords.longitude,
       radius: 1000 // Fixed radius
     });
+    
+    // Notify parent to show marker
+    if (onSearchLocationSet) {
+      onSearchLocationSet(searchCoords);
+    }
   };
 
   const handleUseMyLocation = () => {
@@ -132,9 +138,15 @@ const ShelterSearch = ({
           ) : (
             <AddressSearch
               onSelect={(result) => {
+                const coords = { latitude: result.latitude, longitude: result.longitude };
                 setSearchAddress(result.address);
-                setSearchCoords({ latitude: result.latitude, longitude: result.longitude });
+                setSearchCoords(coords);
                 setEditingLocation(false);
+                
+                // Notify parent to show marker
+                if (onSearchLocationSet) {
+                  onSearchLocationSet(coords);
+                }
               }}
               placeholder="Enter address or place"
               initialValue=""

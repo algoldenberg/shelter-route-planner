@@ -91,12 +91,24 @@ function App() {
 
   const handleSearchHere = () => {
     if (mapCenter) {
-      handleSearch({
+      const coords = {
         latitude: mapCenter[0],
-        longitude: mapCenter[1],
+        longitude: mapCenter[1]
+      };
+      
+      // Set marker before search
+      setClickedSearchPoint(coords);
+      
+      handleSearch({
+        latitude: coords.latitude,
+        longitude: coords.longitude,
         radius: stats.radius || 1000
       });
     }
+  };
+
+  const handleSearchLocationSet = (coords) => {
+    setClickedSearchPoint(coords);
   };
 
   const handleMapMove = (newCenter) => {
@@ -288,6 +300,7 @@ function App() {
                 onSetMapClickMode={handleSetMapClickMode}
                 clickedSearchPoint={clickedSearchPoint}
                 onClearSearchMarker={handleClearSearchMarker}
+                onSearchLocationSet={handleSearchLocationSet}
               />
               
               <div className="stats">
@@ -346,6 +359,7 @@ function App() {
             onFollowModeEnabled={handleFollowModeEnabled}
             activeTab={activeTab}
             clearSearchTrigger={clearSearchTrigger}
+            clickedSearchPoint={clickedSearchPoint}
           />
         </main>
       </div>

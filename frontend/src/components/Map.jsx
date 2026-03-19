@@ -275,7 +275,8 @@ const Map = ({
   onMapMove = null,
   onFollowModeEnabled = null,
   activeTab = 'shelters',
-  clearSearchTrigger = 0
+  clearSearchTrigger = 0,
+  clickedSearchPoint = null
 }) => {
   const navigate = useNavigate();
   const [selectedShelter, setSelectedShelter] = useState(null);
@@ -319,6 +320,13 @@ const Map = ({
       setSearchCenterMarker(null);
     }
   }, [clearSearchTrigger]);
+
+  // Update search marker when clickedSearchPoint changes from parent
+  useEffect(() => {
+    if (clickedSearchPoint) {
+      setSearchCenterMarker(clickedSearchPoint);
+    }
+  }, [clickedSearchPoint]);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
