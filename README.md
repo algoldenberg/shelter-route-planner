@@ -259,8 +259,8 @@ Built during conflict in Israel 🇮🇱
 Contact:
 
 GitHub: @algoldenberg
-Telegram: @goldenberga
-WhatsApp: +972-50-696-7370
+mail: shelternearyou@gmail.com
+
 
 
 Status: ✅ Live in Production - Active development continues

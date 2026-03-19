@@ -132,8 +132,7 @@ const InfoPage = () => {
             <div className="contact-title">📧 Contact</div>
             <p style={{marginBottom: '12px', color: '#a1a1aa'}}>Found a bug or have suggestions?</p>
             <div className="contact-links">
-              <a href="https://t.me/goldenberga" className="contact-link" target="_blank" rel="noopener noreferrer">Telegram: @goldenberga</a>
-              <a href="https://wa.me/972506967370" className="contact-link" target="_blank" rel="noopener noreferrer">WhatsApp: 0506967370</a>
+              <a href="mailto:shelternearyou@gmail.com" className="contact-link" rel="noopener noreferrer">shelternearyou@gmail.com</a>
             </div>
           </div>
         </div>
@@ -239,8 +238,7 @@ const InfoPage = () => {
             <div className="contact-title">📧 יצירת קשר</div>
             <p style={{marginBottom: '12px', color: '#a1a1aa'}}>מצאת באג או יש הצעות?</p>
             <div className="contact-links">
-            <a href="https://t.me/goldenberga" className="contact-link" target="_blank" rel="noopener noreferrer">טלגרם: @goldenberga</a>
-            <a href="https://wa.me/972506967370" className="contact-link" target="_blank" rel="noopener noreferrer">וואטסאפ: 0506967370</a>
+              <a href="mailto:shelternearyou@gmail.com" className="contact-link" rel="noopener noreferrer">shelternearyou@gmail.com</a>
             </div>
         </div>
         </div>
@@ -346,8 +344,7 @@ const InfoPage = () => {
             <div className="contact-title">📧 Контакты</div>
             <p style={{marginBottom: '12px', color: '#a1a1aa'}}>Нашли ошибку или есть предложения?</p>
             <div className="contact-links">
-            <a href="https://t.me/goldenberga" className="contact-link" target="_blank" rel="noopener noreferrer">Telegram: @goldenberga</a>
-            <a href="https://wa.me/972506967370" className="contact-link" target="_blank" rel="noopener noreferrer">WhatsApp: 0506967370</a>
+              <a href="mailto:shelternearyou@gmail.com" className="contact-link" rel="noopener noreferrer">shelternearyou@gmail.com</a>
             </div>
         </div>
         </div>

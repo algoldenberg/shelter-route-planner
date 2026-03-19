@@ -42,11 +42,8 @@ const DisclaimerModal = () => {
           <div className="disclaimer-contact">
             <p><strong>Found an error?</strong></p>
             <div className="contact-links">
-              <a href="https://t.me/goldenberga" target="_blank" rel="noopener noreferrer">
-                Telegram
-              </a>
-              <a href="https://wa.me/972506967370" target="_blank" rel="noopener noreferrer">
-                WhatsApp
+              <a href="mailto:shelternearyou@gmail.com" rel="noopener noreferrer">
+                shelternearyou@gmail.com
               </a>
             </div>
           </div>
