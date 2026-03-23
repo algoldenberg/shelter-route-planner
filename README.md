@@ -1,5 +1,4 @@
-Файл: README.md (полностью обновлённый)
-markdown🛡️ Shelter Route Planner
+🛡️ Shelter Route Planner
 
 Live Demo: shelternearyou.online
 
@@ -16,16 +15,17 @@ Core Functionality
 
 User Contributions
 
-➕ **Submit Shelters** — Add new shelters via address search or map picking
-🚫 **Report Issues** — Flag closed shelters, wrong coordinates, or blocked entrances
-💬 **Comments & Ratings** — Share shelter experiences with star ratings
-📷 **Photo Upload** — Attach photos to submissions, reports, and comments (up to 5 photos, 10MB each)
+➕ Submit Shelters — Add new shelters via address search or map picking
+🚫 Report Issues — Flag closed shelters, wrong coordinates, or blocked entrances
+💬 Comments & Ratings — Share shelter experiences with star ratings
+📷 Photo Upload — Attach photos to submissions, reports, and comments (up to 5 photos, 10MB each)
 
 Admin Panel
 
-🔧 Full Admin Dashboard — Approve/reject new shelter submissions
+🔧 Full Admin Dashboard — Approve/reject new shelter submissions with photo preview
 📊 API Usage Statistics — Real-time request metrics from Shelter & Route services
 ✅ Verified Shelters — Mark shelters with manual verification status
+📸 Photo Management — View uploaded photos in submissions and reports
 
 Mobile & UX
 
@@ -65,10 +65,13 @@ shelter-route-planner/
 │       ├── Route Service            # FastAPI (port 18002)
 │       │   ├── OSRM routing
 │       │   └── Usage statistics
+│       ├── Comment Service          # FastAPI (port 18003)
+│       │   └── Ratings & reviews
 │       ├── Walking Route Service    # FastAPI (port 18004)
 │       │   └── Pedestrian routing optimization
-│       └── Comment Service          # FastAPI (port 18003)
-│           └── Ratings & reviews
+│       └── Photo Service            # FastAPI (port 18005)
+│           ├── Google Drive integration
+│           └── Image proxy endpoint
 │
 ├── Data Layer
 │   ├── MongoDB 7.0                  # Geospatial indexing, GeoJSON
@@ -77,11 +80,11 @@ shelter-route-planner/
 │
 └── Key Services:
     ├── API Gateway (services/api-gateway/) — Central request router, port 18000
-    ├── Shelter Service (services/shelter-service/app/api/admin.py) — CRUD, submissions, admin panel
+    ├── Shelter Service (services/shelter-service/) — CRUD, submissions, admin panel
     ├── Route Service (services/route-service/) — OSRM routing + usage metrics
-    ├── Walking Route Service (services/walking-route-service/) — Pedestrian routing optimization
+    ├── Walking Route Service (services/walking-route-service/) — Pedestrian routing
     ├── Comment Service (services/comment-service/) — Ratings & reviews
-    ├── Photo Service (services/photo-service/) — Google Drive photo storage
+    ├── Photo Service (services/photo-service/) — Google Drive storage + proxy
     └── Usage Logging — Middleware tracks API requests for admin dashboard
 ```
 
@@ -90,6 +93,7 @@ Tech Stack
 Backend: Python 3.12, FastAPI, Pydantic
 Database: MongoDB 7.0 with geospatial indexes (GeoJSON)
 Cache: Redis 7.0
+Storage: Google Drive API (OAuth2)
 Routing: OSRM (OpenStreetMap Routing Machine)
 Frontend: React 18 + Vite, Leaflet.js, React Router, TailwindCSS
 Deployment: Docker Compose, Nginx
@@ -97,7 +101,7 @@ CI/CD: GitHub Actions (planned)
 
 Infrastructure
 
-Hosting: VPS (1and1.com) at 83.229.70.64
+Hosting: VPS (1and1.com)
 Domain: shelternearyou.online
 SSL: Let's Encrypt (nginx-certbot)
 Monitoring: Docker logs, MongoDB metrics
@@ -130,12 +134,12 @@ docker-compose logs -f frontend
 docker-compose logs -f api-gateway
 ```
 
-**Local Development Access** (only on your machine):
+**Local Development Access**:
 - Frontend: http://localhost:13000
-- API Gateway: http://localhost:18000 (localhost only)
-- MongoDB: localhost:27017 (localhost only, development credentials)
+- API Gateway: http://localhost:18000
+- MongoDB: localhost:27017
 
-⚠️ **SECURITY WARNING**: Never expose MongoDB, API ports, or OSRM to the internet without proper authentication and firewall rules.
+⚠️ **SECURITY WARNING**: Never expose MongoDB, API ports, or OSRM to the internet without proper authentication.
 
 ---
 
@@ -146,35 +150,28 @@ shelter-route-planner/
 │   ├── src/
 │   │   ├── components/    # UI components
 │   │   │   ├── Map.jsx                    # Main map with markers
-│   │   │   ├── ShelterSearch.jsx          # Search with map click support
-│   │   │   ├── RouteBuilder.jsx           # Route planning with markers
-│   │   │   ├── PWAUpdateNotice.jsx        # PWA version notifications
-│   │   │   └── ...
-│   │   ├── pages/         # AdminPage, InfoPage (paginated)
+│   │   │   ├── ShelterPopup.jsx           # Photo gallery + comments
+│   │   │   ├── PhotoUploader.jsx          # Universal photo upload
+│   │   │   ├── RouteBuilder.jsx           # Route planning
+│   │   │   └── PWAUpdateNotice.jsx        # PWA notifications
+│   │   ├── pages/         
+│   │   │   ├── AdminPage.jsx              # Admin with photo preview
+│   │   │   └── InfoPage.jsx               # Documentation
 │   │   ├── services/      # API clients
-│   │   ├── utils/
-│   │   │   └── mapIcons.js                # Emoji markers (📍🏁🔍)
-│   │   └── App.jsx        # Main app with state management
+│   │   └── App.jsx        
 │   └── Dockerfile
 ├── services/
-│   ├── shelter-service/   # Shelter CRUD + submissions + admin
-│   │   ├── app/
-│   │   │   ├── api/
-│   │   │   │   └── admin.py          # Admin panel logic
-│   │   │   ├── models/
-│   │   │   │   ├── shelter.py        # Shelter schema + location (GeoJSON)
-│   │   │   │   └── usage_stats.py    # API usage tracking
-│   │   │   └── middleware/
-│   │   │       └── usage_logging.py  # Request logging
-│   │   └── Dockerfile
-│   ├── route-service/     # OSRM routing + statistics
-│   │   ├── app/
-│   │   │   └── middleware/
-│   │   │       └── usage_logging.py  # Route request tracking
-│   │   └── Dockerfile
-│   └── comment-service/   # Comments & ratings
-├── nginx/                 # Reverse proxy config
-├── docker-compose.yml     # Local development
+│   ├── shelter-service/   # Shelter CRUD + admin
+│   │   ├── app/api/admin.py          # Admin panel (photo support)
+│   │   └── app/models/               # Pydantic schemas
+│   ├── route-service/     # OSRM routing
+│   ├── comment-service/   # Comments with photos
+│   ├── photo-service/     # Google Drive integration
+│   │   ├── app/google_drive.py       # OAuth2 + upload
+│   │   └── app/main.py               # Proxy endpoint
+│   └── api-gateway/       
+│       └── nginx.conf                # /proxy/ route
+├── docker-compose.yml     
 └── README.md
 ```
 
@@ -193,36 +190,35 @@ Deployment (Production)
 cd /root/shelter-route-planner
 git pull origin main
 docker-compose down
-docker-compose build --no-cache frontend  # or specific service
+docker-compose build --no-cache 
 docker-compose up -d
 docker-compose ps
 ```
 
 ## 🎨 Recent Features
 
-### v1.3.0 — Photo Upload Integration (23.03.26)
+### v1.3.0 — Photo Upload System ✅ COMPLETE (23.03.26)
 
-**Photo Upload System**
+**Photo Upload & Display**
 - ✅ **Universal PhotoUploader Component** — Drag-n-drop, camera (mobile), gallery selection
-- ✅ **Google Drive Storage** — OAuth2 integration with 2TB personal storage
-- ✅ **Photo Support Everywhere** — Attach photos to shelter submissions, issue reports, and comments
-- ✅ **Backend Integration** — FormData multipart upload, automatic URL storage in MongoDB
-- ✅ **Tested End-to-End** — Submissions, reports, and comments with photos fully functional
+- ✅ **Google Drive Storage** — OAuth2 integration with organized folder structure
+- ✅ **Photo Support Everywhere** — Submissions, reports, and comments
+- ✅ **Proxy Endpoint** — `/proxy/{file_id}` bypasses CORS and rate limits
+- ✅ **Photo Galleries** — Shelter popups show all photos (general + per-comment)
+- ✅ **Admin Panel Integration** — Photo preview in submissions and reports tables
+- ✅ **Lightbox Viewer** — Click to view full-size photos
+- ✅ **Auto-Comment Photos** — Photos automatically copied to auto-comment on approval
 
 **Technical Implementation**
 - New microservice: `photo-service` (port 18005)
 - Google Drive API with OAuth2 authentication
-- Nginx upload limit increased to 50MB
-- Photos stored with organized folder structure (submissions/, reports/, comments/)
-- URL references saved in MongoDB for fast retrieval
+- Nginx `/proxy/` route for image serving
+- Photos stored: submissions/, reports/, comments/ folders
+- MongoDB stores proxy URLs for fast retrieval
+- Frontend: ShelterPopup and AdminPage photo galleries
 
-**TODO**
-- Display photos in comment gallery UI
-- Photo lightbox for fullscreen view
-- Copy photos to auto-created comments on submission approval
-- Admin panel photo preview
+### Other Completed Features ✅
 
-**Completed** ✅
 - Admin panel with submission approval/rejection
 - API usage statistics dashboard
 - Shelter type classification (Tel Aviv, Haifa)
@@ -231,19 +227,17 @@ docker-compose ps
 - Search center visualization (🔍)
 - PWA update notifications
 
-**In Progress** 🔄
+### In Progress 🔄
+
 - City data enrichment: Ramat Gan, Maale Adumim, Rishon LeZion, Bat Yam, Holon, Beer Sheva
 - Verified shelter marker system (checkmark icon overlay)
-- Verification status in shelter cards
 
-**Planned** ⏳
+### Planned ⏳
+
 - Full redesign → "IRan Shelter Map" branding
-- Color scheme redesign
-- Verification system (automated DB tracking for manually verified shelters)
 - Batch shelter import tool
-- Enhanced report handling UI (currently DB-only)
-- Geocoding feature (address → coordinates for search)
-
+- Enhanced report handling UI
+- Geocoding feature (address → coordinates)
 
 
 🤝 Contributing
@@ -263,12 +257,10 @@ MIT License - feel free to use for learning/portfolio purposes.
 Alex Goldenberg
 Portfolio Project - DevOps & Full-Stack Development
 Built during conflict in Israel 🇮🇱
+
 Contact:
-
-GitHub: @algoldenberg
-mail: shelternearyou@gmail.com
-
-
+- GitHub: @algoldenberg
+- Email: shelternearyou@gmail.com
 
 Status: ✅ Live in Production - Active development continues
 Last Updated: 23.03.26
