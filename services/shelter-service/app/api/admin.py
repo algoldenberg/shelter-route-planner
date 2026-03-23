@@ -383,6 +383,7 @@ async def approve_submission(submission_id: str):
             "rating": 5,
             "photos": submission.get("photos", []),
             "created_at": datetime.utcnow(),
+            "updated_at": datetime.utcnow(),
             "submitter_ip": submission.get("submitted_by_ip", "")
         }
         
