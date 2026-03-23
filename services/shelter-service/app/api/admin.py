@@ -365,12 +365,30 @@ async def approve_submission(submission_id: str):
         "location": {
             "type": "Point",
             "coordinates": [submission["longitude"], submission["latitude"]]  # [lon, lat]
-        }
+        },
+        "photos": submission.get("photos", [])  # ← ДОБАВЛЕНО
     }
     
-    print(f"=== ADMIN APPROVE: SHELTER DATA = {shelter_data} ===")  # Debug log
+    print(f"=== ADMIN APPROVE: SHELTER DATA = {shelter_data} ===")
     
     result = await db.shelters.insert_one(shelter_data)
+    new_shelter_id = str(result.inserted_id)
+    
+    # AUTOMATICALLY ADD COMMENT if submission has comment OR photos
+    if submission.get("comment") or submission.get("photos"):
+        comment_doc = {
+            "shelter_id": new_shelter_id,
+            "username": "Submitter",
+            "comment": submission.get("comment") or "",
+            "rating": 5,
+            "photos": submission.get("photos", []),
+            "created_at": datetime.utcnow(),
+            "submitter_ip": submission.get("submitted_by_ip", "")
+        }
+        
+        print(f"=== AUTO-ADDED COMMENT WITH {len(comment_doc['photos'])} PHOTOS ===")
+        
+        await db.comments.insert_one(comment_doc)
     
     # Update submission status
     await db.shelter_submissions.update_one(
@@ -379,12 +397,12 @@ async def approve_submission(submission_id: str):
             "$set": {
                 "status": "approved",
                 "reviewed_at": datetime.utcnow(),
-                "shelter_id": str(result.inserted_id)
+                "shelter_id": new_shelter_id
             }
         }
     )
     
-    return {"message": "Submission approved", "shelter_id": str(result.inserted_id)}
+    return {"message": "Submission approved", "shelter_id": new_shelter_id}
 
 
 @router.put("/submissions/{submission_id}/reject")
