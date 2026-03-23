@@ -271,19 +271,21 @@ async def approve_submission(submission_id: str):
     shelter_result = await shelters_collection.insert_one(shelter_doc)
     new_shelter_id = str(shelter_result.inserted_id)
 
-    # AUTOMATICALLY ADD COMMENT if submission has one
-    if submission.get("comment"):
+    # AUTOMATICALLY ADD COMMENT if submission has comment OR photos
+    if submission.get("comment") or submission.get("photos"):
         comment_doc = {
             "shelter_id": new_shelter_id,
             "username": "Submitter",  # Default username for submissions
-            "comment": submission["comment"],
+            "comment": submission.get("comment") or "",  # Empty string if no text
             "rating": 5,  # Default rating for submission comments
-            "photos": submission.get("photos", []),  # ← ИСПРАВЛЕНО: КОПИРУЕМ ФОТО ИЗ SUBMISSION
+            "photos": submission.get("photos", []),  # ← photo
             "created_at": datetime.utcnow(),
-            "updated_at": datetime.utcnow()
+            "submitter_ip": submission.get("submitted_by_ip", "")
         }
+        
+        print(f"=== AUTO-ADDED COMMENT WITH {len(comment_doc['photos'])} PHOTOS: {comment_doc} ===")
+        
         await comments_collection.insert_one(comment_doc)
-        print(f"=== AUTO-ADDED COMMENT WITH {len(comment_doc['photos'])} PHOTOS: {submission['comment'][:50]}... ===")
 
     # Update submission status
     await submissions_collection.update_one(
