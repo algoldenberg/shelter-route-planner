@@ -333,6 +333,7 @@ async def get_pending_submissions(status: Optional[str] = "pending"):
             "type": sub["type"],
             "capacity": sub.get("capacity"),
             "comment": sub.get("comment", ""),
+            "photos": sub.get("photos", []), 
             "status": sub["status"],
             "submitted_at": sub["submitted_at"].isoformat(),
             "submitter_ip": sub.get("submitter_ip", "")
@@ -433,6 +434,7 @@ async def get_reports(status: Optional[str] = "pending"):
             "issue_type": report["issue_type"],
             "comment": report["comment"],
             "contact": report.get("contact", ""),
+            "photos": report.get("photos", []),  
             "status": report["status"],
             "reported_at": report["reported_at"].isoformat(),
             "reporter_ip": report.get("reporter_ip", "")
