@@ -31,23 +31,84 @@ export const getShelterComments = async (shelterId) => {
   return response.data;
 };
 
-export const addShelterComment = async (shelterId, comment) => {
-  const response = await api.post(`/comments/shelters/${shelterId}/comments`, comment);
+export const addShelterComment = async (shelterId, commentData) => {
+  // Create FormData for multipart/form-data (supports photos)
+  const formData = new FormData();
+  formData.append('username', commentData.username || 'Anonymous');
+  formData.append('comment', commentData.comment);
+  formData.append('rating', commentData.rating);
+  
+  // Add photos if present
+  if (commentData.photos && commentData.photos.length > 0) {
+    commentData.photos.forEach((photo) => {
+      formData.append('photos', photo);
+    });
+  }
+  
+  const response = await api.post(`/comments/shelters/${shelterId}/comments`, formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
   return response.data;
 };
 
 // Shelter submission endpoints
 export const submitNewShelter = async (shelterData) => {
-  const response = await api.post('/shelters/submit', shelterData);
+  // Create FormData for multipart/form-data (supports photos)
+  const formData = new FormData();
+  formData.append('name', shelterData.name);
+  formData.append('address', shelterData.address);
+  formData.append('latitude', shelterData.latitude);
+  formData.append('longitude', shelterData.longitude);
+  formData.append('type', shelterData.type);
+  formData.append('captcha_token', shelterData.captcha_token);
+  
+  if (shelterData.capacity) {
+    formData.append('capacity', shelterData.capacity);
+  }
+  
+  if (shelterData.comment) {
+    formData.append('comment', shelterData.comment);
+  }
+  
+  // Add photos if present
+  if (shelterData.photos && shelterData.photos.length > 0) {
+    shelterData.photos.forEach((photo) => {
+      formData.append('photos', photo);
+    });
+  }
+  
+  const response = await api.post('/shelters/submit', formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
   return response.data;
 };
 
 // Shelter report endpoints
 export const reportShelterIssue = async (shelterId, reportData) => {
-  const response = await api.post(`/shelters/${shelterId}/report`, {
-    issue_type: reportData.issueType,
-    comment: reportData.comment,
-    contact: reportData.contact || null
+  // Create FormData for multipart/form-data (supports photos)
+  const formData = new FormData();
+  formData.append('issue_type', reportData.issueType);
+  formData.append('comment', reportData.comment);
+  
+  if (reportData.contact) {
+    formData.append('contact', reportData.contact);
+  }
+  
+  // Add photos if present
+  if (reportData.photos && reportData.photos.length > 0) {
+    reportData.photos.forEach((photo) => {
+      formData.append('photos', photo);
+    });
+  }
+  
+  const response = await api.post(`/shelters/${shelterId}/report`, formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
   });
   return response.data;
 };

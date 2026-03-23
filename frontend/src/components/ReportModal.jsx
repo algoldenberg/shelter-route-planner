@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import PhotoUploader from './PhotoUploader/PhotoUploader';
 import './styles/ReportModal.css';
 
 const ReportModal = ({ isOpen, onClose, onSubmit, shelterName }) => {
@@ -7,6 +8,7 @@ const ReportModal = ({ isOpen, onClose, onSubmit, shelterName }) => {
     comment: '',
     contact: ''
   });
+  const [photos, setPhotos] = useState([]);
 
   // Reset form when modal opens
   useEffect(() => {
@@ -16,6 +18,7 @@ const ReportModal = ({ isOpen, onClose, onSubmit, shelterName }) => {
         comment: '',
         contact: ''
       });
+      setPhotos([]);
     }
   }, [isOpen]);
 
@@ -27,7 +30,10 @@ const ReportModal = ({ isOpen, onClose, onSubmit, shelterName }) => {
       return;
     }
 
-    onSubmit(formData);
+    onSubmit({
+      ...formData,
+      photos: photos
+    });
   };
 
   const handleChange = (e) => {
@@ -92,6 +98,20 @@ const ReportModal = ({ isOpen, onClose, onSubmit, shelterName }) => {
               minLength={5}
             />
             <small className="help-text">Minimum 5 characters</small>
+          </div>
+
+          {/* PHOTO UPLOADER */}
+          <div className="form-group">
+            <label>📷 Photos (optional)</label>
+            <PhotoUploader
+              photos={photos}
+              onPhotosChange={setPhotos}
+              maxPhotos={5}
+              maxSizeMB={10}
+            />
+            <small className="help-text">
+              Add photos showing the issue (blocked entrance, wrong location, etc.)
+            </small>
           </div>
 
           {/* Contact */}

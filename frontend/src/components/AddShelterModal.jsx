@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import HCaptcha from '@hcaptcha/react-hcaptcha';
+import PhotoUploader from './PhotoUploader/PhotoUploader';
 import './styles/AddShelterModal.css';
 
 const AddShelterModal = ({ isOpen, onClose, onSubmit, onPickOnMap, isPickingLocation, pickedLocation }) => {
@@ -13,6 +14,7 @@ const AddShelterModal = ({ isOpen, onClose, onSubmit, onPickOnMap, isPickingLoca
     comment: ''
   });
 
+  const [photos, setPhotos] = useState([]);
   const [inputMethod, setInputMethod] = useState('address');
   const [addressSuggestions, setAddressSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -32,6 +34,7 @@ const AddShelterModal = ({ isOpen, onClose, onSubmit, onPickOnMap, isPickingLoca
         capacity: '',
         comment: ''
       });
+      setPhotos([]);
       setAddressSuggestions([]);
       setShowSuggestions(false);
       setCaptchaToken(null);
@@ -73,10 +76,11 @@ const AddShelterModal = ({ isOpen, onClose, onSubmit, onPickOnMap, isPickingLoca
       return;
     }
 
-    // Submit with captcha token
+    // Submit with captcha token and photos
     onSubmit({
       ...formData,
-      captcha_token: captchaToken
+      captcha_token: captchaToken,
+      photos: photos
     });
   };
 
@@ -298,6 +302,20 @@ const AddShelterModal = ({ isOpen, onClose, onSubmit, onPickOnMap, isPickingLoca
               rows={3}
               disabled={isPickingLocation}
             />
+          </div>
+
+          {/* PHOTO UPLOADER */}
+          <div className="form-group">
+            <label>📷 Photos (optional)</label>
+            <PhotoUploader
+              photos={photos}
+              onPhotosChange={setPhotos}
+              maxPhotos={5}
+              maxSizeMB={10}
+            />
+            <small className="help-text">
+              Add photos of the shelter entrance, interior, or surroundings
+            </small>
           </div>
 
           {/* hCaptcha */}

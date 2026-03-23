@@ -1,17 +1,21 @@
 """
 Shelter Submission API endpoints
 """
-from typing import List
+from typing import List, Optional
 from datetime import datetime
-from fastapi import APIRouter, HTTPException, Request
+from fastapi import APIRouter, HTTPException, Request, UploadFile, File, Form
 from bson import ObjectId
 import requests
+import httpx
 
 from app.models.shelter_submission import ShelterSubmissionCreate, ShelterSubmissionResponse
 from app.db.mongodb import get_database
 from app.config import settings
 
 router = APIRouter()
+
+# Photo service URL
+PHOTO_SERVICE_URL = "http://photo-service:18005"
 
 
 def looks_random(text: str) -> bool:
@@ -63,15 +67,36 @@ def verify_hcaptcha(token: str) -> bool:
         print(f"hCaptcha verification error: {e}")
         return False
 
-
 @router.post("/submit", response_model=ShelterSubmissionResponse, status_code=201)
-async def submit_new_shelter(submission: ShelterSubmissionCreate, request: Request):
+async def submit_new_shelter(
+    request: Request,
+    name: str = Form(...),
+    address: str = Form(...),
+    latitude: float = Form(...),
+    longitude: float = Form(...),
+    type: str = Form(...),
+    capacity: Optional[int] = Form(None),
+    comment: Optional[str] = Form(None),
+    captcha_token: str = Form(...),
+    photos: List[UploadFile] = File(default=[])
+):
     """
-    Submit a new shelter suggestion for review
+    Submit a new shelter suggestion with optional photos
+    
+    Args:
+        name: Shelter name
+        address: Shelter address
+        latitude: Latitude coordinate
+        longitude: Longitude coordinate
+        type: Shelter type (public_shelter, private_building, underground_parking, other)
+        capacity: Optional capacity
+        comment: Optional comment
+        captcha_token: hCaptcha token
+        photos: List of photo files (optional)
     """
     
     # 1. Verify hCaptcha
-    captcha_valid = verify_hcaptcha(submission.captcha_token)
+    captcha_valid = verify_hcaptcha(captcha_token)
     
     if not captcha_valid:
         raise HTTPException(
@@ -80,16 +105,52 @@ async def submit_new_shelter(submission: ShelterSubmissionCreate, request: Reque
         )
     
     # 2. Anti-spam validation (as backup)
-    if looks_random(submission.name) and looks_random(submission.address):
+    if looks_random(name) and looks_random(address):
         raise HTTPException(status_code=400, detail="Invalid submission format")
     
     # 3. Geographic validation (Israel only)
-    if not (29.5 <= submission.latitude <= 33.3 and 34.2 <= submission.longitude <= 35.9):
+    if not (29.5 <= latitude <= 33.3 and 34.2 <= longitude <= 35.9):
         raise HTTPException(status_code=400, detail="Location must be within Israel")
     
     # 4. Capacity validation
-    if submission.capacity and submission.capacity > 10000:
+    if capacity and capacity > 10000:
         raise HTTPException(status_code=400, detail="Capacity seems unrealistic")
+    
+    # 5. Upload photos to photo-service
+    photo_urls = []
+    if photos:
+        async with httpx.AsyncClient() as client:
+            for photo in photos:
+                # Read file content
+                photo_content = await photo.read()
+                
+                # Upload to photo-service
+                files = {
+                    "file": (photo.filename, photo_content, photo.content_type)
+                }
+                data = {
+                    "category": "submission",
+                    "related_id": "temp"  # Will be updated after approval
+                }
+                
+                try:
+                    response = await client.post(
+                        f"{PHOTO_SERVICE_URL}/upload",
+                        files=files,
+                        data=data,
+                        timeout=30.0
+                    )
+                    response.raise_for_status()
+                    
+                    photo_data = response.json()
+                    photo_urls.append(photo_data["photo_url"])
+                    
+                except httpx.HTTPError as e:
+                    print(f"Error uploading photo: {e}")
+                    raise HTTPException(
+                        status_code=500,
+                        detail=f"Failed to upload photo: {str(e)}"
+                    )
     
     db = get_database()
     submissions_collection = db["shelter_submissions"]
@@ -101,13 +162,22 @@ async def submit_new_shelter(submission: ShelterSubmissionCreate, request: Reque
         (request.client.host if request.client else "unknown")
     )
 
-    # Create submission document (exclude captcha_token)
-    submission_dict = submission.model_dump(exclude={'captcha_token'})
-    submission_dict["status"] = "pending"
-    submission_dict["submitted_at"] = datetime.utcnow()
-    submission_dict["submitted_by_ip"] = client_ip
-    submission_dict["reviewed_at"] = None
-    submission_dict["reviewed_by"] = None
+    # Create submission document
+    submission_dict = {
+        "name": name,
+        "address": address,
+        "latitude": latitude,
+        "longitude": longitude,
+        "type": type,
+        "capacity": capacity,
+        "comment": comment,
+        "photos": photo_urls,
+        "status": "pending",
+        "submitted_at": datetime.utcnow(),
+        "submitted_by_ip": client_ip,
+        "reviewed_at": None,
+        "reviewed_by": None
+    }
 
     # Insert into database
     result = await submissions_collection.insert_one(submission_dict)
@@ -162,6 +232,7 @@ async def get_submission(submission_id: str):
 async def approve_submission(submission_id: str):
     """
     Approve a submission and add to main shelters collection
+    AUTOMATICALLY adds photos and comment to the new shelter
     """
     print(f"=== APPROVE CALLED FOR: {submission_id} ===")
     if not ObjectId.is_valid(submission_id):
@@ -170,6 +241,7 @@ async def approve_submission(submission_id: str):
     db = get_database()
     submissions_collection = db["shelter_submissions"]
     shelters_collection = db["shelters"]
+    comments_collection = db["comments"]
 
     # Get submission
     submission = await submissions_collection.find_one({"_id": ObjectId(submission_id)})
@@ -189,13 +261,29 @@ async def approve_submission(submission_id: str):
         "location": {
             "type": "Point",
             "coordinates": [submission["longitude"], submission["latitude"]]  # [lon, lat]
-        }
+        },
+        "photos": submission.get("photos", [])  # ← AUTOMATICALLY ADD PHOTOS
     }
     
     print(f"=== SHELTER DOC TO INSERT: {shelter_doc} ===")
 
     # Insert into shelters collection
     shelter_result = await shelters_collection.insert_one(shelter_doc)
+    new_shelter_id = str(shelter_result.inserted_id)
+
+    # AUTOMATICALLY ADD COMMENT if submission has one
+    if submission.get("comment"):
+        comment_doc = {
+            "shelter_id": new_shelter_id,
+            "username": "Submitter",  # Default username for submissions
+            "comment": submission["comment"],
+            "rating": 5,  # Default rating for submission comments
+            "photos": [],  # Photos are on the shelter itself
+            "created_at": datetime.utcnow(),
+            "updated_at": datetime.utcnow()
+        }
+        await comments_collection.insert_one(comment_doc)
+        print(f"=== AUTO-ADDED COMMENT: {submission['comment'][:50]}... ===")
 
     # Update submission status
     await submissions_collection.update_one(
@@ -204,14 +292,14 @@ async def approve_submission(submission_id: str):
             "$set": {
                 "status": "approved",
                 "reviewed_at": datetime.utcnow(),
-                "shelter_id": str(shelter_result.inserted_id)
+                "shelter_id": new_shelter_id
             }
         }
     )
 
     return {
-        "message": "Submission approved",
-        "shelter_id": str(shelter_result.inserted_id)
+        "message": "Submission approved (photos and comment auto-added)",
+        "shelter_id": new_shelter_id
     }
 
 

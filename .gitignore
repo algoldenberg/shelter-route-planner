@@ -70,14 +70,21 @@ logs/
 osrm-data/*.osrm*
 osrm-data/*.pbf
 
-#BackUpFiles
+# BackUpFiles
 /backup_configs
-# Existing ignores...
-node_modules/
-__pycache__/
-*.pyc
 
 # Environment variables
 .env
 **/.env
 services/**/.env
+
+# Google OAuth credentials and tokens (CRITICAL - DO NOT COMMIT)
+**/credentials/oauth-credentials.json
+**/credentials/token.json
+**/credentials/google-drive-credentials.json
+services/photo-service/credentials/oauth-credentials.json
+services/photo-service/credentials/token.json
+services/photo-service/credentials/google-drive-credentials.json
+
+# But keep the credentials folder structure
+!**/credentials/.gitkeep**/.env.local

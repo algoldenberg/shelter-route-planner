@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getShelterComments, addShelterComment } from '../services/api';
+import PhotoUploader from './PhotoUploader/PhotoUploader';
 import './styles/ShelterPopup.css';
 
 const ShelterPopup = ({ shelter, onBuildRoute, currentLocation, onReportClick }) => {
@@ -7,11 +8,13 @@ const ShelterPopup = ({ shelter, onBuildRoute, currentLocation, onReportClick })
   const [loading, setLoading] = useState(false);
   const [showCommentForm, setShowCommentForm] = useState(false);
   const [newComment, setNewComment] = useState({ text: '', rating: 5, author: '' });
+  const [photos, setPhotos] = useState([]);
   const [distance, setDistance] = useState(null);
 
   useEffect(() => {
     loadComments();
     calculateDistance();
+    setPhotos([]);
   }, [shelter]);
 
   const loadComments = async () => {
@@ -49,9 +52,11 @@ const ShelterPopup = ({ shelter, onBuildRoute, currentLocation, onReportClick })
       await addShelterComment(shelter._id || shelter.id, {
         comment: newComment.text,
         rating: newComment.rating,
-        username: newComment.author || 'Anonymous'
+        username: newComment.author || 'Anonymous',
+        photos: photos
       });
       setNewComment({ text: '', rating: 5, author: '' });
+      setPhotos([]);
       setShowCommentForm(false);
       loadComments();
     } catch (error) {
@@ -212,6 +217,18 @@ const ShelterPopup = ({ shelter, onBuildRoute, currentLocation, onReportClick })
                 required
               />
             </div>
+            
+            {/* PHOTO UPLOADER */}
+            <div className="form-group">
+              <label>📷 Photos (optional)</label>
+              <PhotoUploader
+                photos={photos}
+                onPhotosChange={setPhotos}
+                maxPhotos={3}
+                maxSizeMB={5}
+              />
+            </div>
+            
             <button 
               type="submit" 
               className="btn btn--primary btn--small"

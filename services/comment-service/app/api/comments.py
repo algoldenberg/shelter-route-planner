@@ -1,36 +1,105 @@
 """
 Comment API endpoints
 """
-from typing import List
+from typing import List, Optional
 from datetime import datetime
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, HTTPException, Query, UploadFile, File, Form
+import httpx
 from bson import ObjectId
 from app.models.comment import CommentCreate, CommentResponse, CommentUpdate
 from app.db.mongodb import get_database
 
 router = APIRouter()
 
+# Photo service URL
+PHOTO_SERVICE_URL = "http://photo-service:18005"
+
 
 @router.post("/shelters/{shelter_id}/comments", response_model=CommentResponse, status_code=201)
-async def create_comment(shelter_id: str, comment: CommentCreate):
+async def create_comment(
+    shelter_id: str,
+    username: str = Form(default="Anonymous"),
+    comment: str = Form(...),
+    rating: int = Form(...),
+    photos: List[UploadFile] = File(default=[])
+):
     """
-    Add a comment to a shelter
+    Add a comment to a shelter with optional photos
+    
+    Args:
+        shelter_id: ID of the shelter
+        username: Username (default: Anonymous)
+        comment: Comment text
+        rating: Rating from 1 to 5
+        photos: List of photo files (optional)
     """
+    # Validate shelter_id
     if not ObjectId.is_valid(shelter_id):
         raise HTTPException(status_code=400, detail="Invalid shelter ID format")
     
-    db = get_database()
-    comments_collection = db["comments"]
+    # Validate rating
+    if rating < 1 or rating > 5:
+        raise HTTPException(status_code=400, detail="Rating must be between 1 and 5")
     
+    # Validate comment length
+    if len(comment) < 1 or len(comment) > 500:
+        raise HTTPException(status_code=400, detail="Comment must be between 1 and 500 characters")
+    
+    db = get_database()
+    
+    # Check if shelter exists
     shelters_collection = db["shelters"]
     shelter = await shelters_collection.find_one({"_id": ObjectId(shelter_id)})
     if not shelter:
         raise HTTPException(status_code=404, detail="Shelter not found")
     
-    comment_dict = comment.model_dump()
-    comment_dict["shelter_id"] = shelter_id
-    comment_dict["created_at"] = datetime.utcnow()
-    comment_dict["updated_at"] = datetime.utcnow()
+    # Upload photos to photo-service
+    photo_urls = []
+    if photos:
+        async with httpx.AsyncClient() as client:
+            for photo in photos:
+                # Read file content
+                photo_content = await photo.read()
+                
+                # Upload to photo-service
+                files = {
+                    "file": (photo.filename, photo_content, photo.content_type)
+                }
+                data = {
+                    "category": "comment",
+                    "related_id": shelter_id
+                }
+                
+                try:
+                    response = await client.post(
+                        f"{PHOTO_SERVICE_URL}/upload",
+                        files=files,
+                        data=data,
+                        timeout=30.0
+                    )
+                    response.raise_for_status()
+                    
+                    photo_data = response.json()
+                    photo_urls.append(photo_data["photo_url"])
+                    
+                except httpx.HTTPError as e:
+                    print(f"Error uploading photo: {e}")
+                    raise HTTPException(
+                        status_code=500,
+                        detail=f"Failed to upload photo: {str(e)}"
+                    )
+    
+    # Create comment document
+    comments_collection = db["comments"]
+    comment_dict = {
+        "shelter_id": shelter_id,
+        "username": username,
+        "comment": comment,
+        "rating": rating,
+        "photos": photo_urls,
+        "created_at": datetime.utcnow(),
+        "updated_at": datetime.utcnow()
+    }
     
     result = await comments_collection.insert_one(comment_dict)
     

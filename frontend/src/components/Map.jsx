@@ -434,7 +434,8 @@ useEffect(() => {
         type: formData.type,
         capacity: formData.capacity ? parseInt(formData.capacity) : null,
         comment: formData.comment || null,
-        captcha_token: formData.captcha_token
+        captcha_token: formData.captcha_token,
+        photos: formData.photos || []  
       });
       
       console.log('Submission response:', response);

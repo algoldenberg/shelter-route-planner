@@ -1,7 +1,7 @@
 """
 Comment data models
 """
-from typing import Optional
+from typing import Optional, List
 from datetime import datetime
 from pydantic import BaseModel, Field
 from bson import ObjectId
@@ -31,6 +31,7 @@ class CommentCreate(BaseModel):
     username: str = Field(default="Anonymous", max_length=50)
     comment: str = Field(..., min_length=1, max_length=500)
     rating: int = Field(..., ge=1, le=5, description="Rating from 1 to 5 stars")
+    photos: List[str] = Field(default=[], description="List of photo URLs from Google Drive")
 
 
 class CommentModel(BaseModel):
@@ -41,6 +42,7 @@ class CommentModel(BaseModel):
     username: str = Field(default="Anonymous")
     comment: str
     rating: int = Field(..., ge=1, le=5)
+    photos: List[str] = Field(default=[], description="List of photo URLs")
     created_at: datetime = Field(default_factory=datetime.utcnow)
     updated_at: datetime = Field(default_factory=datetime.utcnow)
     
@@ -58,6 +60,7 @@ class CommentResponse(BaseModel):
     username: str
     comment: str
     rating: int
+    photos: List[str] = Field(default=[])
     created_at: datetime
     updated_at: datetime
     
@@ -70,3 +73,4 @@ class CommentUpdate(BaseModel):
     
     comment: Optional[str] = Field(None, min_length=1, max_length=500)
     rating: Optional[int] = Field(None, ge=1, le=5)
+    photos: Optional[List[str]] = Field(None, description="List of photo URLs")

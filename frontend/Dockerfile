@@ -2,30 +2,30 @@ FROM node:20-alpine AS build
 
 WORKDIR /app
 
-# Копируем только package files для кеширования dependencies
+# Copy package files for dependency caching
 COPY package*.json ./
 RUN npm ci
 
-# Копируем исходники (БЕЗ node_modules и dist благодаря .dockerignore)
+# Copy source code (node_modules and dist excluded via .dockerignore)
 COPY . .
 
-# Build environment
+# Build environment variables
 ARG VITE_API_URL=https://api.shelternearyou.online
 ENV VITE_API_URL=$VITE_API_URL
 
 ARG VITE_HCAPTCHA_SITE_KEY
 ENV VITE_HCAPTCHA_SITE_KEY=$VITE_HCAPTCHA_SITE_KEY
 
-# Build приложения
+# Build the application
 RUN npm run build
 
 # Production stage
 FROM nginx:alpine
 
-# Копируем собранные файлы
+# Copy built files from build stage
 COPY --from=build /app/dist /usr/share/nginx/html
 
-# Nginx конфиг
+# Copy Nginx configuration
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80

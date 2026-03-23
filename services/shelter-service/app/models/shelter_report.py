@@ -1,7 +1,7 @@
 """
 Shelter Report data models
 """
-from typing import Optional
+from typing import Optional, List
 from datetime import datetime
 from pydantic import BaseModel, Field
 from bson import ObjectId
@@ -29,6 +29,7 @@ class ShelterReportCreate(BaseModel):
     issue_type: str = Field(..., description="closed, wrong_address, blocked_entrance, other")
     comment: str = Field(..., min_length=5, max_length=1000)
     contact: Optional[str] = Field(None, max_length=100)
+    photos: List[str] = Field(default=[], description="List of photo URLs from Google Drive")
 
 
 class ShelterReportResponse(BaseModel):
@@ -38,6 +39,7 @@ class ShelterReportResponse(BaseModel):
     issue_type: str
     comment: str
     contact: Optional[str]
+    photos: List[str] = Field(default=[])
     status: str  # pending, reviewed, resolved
     reported_at: datetime
     reporter_ip: Optional[str]

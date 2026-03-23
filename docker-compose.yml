@@ -109,6 +109,21 @@ services:
       - shelter-network
     command: uvicorn app.main:app --host 0.0.0.0 --port 8004 --reload
 
+  photo-service:
+    build:
+      context: ./services/photo-service
+      dockerfile: Dockerfile
+    container_name: shelter-photo-service
+    ports:
+      - "18005:18005"
+    volumes:
+      - ./services/photo-service/app:/app
+      - ./services/photo-service/credentials:/app/credentials:ro
+      - ./services/photo-service/.env:/app/.env:ro
+    restart: unless-stopped
+    networks:
+      - shelter-network
+
   api-gateway:
     build:
       context: ./services/api-gateway
@@ -123,11 +138,13 @@ services:
       - ROUTE_SERVICE_URL=http://route-service:8002
       - COMMENT_SERVICE_URL=http://comment-service:8003
       - WALKING_ROUTE_SERVICE_URL=http://walking-route-service:8004
+      - PHOTO_SERVICE_URL=http://photo-service:18005
     depends_on:
       - shelter-service
       - route-service
       - comment-service
       - walking-route-service
+      - photo-service
     networks:
       - shelter-network
 

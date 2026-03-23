@@ -1,7 +1,7 @@
 """
 Shelter Submission data models
 """
-from typing import Optional
+from typing import Optional, List
 from datetime import datetime
 from pydantic import BaseModel, Field, field_validator
 from bson import ObjectId
@@ -33,6 +33,7 @@ class ShelterSubmissionCreate(BaseModel):
     type: str = Field(..., description="public_shelter, private_building, underground_parking, other")
     capacity: Optional[int] = Field(None, ge=1)
     comment: Optional[str] = Field(None, max_length=1000)
+    photos: List[str] = Field(default=[], description="List of photo URLs from Google Drive")
     captcha_token: str
 
     @field_validator('latitude', 'longitude', mode='before')
@@ -62,6 +63,7 @@ class ShelterSubmissionResponse(BaseModel):
     type: str
     capacity: Optional[int]
     comment: Optional[str]
+    photos: List[str] = Field(default=[])
     status: str  # pending, approved, rejected
     submitted_at: datetime
     submitted_by_ip: Optional[str]

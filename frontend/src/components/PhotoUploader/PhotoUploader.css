@@ -1,0 +1,213 @@
+.photo-uploader {
+    width: 100%;
+    margin: 1rem 0;
+  }
+  
+  /* Upload Zone */
+  .upload-zone {
+    border: 2px dashed #cbd5e0;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    background-color: #f7fafc;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .upload-zone:hover {
+    border-color: #4299e1;
+    background-color: #ebf8ff;
+  }
+  
+  .upload-zone.drag-active {
+    border-color: #3182ce;
+    background-color: #bee3f8;
+    transform: scale(1.02);
+  }
+  
+  .upload-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .upload-text {
+    font-size: 1rem;
+    color: #4a5568;
+    margin-bottom: 1rem;
+  }
+  
+  /* Upload Buttons */
+  .upload-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+  }
+  
+  .btn-upload,
+  .btn-camera {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .btn-upload {
+    background-color: #4299e1;
+    color: white;
+  }
+  
+  .btn-upload:hover {
+    background-color: #3182ce;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(66, 153, 225, 0.3);
+  }
+  
+  .btn-camera {
+    background-color: #48bb78;
+    color: white;
+  }
+  
+  .btn-camera:hover {
+    background-color: #38a169;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(72, 187, 120, 0.3);
+  }
+  
+  /* Hide camera button on desktop */
+  @media (min-width: 768px) {
+    .btn-camera {
+      display: none;
+    }
+  }
+  
+  .upload-hint {
+    font-size: 0.85rem;
+    color: #718096;
+    margin-top: 0.5rem;
+  }
+  
+  /* Hidden file inputs */
+  .file-input-hidden {
+    display: none;
+  }
+  
+  /* Error message */
+  .upload-error {
+    background-color: #fed7d7;
+    color: #c53030;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    border-left: 4px solid #fc8181;
+  }
+  
+  /* Photo Previews */
+  .photo-previews {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  
+  .photo-preview {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+  }
+  
+  .photo-preview:hover {
+    transform: scale(1.05);
+  }
+  
+  .preview-image {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    display: block;
+  }
+  
+  /* Remove button */
+  .btn-remove {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background-color: rgba(239, 68, 68, 0.9);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    font-weight: bold;
+  }
+  
+  .btn-remove:hover {
+    background-color: rgba(220, 38, 38, 1);
+    transform: scale(1.1);
+  }
+  
+  /* Photo info */
+  .photo-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    color: white;
+    padding: 0.5rem;
+    font-size: 0.75rem;
+    text-align: center;
+  }
+  
+  /* Photo counter */
+  .photo-counter {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #4a5568;
+    margin-top: 1rem;
+    font-weight: 500;
+  }
+  
+  /* Mobile optimizations */
+  @media (max-width: 640px) {
+    .upload-zone {
+      padding: 1.5rem 1rem;
+    }
+  
+    .upload-icon {
+      font-size: 2.5rem;
+    }
+  
+    .upload-buttons {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+  
+    .btn-upload,
+    .btn-camera {
+      width: 100%;
+      padding: 1rem;
+    }
+  
+    .photo-previews {
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 0.75rem;
+    }
+  
+    .preview-image {
+      height: 100px;
+    }
+  }
