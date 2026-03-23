@@ -16,9 +16,10 @@ Core Functionality
 
 User Contributions
 
-➕ Submit Shelters — Add new shelters via address search or map picking
-🚫 Report Issues — Flag closed shelters, wrong coordinates, or blocked entrances (reviewed via DB)
-💬 Comments & Ratings — Share shelter experiences with star ratings
+➕ **Submit Shelters** — Add new shelters via address search or map picking
+🚫 **Report Issues** — Flag closed shelters, wrong coordinates, or blocked entrances
+💬 **Comments & Ratings** — Share shelter experiences with star ratings
+📷 **Photo Upload** — Attach photos to submissions, reports, and comments (up to 5 photos, 10MB each)
 
 Admin Panel
 
@@ -80,6 +81,7 @@ shelter-route-planner/
     ├── Route Service (services/route-service/) — OSRM routing + usage metrics
     ├── Walking Route Service (services/walking-route-service/) — Pedestrian routing optimization
     ├── Comment Service (services/comment-service/) — Ratings & reviews
+    ├── Photo Service (services/photo-service/) — Google Drive photo storage
     └── Usage Logging — Middleware tracks API requests for admin dashboard
 ```
 
@@ -196,24 +198,29 @@ docker-compose up -d
 docker-compose ps
 ```
 
-## 🎨 Recent Features (v1.2.1)
+## 🎨 Recent Features
 
-**Map Interaction Improvements**
-- ✅ **Route Point Markers** — Visual markers (📍 start, 🏁 end) appear when selecting points via:
-  - Address input (autocomplete)
-  - "Use my location" GPS button
-  - Map click selection (🗺️ button)
-- ✅ **Search Center Visualization** — Green circle (🔍 + radius) shows search area for all search methods
-- ✅ **Clear All Fix** — Properly removes all markers when clearing route before calculation
-- ✅ **PWA Update Notifications** — Version-based update detection with platform-specific reinstall instructions
+### v1.3.0 — Photo Upload Integration (23.03.26)
+
+**Photo Upload System**
+- ✅ **Universal PhotoUploader Component** — Drag-n-drop, camera (mobile), gallery selection
+- ✅ **Google Drive Storage** — OAuth2 integration with 2TB personal storage
+- ✅ **Photo Support Everywhere** — Attach photos to shelter submissions, issue reports, and comments
+- ✅ **Backend Integration** — FormData multipart upload, automatic URL storage in MongoDB
+- ✅ **Tested End-to-End** — Submissions, reports, and comments with photos fully functional
 
 **Technical Implementation**
-- Parent-child state synchronization via `clickedPoints` prop
-- Emoji-based map icons with drop-shadow styling
-- Multi-source marker updates (address/GPS/map click) unified workflow
-- Proper cleanup on route clear and tab switching
+- New microservice: `photo-service` (port 18005)
+- Google Drive API with OAuth2 authentication
+- Nginx upload limit increased to 50MB
+- Photos stored with organized folder structure (submissions/, reports/, comments/)
+- URL references saved in MongoDB for fast retrieval
 
-🐛 Known Issues & Roadmap
+**TODO**
+- Display photos in comment gallery UI
+- Photo lightbox for fullscreen view
+- Copy photos to auto-created comments on submission approval
+- Admin panel photo preview
 
 **Completed** ✅
 - Admin panel with submission approval/rejection
@@ -264,4 +271,4 @@ mail: shelternearyou@gmail.com
 
 
 Status: ✅ Live in Production - Active development continues
-Last Updated: 19.03.26
+Last Updated: 23.03.26
