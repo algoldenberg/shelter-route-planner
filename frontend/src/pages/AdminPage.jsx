@@ -41,6 +41,7 @@ const AdminPage = () => {
   const [popularShelters, setPopularShelters] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('submissions');
+  const [lightboxPhoto, setLightboxPhoto] = useState(null);
 
   useEffect(() => {
     loadData();
@@ -338,6 +339,7 @@ const AdminPage = () => {
                   <th>Type</th>
                   <th>Capacity</th>
                   <th>Comment</th>
+                  <th>Photos</th>
                   <th>Submitted</th>
                   <th>IP</th>
                   <th>Actions</th>
@@ -351,6 +353,23 @@ const AdminPage = () => {
                     <td>{sub.type.replace('_', ' ')}</td>
                     <td>{sub.capacity || '-'}</td>
                     <td className="comment-cell">{sub.comment || '-'}</td>
+                    <td className="photos-cell">
+                      {sub.photos && sub.photos.length > 0 ? (
+                        <div className="admin-photos-gallery">
+                          {sub.photos.map((photoUrl, index) => (
+                            <img
+                              key={index}
+                              src={photoUrl}
+                              alt={`Photo ${index + 1}`}
+                              className="admin-photo-thumbnail"
+                              onClick={() => setLightboxPhoto(photoUrl)}
+                            />
+                          ))}
+                        </div>
+                      ) : (
+                        <span className="no-photos">No photos</span>
+                      )}
+                    </td>
                     <td>{new Date(sub.submitted_at).toLocaleString()}</td>
                     <td className="ip-cell">{sub.submitter_ip}</td>
                     <td className="actions-cell">
@@ -397,6 +416,7 @@ const AdminPage = () => {
                   <th>Address</th>
                   <th>Issue Type</th>
                   <th>Details</th>
+                  <th>Photos</th>
                   <th>Contact</th>
                   <th>Reported</th>
                   <th>IP</th>
@@ -415,6 +435,23 @@ const AdminPage = () => {
                       {report.issue_type === 'other' && 'ℹ️ Other'}
                     </td>
                     <td className="comment-cell">{report.comment}</td>
+                    <td className="photos-cell">
+                      {report.photos && report.photos.length > 0 ? (
+                        <div className="admin-photos-gallery">
+                          {report.photos.map((photoUrl, index) => (
+                            <img
+                              key={index}
+                              src={photoUrl}
+                              alt={`Photo ${index + 1}`}
+                              className="admin-photo-thumbnail"
+                              onClick={() => setLightboxPhoto(photoUrl)}
+                            />
+                          ))}
+                        </div>
+                      ) : (
+                        <span className="no-photos">No photos</span>
+                      )}
+                    </td>
                     <td>{report.contact || '-'}</td>
                     <td>{new Date(report.reported_at).toLocaleString()}</td>
                     <td className="ip-cell">{report.reporter_ip}</td>
@@ -665,6 +702,18 @@ const AdminPage = () => {
                 </tbody>
               </table>
             )}
+          </div>
+        </div>
+      )}
+
+      {/* LIGHTBOX для полноразмерных фото */}
+      {lightboxPhoto && (
+        <div className="admin-photo-lightbox" onClick={() => setLightboxPhoto(null)}>
+          <div className="lightbox-content">
+            <button className="lightbox-close" onClick={() => setLightboxPhoto(null)}>
+              ✕
+            </button>
+            <img src={lightboxPhoto} alt="Full size" />
           </div>
         </div>
       )}

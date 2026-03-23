@@ -1,7 +1,9 @@
 from fastapi import FastAPI, File, UploadFile, Form, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import StreamingResponse
 from typing import Optional
 import uvicorn
+import io
 
 from models import PhotoUploadResponse
 from google_drive import drive_manager
@@ -100,6 +102,45 @@ async def upload_photo(
     except Exception as e:
         print(f"Error uploading photo: {e}")
         raise HTTPException(status_code=500, detail=f"Upload failed: {str(e)}")
+
+
+@app.get("/proxy/{file_id}")
+async def proxy_photo(file_id: str):
+    """
+    Proxy endpoint для отдачи фото из Google Drive
+    Решает проблемы CORS и rate limits
+    
+    Args:
+        file_id: Google Drive file ID
+        
+    Returns:
+        StreamingResponse with photo content
+    """
+    try:
+        # Скачиваем файл из Google Drive
+        file_content = drive_manager.download_photo(file_id)
+        
+        if not file_content:
+            raise HTTPException(status_code=404, detail="Photo not found")
+        
+        # Определяем MIME type (по умолчанию jpeg)
+        mime_type = "image/jpeg"
+        
+        # Отдаём как streaming response с правильными headers
+        return StreamingResponse(
+            io.BytesIO(file_content),
+            media_type=mime_type,
+            headers={
+                "Cache-Control": "public, max-age=86400",  # Кэш на 24 часа
+                "Access-Control-Allow-Origin": "*"
+            }
+        )
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        print(f"❌ Error proxying photo {file_id}: {e}")
+        raise HTTPException(status_code=500, detail=f"Failed to proxy photo: {str(e)}")
 
 
 @app.delete("/photo/{photo_id}")

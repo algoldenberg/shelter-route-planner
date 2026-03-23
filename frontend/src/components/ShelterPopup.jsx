@@ -10,6 +10,7 @@ const ShelterPopup = ({ shelter, onBuildRoute, currentLocation, onReportClick })
   const [newComment, setNewComment] = useState({ text: '', rating: 5, author: '' });
   const [photos, setPhotos] = useState([]);
   const [distance, setDistance] = useState(null);
+  const [lightboxPhoto, setLightboxPhoto] = useState(null);
 
   useEffect(() => {
     loadComments();
@@ -71,6 +72,14 @@ const ShelterPopup = ({ shelter, onBuildRoute, currentLocation, onReportClick })
     callback();
   };
 
+  // 🆕 Собираем все фото из всех комментариев
+  const allPhotos = comments.reduce((acc, comment) => {
+    if (comment.photos && comment.photos.length > 0) {
+      return [...acc, ...comment.photos];
+    }
+    return acc;
+  }, []);
+
   const averageRating = comments.length > 0
     ? (comments.reduce((sum, c) => sum + c.rating, 0) / comments.length).toFixed(1)
     : null;
@@ -89,6 +98,24 @@ const ShelterPopup = ({ shelter, onBuildRoute, currentLocation, onReportClick })
           </div>
         )}
       </div>
+
+      {/* 🆕 ОБЩАЯ ГАЛЕРЕЯ ФОТО */}
+      {allPhotos.length > 0 && (
+        <div className="shelter-popup__photos">
+          <h4 className="photos-title">📷 Photos ({allPhotos.length})</h4>
+          <div className="photos-gallery">
+            {allPhotos.map((photoUrl, index) => (
+              <img 
+                key={index}
+                src={photoUrl}
+                alt={`Shelter photo ${index + 1}`}
+                className="photo-thumbnail"
+                onClick={() => setLightboxPhoto(photoUrl)}
+              />
+            ))}
+          </div>
+        </div>
+      )}
 
       <div className="shelter-popup__info">
         {shelter.street && (
@@ -256,6 +283,22 @@ const ShelterPopup = ({ shelter, onBuildRoute, currentLocation, onReportClick })
                   <span className="comment-rating">{'⭐'.repeat(comment.rating)}</span>
                 </div>
                 <p className="comment-text">{comment.comment}</p>
+                
+                {/* PHOTO GALLERY */}
+                {comment.photos && comment.photos.length > 0 && (
+                  <div className="comment-photos">
+                    {comment.photos.map((photoUrl, index) => (
+                      <img 
+                        key={index}
+                        src={photoUrl}
+                        alt={`Photo ${index + 1}`}
+                        className="comment-photo-thumbnail"
+                        onClick={() => setLightboxPhoto(photoUrl)}
+                      />
+                    ))}
+                  </div>
+                )}
+                
                 <span className="comment-date">
                   {new Date(comment.created_at).toLocaleDateString()}
                 </span>
@@ -264,6 +307,18 @@ const ShelterPopup = ({ shelter, onBuildRoute, currentLocation, onReportClick })
           </div>
         )}
       </div>
+
+      {/* LIGHTBOX для полноразмерных фото */}
+      {lightboxPhoto && (
+        <div className="photo-lightbox" onClick={() => setLightboxPhoto(null)}>
+          <div className="lightbox-content">
+            <button className="lightbox-close" onClick={() => setLightboxPhoto(null)}>
+              ✕
+            </button>
+            <img src={lightboxPhoto} alt="Full size" />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

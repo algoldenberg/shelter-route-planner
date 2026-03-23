@@ -1,279 +1,437 @@
 .shelter-popup {
-    min-width: 300px;
-    max-width: 400px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  }
-  
-  /* Header */
-  .shelter-popup__header {
-    margin-bottom: 12px;
-    padding-bottom: 12px;
-    border-bottom: 2px solid #e0e0e0;
-  }
-  
-  .shelter-popup__title {
-    margin: 0 0 8px 0;
-    font-size: 18px;
-    font-weight: 600;
-    color: #333;
-    line-height: 1.3;
-  }
-  
-  .shelter-popup__rating {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 14px;
-  }
-  
-  .shelter-popup__rating .stars {
-    color: #ffa500;
-    font-size: 16px;
-  }
-  
-  .shelter-popup__rating .rating-value {
-    font-weight: 600;
-    color: #333;
-  }
-  
-  .shelter-popup__rating .rating-count {
-    color: #666;
-    font-size: 13px;
-  }
-  
-  /* Info Section */
-  .shelter-popup__info {
-    margin-bottom: 12px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid #eee;
-  }
-  
-  .info-item {
-    margin: 6px 0;
-    font-size: 13px;
-    color: #555;
-    line-height: 1.5;
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-  }
-  
-  .info-item .icon {
-    flex-shrink: 0;
-    font-size: 14px;
-  }
-  
-  .info-item strong {
-    color: #333;
-    margin-right: 4px;
-  }
-  
-  /* Actions */
-  .shelter-popup__actions {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-bottom: 16px;
-  }
-  
-  .btn {
-    padding: 10px 16px;
-    border: none;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    text-align: center;
-  }
-  
-  .btn--primary {
-    background-color: #4CAF50;
-    color: white;
-  }
-  
-  .btn--primary:hover {
-    background-color: #45a049;
-    transform: translateY(-1px);
-    box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
-  }
-  
-  .btn--secondary {
-    background-color: #2196F3;
-    color: white;
-  }
-  
-  .btn--secondary:hover {
-    background-color: #0b7dda;
-    transform: translateY(-1px);
-    box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);
-  }
-  
-  .btn--small {
-    padding: 8px 12px;
-    font-size: 13px;
-  }
-  
-  .btn-text {
-    background: none;
-    border: none;
-    color: #2196F3;
-    font-size: 13px;
-    font-weight: 500;
-    cursor: pointer;
-    padding: 4px 8px;
-    transition: color 0.2s;
-  }
-  
-  .btn-text:hover {
-    color: #0b7dda;
-    text-decoration: underline;
-  }
-  
-  /* Comments Section */
-  .shelter-popup__comments {
-    margin-top: 16px;
-    padding-top: 16px;
-    border-top: 2px solid #e0e0e0;
-  }
-  
-  .comments-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
-  }
-  
-  .comments-header h4 {
-    margin: 0;
-    font-size: 16px;
-    font-weight: 600;
-    color: #333;
-  }
-  
-  /* Comment Form */
-  .comment-form {
-    background: #f8f9fa;
-    padding: 12px;
-    border-radius: 6px;
-    margin-bottom: 12px;
-  }
-  
-  .form-group {
-    margin-bottom: 10px;
-  }
-  
-  .form-group label {
-    display: block;
-    font-size: 13px;
-    font-weight: 500;
-    color: #555;
-    margin-bottom: 4px;
-  }
-  
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    width: 100%;
-    padding: 8px 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 13px;
-    font-family: inherit;
-    box-sizing: border-box;
-    transition: border-color 0.2s;
-  }
-  
-  .form-group input:focus,
-  .form-group select:focus,
-  .form-group textarea:focus {
-    outline: none;
-    border-color: #2196F3;
-  }
-  
-  .form-group textarea {
-    resize: vertical;
-    min-height: 60px;
-  }
-  
-  /* Comments List */
-  .comments-list {
-    max-height: 300px;
-    overflow-y: auto;
-    padding-right: 4px;
-  }
-  
-  .comment {
-    background: #f8f9fa;
-    padding: 10px;
-    border-radius: 6px;
-    margin-bottom: 8px;
-    border-left: 3px solid #2196F3;
-  }
-  
-  .comment-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 6px;
-  }
-  
-  .comment-author {
-    font-size: 13px;
-    font-weight: 600;
-    color: #333;
-  }
-  
-  .comment-rating {
-    font-size: 12px;
-    color: #ffa500;
-  }
-  
-  .comment-text {
-    margin: 0 0 6px 0;
-    font-size: 13px;
-    color: #555;
-    line-height: 1.5;
-  }
-  
-  .comment-date {
-    font-size: 11px;
-    color: #999;
-  }
-  
-  .loading-text,
-  .empty-text {
-    text-align: center;
-    color: #999;
-    font-size: 13px;
-    font-style: italic;
-    padding: 12px 0;
-  }
-  
-  /* Scrollbar styling */
-  .comments-list::-webkit-scrollbar {
-    width: 6px;
-  }
-  
-  .comments-list::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 3px;
-  }
-  
-  .comments-list::-webkit-scrollbar-thumb {
-    background: #ccc;
-    border-radius: 3px;
-  }
-  
-  .comments-list::-webkit-scrollbar-thumb:hover {
-    background: #999;
-  }
+  min-width: 280px;
+  max-width: 360px; /* ← УМЕНЬШИЛИ с 400px */
+  max-height: 75vh; /* ← УМЕНЬШИЛИ с 80vh */
+  overflow-y: auto;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Header */
+.shelter-popup__header {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.shelter-popup__title {
+  margin: 0 0 6px 0;
+  font-size: 16px; /* ← УМЕНЬШИЛИ с 18px */
+  font-weight: 600;
+  color: #333;
+  line-height: 1.3;
+}
+
+.shelter-popup__rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px; /* ← УМЕНЬШИЛИ с 14px */
+}
+
+.shelter-popup__rating .stars {
+  color: #ffa500;
+  font-size: 14px; /* ← УМЕНЬШИЛИ с 16px */
+}
+
+.shelter-popup__rating .rating-value {
+  font-weight: 600;
+  color: #333;
+}
+
+.shelter-popup__rating .rating-count {
+  color: #666;
+  font-size: 12px; /* ← УМЕНЬШИЛИ с 13px */
+}
+
+/* ========== ОБЩАЯ ГАЛЕРЕЯ ФОТО (новая секция) ========== */
+.shelter-popup__photos {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.photos-title {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.photos-gallery {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.photo-thumbnail {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid #e0e0e0;
+  flex-shrink: 0;
+}
+
+.photo-thumbnail:hover {
+  transform: scale(1.08);
+  border-color: #2196F3;
+  box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);
+}
+
+/* Scrollbar для галереи */
+.photos-gallery::-webkit-scrollbar {
+  height: 4px;
+}
+
+.photos-gallery::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 2px;
+}
+
+.photos-gallery::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 2px;
+}
+
+.photos-gallery::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+/* Info Section */
+.shelter-popup__info {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.info-item {
+  margin: 5px 0;
+  font-size: 12px; /* ← УМЕНЬШИЛИ с 13px */
+  color: #555;
+  line-height: 1.4;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.info-item .icon {
+  flex-shrink: 0;
+  font-size: 13px; /* ← УМЕНЬШИЛИ с 14px */
+}
+
+.info-item strong {
+  color: #333;
+  margin-right: 4px;
+}
+
+/* Actions */
+.shelter-popup__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* ← УМЕНЬШИЛИ с 8px */
+  margin-bottom: 12px;
+}
+
+.btn {
+  padding: 8px 12px; /* ← УМЕНЬШИЛИ с 10px 16px */
+  border: none;
+  border-radius: 6px;
+  font-size: 13px; /* ← УМЕНЬШИЛИ с 14px */
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.btn--primary {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.btn--primary:hover {
+  background-color: #45a049;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+}
+
+.btn--secondary {
+  background-color: #2196F3;
+  color: white;
+}
+
+.btn--secondary:hover {
+  background-color: #0b7dda;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);
+}
+
+.btn--small {
+  padding: 6px 10px; /* ← УМЕНЬШИЛИ с 8px 12px */
+  font-size: 12px; /* ← УМЕНЬШИЛИ с 13px */
+}
+
+.btn-text {
+  background: none;
+  border: none;
+  color: #2196F3;
+  font-size: 12px; /* ← УМЕНЬШИЛИ с 13px */
+  font-weight: 500;
+  cursor: pointer;
+  padding: 4px 8px;
+  transition: color 0.2s;
+}
+
+.btn-text:hover {
+  color: #0b7dda;
+  text-decoration: underline;
+}
+
+/* Comments Section */
+.shelter-popup__comments {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 2px solid #e0e0e0;
+}
+
+.comments-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.comments-header h4 {
+  margin: 0;
+  font-size: 14px; /* ← УМЕНЬШИЛИ с 16px */
+  font-weight: 600;
+  color: #333;
+}
+
+/* Comment Form */
+.comment-form {
+  background: #f8f9fa;
+  padding: 10px; /* ← УМЕНЬШИЛИ с 12px */
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.form-group {
+  margin-bottom: 8px; /* ← УМЕНЬШИЛИ с 10px */
+}
+
+.form-group label {
+  display: block;
+  font-size: 12px; /* ← УМЕНЬШИЛИ с 13px */
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 6px 8px; /* ← УМЕНЬШИЛИ с 8px 10px */
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 12px; /* ← УМЕНЬШИЛИ с 13px */
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #2196F3;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 50px; /* ← УМЕНЬШИЛИ с 60px */
+}
+
+/* Comments List */
+.comments-list {
+  max-height: 250px; /* ← УМЕНЬШИЛИ с 300px */
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.comment {
+  background: #f8f9fa;
+  padding: 8px; /* ← УМЕНЬШИЛИ с 10px */
+  border-radius: 6px;
+  margin-bottom: 6px; /* ← УМЕНЬШИЛИ с 8px */
+  border-left: 3px solid #2196F3;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px; /* ← УМЕНЬШИЛИ с 6px */
+}
+
+.comment-author {
+  font-size: 12px; /* ← УМЕНЬШИЛИ с 13px */
+  font-weight: 600;
+  color: #333;
+}
+
+.comment-rating {
+  font-size: 11px; /* ← УМЕНЬШИЛИ с 12px */
+  color: #ffa500;
+}
+
+.comment-text {
+  margin: 0 0 4px 0; /* ← УМЕНЬШИЛИ с 6px */
+  font-size: 12px; /* ← УМЕНЬШИЛИ с 13px */
+  color: #555;
+  line-height: 1.4;
+}
+
+/* ========== PHOTO GALLERY IN COMMENTS ========== */
+.comment-photos {
+  display: flex;
+  gap: 6px; /* ← УМЕНЬШИЛИ с 8px */
+  margin: 6px 0; /* ← УМЕНЬШИЛИ с 8px */
+  flex-wrap: wrap;
+}
+
+.comment-photo-thumbnail {
+  width: 60px; /* ← УМЕНЬШИЛИ с 80px */
+  height: 60px; /* ← УМЕНЬШИЛИ с 80px */
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid #e0e0e0;
+}
+
+.comment-photo-thumbnail:hover {
+  transform: scale(1.05);
+  border-color: #2196F3;
+  box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);
+}
+
+/* ========== LIGHTBOX ========== */
+.photo-lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-content img {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 32px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(90deg);
+}
+
+.comment-date {
+  font-size: 10px; /* ← УМЕНЬШИЛИ с 11px */
+  color: #999;
+}
+
+.loading-text,
+.empty-text {
+  text-align: center;
+  color: #999;
+  font-size: 12px; /* ← УМЕНЬШИЛИ с 13px */
+  font-style: italic;
+  padding: 10px 0; /* ← УМЕНЬШИЛИ с 12px */
+}
+
+/* Scrollbar styling for popup */
+.shelter-popup::-webkit-scrollbar {
+  width: 6px; /* ← УМЕНЬШИЛИ с 8px */
+}
+
+.shelter-popup::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.shelter-popup::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+.shelter-popup::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+/* Scrollbar styling for comments list */
+.comments-list::-webkit-scrollbar {
+  width: 4px; /* ← УМЕНЬШИЛИ с 6px */
+}
+
+.comments-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 2px;
+}
+
+.comments-list::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 2px;
+}
+
+.comments-list::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
 
 /* Mobile popup styles */
 @media (max-width: 768px) {
   .shelter-popup {
     min-width: 260px;
     max-width: 300px;
+    max-height: none;
   }
 
   .shelter-popup__header {
@@ -316,6 +474,23 @@
   .comment-text {
     font-size: 12px;
   }
+
+  /* Галерея на мобилке */
+  .photo-thumbnail {
+    width: 60px;
+    height: 60px;
+  }
+
+  /* Превью в комментах на мобилке */
+  .comment-photo-thumbnail {
+    width: 50px;
+    height: 50px;
+  }
+
+  .lightbox-close {
+    top: 10px;
+    right: 10px;
+  }
 }
 
 /* Report Button */
@@ -323,12 +498,12 @@
   background: #f44336;
   color: white;
   border: none;
-  padding: 10px 16px;
+  padding: 8px 12px; /* ← УМЕНЬШИЛИ с 10px 16px */
   border-radius: 6px;
   cursor: pointer;
   font-weight: 600;
   transition: all 0.2s;
-  font-size: 0.9rem;
+  font-size: 13px; /* ← УМЕНЬШИЛИ с 0.9rem */
 }
 
 .btn--report:hover {

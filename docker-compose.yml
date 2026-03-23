@@ -117,10 +117,8 @@ services:
     ports:
       - "18005:18005"
     volumes:
-      - ./services/photo-service/app:/app
-      - ./services/photo-service/credentials:/app/credentials:ro
-      - ./services/photo-service/.env:/app/.env:ro
-    restart: unless-stopped
+      - ./services/photo-service/credentials:/app/credentials  #
+      - ./services/photo-service/.env:/app/.env:ro             
     networks:
       - shelter-network
 

@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
-from googleapiclient.http import MediaIoBaseUpload
+from googleapiclient.http import MediaIoBaseUpload, MediaIoBaseDownload
 from googleapiclient.errors import HttpError
 
 # Load environment variables
@@ -17,7 +17,7 @@ SCOPES = ['https://www.googleapis.com/auth/drive.file']
 TOKEN_FILE = '/app/credentials/token.json'
 
 # Root folder ID in your personal Google Drive
-ROOT_FOLDER_ID = os.getenv('GOOGLE_DRIVE_ROOT_FOLDER_ID', '1OE2WH64cw7j7QMFHsijQXXvI92kpqtRC')
+ROOT_FOLDER_ID = os.getenv('GOOGLE_DRIVE_ROOT_FOLDER_ID')
 
 
 class GoogleDriveManager:
@@ -155,11 +155,10 @@ class GoogleDriveManager:
                 body={'type': 'anyone', 'role': 'reader'}
             ).execute()
             
-            # Generate thumbnail URL (Google Drive automatic thumbnail)
-            thumbnail_url = f"https://drive.google.com/thumbnail?id={file['id']}&sz=w400"
-            
-            # Direct download link
-            photo_url = f"https://drive.google.com/uc?export=view&id={file['id']}"
+            # ✅ НОВОЕ: используем наш proxy endpoint вместо прямых ссылок на Google Drive
+            base_url = os.getenv('PHOTO_SERVICE_URL', 'http://localhost:18005')
+            thumbnail_url = f"{base_url}/proxy/{file['id']}"
+            photo_url = f"{base_url}/proxy/{file['id']}"
             
             print(f"✅ Uploaded photo: {unique_filename} (ID: {file['id']})")
             
@@ -177,6 +176,40 @@ class GoogleDriveManager:
             print(f"❌ Error uploading photo: {error}")
             raise
     
+    def download_photo(self, photo_id: str) -> Optional[bytes]:
+        """
+        Download photo content from Google Drive
+        
+        Args:
+            photo_id: Google Drive file ID
+            
+        Returns:
+            File content as bytes, or None if not found
+        """
+        try:
+            request = self.service.files().get_media(fileId=photo_id)
+            
+            # Download file content
+            file_content = io.BytesIO()
+            downloader = MediaIoBaseDownload(file_content, request)
+            done = False
+            
+            while not done:
+                status, done = downloader.next_chunk()
+            
+            print(f"✅ Downloaded photo: {photo_id} ({file_content.tell()} bytes)")
+            
+            # Return bytes
+            file_content.seek(0)
+            return file_content.read()
+            
+        except HttpError as error:
+            print(f"❌ Error downloading photo {photo_id}: {error}")
+            return None
+        except Exception as e:
+            print(f"❌ Unexpected error downloading photo {photo_id}: {e}")
+            return None
+    
     def delete_photo(self, photo_id: str) -> bool:
         """Delete photo from Google Drive"""
         try:
@@ -190,7 +223,9 @@ class GoogleDriveManager:
     def get_photo_url(self, photo_id: str) -> Optional[str]:
         """Get direct URL for photo"""
         try:
-            return f"https://drive.google.com/uc?export=view&id={photo_id}"
+            # ✅ НОВОЕ: используем наш proxy endpoint
+            base_url = os.getenv('PHOTO_SERVICE_URL', 'http://localhost:18005')
+            return f"{base_url}/proxy/{photo_id}"
         except Exception as e:
             print(f"❌ Error getting photo URL: {e}")
             return None

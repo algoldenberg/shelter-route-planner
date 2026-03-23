@@ -212,6 +212,94 @@
   flex-wrap: wrap;
 }
 
+/* ========== PHOTOS COLUMN ========== */
+.admin-page .photos-cell {
+  min-width: 120px;
+}
+
+.admin-page .admin-photos-gallery {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.admin-page .admin-photo-thumbnail {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 2px solid #e0e0e0;
+  transition: all 0.2s ease;
+}
+
+.admin-page .admin-photo-thumbnail:hover {
+  transform: scale(1.1);
+  border-color: #667eea;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.admin-page .no-photos {
+  color: #999;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+/* ========== LIGHTBOX ========== */
+.admin-page .admin-photo-lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.admin-page .admin-photo-lightbox .lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-page .admin-photo-lightbox .lightbox-content img {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.admin-page .admin-photo-lightbox .lightbox-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 32px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.admin-page .admin-photo-lightbox .lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(90deg);
+}
+
 /* Action Buttons */
 .admin-page .btn-approve,
 .admin-page .btn-reject,
@@ -454,6 +542,17 @@
     width: 100%;
     padding: 10px;
     font-size: 0.8rem;
+  }
+
+  /* Photos on mobile */
+  .admin-page .admin-photo-thumbnail {
+    width: 40px;
+    height: 40px;
+  }
+
+  .admin-page .admin-photo-lightbox .lightbox-close {
+    top: 10px;
+    right: 10px;
   }
 
   /* Stats sections */

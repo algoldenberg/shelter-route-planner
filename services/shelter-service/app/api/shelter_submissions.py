@@ -278,12 +278,12 @@ async def approve_submission(submission_id: str):
             "username": "Submitter",  # Default username for submissions
             "comment": submission["comment"],
             "rating": 5,  # Default rating for submission comments
-            "photos": [],  # Photos are on the shelter itself
+            "photos": submission.get("photos", []),  # ← ИСПРАВЛЕНО: КОПИРУЕМ ФОТО ИЗ SUBMISSION
             "created_at": datetime.utcnow(),
             "updated_at": datetime.utcnow()
         }
         await comments_collection.insert_one(comment_doc)
-        print(f"=== AUTO-ADDED COMMENT: {submission['comment'][:50]}... ===")
+        print(f"=== AUTO-ADDED COMMENT WITH {len(comment_doc['photos'])} PHOTOS: {submission['comment'][:50]}... ===")
 
     # Update submission status
     await submissions_collection.update_one(

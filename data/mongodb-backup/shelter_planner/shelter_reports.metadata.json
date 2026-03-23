@@ -1,0 +1,1 @@
+{"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_"}],"uuid":"fe58baf9a3a848d696cc0a35ac6f6d8f","collectionName":"shelter_reports","type":"collection"}
